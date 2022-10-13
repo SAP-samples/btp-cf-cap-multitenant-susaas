@@ -1,0 +1,54 @@
+## Table of Contents
+
+<!-- disco-toc-start -->
+- Discover
+    - [Discover the mission target](./docu/1-discover/1-discover-mission-target/README.MD)
+    - [Learn on basics of SAP BTP](./docu/1-discover/2-learn-basics-sap-btp/README.MD)
+    - [Partners in SAP BTP ecosystem](./docu/1-discover/3-partners-sap-btp-ecosystem/README.MD)
+    - [Get the idea of SaaS applications](./docu/1-discover/4-get-idea-saas-applications/README.MD)
+    - [Understand SAP BTP multitenancy](./docu/1-discover/5-understand-btp-multitenancy/README.MD)
+    - [What's New](./docu/1-discover/6-whats-new/README.MD)
+- Basic Scope
+    - [Introduction basic scenario](./docu/2-basic/0-introduction-basic-scope/README.MD)
+    - [Repository structure](./docu/2-basic/1-understand-repo-structure/README.MD)
+    - [Prepare your Provider Subaccount](./docu/2-basic/2-prepare-provider-subaccount/README.MD)
+    - [Build and deploy the SaaS application](./docu/2-basic/3-build-deploy-saas-application/README.MD)
+    - [Subscribe a consumer subaccount](./docu/2-basic/4-subscribe-consumer-subaccount/README.MD)
+    - [Test the application](./docu/2-basic/6-test-the-application/README.MD)
+    - [Explore the components](./docu/2-basic/7-explore-the-components/README.MD)  
+    - [Push data to the SaaS API](./docu/2-basic/5-push-data-to-saas-api/README.MD)  
+    - [Unsubscribe a consumer subaccount](./docu/2-basic/8-unsubscribe-consumer-subaccount/README.MD)
+    - [Undeploy the SaaS application](./docu/2-basic/9-undeploy-saas-application/README.MD)
+- Advanced Scope
+    - [Introduction advanced scenario](./docu/3-advanced/0-introduction-advanced-scope/README.MD)
+    - [Repository structure](./docu/3-advanced/1-understand-repo-structure/README.MD)
+    - [Prepare the provider subaccount](./docu/3-advanced/2-prepare-provider-subaccount/README.MD)
+    - [Central user management with SAP IAS](./docu/3-advanced/3-central-user-management-ias/README.MD)
+    - [Build and deploy the SaaS application](./docu/3-advanced/4-build-deploy-saas-application/README.MD)
+    - [Subscribe a consumer subaccount](./docu/3-advanced/5-subscribe-consumer-subaccount/README.MD)
+    - [Test the application](./docu/3-advanced/6-test-the-application/README.MD)
+    - [Push data from SAP S/4HANA system](./docu/3-advanced/7-push-data-s4hana-system/README.MD)
+    - [Integrate with SAP API Management](./docu/3-advanced/8-integrate-sap-api-management/README.MD)
+- Expert Scope
+    - [Introduction expert scenario](./docu/4-expert/0-introduction-expert-scope/README.MD)
+    - [Setup SAP CI/CD for your project](./docu/4-expert/setup-cicd-for-project/README.MD)
+    - [Configure SAP Transport Management](./docu/4-expert/configure-transport-management/README.MD)
+    - [How to do local/hybrid development](./docu/4-expert/local-hybrid-development/README.MD)
+    - [Manage tenant database containers](./docu/4-expert/manage-tenant-containers/README.MD)
+    - [Backup database containers](./docu/4-expert/backup-database-containers/README.MD)
+    - [Update tenant databases containers](./docu/4-expert/update-tenant-containers/README.MD)
+    - [Setup custom domain usage](./docu/4-expert/setup-custom-domain-usage/README.MD)
+    - [Custom domain for SAP IAS](./docu/4-expert/custom-domain-for-ias/README.MD)
+    - [Integrate a consumer's IdP](./docu/4-expert/integrate-consumer-idp/README.MD)
+    - [Deploy to multiple regions](./docu/4-expert/deploy-multiple-regions/README.MD)
+    - [Send email using Microsoft Graph API](./docu/4-expert/send-emails-graph-api/README.MD)
+    - [Using the SAP Theme Designer](./docu/4-expert/using-sap-theme-designer/README.MD)
+    - [Troubleshooting](./docu/4-expert/troubleshooting/README.MD)
+- Next Steps & Outlook
+    - [Consumer Extensibility Features](./docu/5-next-outlook/consumer-extensibility/README.MD)
+    - [Commercialization on SAP BTP](./docu/5-next-outlook/commercialization-btp/README.MD)
+    - [Automate SAP BTP subaccount setups](./docu/5-next-outlook/automate-subaccount-setups/README.MD)
+- Complete 
+    - [Share your Feedback](./docu/6-complete/share-feedback/README.MD)
+    - [Complete the Mission](./docu/6-complete/complete-mission/README.MD)
+<!-- disco-toc-end -->
