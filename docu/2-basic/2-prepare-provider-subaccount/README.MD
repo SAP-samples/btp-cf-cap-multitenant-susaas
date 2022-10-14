@@ -14,11 +14,14 @@ In this chapter you will learn how to prepare your SAP BTP Provider Subaccount f
 
 As already mentioned, a **Trial** account is sufficient for the deployment of the **Basic Scope**. 
 
+> **Important** - As of today, please make sure to create a SAP BTP Trial Account in the **US East (VA)** region (us10) in case you want to test this use-case. The Singapore region does not offer the required SAP HANA Cloud database support for Trial accounts.
+
+After setting up your SAP BTP Trial Account please continue with the following steps.
+
 * Enable the SAP BTP Cloud Foundry environment.
 * Create a SAP BTP Cloud Foundry Space and name it e.g., dev.
 
 Please check the limitations mentioned below when it comes to usage of SAP BTP Trial accounts or free/trial service plans. 
-
 
 ## 2. Entitlements for Provider Subaccount
 

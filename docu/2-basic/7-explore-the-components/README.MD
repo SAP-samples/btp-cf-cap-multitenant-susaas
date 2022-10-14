@@ -9,6 +9,8 @@ After you have deployed the sample application the following components will be 
 5. [API Broker](#5-api-broker) for creating an API Service Broker
 6. [Tenant database containers](#6-tenant-database-containers) for tenant specific data
 7. [Shared database container](#7-shared-database-container) for data shared among all tenants
+8. [Resiliency components](#8-Resiliency-components) to make the app more resilient
+9. [Further information](#9-Further-Information)
 
 This part of the mission will provide deeper insights of the different components and let's you build up some expert knowledge about topics like **Service Brokers** or **Multitenancy**. The screenshot below shows the architecture of the **Basic Scope** which will run in the **trial** environment seamlessly.
 
@@ -82,3 +84,122 @@ Below you can see an overview the tables deployed into new tenant database conta
 > **Important** - Find more details in the [Shared Container](./components/SharedContainer.MD) Reamde document!
 
 To have the ability to share data among your consumer tenants, a shared database container is setup for the sample scenario. This allows the provider to maintain e.g. master data (Languages, Countries, Currencies) in a central place and update it simultaneously for all consumer tenants. This concept is building on the cross-container access capabilities of database containers in the same Cloud Foundry Space. 
+
+## 8. Resiliency components
+
+To make your SaaS application more resilient additional services are used by the solution. 
+
+**Autoscaler**
+
+The Autoscaler is declared in the deployment descriptor and scaling rules can be defined in the respective **requires** section of the applications using the Autoscaler service instance. Below you can see an up- or downscaling based on memory and CPU consumption of the business application service. 
+
+```yaml
+  # ----------------- AUTOSCALER  ------------------------------------
+  - name: susaas-autoscaler
+  # ------------------------------------------------------------------
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service: autoscaler
+      service-plan: standard
+```
+
+```yaml
+  # --------------------- SERVER MODULE ------------------------
+  - name: susaas-srv
+  # ------------------------------------------------------------
+    type: nodejs
+    path: gen/srv
+    ...
+    
+    requires:
+      - name: susaas-autoscaler
+        parameters:
+          config:
+            instance_min_count: 1
+            instance_max_count: 2
+            scaling_rules:
+            - {"metric_type": "memoryutil","threshold": 80,"operator": ">=","adjustment": "+1"}
+            - {"metric_type": "memoryutil","threshold": 60,"operator": "<","adjustment": "-1"}
+            - {"metric_type": "cpu","threshold": 80,"operator": ">=","adjustment": "+1"}
+            - {"metric_type": "cpu","threshold": 30,"operator": "<","adjustment": "-1"}
+```
+
+**Alert Notification**
+
+The Alert Notification service instance is declared in the deployment descriptor ([mta.yaml](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/blob/basic/mta.yaml)) and further detailed configurations can be found in an additional config file ([configs/alert-notif.json](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/blob/basic/configs/alert-notif.json)).
+
+```yaml
+  # ----------------- ALERT NOTIFICATION  ---------------------------- 
+  - name: susaas-alert-notification
+  # ------------------------------------------------------------------
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service: alert-notification
+      service-plan: standard
+      service-name: susaas-alert-notification
+      path: ./configs/alert-notif.json
+```
+
+As already explained, please make sure to update the recipient e-mail address in the config file before deploying the solution. After deployment, check your inbox to confirm that Alert Notification may sent e-mails to you.
+
+```json
+{
+    "actions": [
+        {
+            "type": "EMAIL",
+            "name": "send-email",
+            "state": "ENABLED",
+            "properties": {
+                "destination": "recipient@example.org",
+                "useHtml": "false"
+            }
+        }
+    ]
+}
+```
+
+Besides default lifecycle events being monitored by Alert Notification like **Stop** or **Crash** of your application, also a generic alert is defined in the config file. This event type is can e.g., be used from within your application coding. 
+
+```json 
+{
+    "name": "Audit-App-Process-Crash",
+    "propertyKey": "eventType",
+    "propertyValue": "audit.app.process.crash"
+},
+{
+    "name": "Alert-App-Generic",
+    "propertyKey": "eventType",
+    "propertyValue": "alert.app.generic"
+}
+```
+
+A sample of how to manually trigger an Alert Notification event can be found in the error handler of the subscription **UPDATE** implementation ([srv/provisioning.js](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/blob/basic/srv/provisioning.js)). The respective helper class can be found in the srv/utils folder ([srv/utils/alertNotification.js](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/blob/basic/srv/utils/alertNotification.js)).
+
+```js
+try {
+    let automator = new Automator();
+    await automator.deployTenantArtifacts(tenant, tenantSubdomain, user);
+} catch (error) {
+    console.log("Automation skipped!");
+    await alertNotification.sendEvent({
+        type : 'GENERIC',
+        data : {
+            body : JSON.stringify(error),
+            subject : 'Error during automation of tenant onboarding!',
+            eventType : 'alert.app.generic',
+            severity : 'FATAL',
+            category : 'ALERT'
+        }
+    });
+}
+```
+
+The result of such a custom event looks similar to the following screenshot.
+
+[<img src="./images/AN_ErrorMail.png" width="700"/>](./images/AN_ErrorMail.png)
+
+## 9. Further information
+
+Please use the following links to find further information on the topics above:
+
+* 
