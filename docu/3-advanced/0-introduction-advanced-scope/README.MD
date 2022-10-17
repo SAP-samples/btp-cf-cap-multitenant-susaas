@@ -20,15 +20,17 @@ For completing the **Advanced Scope** please follow the respective cards or chec
 
 1. **Understand repository changes** compared to the Basic Scope. ➜ ([click here](../1-understand-repo-structure/README.MD))
 2. Prepare your subaccount with **further entitlements**. ➜ ([click here](../2-prepare-provider-subaccount/README.MD))
-3. Create a **SAP Identity Authentication Service** (SAP IAS) tenant if necessary. <br>
+3. Create a **SAP Identity Authentication Service** (SAP IAS) tenant. <br>
 **Setup the trust** between SAP IAS and your subaccounts. ➜ 
 ([click here](../3-central-user-management-ias/README.MD))
-4. **Build and deploy** the advanced sample application. ➜ ([click here](../4-build-deploy-saas-application/README.MD))
+4. **Build and deploy** the advanced scope sample application. ➜ ([click here](../4-build-deploy-saas-application/README.MD))
 5. **Subscribe to the SaaS application** from a tenant subaccount. <br>
 Then setup an **API Broker service instance**. ➜ ([click here](../5-subscribe-consumer-subaccount/README.MD))
 6. **Test the Advanced Scope** and its new features in action ➜ ([click here](../6-test-the-application/README.MD))
 7. Configure a Netweaver system for an **automated sample data push**. ➜ ([click here](../7-push-data-s4hana-system/README.MD))
 8. Integrate **SAP API Management** for API management and monitoring. ➜ ([click here](../8-integrate-sap-api-management/README.MD))
+9. Check the **Troubleshooting** section in case of issues. ➜ ([click here](../9-troubleshooting/README.MD))
+
 
 
 ## 2. Scope Features

@@ -10,16 +10,19 @@ In the Basic Scope, we will keep it short and simple and explain how to interact
 
 [<img src="./images/API_ArchDetails.png" width="600" />](./images/API_ArchDetails.png)
 
+
 ## 1. SaaS API access
 
-As already shown in the exploration part of this mission scope, you can see the API endpoints provided to SaaS consumers below. The main business application related entities like Products, Sales Orders and Recycling content can be maintained via the API. Furthermore, some sample actions are provided for bulk inserts, updates and upserts whereas the last one has been implemented as a SAP HANA Stored Prodcedure. 
+Below you can see the tables of the tenant data model which can be maintained by consumers using the SaaS API. Besides product master data, SaaS consumers can also use the API for transactional data allowing them to prefill their Sustainability assessments.
 
-[<img src="./images/API_Endpoints01.png" width="600" />](./images/API_Endpoints01.png)
+[<img src="./images/DM_Tables.png" width="500" />](./images/DM_Tables.png)
 
-[<img src="./images/API_Endpoints02.png" width="600" />](./images/API_Endpoints02.png)
+The main entities like Products, Sales Orders and further Recycling content can be maintained using the API. As you can see, also some sample actions are provided for bulk inserts, updates and upserts whereas the last one has been implemented as a SAP HANA Stored Prodcedure (click to enlarge). 
 
+[<img src="./images/API_Endpoints01.png" width="300" />](./images/API_Endpoints01.png)
+[<img src="./images/API_Endpoints02.png" width="300" />](./images/API_Endpoints02.png)
 
-To connect to the SaaS API as a consumer, make sure you followed all steps described in the **Subcribe Consumer Subaccount** card or Readme document([click here](../4-subscribe-consumer-subaccount/README.MD)). You will need the service binding credentials which you created in the API broker service instance. If you haven't created this service binding yet, please go back and do it now. 
+To connect to the SaaS API as a consumer, make sure you followed all steps described in the **Subscribe Consumer Subaccount** card or Readme document([click here](../4-subscribe-consumer-subaccount/README.MD)). You will need the service binding credentials which you created in the API Broker service instance. If you haven't created this service binding yet, please go back and do it now. 
 
 [<img src="./images/API_ServiceKey.png" width="400" />](./images/API_ServiceKey.png)
 
@@ -128,4 +131,8 @@ For troubleshooting please check the separate **Troubleshooting** section of thi
 
 Please use the following links to find further information on the topics above:
 
-* ! Available soon !
+* [SAP Help - Creating Service Keys in Cloud Foundry](https://help.sap.com/docs/SERVICEMANAGEMENT/09cc82baadc542a688176dce601398de/6fcac08409db4b0f9ad55a6acd4d31c5.html?&locale=en-US)
+* [Cloud Foundry Documentation - Client Credentials Grant](https://docs.cloudfoundry.org/api/uaa/version/76.1.0/index.html#client-credentials-grant)
+* [VS Code - REST Client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client)
+* [SAP Help - HANA UPSERT Statement](https://help.sap.com/docs/HANA_CLOUD_DATABASE/c1d3f60099654ecfb3fe36ac93c121bb/ea8b6773be584203bcd99da76844c5ed.html?locale=en-US)
+* [SAP Help - HANA Procedures](https://help.sap.com/docs/HANA_CLOUD_DATABASE/d1cb63c8dd8e4c35a0f18aef632687f0/d43d91578c3b42b3bacfd89aacf0d62f.html?locale=en-US)

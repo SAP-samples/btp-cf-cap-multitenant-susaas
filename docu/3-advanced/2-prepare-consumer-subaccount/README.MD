@@ -11,9 +11,9 @@ In this chapter you will learn how to prepare your SAP BTP Provider Subaccount f
 
 ## 1. Prerequisites for Provider Subaccount
 
-As already mentioned, a **Free Tier (Pay As You Go)** or **Enterprise (CPEA)** account is required for the deployment of the **Advanced Scope**. 
+As already mentioned, a **Free Tier (Pay As You Go)** or **Enterprise (CPEA)** account is essential for the deployment of the **Advanced Scope**. 
 
-Please check the pricing and account types from [here](https://store.sap.com/dcp/en/product/display-9999951781_live_v1/SAP%20Business%20Technology%20Platform#pricing). Please use the given estimators to calculate the monthly costs.
+Please check the pricing and SAP BTP account types [here](https://store.sap.com/dcp/en/product/display-9999951781_live_v1/SAP%20Business%20Technology%20Platform#pricing). Please use the given estimators to calculate the monthly costs.
 
 If not yet done as part of the **Basic Scope** please
 
@@ -42,13 +42,14 @@ The application requires the following set of SAP BTP entitlements in the Provid
 | [SAP HANA Schemas & HDI Containers](https://help.sap.com/docs/SAP_HANA_PLATFORM/3823b0f33420468ba5f1cf7f59bd6bd9/e28abca91a004683845805efc2bf967c.html?version=2.0.04&locale=en-US)| hdi-shared | 1 |
 | [SAP HANA Cloud](https://discovery-center.cloud.sap/serviceCatalog/sap-hana-cloud?tab=customerreference&region=all)                            | hana          |     1    |
 | [Service Manager](https://discovery-center.cloud.sap/serviceCatalog/service-manager/?region=all)                           | container     |     1    |
-| [Integration Suite (*)](https://discovery-center.cloud.sap/serviceCatalog/integration-suite?region=all)                     | trial(**) or standard   |     1    |
+| [SAP Integration Suite (*)](https://discovery-center.cloud.sap/serviceCatalog/integration-suite?region=all)                     | trial(**) or standard   |     1    |
 | [Cloud Identity Services](https://discovery-center.cloud.sap/serviceCatalog/identity-authentication?region=all&tab=feature)                   | default |     1    |
 | [Cloud Identity Services](https://discovery-center.cloud.sap/serviceCatalog/identity-authentication?region=all&tab=feature)                   | application   |     1    |
 
-> (*) SAP Integration Suite is optional. It is only required if you want to [integrate SAP API Management](../8-integrate-sap-api-management/README.MD).
+> (*) SAP Integration Suite is optional. It is only required if you want to integrate your SaaS API with [SAP API Management](../8-integrate-sap-api-management/README.MD).
 
-> (**) SAP Integration Suite trial plan is valid for 90 days only. Your tenant will be decommissioned after 90 days and you need to setup a new tenant if you wish to do further validations. 
+> (**) Please keep in mind - The SAP Integration Suite trial plan is valid for 90 days only. Your tenant will be decommissioned after 90 days and you need to setup a new tenant if you wish to do further validations with a trial tenant. 
+
 
 ## 3. SAP NetWeaver System
 
@@ -56,7 +57,7 @@ If you want to test the automated data push feature from an existing SAP solutio
 
 In this sample application you will learn how to [push data from the EPM module to the SaaS API](../7-push-data-s4hana-system/README.MD) to migrate your business data to the multitenant business application for the sustainability calculations.
 
-You can use all **SAP S/4HANA** system releases and also any other SAP systems which has a **SAP NetWeaver** stack version higher than 7.3. since this versions all contain the EPM module by default.
+You can use all **SAP S/4HANA** releases and also any other SAP systems which has a **SAP NetWeaver** stack version higher than 7.3. since these versions all contain the EPM module by default.
 
 > **Hint** - If you want to check your systems SAP NetWeaver version you can refer [here](https://answers.sap.com/questions/12097568/how-to-check-version-of-netweaver.html).
 
@@ -70,4 +71,12 @@ For more details see [Create an SAP HANA Database Instance Using SAP HANA Cloud 
 
 ## 5. Further information
 
-Please use the details provided in the **Basic Scope** ([click here](../../2-basic/2-prepare-provider-subaccount/README.MD#6-further-information)) to find further information on the topics above. 
+Please also use the details provided in the **Basic Scope** ([click here](../../2-basic/2-prepare-provider-subaccount/README.MD#6-further-information)) to find further information on the topics above. 
+
+* [SAP Help - SAP Integration Suite](https://help.sap.com/docs/SAP_INTEGRATION_SUITE?locale=en-US)
+* [SAP Help - SAP Integration Suite - Using Free Service Plans](https://help.sap.com/docs/SAP_INTEGRATION_SUITE/51ab953548be4459bfe8539ecaeee98d/ddf66923270b4078ac6b88026553d068.html?locale=en-US)
+* [SAP Help - SAP Cloud Identity Services](https://help.sap.com/docs/SAP_CLOUD_IDENTITY?&locale=en-US)
+* [SAP Cloud Identity Services - Identity Authentication](https://help.sap.com/docs/IDENTITY_AUTHENTICATION?locale=en-US)
+* [SAP Help - Enterprise Procurement Model](https://help.sap.com/docs/ABAP_PLATFORM_NEW/a602ff71a47c441bb3000504ec938fea/124a3cf203d64d3198b5bcc9570f31ac.html?locale=en-US)
+* [SAP Help - ABAP Platform and SAP NetWeaver](https://help.sap.com/docs/SAP_NETWEAVER?locale=en-US)
+* [SAP Help - SAP NetWeaver Application Server for ABAP 7.52](https://help.sap.com/docs/SAP_NETWEAVER_AS_ABAP_752?locale=en-US)

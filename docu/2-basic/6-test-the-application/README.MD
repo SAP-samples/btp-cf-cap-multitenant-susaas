@@ -148,4 +148,4 @@ For troubleshooting please check the separate **Troubleshooting** section of thi
 
 Please use the following links to find further information on the topics above:
 
-* ! Available soon !
+* Currently no further information available!

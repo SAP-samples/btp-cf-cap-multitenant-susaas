@@ -1,4 +1,4 @@
-# Subcribe a Consumer Subaccount
+# Subscribe a Consumer Subaccount
 
 In this part of the mission, you will learn how to subscribe your first tenant subaccount. The process is fairly simple if you followed the previous steps and also configured the credential store with the correct details. 
 
@@ -12,7 +12,7 @@ In this part of the mission, you will learn how to subscribe your first tenant s
 
 ## 1. SaaS application subscription
 
-1.1. Create a new subaccount for your SaaS consumer. Make sure the subaccount is in the same region as the provider subaccount (e.g. us10). 
+1.1. Create a new subaccount for your SaaS consumer. Make sure the subaccount is in the same region as the provider subaccount (e.g., us10 in Trial environments). 
 
 [<img src="./images/SUB_SubsTenant.png" width="600"/>](./images/SUB_SubsTenant.png)
 
@@ -136,6 +136,8 @@ For troubleshooting please check the separate **Troubleshooting** section of thi
 
 Please use the following links to find further information on the topics above:
 
+* [SAP Help - Providing Multitenant Applications to Consumers](https://help.sap.com/docs/BTP/65de2977205c403bbc107264b8eccf4b/7a013f1d89f34a0084ea3d9a8bb2adbd.html?locale=en-US)
+* [SAP Help - Create a Subaccount](https://help.sap.com/docs/BTP/65de2977205c403bbc107264b8eccf4b/05280a123d3044ae97457a25b3013918.html?locale=en-US)
 * [SAP Help - Subscribe to Multitenant Applications Using the Cockpit](https://help.sap.com/docs/BTP/65de2977205c403bbc107264b8eccf4b/7a3e39622be14413b2a4df7c02ca1170.html?locale=en-US)
 * [SAP Help - Managing Services Using the SAP BTP Cockpit](https://help.sap.com/docs/SERVICEMANAGEMENT/09cc82baadc542a688176dce601398de/cdce096d411242bcbfb9644d0860fd0f.html?locale=en-US)
 * [SAP Help - Creating Service Instances in Cloud Foundry](https://help.sap.com/docs/SERVICEMANAGEMENT/09cc82baadc542a688176dce601398de/6d6846def3c443aa9f83d127353147ce.html?locale=en-US)

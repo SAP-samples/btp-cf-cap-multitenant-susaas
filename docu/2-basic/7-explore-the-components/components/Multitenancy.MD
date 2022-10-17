@@ -10,6 +10,7 @@ In this part of the mission, you will learn about different aspects of multitena
 2.1. [shared tenant-mode](#21-Authorization-&-Trust-management-service---shared-tenant-mode)<br>
 2.2. [application plan](#22-Authorization-&-Trust-management-service---application-plan)
 
+3. [Further Information](#3-further-information)
 
 ## 1. Application Router
 
@@ -59,11 +60,6 @@ This URL-based method of identifying a tenant by handling consumer-specific auth
     >UserInfo userInfo = SecurityContext.getUserInfo(); <br>
     >String identityZone = userInfo.getIdentityZone();
 
-Learn more about the multitenancy concept using 
-
-- SAP Help documentation ([click here](https://help.sap.com/docs/BTP/65de2977205c403bbc107264b8eccf4b/5af9067322214e8dbf354daae44cef08.html?locale=en-US)).
-- Fundamentals of Multitenancy in SAP BTP ([click here](https://blogs.sap.com/2022/08/27/fundamentals-of-multitenancy-in-sap-btp/)).
-
 
 ## 2. Authorization & Trust management service
 
@@ -95,3 +91,14 @@ The service plan **application** requires that the xsappname which is specified 
 The xsappname that is written into the credentials section of the environment is enhanced with a suffix and has the format `<xsappname>!t<tenant index>`. The tenant index is a running number that the UAA maintains internally. It differs from subaccount to subaccount. 
 
 In a multitenant scenario, the actual application instances only exist in the provider subaccount, whereas XSUAA related objects like scopes, role templates and role collections are duplicated during the subscription process. Scopes have an equal format `<xsappname>!t<tenant index>.<scope>` in all consumer subaccounts e.g. **dev-susaas!t134415.Admin**.
+
+
+## 3. Further information
+
+Please use the following links to find further information on the topics above:
+
+* [Cloud Foundry Documentation - UAA Concepts](https://docs.cloudfoundry.org/uaa/uaa-concepts.html)
+* [SAP Help - Multitenancy Configure the approuter Application](https://help.sap.com/docs/BTP/65de2977205c403bbc107264b8eccf4b/5af9067322214e8dbf354daae44cef08.html?locale=en-US)
+* [SAP Blog - Fundamentals of Multitenancy in SAP BTP](https://blogs.sap.com/2022/08/27/fundamentals-of-multitenancy-in-sap-btp/)
+* [SAP Help - Tenant Mode: Shared](https://help.sap.com/docs/HANA_CLOUD_DATABASE/b9902c314aef4afb8f7a29bf8c5b37b3/6d3ed64092f748cbac691abc5fe52985.html#tenant-mode)
+* [SAP Help - XSUAA Service Plan: "application"](https://help.sap.com/docs/HANA_CLOUD_DATABASE/b9902c314aef4afb8f7a29bf8c5b37b3/c6f36d5d49844bd790798ea36538e024.html?locale=en-US&version=2022_3_QRC#xsuaa-service-plan%3A-%E2%80%9Capplication%E2%80%9D)

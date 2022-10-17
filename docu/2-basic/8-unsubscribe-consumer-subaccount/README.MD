@@ -11,6 +11,7 @@ The following steps show how to unsubscribe from the SaaS application and how to
 3. [Troubleshooting](#3-Troubleshooting)
 4. [Further Information](#4-Further-Information)
 
+
 ## 1. Delete the service instance and unsubscribe
 
 1.1. Remove the service binding of the Sustainable SaaS API service instance.
@@ -54,4 +55,5 @@ For troubleshooting please check the separate **Troubleshooting** section of thi
 
 Please use the following links to find further information on the topics above:
 
-* ! Available soon !
+* [SAP Help - Deleting Service Instances](https://help.sap.com/docs/SERVICEMANAGEMENT/09cc82baadc542a688176dce601398de/753463e1542f445895b420cd7957811c.html?&locale=en-US)
+* [SAP Help - Unregister Services Broker](https://help.sap.com/docs/BTP/btp-cli/btp-unregister-services-broker.html)

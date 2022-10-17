@@ -16,6 +16,7 @@ This part of the mission will provide deeper insights of the different component
 
 [<img src="./images/basic-arch1.png" width="700"/>](./images/basic-arch1.png)
 
+
 ## 1. Application Router 
 
 > **Important** - Find more details in the [Multitenancy Readme](./components/Multitenancy.MD) Reamde document!
@@ -27,7 +28,7 @@ Each multitenant application has to deploy its own application router, and the a
 
 ## 2. UI Component
 
-The user interface of this sample application has been developed using SAP Fiori Elements. SAP Fiori Elements based applications benefit from a template and metadata-driven approach. SAP Fiori Elements provides designs for UI patterns and predefined floorplans for common application use cases. App developers can use SAP Fiori Elements to create SAP Fiori applications based on OData services and annotations that don't need JavaScript UI coding. 
+The user interface of this sample application has been developed using **SAP Fiori Elements**. SAP Fiori Elements based applications benefit from a template and metadata-driven approach. SAP Fiori Elements provides designs for UI patterns and predefined floorplans for common application use cases. App developers can use SAP Fiori Elements to create SAP Fiori applications based on OData services and annotations that don't need JavaScript UI coding. 
 
 The resulting app uses predefined views and controllers that are provided centrally. This means no application-specific view instances are required. SAPUI5 interprets metadata and annotations of the underlying OData service and uses the corresponding views for the SAP Fiori app at startup. Still, SAP Fiori Elements based applications can be easily extended with minimal coding effort.
 
@@ -36,7 +37,7 @@ The resulting app uses predefined views and controllers that are provided centra
 
 > **Important** - Find more details in the [Helper Classes](./components/HelperClasses.MD) Reamde document!
 
-The service layer of the sample application has been developed using the SAP CAP framework. It provides OData services for the UI component and has a built-in support for multitenancy with a SAP HANA Cloud database. Furthermore, it provides the (un-)subscription callbacks required for tenant onboarding. While the OData service definition and the custom handlers are straightforward, most of the interesting code snippets can be found in the helper classes used for the automation of subscription requirements. The Business Application Service also contains the annotations required by SAP Fiori Elements for automatically rendering a proper UI. 
+The service layer of the sample application has been developed using the **SAP CAP** framework. It provides OData services for the UI component and has a built-in support for multitenancy with a SAP HANA Cloud database. Furthermore, it provides the (un-)subscription callbacks required for tenant onboarding. While the OData service definition and the custom handlers are straightforward, most of the interesting code snippets can be found in the helper classes used for the automation of subscription requirements. The Business Application Service also contains the annotations required by SAP Fiori Elements for automatically rendering a proper UI. 
 
 
 ## 4. API Service 
@@ -68,7 +69,9 @@ In this application scenario, we have created an API for SaaS consumers as a bac
 
 ## 6. Tenant database containers
 
-The application provides a sample data model, which supports a flexible usage of SAP Fiori Elements for OData v4 including features like Draft support. This data model is deployed upon subscription of a consumer tenant into a new SAP HANA HDI database container. Using the HANA Deployment Infrastructure (HDI) and associated containers, this allows a secure isolation of all tenant related data. As CAP is a great backing service for the usage of SAP Fiori Elements providing the required OData services and annotations, also the data model structure has to be compliant with an easy-to-consume user interface usage.
+The application provides a sample data model, which supports a flexible usage of SAP Fiori Elements for OData v4 including features like Draft support. This data model is deployed upon subscription of a consumer tenant into a new SAP HANA HDI database container. You don't have to take care of this process as it is automatically handled by the Service Manager Instance (*container* plan). Check the [**Furhter Information**](README.MD#9-further-information) section to learn more about the HDI Containers managed by the Service Manager. Using the HANA Deployment Infrastructure (HDI) and associated containers, this allows a secure isolation of all tenant related data. 
+
+As CAP is a great backing service for the usage of SAP Fiori Elements providing the required OData services and annotations, also the data model structure has to be compliant with an easy-to-consume user interface usage.
 
 Furthermore, the requirement for a tenant-based SaaS API is fulfilled by dedicated tables which each consumer can maintain using the SaaS API. By decoupling these tables from draft enabled application tables, consumers can decide to prefill content into their assessments, but are also flexible in setting up their own scenarios using the manual data input. 
 
@@ -84,6 +87,7 @@ Below you can see an overview the tables deployed into new tenant database conta
 > **Important** - Find more details in the [Shared Container](./components/SharedContainer.MD) Reamde document!
 
 To have the ability to share data among your consumer tenants, a shared database container is setup for the sample scenario. This allows the provider to maintain e.g. master data (Languages, Countries, Currencies) in a central place and update it simultaneously for all consumer tenants. This concept is building on the cross-container access capabilities of database containers in the same Cloud Foundry Space. 
+
 
 ## 8. Resiliency components
 
@@ -198,8 +202,20 @@ The result of such a custom event looks similar to the following screenshot.
 
 [<img src="./images/AN_ErrorMail.png" width="700"/>](./images/AN_ErrorMail.png)
 
+
 ## 9. Further information
 
 Please use the following links to find further information on the topics above:
 
-* 
+* [SAP Help - Application Router](https://help.sap.com/docs/BTP/65de2977205c403bbc107264b8eccf4b/01c5f9ba7d6847aaaf069d153b981b51.html?locale=en-US)
+* [SAP Help - Multitenancy](https://help.sap.com/docs/BTP/65de2977205c403bbc107264b8eccf4b/5310fc31caad4707be9126377e144627.html)
+* [npmjs - @sap/approuter](https://www.npmjs.com/package/@sap/approuter)
+* [Fiori Design Guidelines - SAP Fiori Elements](https://experience.sap.com/fiori-design-web/smart-templates/)
+* [SAPUI5 - Developing Apps with SAP Fiori Elements](https://sapui5.hana.ondemand.com/sdk/#/topic/03265b0408e2432c9571d6b3feb6b1fd)
+* [capire - Serving Fiori UIs](https://cap.cloud.sap/docs/advanced/fiori)
+* [capire - Welcome to CAP](https://cap.cloud.sap/docs/)
+* [SAP Blog - The hidden life of ServiceManager handled containers](https://blogs.sap.com/2021/02/15/the-hidden-life-of-servicemanager-handled-containers/)
+* [Youtube - In 1 Take HiddenLife](https://www.youtube.com/playlist?list=PLh-wY37tGNym7zeZB2lxpL8JueLbepWDA)
+* [Youtube - Multitenant Business Applications with CAP](https://blogs.sap.com/2021/06/03/getting-started-with-multitenant-business-applications-on-sap-btp-continued-hands-on-video-tutorials/)
+* [SAP Help - Application Autoscaler](https://help.sap.com/docs/Application_Autoscaler?locale=en-US)
+* [SAP Help - SAP Alert Notification service for SAP BTP](https://help.sap.com/docs/ALERT_NOTIFICATION?locale=en-US)
