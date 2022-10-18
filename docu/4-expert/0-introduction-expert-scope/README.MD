@@ -1,6 +1,6 @@
 # Introduction to the Expert Scope
 
-> **Important** <br>
+> **Important - WIP** <br>
 > The **Expert Scope** is still being actively worked on! Feel free to browse the available sections to get an idea what to expect once published. Some of the chapters already contain useful content while others will be uploaded during the next weeks!
 
 In the [Basic Scope](../../2-basic/0-introduction-basic-scope/README.MD) we have provided you the core elements required for a Software as a Service (SaaS) application on SAP Business Technology Platform (SAP BTP). 
@@ -11,7 +11,7 @@ The idea of **Expert Scope** builds on the Basic and Advanced Scope and features
 
 See the following screenshot to get an idea of the Expert Scope architecture.
 
-![Expert Architecture](./images/App_Architecture_Expert.png)
+[<img src="./images/App_Architecture_Expert.png" width="600" />](./images/App_Architecture_Expert.png)
 
 The **Expert Scope** will cover topics from doing backups of tenant database containers to using a custom domain for your SaaS application. Below you can find the current list of topics (planned to be) covered.  
 
