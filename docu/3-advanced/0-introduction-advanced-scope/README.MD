@@ -64,7 +64,7 @@ As the setup includes a lot of different services and components, only the eleme
 The result of this scope will be a SaaS application running in a subaccount of your own SAP BTP global account which 
 
 - offers your tenants an user interface to
-    - **manage** the tenant specific **users** of the SaaS application.
+    - **manage** the consumer tenant specific **users** of the SaaS application.
     - create **projects** and assign users as **members** to different projects.
     - setup **assessments** for analyzing product circularity metrics.
 - provides an HDI container based **data separation** for all tenants.

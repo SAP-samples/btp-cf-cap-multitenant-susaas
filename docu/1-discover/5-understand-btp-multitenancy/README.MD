@@ -1,14 +1,17 @@
 # Understand SAP BTP Multitenancy
 
-In SAP BTP, Cloud Foundry environment, you can develop and run multitenant applications that can be accessed by multiple consumers (tenants) through a dedicated URL. See [Developing Multitenant Applications in the Cloud Foundry Environment](https://help.sap.com/docs/BTP/65de2977205c403bbc107264b8eccf4b/5e8a2b74e4f2442b8257c850ed912f48.html?version=Cloud) in SAP Help Portal.
+In SAP BTP, Cloud Foundry environment, you can develop and run multitenant applications that can be accessed by multiple consumers (tenants) through a dedicated URL. In this sample scenario, we decided to implement the solution based on a standardized toolset including the SAP Cloud Application Programming (CAP) Model.
+
+See [Developing Multitenant Applications in the Cloud Foundry Environment](https://help.sap.com/docs/BTP/65de2977205c403bbc107264b8eccf4b/5e8a2b74e4f2442b8257c850ed912f48.html?version=Cloud) in SAP Help for further details.
+
 
 ## 1. Context
-When developing tenant-aware applications in the Cloud Foundry environment, keep in mind the following general programming guidelines:
+When developing tenant-aware applications in the Cloud Foundry environment, keep in mind the following general programming guidelines.
 
 - Shared in-memory data is available to all tenants
 - Avoid any possibility that application users can execute custom code in the application JVM, as this may give them access to data of other tenants
 - Avoid any possibility that application users can access a file system, as this may give them access to data of other tenants
-- To perform internal tenant onboarding activities, such as creating a database schema for tenants, you must implement the Subscription callbacks of the *SAP Software as a Service Provisioning service* (saas-registry) and use the information provided in the subscription event. You can also implement the getDependencies callback to obtain the dependencies of any SAP reuse services by your application. See details in the procedure below.
+- To perform internal tenant onboarding activities, such as creating a database schema for tenants, you must implement the Subscription callbacks of the *SAP Software as a Service Provisioning service* (saas-registry) and use the information provided in the subscription event. You can also implement the getDependencies callback to obtain the dependencies of any SAP reuse services by your application. 
 
 Check out the following content in SAP Help for further information ([click here](https://help.sap.com/products/BTP/65de2977205c403bbc107264b8eccf4b/ff540477f5404e3da2a8ce23dcee602a.html)).
 
@@ -30,17 +33,21 @@ A consumer or tenant is the user of the SaaS application. This can be another te
 >Consumer (1..1) Tenant - For each consumer there can only be one tenant per SaaS application<br>
 
 **Onboarding**
-This is the process of creating a subaccount for the consumer in the vendor's global account in SAP BTP.
+This is the end-to-end process of creating a subaccount for a new SaaS consumer in the vendor's global account in SAP BTP and giving him access to the actual consumer tenant SaaS application instance. 
 
 **Provisioning** 
 This is the process of onboarding new consumers to the multitenant SaaS solution. During the provisioning process, a tenant database schema is created and dependencies are injected into the consumer subaccount.
+
 
 ## 3. Provider's Point of View
 
 Putting together the general account model of an SAP BTP SaaS solution results in the following structure:
 
-![Account Model](./images/account-model.png)
+[<img src="./images/account-model.png" width="500" />](./images/account-model.png)
 
-## 4. SAP CAP MTXS
 
-This application has been developed with the **cap-mtxs** npm package. The **@sap/cds-mtxs** package provides a set of CAP services which implement **m**ultitenancy, features **t**oggles and e**x**tensibility (‘MTX’ stands for these three features). Please refer to the official CAP MTXS documentation for further details ([click here](https://cap.cloud.sap/docs/guides/multitenancy/mtxs)).
+## 4. SAP CAP (MTXS)
+
+The sample application has been developed using the SAP Cloud Application Programming (CAP) Model. This framework offers a dedicated npm package for handling multitenancy which is called **cap-mtxs** ([click here](https://www.npmjs.com/package/@sap/cds-mtxs)). The **@sap/cds-mtxs** package provides a set of services which implement **m**ultitenancy, features **t**oggles and e**x**tensibility (‘MTX’ stands for these three features). 
+
+Please refer to the official CAP MTXS documentation for further details ([click here](https://cap.cloud.sap/docs/guides/multitenancy/mtxs)).

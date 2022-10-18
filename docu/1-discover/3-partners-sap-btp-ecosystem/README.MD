@@ -1,5 +1,7 @@
 # Partners in SAP BTP Ecosystem 
 
+To learn more about how SAP BTP is helping partners and businesses succeed, check out the [Accelerating Innovation and Time to Market with SAP BTP](https://news.sap.com/2022/04/idc-study-on-sap-btp-partners-accelerate-innovation/) article, some [recent partner success stories](https://www.sap.com/products/technology-platform/partners.html) or, if you’re interested in SAP BTP software partnership opportunities with SAP, please visit [SAP PartnerEdge, Build](https://www.sap.com/partner/become/partneredge-build.html) for more information. Let us also use the chance to provide you some more input about **SAP Industry Cloud** in this context. 
+
 ## What is SAP Industry Cloud?
 
 SAP’s industry cloud simplifies access to innovative vertical solutions across industries. Built by SAP and SAP partners on an open platform, these solutions are interoperable with SAP's intelligent suite, enabling partners to drive business transformation profitably and sustainably, seize new opportunities, and manage business disruption and changes within their industry.

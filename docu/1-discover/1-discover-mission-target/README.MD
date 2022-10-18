@@ -1,6 +1,6 @@
 # Discover the Mission Target
 
-In this mission you will learn how to setup a multitenant Software-as-a-Service (SaaS) application in your SAP Cloud Foundry environment of the SAP Business Technology Platform (SAP BTP). The sample application has a focus on the topic of Sustainability and is called **Sustainable SaaS** (SusaaS). It allows **consumers** of your SaaS application to extend their SAP solutions like S/4HANA with additional features provided by you as a SaaS **provider**. 
+In this mission you will learn how to setup a multitenant Software as a Service (SaaS) application in your SAP Cloud Foundry environment of the SAP Business Technology Platform (SAP BTP). The sample application has a focus on the topic of Sustainability and is called **Sustainable SaaS** (SusaaS). It allows **consumers** of your SaaS application to extend their SAP solutions like S/4HANA with additional features provided by you as a SaaS **provider**. 
 
 1. [Mission Scopes](#1-Mission-Scopes)
 2. [GitHub Repository](#2-GitHub-Repository)
@@ -28,7 +28,7 @@ Below you can find an solution architecture diagram of the sample application. A
 
 ## 1. Mission Scopes
 
-This mission is structured in three different scopes which are **Basic**, **Advanced** and **Expert**. This section will give you a brief overview of the scopes and the requirements from a SAP BTP license perspective. For the Basic and Advanced Scope there are separate GitHub branches including dedicated codelines whereas the **Expert** scope is only described in written format. 
+This mission is structured in three different major scopes which are **Basic**, **Advanced** and **Expert**. This section will give you a brief overview of the scopes and the requirements from a SAP BTP license perspective. For the Basic and Advanced Scope there are separate GitHub branches including dedicated codelines whereas the Expert scope is only described in written format. 
 
 **Basic**
 
@@ -37,11 +37,11 @@ The **Basic** scope contains a very comprehensive version of the **SusaaS (Susta
 **Advanced**
 
 The **Advanced** scope adds further enterprise features to your SusaaS application like 
-- a real SAP S/4HANA backend pushing data to the inbound APIs
-- SAP API Management for managing your inbound APIs
+- a real SAP S/4HANA backend pushing data to the SaaS APIs
+- SAP API Management for managing your SaaS API
 - users being centrally managed in SAP Identity Authentication Service
 
-These advanced features are (as of today) not available in the Trial version of SAP BTP (SAP Identity Authentication Service) or only for a limited timeframe (SAP Integration Suite). For this reason, you will either need a Free Tier or Enterprise subscription of SAP BTP to use these services. The same applies for an SAP Netweaver or SAP S/4HANA system, which you either need to bring yourself or you need to setup a [CAL instance](https://cal.sap.com/) which will cost you a few dollars per months (don't forget to stop your system if not in use :) !) .
+Some Advanced Scope features are not available in the Trial version of SAP BTP (e.g., SAP Identity Authentication Service) or only for a limited timeframe (e.g., SAP Integration Suite). For this reason, you will either need a Free Tier or Enterprise subscription of SAP BTP to use these services. The same applies for an SAP NetWeaver or SAP S/4HANA system, which you either need to bring yourself or you need to setup a [CAL instance](https://cal.sap.com/) which will cost you a few dollars per months (don't forget to stop your system if not in use :) !) .
 
 **Expert**
 
@@ -63,9 +63,9 @@ You can find the code of the sample application in the following sap-samples Git
 https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas
 
 The repository contains three different branches. 
-- **main** - Mission documentation 
-- **basic** - Codeline for Basic mission scope 
-- **advanced** - Codeline for Advanced mission scope
+- [**main**](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas) - Mission documentation 
+- [**basic**](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/tree/basic/) - Codeline for Basic mission scope 
+- [**advanced**](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/tree/advanced/) - Codeline for Advanced mission scope
 
 You can either clone or fork the repository to your own GitHub account. 
 
@@ -74,7 +74,7 @@ You can either clone or fork the repository to your own GitHub account.
 
 While the ecosystem of partner-built software for SAP On-Premise solutions has grown very well over the last decades, the available partner offerings and the interest in building solutions on SAP BTP starts to increase. A lot of SAP partners wonder how to port their existing developments to the cloud, the satisfy the demand of their existing customers moving to SAP BTP or to reach out to a much broader market than before. 
 
-For that reason, this mission and the related topic of developing multitenant SaaS applications on SAP BTP is of great interest for partners and customers. It is supposed to give all interested stakeholders an introduction to the theoretical basics of Software-as-a-Service on SAP BTP and provides a great codeline which can be used to kickstart your own implementation. Whereas some other great sample missions on building SaaS applications in SAP BTP Kyma environment already exist ([see here](https://discovery-center.cloud.sap/missiondetail/3683/3726/)), this mission focuses on the SAP Cloud Foundry environment, which is a fundamental pillar of the SAP BTP success. 
+For that reason, this mission and the related topic of developing multitenant SaaS applications on SAP BTP is of great interest for partners and customers. It is supposed to give all interested stakeholders an introduction to the theoretical basics of Software as a Service on SAP BTP and provides a great codeline which can be used to kickstart your own implementation. Whereas some other great sample missions on building SaaS applications in SAP BTP Kyma environment already exist ([see here](https://discovery-center.cloud.sap/missiondetail/3683/3726/)), this mission focuses on the SAP Cloud Foundry environment, which is a fundamental pillar of the SAP BTP success. 
 
 There is no previous knowledge required for this mission, so all new but also experienced developers can setup the sample application. Nevertheless, a basic understanding of SAP BTP service offerings will help you grasping the ideas and concepts. 
 
@@ -83,7 +83,7 @@ There is no previous knowledge required for this mission, so all new but also ex
 
 The main topics of the mission include: 
 
-* Understanding Software-as-a-Service and multitenancy
+* Understanding Software as a Service and multitenancy
 * Using SaaS related features of SAP BTP Cloud Foundry environment
 * Developing extensions for SAP solutions like S/4HANA based on 
   - the latest SAP CAP release features
@@ -108,7 +108,7 @@ The tutorial is provided on an "as-is" basis. Currently, the following known iss
    - **Problem**: Trying to open the Assessments not possible after it is been successfully opened before
    - **Issue**: If the charts in the Assessments app have not been rendered because you haven't loaded the object page subsections, some chart related components are not destroyed properly when leaving the Assessments app. 
    - **Workaround**: Refresh the page and open the Assessments app again. Open all Object Page Sections at least once before leaving the Assessments app.
-   - **Status**: Issue was reconstructed by development team and is being worked on.
+   - **Status**: Issue fixed by development team and released in upcoming SAPUI5 version.
 
 
 ## 6. Obtain Support
@@ -125,4 +125,4 @@ Nobody is perfect so please let us know how we can improve our samples so that y
 
 ## 8. What's New
 
-Check the latest release details in the last card of the **Discover** mission scope.
+Check the latest release and **What's New** details in the respective card of the **Discover** mission scope ([click here](../6-whats-new/README.MD)).
