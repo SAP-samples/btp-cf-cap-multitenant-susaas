@@ -1,8 +1,8 @@
-# Develop a multitenant Software as a Service app in SAP BTP, Cloud Foundry environment
+# Develop a multitenant Software as a Service app in SAP BTP, Cloud Foundry Environment
 
 [![REUSE status](https://api.reuse.software/badge/github.com/SAP-samples/btp-cf-cap-multitenant-susaas)](https://api.reuse.software/info/github.com/SAP-samples/btp-cf-cap-multitenant-susaas)
 
-> Note: The content of this GitHub repository has been created as source for the SAP Discovery Center Mission [Develop a multitenant Software as a Service app in SAP BTP, Cloud Foundry environment](https://discovery-center.cloud.sap/missiondetail/4064/4275). We advise using the mission in the SAP Discovery Center directly.
+> Note: The content of this GitHub repository has been created as source for the SAP Discovery Center Mission [Develop a multitenant Software as a Service app in SAP BTP, Cloud Foundry Environment](available soon). We advise using the mission in the SAP Discovery Center directly.
 
 ## Description
 
@@ -27,7 +27,7 @@ Besides the documentation residing in the [main](github.com/SAP-samples/btp-cf-c
 - the [basic](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/tree/basic) branch
 - the [advanced](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/tree/advanced) branch 
 
-Both contain codelines for the deployment of the basic and Advanced Scopes described in the mission target. The Expert Scope does not have it's own codeline. Instead, the main branch provides the respective code snippets and explanations  to setup the different scenarios. 
+Both contain codelines for the deployment of the basic and Advanced Scopes described in the mission target. The Expert Scope does not have it's own codeline. Instead, the main branch provides the respective code snippets and explanations to setup the different scenarios. 
 
 To get started, we recommend to go through the **Discover** part first. This will introduce you to the basics of this scenario, the concepts of multitenancy and Software as a Service applications. 
 
@@ -56,7 +56,9 @@ Deploy the **Basic Scope** of the SusaaS sample application after preparing your
 
 Enhance your SaaS sample app with **Advanced Scope** features like API Management to monitor and manage your SaaS API endpoints or SAP Identity Authentication to provide a central user management without relying on SAP ID service. Furthermore, you will learn and see a sample of how to integrate a backend system like SAP S/4HANA from a SaaS consumer perspective. 
 
-**Advanced Scope**
+> **Important** - The Advanced Scope is still Work-in-Progress. The code and documentation is subject to change. 
+
+**Advanced Scope (WIP)**
 - [Introduction Advanced Scope](./docu/3-advanced/0-introduction-advanced-scope/README.MD)
 - [Repository structure](./docu/3-advanced/1-understand-repo-structure/README.MD)
 - [Prepare the provider subaccount](./docu/3-advanced/2-prepare-provider-subaccount/README.MD)
@@ -70,7 +72,9 @@ Enhance your SaaS sample app with **Advanced Scope** features like API Managemen
 
 The **Expert Scope** contains a variety of different topics which will make your application and life as a SaaS developer even more convenient. This reaches from the usage of CI/CD tools and SAP Transport Management for a continuous deployment to the management and backup of your tenant database containers. You will learn about multi-region deployments of SaaS applications and how to tackle topics like Custom Domain usage. 
 
-**Expert Scope**
+> **Important** - The Expert Scope is still Work-in-Progress. The code and documentation is subject to change. 
+
+**Expert Scope (WIP)**
 - [Introduction Expert Scope](./docu/4-expert/0-introduction-expert-scope/README.MD)
 - [Setup SAP CI/CD for your project](./docu/4-expert/setup-cicd-for-project/README.MD)
 - [Configure SAP Transport Management](./docu/4-expert/configure-transport-management/README.MD)

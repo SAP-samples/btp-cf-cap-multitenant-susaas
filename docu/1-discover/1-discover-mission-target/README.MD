@@ -36,6 +36,8 @@ The **Basic** scope contains a very comprehensive version of the **SusaaS (Susta
 
 **Advanced**
 
+> **Important** - The Advanced Scope is still Work-in-Progress. The code and documentation is subject to change. 
+
 The **Advanced** scope adds further enterprise features to your SusaaS application like 
 - a real SAP S/4HANA backend pushing data to the SaaS APIs
 - SAP API Management for managing your SaaS API
@@ -44,6 +46,8 @@ The **Advanced** scope adds further enterprise features to your SusaaS applicati
 Some Advanced Scope features are not available in the Trial version of SAP BTP (e.g., SAP Identity Authentication Service) or only for a limited timeframe (e.g., SAP Integration Suite). For this reason, you will either need a Free Tier or Enterprise subscription of SAP BTP to use these services. The same applies for an SAP NetWeaver or SAP S/4HANA system, which you either need to bring yourself or you need to setup a [CAL instance](https://cal.sap.com/) which will cost you a few dollars per months (don't forget to stop your system if not in use :) !) .
 
 **Expert**
+
+> **Important** - The Expert Scope is still Work-in-Progress. The code and documentation is subject to change. 
 
 The **Expert** scope does not provide a dedicated codline but contains a lot of further expert knowledge for developers implementing SaaS application on SAP BTP. The different topics of the Expert Scope mostly result from experiences of the latest learnings and challenges of a Proof-of-Concept which was conducted with an SAP Partner. T
 
@@ -84,7 +88,7 @@ There is no previous knowledge required for this mission, so all new but also ex
 The main topics of the mission include: 
 
 * Understanding Software as a Service and multitenancy
-* Using SaaS related features of SAP BTP Cloud Foundry environment
+* Using SaaS related features of SAP BTP, Cloud Foundry Runtime
 * Developing extensions for SAP solutions like S/4HANA based on 
   - the latest SAP CAP release features
   - a UI based on SAP Fiori Elements for OData v4 
