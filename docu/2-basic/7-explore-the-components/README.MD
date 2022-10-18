@@ -32,6 +32,7 @@ The user interface of this sample application has been developed using **SAP Fio
 
 The resulting app uses predefined views and controllers that are provided centrally. This means no application-specific view instances are required. SAPUI5 interprets metadata and annotations of the underlying OData service and uses the corresponding views for the SAP Fiori app at startup. Still, SAP Fiori Elements based applications can be easily extended with minimal coding effort.
 
+To learn more about SAP Fiori Elements please check out the excellent [**SAP Fiori elements for OData V4 Feature Showcase**](https://github.com/SAP-samples/fiori-elements-feature-showcase/) and the links provided in the **Further Information** section.
 
 ## 3. Business Application Service
 
@@ -212,6 +213,7 @@ Please use the following links to find further information on the topics above:
 * [npmjs - @sap/approuter](https://www.npmjs.com/package/@sap/approuter)
 * [Fiori Design Guidelines - SAP Fiori Elements](https://experience.sap.com/fiori-design-web/smart-templates/)
 * [SAPUI5 - Developing Apps with SAP Fiori Elements](https://sapui5.hana.ondemand.com/sdk/#/topic/03265b0408e2432c9571d6b3feb6b1fd)
+* [GitHub - SAP Fiori Elements for OData V4 Feature Showcase](https://github.com/SAP-samples/fiori-elements-feature-showcase/)
 * [capire - Serving Fiori UIs](https://cap.cloud.sap/docs/advanced/fiori)
 * [capire - Welcome to CAP](https://cap.cloud.sap/docs/)
 * [SAP Blog - The hidden life of ServiceManager handled containers](https://blogs.sap.com/2021/02/15/the-hidden-life-of-servicemanager-handled-containers/)

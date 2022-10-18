@@ -15,13 +15,13 @@ See the following screenshot to get an idea of the Expert Scope architecture.
 
 The **Expert Scope** will cover topics from doing backups of tenant database containers to using a custom domain for your SaaS application. Below you can find the current list of topics (planned to be) covered.  
 
-> **Important** - You can implement some of the Expert Scope topics in a Trial environment (see list above) whereas for other parts you will either need a **Free Tier** or [**Enterprise Account**](https://help.sap.com/docs/BTP/65de2977205c403bbc107264b8eccf4b/171511cc425c4e079d0684936486eee6.html) type of SAP BTP environment. 
+> **Important** - You can implement some of the Expert Scope topics in a Trial environment (see list above) whereas for other parts you will either need a SAP BTP **Free Tier** or [**Enterprise Account**](https://help.sap.com/docs/BTP/65de2977205c403bbc107264b8eccf4b/171511cc425c4e079d0684936486eee6.html). 
 
 
 * [Backup database containers](../backup-database-containers/README.MD) (Trial - **✓**)
-* [Configure SAP Transpfort Management](../configure-transport-management/README.MD) (Trial - **✓**)
+* [Configure SAP Cloud Transport Management](../configure-transport-management/README.MD) (Trial - **✓**)
 * [Deploy to multiple regions](../deploy-multiple-regions/README.MD) (Trial - **✓**)
-* [Integrate a consomer's IdP](../integrate-consumers-idp/README.MD) (Trial - **✓**)
+* [Integrate a consumer's IdP](../integrate-consumers-idp/README.MD) (Trial - **✓**)
 * [Local and hybrid development](../local-hybrid-development/README.MD) (Trial - **✓**)
 * [Manage tenant database containers](../manage-tenant-containers/README.MD) (Trial - **✓**)
 * [Send emails using Microsoft Graph](../send-emails-graph-api/README.MD) (Trial - **✓**)

@@ -27,26 +27,28 @@ The application requires the following set of SAP BTP entitlements in the Provid
 
 | Service                           | Plan       | Number of Instances |
 |-----------------------------------|------------|:-------------------:|
-| [Alert Notification](https://discovery-center.cloud.sap/serviceCatalog/alert-notification?region=all)  | standard  |  1  |
+| [SAP Alert Notification service for SAP BTP](https://discovery-center.cloud.sap/serviceCatalog/alert-notification?region=all)  | standard  |  1  |
 | [Application Autoscaler](https://discovery-center.cloud.sap/serviceCatalog/application-autoscaler/?service_plan=standard&region=all&commercialModel=cloud) | standard | 1 |
-| [Application Logging Service](https://discovery-center.cloud.sap/serviceCatalog/application-logging-service/?region=all) | lite  | 1 |
-| [Authorization and Trust Management Service](https://discovery-center.cloud.sap/serviceCatalog/authorization-and-trust-management-service?region=all&tab=feature)|broker|1|
-| [Authorization and Trust Management Service](https://discovery-center.cloud.sap/serviceCatalog/authorization-and-trust-management-service?region=all&tab=feature)|application|1|
-| [Cloud Foundry Runtime](https://discovery-center.cloud.sap/serviceCatalog/cloud-foundry-runtime?region=all) | MEMORY | 2 |
-| [Cloud Management Service](https://discovery-center.cloud.sap/serviceCatalog/cloud-management-service/?region=all)| central | 1 |
-| [Credential Store](https://discovery-center.cloud.sap/serviceCatalog/credential-store?region=all)| standard | 1 |
+| [SAP Application Logging Service](https://discovery-center.cloud.sap/serviceCatalog/application-logging-service/?region=all) | lite  | 1 |
+| [SAP Authorization and Trust Management Service](https://discovery-center.cloud.sap/serviceCatalog/authorization-and-trust-management-service?region=all&tab=feature)|broker|1|
+| [SAP Authorization and Trust Management Service](https://discovery-center.cloud.sap/serviceCatalog/authorization-and-trust-management-service?region=all&tab=feature)|application|1|
+| [SAP BTP, Cloud Foundry Runtime](https://discovery-center.cloud.sap/serviceCatalog/cloud-foundry-runtime?region=all) | MEMORY | 2 |
+| [SAP Cloud Management Service for SAP BTP](https://discovery-center.cloud.sap/serviceCatalog/cloud-management-service/?region=all)| central | 1 |
 | [Destination Service](https://discovery-center.cloud.sap/serviceCatalog/destination?service_plan=lite&region=all&commercialModel=cloud)| lite | 1 |
-| [HTML5 Application Repository Service](https://discovery-center.cloud.sap/serviceCatalog/html5-application-repository-service?region=all) |app-host|1|
-| [HTML5 Application Repository Service](https://discovery-center.cloud.sap/serviceCatalog/html5-application-repository-service?region=all)      | app-runtime   |     1    |
-| [SaaS Provisioning Service](https://discovery-center.cloud.sap/serviceCatalog/saas-provisioning-service?service_plan=application&region=all&commercialModel=cloud)           | application   |     1    |
+| [SAP HTML5 Application Repository Service for SAP BTP](https://discovery-center.cloud.sap/serviceCatalog/html5-application-repository-service?region=all) |app-host|1|
+| [SAP HTML5 Application Repository Service for SAP BTP](https://discovery-center.cloud.sap/serviceCatalog/html5-application-repository-service?region=all)      | app-runtime   |     1    |
+| [SAP Software-as-a-Service Provisioning service](https://discovery-center.cloud.sap/serviceCatalog/saas-provisioning-service?service_plan=application&region=all&commercialModel=cloud)           | application   |     1    |
 | [SAP HANA Schemas & HDI Containers](https://help.sap.com/docs/SAP_HANA_PLATFORM/3823b0f33420468ba5f1cf7f59bd6bd9/e28abca91a004683845805efc2bf967c.html?version=2.0.04&locale=en-US)| hdi-shared | 1 |
 | [SAP HANA Cloud](https://discovery-center.cloud.sap/serviceCatalog/sap-hana-cloud?tab=customerreference&region=all)                            | hana          |     1    |
-| [Service Manager](https://discovery-center.cloud.sap/serviceCatalog/service-manager/?region=all)                           | container     |     1    |
-| [SAP Integration Suite (*)](https://discovery-center.cloud.sap/serviceCatalog/integration-suite?region=all)                     | trial(**) or standard   |     1    |
-| [Cloud Identity Services](https://discovery-center.cloud.sap/serviceCatalog/identity-authentication?region=all&tab=feature)                   | default |     1    |
-| [Cloud Identity Services](https://discovery-center.cloud.sap/serviceCatalog/identity-authentication?region=all&tab=feature)                   | application   |     1    |
+| [SAP Service Manager](https://discovery-center.cloud.sap/serviceCatalog/service-manager/?region=all)                           | container     |     1    |
+| [SAP Credential Store](https://discovery-center.cloud.sap/serviceCatalog/credential-store?region=all)| standard | 1 |
+| SAP NetWeaver system incl. EPM model (*) |                                      |          |
+| [SAP Integration Suite (**)](https://discovery-center.cloud.sap/serviceCatalog/integration-suite?region=all)                     | trial (***) or standard (Application)   |     1    |
+| [SAP API Management, API portal (**)](https://help.sap.com/docs/SAP_CLOUD_PLATFORM_API_MANAGEMENT/66d066d903c2473f81ec33acfe2ccdb4/e609a3efe6d64e1781cbf81ae5592071.html?locale=en-US)         | apim-as-route-service                |     1    |
+| [SAP Cloud Identity Services](https://discovery-center.cloud.sap/serviceCatalog/identity-authentication?region=all&tab=feature)                   | default (Application) |     1    |
+| [SAP Cloud Identity Services](https://help.sap.com/docs/IDENTITY_AUTHENTICATION/6d6d63354d1242d185ab4830fc04feb1/d5cd80c6928e4ac98586025170efdf08.html?locale=en-US)             | application   |     1    |
 
-> (*) SAP Integration Suite is optional. It is only required if you want to integrate your SaaS API with [SAP API Management](../8-integrate-sap-api-management/README.MD).
+> (*) SAP Integration Suite and the API Management, API portal service instance are required if you want to integrate your SaaS API with [SAP API Management](../8-integrate-sap-api-management/README.MD).
 
 > (**) Please keep in mind - The SAP Integration Suite trial plan is valid for 90 days only. Your tenant will be decommissioned after 90 days and you need to setup a new tenant if you wish to do further validations with a trial tenant. 
 
