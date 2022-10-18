@@ -1,6 +1,6 @@
 # Push data to the SaaS API
 
-The SaaS application is equipped with a built-in API, that your SaaS consumers can use, to push data to their tenant database containers or to modify existing data. In this part of the mission you will learn how to connect to this API endpoint as a consumer and push some sample data. 
+The SaaS application is equipped with a built-in API, that your SaaS consumers can use, to push data to their tenant database containers or to modify existing data. In this part of the mission, you will learn how to connect to this API endpoint as a consumer and push some sample data. 
 
 1. [SaaS API access](#1-SaaS-API-access)
 2. [Troubleshooting](#2-Troubleshooting)
@@ -17,7 +17,7 @@ Below you can see the tables of the tenant data model which can be maintained by
 
 [<img src="./images/DM_Tables.png" width="500" />](./images/DM_Tables.png)
 
-The main entities like Products, Sales Orders and further Recycling content can be maintained using the API. As you can see, also some sample actions are provided for bulk inserts, updates and upserts whereas the last one has been implemented as a SAP HANA Stored Prodcedure (click to enlarge). 
+The main entities like Products, Sales Orders and further Recycling content can be maintained using the API. As you can see, also some sample actions are provided for bulk inserts, updates, and upserts whereas the last one has been implemented as an SAP HANA Stored Procedure (click to enlarge). 
 
 [<img src="./images/API_Endpoints01.png" width="300" />](./images/API_Endpoints01.png)
 [<img src="./images/API_Endpoints02.png" width="300" />](./images/API_Endpoints02.png)
@@ -26,15 +26,15 @@ To connect to the SaaS API as a consumer, make sure you followed all steps descr
 
 [<img src="./images/API_ServiceKey.png" width="400" />](./images/API_ServiceKey.png)
 
-1.1. Within your development project change to the **http** directory. In here you will find sample API calls which you can use to push data to a tenant database container. In this sample we will push some **Product** data (*apiProducts.http*) to the SaaS API which will be stored in the respective database container. Make sure you have the required plugin installed (e.g., for VS Code) to run http files.  
+1.1. Within your development project change to the **http** directory. Here you will find sample API calls that you can use to push data to a tenant database container. In this sample we will push some **Product** data (*apiProducts.http*) to the SaaS API which will be stored in the respective database container. Make sure you have the required plugin installed (e.g., for VS Code) to run HTTP files.  
 
-1.2. Each of the HTTP files contains a header section in which you can insert the tenant-specific service binding details used to connect to the SaaS API. Please update the parameters according to your personal values. Make sure **not to push** these changes back to GitHub! Either remove the credentials before saving or rename your HTTP files to ***-private.http** (e.g., apiProducts-private.http), which are excluded in the .gitignore file. 
+1.2. Each of the HTTP files contains a header section in which you can insert the tenant-specific service binding details used to connect to the SaaS API. Please update the parameters according to your values. Make sure **not to push** these changes back to GitHub! Either remove the credentials before saving or rename your HTTP files to ***-private.http** (e.g., apiProducts-private.http), which are excluded in the .gitignore file. 
 
 [<img src="./images/API_HttpCreds.png" width="900" />](./images/API_HttpCreds.png)
 
 > **Hint** - The *xsuaaHostname* is equal to the *uaa.url* parameter. The *apiEndpointBtp* equals the *apiUrl* parameter.
 
-1.3. After updating the relevant parameters based on your tenant specific service binding credentials, you can request the required OAuth token for accessing the SaaS API. Therefore, execute the following request which will return a Bearer token that can be used for the upcoming API calls.
+1.3. After updating the relevant parameters based on your tenant-specific service binding credentials, you can request the required OAuth token for accessing the SaaS API. Therefore, execute the following request which will return a Bearer token that can be used for the upcoming API calls.
 
 ```http
 # @name getXsuaaToken
@@ -48,9 +48,9 @@ client_id={{btpXsuaaClient}}
 &grant_type=client_credentials
 ```
 
-1.4. Once done, Run the following request to upload products to the SaaS API on behalf of your consumer tenant. The respective product data will be stored in the tenant database container and can be used to create new assessments in the SaaS application. The required access token is taken from the results of previous OAuth request. 
+1.4. Once done, Run the following request to upload products to the SaaS API on behalf of your consumer tenant. The respective product data will be stored in the tenant database container and can be used to create new assessments in the SaaS application. The required access token is taken from the results of the previous OAuth request. 
 
-> **Hint** - In the **Advanced Scope** of this mission, you will see that the sample EPM model provides the exact same data values and your consumer's on-premise solutions like SAP S/4HANA will use the same API endpoint to push this sample product data. 
+> **Hint** - In the **Advanced Scope** of this mission, you will see that the sample EPM model provides the same data values, and your consumer's on-premise solutions like SAP S/4HANA will use the same API endpoint to push this sample product data. 
 
 > **Important** - Be aware that using this API endpoint will erase all data before uploading your new product values to the respective tenant database container tables. 
 
@@ -80,9 +80,9 @@ Content-type: application/json
 
 1.5. Enrich the product data of your consumer tenants with further details by using the following request. It will update existing product records in the tenant database container with sales split details and additional sustainability notions. 
 
-> **Hint** - You might ask yourself why these additional details are not part of the initial product data request?! Unfortunately, this advanced product information is not part of the EPM model and has been added for illustration purposes of a potential sustainability use-case. Therefore, it has to provided by an manual upload or maintained in the SaaS application itself. 
+> **Hint** - You might ask yourself why these additional details are not part of the initial product data request?! Unfortunately, this advanced product information is not part of the EPM model and has been added for illustration purposes of a potential sustainability use-case. Therefore, it has to be provided by a manual upload or maintained in the SaaS application itself. 
 
-> **Important** - Do not use this API with a largeer payload, as it processes the records one after another as the CAP CQL UPDATE feature does not allow to provide multiple entity values. 
+> **Important** - Do not use this API with a larger payload, as it processes the records one after another as the CAP CQL UPDATE feature does not allow to provide multiple entity values. 
 
 ```http
 # @name uploadProductsExtendedBtp
@@ -106,7 +106,7 @@ Content-type: application/json
 }
 ```
 
-1.6. In case you want to upload the same data as provided in the sample csv files ([click here](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/tree/basic/test/data)), you can use the HTTP sample files below to do so. Simply provide the tenant specific client credentials in the header of the HTTP files and you're ready to push the sample content to dedicated consumer tenants. Don't forget to rename your files to *-private.http to prevent them from being committed to Git. 
+1.6. In case you want to upload the same data as provided in the sample CSV files ([click here](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/tree/basic/test/data)), you can use the HTTP sample files below to do so. Simply provide the tenant-specific client credentials in the header of the HTTP files and you're ready to push the sample content to dedicated consumer tenants. Don't forget to rename your files to *-private.http to prevent them from being committed to Git. 
 
 >**Hint** -  Please keep in mind, that you can also deploy your SaaS project **incl.** the CSV sample files instead of pushing the data using the API. This is fine for testing purposes **but** will overwrite existing data upon redeployment or upgrades of tenant database containers. 
 
@@ -115,7 +115,7 @@ Content-type: application/json
 - [Recycling by Country](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/blob/basic/http/apiRecyclingCountries.http)
 - [Recycling by Material](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/blob/basic/http/apiRecyclingMaterials.http)
 
-1.7. After pushing all data provided in the HTTP files, you will be able to progress with the next part of this mission and test the application end-to-end. You can create Assessments for the uploaded sample products and even **prefill** Sales Order, Material and Recyling sample values for certain products like e.g., HT-1000 or HT-1001. Below you can see a sample Assessment which was created based on the provided data for product HT-1000.
+1.7. After pushing all data provided in the HTTP files, you will be able to progress with the next part of this mission and test the application end-to-end. You can create Assessments for the uploaded sample products and even **prefill** Sales Order, Material, and Recycling sample values for certain products e.g., HT-1000 or HT-1001. Below you can see a sample Assessment that was created based on the provided data for product HT-1000.
 
 [<img src="./images/API_SampleHT1000.png" width="700" />](./images/API_SampleHT1000.png)
 

@@ -1,8 +1,8 @@
 # Push data from SAP S/4HANA system
 
-A feature that will make your SaaS application even more valuable to your SaaS consumers, is a proper integration with other SAP solutions. This will allow your consumers to make use of their own data within your SaaS service offering and gain real business value out of it. For sure a SaaS solution can always offer an Excel upload or an online interface for maintaining tenant specific data, but an automated backend integration is more than just a nice to have especially when dealing with huge or constantly changing data sets. 
+A feature that will make your SaaS application even more valuable to your SaaS consumers, is proper integration with other SAP solutions. This will allow your consumers to make use of their own data within your SaaS service offering and gain real business value out of it. For sure a SaaS solution can always offer an Excel upload or an online interface for maintaining tenant-specific data, but an automated backend integration is more than just a nice to have especially when dealing with huge or constantly changing data sets. 
 
-In this part of the mission, you will learn how your SaaS consumers can connect an ABAP based backend like SAP S/4HANA with their consumer tenant SaaS instance and push data into their tenant database container in an automated fashion. 
+In this part of the mission, you will learn how your SaaS consumers can connect an ABAP-based backend like SAP S/4HANA with their consumer tenant SaaS instance and push data into their tenant database container in an automated fashion. 
 
 1. [Architecture](#1-Architecture)
 2. [Prerequisites](#2-Prerequisites)
@@ -23,7 +23,7 @@ In this part of the mission, you will learn how your SaaS consumers can connect 
 
 ## 1. Architecture
 
-While you already learned about the SaaS API in the Basic Scope, the API calls in this part of the mission will not be triggered by a random external source anymore but will be directly sent from an SAP S/4HANA systems. Using a scheduled job on the data provider side, the tenants can constantly provide their users with latest data input. 
+While you already learned about the SaaS API in the Basic Scope, the API calls in this part of the mission will not be triggered by a random external source anymore but will be directly sent from an SAP S/4HANA system. Using a scheduled job on the data provider side, the tenants can constantly provide their users with the latest data input. 
 
 See the relevant part of the solution architecture below (click to enlarge):
 
@@ -34,7 +34,7 @@ See the relevant part of the solution architecture below (click to enlarge):
 
 You will need a NetWeaver system that contains the Enterprise Procurement Model (EPM). The EPM model should be available in the NetWeaver stacks (EHP 2, > 7.3) and in ABAP Platforms (> 1809).
 
-> **Hint** - EPM is a sample data model containing sales and purchase orders for various products, which can be generated using a dedicated ABAP transaction. Please check if you can access the transaction **SEPM_DG** in your system, which is the respective Data Generator for the EPM model. Furthermore, please ensure the development package **RS_TCO_EPM** is available in the system as views from this packages will be used by the sample code
+> **Hint** - EPM is a sample data model containing sales and purchase orders for various products, which can be generated using a dedicated ABAP transaction. Please check if you can access the transaction **SEPM_DG** in your system, which is the respective Data Generator for the EPM model. Furthermore, please ensure the development package **RS_TCO_EPM** is available in the system as views from this package will be used by the sample code
 
 - You will need advanced authorizations in your system to e.g.,
     - configure and HTTP destination in **SM59**.
@@ -49,14 +49,14 @@ Feel free to generate some first sample values in your EPM model using the **SEP
 
 ## 3. Certificate setup 
 
-To make sure your push setup is working properly, you might need to import additional SSL certificates to your ABAP backend. Depending on whether you're using a custom domain or a default SAP BTP subdomain for your API, please import the respective certificates to the **SSL client SSL Client (Anonymous)** and **SSL client SSL Client (Standard)** PSE using the **STRUST** transaction. 
+To make sure your push setup is working properly, you might need to import additional SSL certificates to your ABAP backend. Depending on whether you're using a custom domain or a default SAP BTP subdomain for your API, please import the respective certificates to the **SSL client SSL Client (Anonymous)** PSE using the **STRUST** transaction. 
 
 [<img src="./images/S4_Certificates.png" width="500" />](./images/S4_Certificates.png)
 
-Especially in scenarios using a custom domain (e.g. with a CSR signed by Let's Encrypt ) you might need to import additional certificates incl. missing Root certificates. This ensures a secure and encrypted communication between your backend system and your API on SAP BTP. Check the detailed explaination in SAP Help ([click here](https://help.sap.com/docs/SAP_NETWEAVER_AS_ABAP_752/916a7da9481e4265809f28010a113a6a/a5a3ae031c3042f293e72bf6c5c90620.html?locale=en-US))
+Especially in scenarios using a custom domain (e.g. with a CSR signed by Let's Encrypt) you might need to import additional certificates incl. missing Root certificates. This ensures secure and encrypted communication between your backend system and your API on SAP BTP. Check the detailed explanation in SAP Help ([click here](https://help.sap.com/docs/SAP_NETWEAVER_AS_ABAP_752/916a7da9481e4265809f28010a113a6a/a5a3ae031c3042f293e72bf6c5c90620.html?locale=en-US))
 
 **Troubleshooting**<br>
-* Please use the trace files (Goto -> Trace File) in transaction **SMICM** to analyze certificate related errors! 
+* Please use the trace files (Goto -> Trace File) in transaction **SMICM** to analyze certificate-related errors! 
 
 
 ## 4. Development package
@@ -66,7 +66,7 @@ Create a new development package in ABAP Development Tools for Eclipse or using 
 
 ## 5. OAuth Client Profile
 
-5.1. Create an OAuth Client Profile in your ABAP development package named **ZSUSAAS_PUSH_API**. Select **DEFAULT** as type. This Client Profile is required when setting up your OAuth Client in the next step. 
+5.1. Create an OAuth Client Profile in your ABAP development package named **ZSUSAAS_PUSH_API**. Select **DEFAULT** as the type. This Client Profile is required when setting up your OAuth Client in the next step. 
 
 [<img src="./images/S4_ClntProf.png" width="300" />](./images/S4_ClntProf.png)
 
@@ -77,7 +77,7 @@ Create a new development package in ABAP Development Tools for Eclipse or using 
 
 ## 6. OAuth Client
 
-6.1. Create a new OAuth Client in the web-based transaction **OA2C_CONFIG**. The default path for the respective transaction is `https://<host_name>:<https_port>/sap/bc/webdynpro/sap/oa2c_config?sap-client=<client e.g. 100>`. Login with a user authorized to create new OAuth Clients and click on **Create ...**.
+6.1. Create a new OAuth Client in the web-based transaction **OA2C_CONFIG**. The default path for the respective transaction is `https://<host_name>:<https_port>/sap/bc/webdynpro/sap/oa2c_config?sap-client=<client e.g. 100>`. Log in with a user authorized to create new OAuth Clients and click on **Create ...**.
 
 [<img src="./images/S4_OAuth01.png" width="400" />](./images/S4_OAuth01.png)
 
@@ -89,7 +89,7 @@ Create a new development package in ABAP Development Tools for Eclipse or using 
 
 [<img src="./images/S4_OAuth02.png" width="400" />](./images/S4_OAuth02.png)
 
-6.3. On the Administration tab enter the clientsecret of the service key.
+6.3. On the Administration tab enter the client secret of the service key.
 
 6.3.1. Under Authorization Server Settings, enter the URL for the **authorization** endpoint.
 > Take the **uaa.url** parameter of your service key, remove the https:// prefix and add **/oauth/authorize**
@@ -97,7 +97,7 @@ Create a new development package in ABAP Development Tools for Eclipse or using 
 6.3.2. Under Authorization Server Settings, enter the URL for the **token** endpoint.
 > Take the **uaa.url** parameter of your service key, remove the https:// prefix and add **/oauth/token**
 
-6.3.3. Under Access Settings, select the following settings and afterwards click on **Save** at the very top of the screen. 
+6.3.3. Under Access Settings, select the following settings and afterward, click on **Save** at the very top of the screen. 
 
 - Client Authentication: Basic
 - Resource Access Authentication: Header Field
@@ -112,7 +112,7 @@ Create a new development package in ABAP Development Tools for Eclipse or using 
 
 ## 7. Destination configuration
 
-The ABAP logic pushing the EPM sample data to the SaaS API, will make use of a destination defined in your NetWeaver system. Check the steps below learn how to setup such a destination. 
+The ABAP logic pushing the EPM sample data to the SaaS API will make use of a destination defined in your NetWeaver system. Check the steps below to learn how to set up such a destination. 
 
 7.1. Open transaction **SM59** and choose **Create**.
 
@@ -145,7 +145,7 @@ The ABAP logic pushing the EPM sample data to the SaaS API, will make use of a d
 
 7.8. Make sure the test is successful and a code **200** is returned.
 
-Your destination is now ready to be used from  within the ABAP coding. 
+Your destination is now ready to be used from within the ABAP coding. 
 
 
 ## 8. ABAP Coding Environment
@@ -157,7 +157,7 @@ Let's now put the puzzle pieces together and push some data using the SaaS API a
 
 Please go to your ABAP Development Tools in eclipse or use SE80 transaction in your SAP GUI to create two structures required for the upload process. 
 
-> **Important** - Please double check if the structure field names and types match with the corresponding target views **EPM_V_PROD** and **EPM_V_SALES_DATA**. We cannot guarantee the consistency accross all releases. 
+> **Important** - Please double-check if the structure field names and types match with the corresponding target views **EPM_V_PROD** and **EPM_V_SALES_DATA**. We cannot guarantee consistency across all releases. 
 
 [<img src="./images/S4_Dev01.png" width="500" />](./images/S4_Dev01.png)
 
@@ -217,21 +217,21 @@ Description - Susaas Sales Order Upload Structure
 
 Create a new ABAP Objects class in your ZSUAAS development package. You can find the required code snippet in the **code** sub-directory ([click here](./code/)). 
 
-> **Hint** - This helper class is used in your sample programs to support the relevant upload process. It is a generic implementation which can be used to send data to different API endpoints using the same coding for various entities like in our case - Products and Sales Orders. 
+> **Hint** - This helper class is used in your sample programs to support the relevant upload process. It is a generic implementation that can be used to send data to different API endpoints using the same coding for various entities like in our case - Products and Sales Orders. 
 
 **Class ZSUSAAS_CL_UPLOAD** <br>
 ([click here](./code/ZSUSAAS_CL_UPLOAD.CLAS) for the code)
 
 [<img src="./images/S4_Dev03.png" width="500" />](./images/S4_Dev03.png)
 
-The class provides a method **GET_HTTP_CLIENT** used to create an instance of default ABAP HTTP Client feature, which allows you to send HTTP requests to the SaaS API using the connection defined in SM59. The **POST_DATA_TO_API** method is responsible for sending the dataset to the respective API endpoints using the HTTP client instance. The method implementation in this sample is very lean and can be enhanced based on your requirements to introduce features like packaging larger scale datasets or a proper error handling in case of erroneous requests. The **CLOSE_CONNECTION** method ensures that the API connection is closed again after sending the data to your SaaS APIs. 
+The class provides a method **GET_HTTP_CLIENT** used to create an instance of the default ABAP HTTP Client feature, which allows you to send HTTP requests to the SaaS API using the connection defined in SM59. The **POST_DATA_TO_API** method is responsible for sending the dataset to the respective API endpoints using the HTTP client instance. The method implementation in this sample is very lean and can be enhanced based on your requirements to introduce features like packaging larger-scale datasets or proper error handling in case of erroneous requests. The **CLOSE_CONNECTION** method ensures that the API connection is closed again after sending the data to your SaaS APIs. 
 
 Feel free to scroll through the implementation to get a better understanding of what is happening under the hood when calling the method implementations from the programs which you import in the next steps. 
 
 
 ## 11. ABAP Programs
 
-In this sample application, we will use ABAP programs to upload the **Product** and **Sales Order** datasets available in the Enterprise Procurement Model. As mentioned in the beginning of this tutorial, feel free to generate new Sales Orders using the data generator transaction before doing your first data push. 
+In this sample application, we will use ABAP programs to upload the **Product** and **Sales Order** datasets available in the Enterprise Procurement Model. As mentioned at the beginning of this tutorial, feel free to generate new Sales Orders using the data generator transaction before doing your first data push. 
 
 For the data push implementation, please create two programs in your ZSUSAAS development package. You can find the respective sample coding in the **code** sub-directory. 
 
@@ -246,9 +246,9 @@ For the data push implementation, please create two programs in your ZSUSAAS dev
 
  [<img src="./images/S4_Dev05.png" width="500" />](./images/S4_Dev05.png)
 
-Feel free to scroll through the implementation to get a better understanding which EPM views are read, how the data is converted into the required JSON payload and finally send to the SaaS API. The code is not very complex but please be aware, this is a very simple scenario, which is not supposed to handle scenarios like mass-uploads or a proper error handling (e.g. in case of duplicate key issues or connection problems). 
+Feel free to scroll through the implementation to get a better understanding which EPM views are read, how the data is converted into the required JSON payload, and finally send to the SaaS API. The code is not very complex but please be aware, this is a very simple scenario, which is not supposed to handle scenarios like mass uploads or proper error handling (e.g. in case of duplicate key issues or connection problems). 
 
-Of special importance are the following lines of the coding. This is where the name of your SM59 destination is defined and the relevant endpoint for the respective dataset is declared. Please modify your code accordingly if you didn't follow the names propsed in this mission. 
+Of special importance are the following lines of the coding. This is where the name of your SM59 destination is defined and the relevant endpoint for the respective dataset is declared. Please modify your code accordingly if you didn't follow the names proposed in this mission. 
 
 [<img src="./images/S4_Dev06.png" width="700" />](./images/S4_Dev06.png)
 
@@ -259,7 +259,7 @@ To test the SaaS Push API end-to-end, you can just simply execute the programs w
 
  [<img src="./images/S4_Dev07.png" width="800" />](./images/S4_Dev07.png)
 
-If you're not facing any error message, your upload was probably successful. To check whether the data was successfully uploaded to the tenant database container, you can login to the respective tenant of your SaaS application and check the available products (when creating a new assessment) or refer to the logs of the API service application instance in the provider subaccount.
+If you're not facing any error messages, your upload was probably successful. To check whether the data was successfully uploaded to the tenant database container, you can log in to the respective tenant of your SaaS application and check the available products (when creating a new assessment) or refer to the logs of the API service application instance in the provider subaccount.
 
 
 ## 13. Background Job
@@ -278,11 +278,11 @@ To automate the push process of the latest EPM data, you can use the programs wh
 
 [<img src="./images/S4_Job03.png" width="500" />](./images/S4_Job03.png)
 
-13.4. Next you have to define a **Start Condition** for your job, which allows you to setup the scheduling. 
+13.4. Next you have to define a **Start Condition** for your job, which allows you to set up the scheduling. 
 
 [<img src="./images/S4_Job04.png" width="500" />](./images/S4_Job04.png)
 
-13.5. As condition type select **Date/Time** and enter the first start date and time of your background job. Ensure the checkbox for **Periodic Job** is checked and then select **Period Values** to setup the schedule. 
+13.5. As condition type select **Date/Time** and enter the first start date and time of your background job. Ensure the checkbox for **Periodic Job** is checked and then select **Period Values** to set up the schedule. 
 
 [<img src="./images/S4_Job05.png" width="400" />](./images/S4_Job05.png)
 
@@ -306,7 +306,7 @@ To automate the push process of the latest EPM data, you can use the programs wh
 
 [<img src="./images/S4_Job10.png" width="300" />](./images/S4_Job10.png)
 
-13.11. You can check the status of your job in the **Job Selection**. Make sure to set the correct filters especially for the start date. 
+13.11. You can check the status of your job in the **Job Selection**. Make sure to set the correct filters, especially for the start date. 
 
 [<img src="./images/S4_Job11.png" width="300" />](./images/S4_Job11.png)
 

@@ -43,17 +43,17 @@ app.listen(port, () => {
 ```
 
 Since the calculation is super critical for your business you're planning to use it from several applications already deployed to SAP BTP. So you would like to create, delete instances, and bind to or unbind from your applications running on
-SAP BTP in a flexible style, like any other backing service already available on SAP BTP such as XSUAA, application autoscaler etc - But how can you achieve this?
+SAP BTP in a flexible style, like any other backing service already available on SAP BTP such as XSUAA, application autoscaler, etc - But how can you achieve this?
 
 So here is the situation.
 
-Let's assume there is no connection between SAP BTP and your service yet. Since all service management actions are triggered by SAP BTP the actual challenge is - how to inform our service about lifecycle event of our application such as creation of instances, deletion of instances, new bindings and so on.
+Let's assume there is no connection between SAP BTP and your service yet. Since all service management actions are triggered by SAP BTP the actual challenge is - how to inform our service about the lifecycle events of our application such as the creation of instances, deletion of instances, new bindings, and so on.
 
-Okay, so knowing the problem that needs to be solved would it not be great if there would be a standard for platforms such as SAP BTP, to send the requests in a standarized format that all the backing services in the world can implement to handle these lifecycle events? Because then every backing service could implement these standards in their applications and they could work hand in hand with any platform.
+Okay, so knowing the problem that needs to be solved would it not be great if there would be a standard for platforms such as SAP BTP, to send the requests in a standardized format that all the backing services in the world can implement to handle these lifecycle events? Because then every backing service could implement these standards in their applications and they could work hand in hand with any platform.
 
 The good news! There is one! It is called [Open Service Broker API](https://www.openservicebrokerapi.org).
 
-Okay but what is Open Service Broker API or **OSBAPI** in short? Let us check the official definition.
+Okay, but what is Open Service Broker API or **OSBAPI** in short? Let us check the official definition.
 
 "*The Open Service Broker API project allows independent software vendors, SaaS providers and developers to easily provide backing services to workloads running on cloud native platforms such as Cloud Foundry and Kubernetes. The specification, which has been adopted by many platforms and thousands of service providers, describes a simple set of API endpoints which can be used to provision, gain access to and managing service offerings.*"
 
@@ -70,22 +70,22 @@ For the sake of simplicity, we will only cover the following sections of these s
 
  > For further information about these standards please visit the official [OSB API repository](https://github.com/openservicebrokerapi/servicebroker)
 
-So in summary, what is the answer for the **What is a service broker?** question?
+So in summary, what is the answer to the **What is a service broker?** question?
 
 **Answer:** Any application which implements the **OSBAPI** standards is a service broker!
 
 
 
 ## 3. How does a platform interact with a service broker? 
-On this section, you will be learn how a platform like SAP BTP interacts with a service broker.
+In this section, you will learn how a platform like SAP BTP interacts with a service broker.
 
 ### 3.1. Implementation of Catalog Management or "Which plans do you have service broker?"
 Catalog management request - in very simple terms - will be the first question of a platform to the service broker:
 "Hey service broker, what kind of service instances and plans you have got?"
 
-Basically, tt is a **GET** request to the endpoint */v2/catalog*
+Basically, it is a **GET** request to the endpoint */v2/catalog*
 
-So very primitive implementation in our sample would be something like below:
+So very primitive implementation in our sample would be something like the below:
 > Please note that the code is just an example for understanding and will not work end-to-end. 
 
 ```js
@@ -99,8 +99,8 @@ app.get('/v2/catalog'), async(req,res) => {
     id:"dummy123", // ID of service instance, have might be any unique id
     name:"Super Complex Calculation Service", // Name of of service
     description:"This service does a super complex calculation which is very important for our business", // Description
-    bindable:true, // Tells if the service is bindable, then platform keeps this information
-    plans:[{id:1,name:"Super Plan"},{id:2,name:"Normal Plan"}] // Plans of the sercice
+    bindable:true, // Tells if the service is bindable, then the platform keeps this information
+    plans:[{id:1,name:"Super Plan"},{id:2,name:"Normal Plan"}] // Plans of the service
    })
 }
 /* End of Broker Endpoints */
@@ -116,7 +116,7 @@ app.listen(port, () => {
 
 ```
 
-In the response the service broker returns the following information to the requesting platform:
+In response the service broker returns the following information to the requesting platform:
 - It provides a service called **Super Complex Calculation Service**
 - It is bindable so binding requests are allowed
 - It has two service plans - **Super Plan** and **Normal Plan**
@@ -124,11 +124,11 @@ In the response the service broker returns the following information to the requ
 
 ### 3.2. Implementation of Creation of a Service Instance (Provisioning)
 
-Most of the time after the catalog request which you have seen on the first step, a second request will sent to create a service instance. In OSBAPI Standards this is called **provisioning**.
+Most of the time after the catalog request which you have seen in the first step, a second request will be sent to create a service instance. In OSBAPI Standards this is called **provisioning**.
 
 This time it is a **PUT** request to the endpoint */v2/service_instances/:instance_id*
 
-Let's assume that a platform (like SAP BTP) sendis a body like the following:
+Let's assume that a platform (like SAP BTP) sends a body like the following:
 ```js
 {
    service_id: "dummy123" // Our service ID 
@@ -153,8 +153,8 @@ app.get('/v2/catalog', async(req,res) => {
     id:"dummy123", // ID of service instance, have might be any unique id
     name:"Super Complex Calculation Service", // Name of of service
     description:"This service does a super complex calculation which is very important for our business", // Description
-    bindable:true, // Tells if the service is bindable, then platform keeps this information
-    plans:[{id:1,name:"Super Plan"},{id:2,name:"Normal Plan"}] // Plans of the sercice
+    bindable:true, // Tells if the service is bindable, then the platform keeps this information
+    plans:[{id:1,name:"Super Plan"},{id:2,name:"Normal Plan"}] // Plans of the service
    })
 }
 )
@@ -178,11 +178,11 @@ app.listen(port, () => {
 })
 
 ```
-Since now you have seen the implementation a of service instance creation, this leads us to the next step, which is the binding creation.
+Since now you have seen the implementation of service instance creation, this leads us to the next step, which is binding creation.
 
 ### 3.3. Implementation of Service Binding Creation - Binding Request
 
-After the creation of a service instance most of the time the next request coming will be for the creation of a service binding.
+After the creation of a service instance, most of the time the next request coming will be for the creation of a service binding.
 
 It is also a **PUT** request to the endpoint */v2/service_instances/:instance_id/service_bindings/:binding_id*
 
@@ -199,8 +199,8 @@ app.get('/v2/catalog', async(req,res) => {
     id:"dummy123", // ID of service instance, have might be any unique id
     name:"Super Complex Calculation Service", // Name of of service
     description:"This service does a super complex calculation which is very important for our business", // Description
-    bindable:true, // Tells if the service is bindable, then platform keeps this information
-    plans:[{id:1,name:"Super Plan"},{id:2,name:"Normal Plan"}] // Plans of the sercice
+    bindable:true, // Tells if the service is bindable, then the platform keeps this information
+    plans:[{id:1,name:"Super Plan"},{id:2,name:"Normal Plan"}] // Plans of the service
    })
 })
 
@@ -232,9 +232,9 @@ app.listen(port, () => {
 
 ```
 
-### 3.4. Implemetation of Service Binding Deletion
+### 3.4. Implementation of Service Binding Deletion
 
-Another action request which a service broker handles is deletion of service bindings.
+Another action request that a service broker handles is the deletion of service bindings.
 
 And unsurprisingly the request is a **DELETE** request to */v2/service_instances/:instance_id/service_bindings/:binding_id*
 
@@ -253,8 +253,8 @@ app.get('/v2/catalog', async(req,res) => {
     id:"dummy123", // ID of service instance, have might be any unique id
     name:"Super Complex Calculation Service", // Name of of service
     description:"This service does a super complex calculation which is very important for our business", // Description
-    bindable:true, // Tells if the service is bindable, then platform keeps this information
-    plans:[{id:1,name:"Super Plan"},{id:2,name:"Normal Plan"}] // Plans of the sercice
+    bindable:true, // Tells if the service is bindable, then the platform keeps this information
+    plans:[{id:1,name:"Super Plan"},{id:2,name:"Normal Plan"}] // Plans of the service
    })
 })
 
@@ -315,8 +315,8 @@ app.get('/v2/catalog', async(req,res) => {
     id:"dummy123", // ID of service instance, have might be any unique id
     name:"Super Complex Calculation Service", // Name of of service
     description:"This service does a super complex calculation which is very important for our business", // Description
-    bindable:true, // Tells if the service is bindable, then platform keeps this information
-    plans:[{id:1,name:"Super Plan"},{id:2,name:"Normal Plan"}] // Plans of the sercice
+    bindable:true, // Tells if the service is bindable, then the platform keeps this information
+    plans:[{id:1,name:"Super Plan"},{id:2,name:"Normal Plan"}] // Plans of the service
    })
 })
 
@@ -368,9 +368,9 @@ app.listen(port, () => {
 ```
 
 ### 3.6. Registering to Service Broker
-All of the trivial implementation we've done so far were on the backing service side. But to be able to interact with your service broker you have to tell your platform to go and talk with your service broker.
+All of the trivial implementations we've done so far was on the backing service side. But to be able to interact with your service broker you have to tell your platform to go and talk with your service broker.
 
-This is called **registeration to the service broker.**
+This is called **registration to the service broker.**
 
 For example in SAP BTP, the [BTP CLI](https://help.sap.com/docs/BTP/btp-cli/intro.html) command below can be used for registering to a service broker from a consumer subaccount:
 
@@ -382,17 +382,17 @@ For more details please check the official [documentation](https://help.sap.com/
 
 
 ## 4. What is @sap/sbf? 
-On the previous sections you have learned what a service broker is and for which purpose it serves.
+In the previous sections, you have learned what a service broker is and for which purpose it serves.
 
 Now let's imagine a scenario like the following.
 
-Let's say you have three different backing services which you would like to use from SAP BTP. You would have to go to each of this three different backing service and implement OSBAPI standards, and the corresponding code would probably be very similar in all of the backing services. Furthermore, you would need to implement credentials for each of these services. If you have 10 business services, multiply this implementation effort with 10.
+Let's say you have three different backing services which you would like to use from SAP BTP. You would have to go to each of these three different backing services and implement OSBAPI standards, and the corresponding code would probably be very similar in all of the backing services. Furthermore, you would need to implement credentials for each of these services. If you have 10 business services, multiply this implementation effort by 10.
 
 Then the question arises: *Can we avoid the effort of implementing OSBAPI for all of our backing services?*
 The answer is: *Yes, you can!*
 
 The Service Broker Framework ([@sap/sbf](https://www.npmjs.com/package/@sap/sbf?activeTab=readme#additional-service-configuration)) 
-is a Node.js framwork which implements the Open Service Broker API. It can be used in the Cloud Foundry environment of SAP Business Technology Platform or on-premise in SAP HANA XS Advanced model. Therefore, when you deploy this npm module as its explained in the official documentation, you will have a service broker which implements OSBAPI out-of-the-box.
+is a Node.js framework that implements the Open Service Broker API. It can be used in the Cloud Foundry environment of SAP Business Technology Platform or on-premise in SAP HANA XS Advanced model. Therefore, when you deploy this npm module as explained in the official documentation, you will have a service broker which implements OSBAPI out-of-the-box.
 
 Please refer to the official documentation of @sap/sbf for further information.
 
@@ -403,14 +403,14 @@ After all the theoretical background on service brokers, you will learn how we i
 [<img src="./images/sbflow.png" width="400"/>](./images/sbflow.png)
 
 As you can see in the diagram above,
- - Our backing service is the **Sustainable SaaS API** and hosted in the provider subaccount
- - The **Sustainable SaaS API Broker** is the service broker for our backing service
- - An XSUAA service instance with **broker** plan has been bound to both **Service Broker** and **Backing Service**
+ - Our backing service is the **Sustainable SaaS API** and is hosted in the provider subaccount.
+ - The **Sustainable SaaS API Broker** is the service broker for our backing service.
+ - An XSUAA service instance with **broker** plan has been bound to both **Service Broker** and **Backing Service**.
 
 Let's briefly go through the flow in the diagram for a better understanding.
 
 ### 5.1. Request Number 1
-This request represents the registration of a service broker from **consumer subaccount** so that you can create a service instance afterwards. After this step your backing service is visible in the SAP BTP Service catalog within the consumer subaccount. 
+This request represents the registration of a service broker from **consumer subaccount** so that you can create a service instance afterward. After this step, your backing service is visible in the SAP BTP Service catalog within the consumer subaccount. 
 
 In the sample app, when a tenant subscribes to the multitenant business application, this request is automatically send from the multitenant business application.
 
@@ -427,7 +427,7 @@ See below that after subscribing, the Sustainable SaaS API is there and availabl
 [<img src="./images/catalog-after-subscription.png" width="400"/>](./images/catalog-after-subscription.png)
 
 ### 5.2. Request Number 2
-This request is sent by SAP BTP to your service broker to see which plans your service offers before service creation. For instance, default plan, premium plan etc. This is the screenshot of request number 2 from SAP BTP to our **Sustainable SaaS API Broker**. The response is basically **default** and **premium** as configured in the respective [catalog.json](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/blob/basic/broker/catalog.json) file.
+This request is sent by SAP BTP to your service broker to see which plans your service offers before service creation. For instance, default plan, premium plan, etc. This is the screenshot of request number 2 from SAP BTP to our **Sustainable SaaS API Broker**. The response is basically **default** and **premium** as configured in the respective [catalog.json](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/blob/basic/broker/catalog.json) file.
 
 [<img src="./images/catalog-plans.png" width="400"/>](./images/catalog-plans.png)
 
@@ -437,12 +437,12 @@ This request creates your service instance and triggers the provisioning event o
 [<img src="./images/create-instance.png" width="400"/>](./images/create-instance.png)
 
 ### 5.4. Request Number 4
-This request is sent when the platform needs to create credentials which are valid for your service instance and/or bind your service instance to an application. Since @sap/sbf and the XSUAA broker plan are used by the service broker, this is automatically handled in our case. Whenever a binding request comes in, it first reaches the **Sustainable SaaS API Service Broker** @sap/sbf instance then which automatically creates credentials for the specific subaccount which sent the binding request by talking with XSUAA using the broker plan instance. These credentials will be valid since we have also bound the same XSUAA instance to our backing service (API).
+This request is sent when the platform needs to create credentials that are valid for your service instance and/or bind your service instance to an application. Since @sap/sbf and the XSUAA broker plan are used by the service broker, this is automatically handled in our case. Whenever a binding request comes in, it first reaches the **Sustainable SaaS API Service Broker** @sap/sbf instance then which automatically creates credentials for the specific subaccount which sent the binding request by talking with XSUAA using the broker plan instance. These credentials will be valid since we have also bound the same XSUAA instance to our backing service (API).
 
 [<img src="./images/create-binding.png" width="400"/>](./images/create-binding.png)
 
 ### 5.5. Request Number 5
-Having the credentials, a tenant is now ready to call the backing service **Sustainable SaaS API** from their subaccount, from their SAP S/4HANA system or any other third party system. Since the JWT token contains the subaccount id, our CAP-based API will identify the incoming tenant and upload the data directly to the correct tenant database container with the help of service manager *container plan*. Using the service binding credentials like the ones below, the Sustainable SaaS API (reachable by the **apiUrl**) can be called. The API itself is a CAP-based OData API .
+Having the credentials, a tenant is now ready to call the backing service **Sustainable SaaS API** from their subaccount, from their SAP S/4HANA system, or any other third-party system. Since the JWT token contains the subaccount id, our CAP-based API will identify the incoming tenant and upload the data directly to the correct tenant database container with the help of the SAP Service Manager *container plan*. Using the service binding credentials like the ones below, the Sustainable SaaS API (reachable by the **apiUrl**) can be called. The API itself is a CAP-based OData API .
 
 [<img src="./images/binding.png" width="400"/>](./images/binding.png)
 

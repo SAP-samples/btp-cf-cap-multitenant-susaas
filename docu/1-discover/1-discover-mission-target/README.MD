@@ -1,6 +1,6 @@
 # Discover the Mission Target
 
-In this mission you will learn how to setup a multitenant Software as a Service (SaaS) application in your SAP Cloud Foundry environment of the SAP Business Technology Platform (SAP BTP). The sample application has a focus on the topic of Sustainability and is called **Sustainable SaaS** (SusaaS). It allows **consumers** of your SaaS application to extend their SAP solutions like S/4HANA with additional features provided by you as a SaaS **provider**. 
+In this mission, you will learn how to set up a multitenant Software as a Service (SaaS) application in your SAP Cloud Foundry environment of the SAP Business Technology Platform (SAP BTP). The sample application has a focus on the topic of Sustainability and is called **Sustainable SaaS** (SusaaS). It allows **consumers** of your SaaS application to extend their SAP solutions like S/4HANA with additional features provided by you as a SaaS **provider**. 
 
 1. [Mission Scopes](#1-Mission-Scopes)
 2. [GitHub Repository](#2-GitHub-Repository)
@@ -19,37 +19,37 @@ See the following screenshots to get an idea of the application features. The de
 [<img src="./images/App_Assessment_01.png" width="300" />](./images/App_Assessment_01.png)
 [<img src="./images/App_Assessment_02.png" width="300" />](./images/App_Assessment_02.png)
 
-Due to the technical and theoretical complexity of the topic, the sample application shall not be seen or used in any kind for productive scenarios. Furthermore it shall give you a lot of ideas and approaches for your own scenario implementation. Our aim is to cover as many topics as possible but not in the greatest depth that might justify a productive usability.  
+Due to the technical and theoretical complexity of the topic, the sample application shall not be seen or used in any kind for productive scenarios. Furthermore, it shall give you a lot of ideas and approaches for your own scenario implementation. We aim to cover as many topics as possible but not in the greatest depth that might justify productive usability.  
 
-Below you can find an solution architecture diagram of the sample application. As you can see, the app contains a lot of services and tools which you will use during the course of this mission (click to enlarge).
+Below you can find a solution architecture diagram of the sample application. As you can see, the app contains a lot of services and tools which you will use during the course of this mission (click to enlarge).
 
 [<img src="./images/App_Architecture.png" width="600" />](./images/App_Architecture.png)
 
 
 ## 1. Mission Scopes
 
-This mission is structured in three different major scopes which are **Basic**, **Advanced** and **Expert**. This section will give you a brief overview of the scopes and the requirements from a SAP BTP license perspective. For the Basic and Advanced Scope there are separate GitHub branches including dedicated codelines whereas the Expert scope is only described in written format. 
+This mission is structured in three different major scopes which are **Basic**, **Advanced**, and **Expert**. This section will give you a brief overview of the scopes and the requirements from an SAP BTP license perspective. For the Basic and Advanced Scope, there are separate GitHub branches including dedicated codebase whereas the Expert Scope is only described in written format. 
 
 **Basic**
 
-The **Basic** scope contains a very comprehensive version of the **SusaaS (Sustainable SaaS)** application, which can be deployed to your SAP BTP Trial, Free Tier or Enterprise account. It contains **free services** only and is the foundation of the Advanced Scope. The objective of this scope is a SaaS application that can be deployed and tested by each and every developer in the community. It contains all major SaaS components (including an Inbound API) which are also part of the Advanced Scope but excludes paid services which will be part of the next scope. 
+The **Basic** scope contains a very comprehensive version of the **SusaaS (Sustainable SaaS)** application, which can be deployed to your SAP BTP Trial, Free Tier, or Enterprise account. It contains **free services** only and is the foundation of the Advanced Scope. The objective of this scope is a SaaS application that can be deployed and tested by each and every developer in the community. It contains all major SaaS components (including an Inbound API) which are also part of the Advanced Scope but excludes paid services which will be part of the next scope. 
 
 **Advanced**
 
-> **Important** - The Advanced Scope is still Work-in-Progress. The code and documentation is subject to change. 
+> **Important** - The Advanced Scope is still Work-in-Progress. The code and documentation are subject to change. 
 
 The **Advanced** scope adds further enterprise features to your SusaaS application like 
 - a real SAP S/4HANA backend pushing data to the SaaS APIs
 - SAP API Management for managing your SaaS API
 - users being centrally managed in SAP Identity Authentication Service
 
-Some Advanced Scope features are not available in the Trial version of SAP BTP (e.g., SAP Identity Authentication Service) or only for a limited timeframe (e.g., SAP Integration Suite). For this reason, you will either need a Free Tier or Enterprise subscription of SAP BTP to use these services. The same applies for an SAP NetWeaver or SAP S/4HANA system, which you either need to bring yourself or you need to setup a [CAL instance](https://cal.sap.com/) which will cost you a few dollars per months (don't forget to stop your system if not in use :) !) .
+Some Advanced Scope features are not available in the Trial version of SAP BTP (e.g., SAP Identity Authentication Service) or only for a limited timeframe (e.g., SAP Integration Suite). For this reason, you will either need a Free Tier or Enterprise subscription of SAP BTP to use these services. The same applies to an SAP NetWeaver or SAP S/4HANA system, which you either need to bring yourself or you need to set up a [CAL instance](https://cal.sap.com/) which will cost you a few dollars per month (don't forget to stop your system if not in use :) ).
 
 **Expert**
 
-> **Important** - The Expert Scope is still Work-in-Progress. The code and documentation is subject to change. 
+> **Important** - The Expert Scope is still Work-in-Progress. The code and documentation are subject to change. 
 
-The **Expert** scope does not provide a dedicated codline but contains a lot of further expert knowledge for developers implementing SaaS application on SAP BTP. The different topics of the Expert Scope mostly result from experiences of the latest learnings and challenges of a Proof-of-Concept which was conducted with an SAP Partner. T
+The **Expert** scope does not provide a dedicated codline but contains a lot of further expert knowledge for developers implementing SaaS applications on SAP BTP. The different topics of the Expert Scope mostly result from experiences of the latest learnings and challenges of a Proof-of-Concept which was conducted with an SAP Partner. T
 
 The topics include but are not limited to
  - Using a custom domain for your SaaS app 
@@ -76,11 +76,11 @@ You can either clone or fork the repository to your own GitHub account.
 
 ## 3. Mission Audience
 
-While the ecosystem of partner-built software for SAP On-Premise solutions has grown very well over the last decades, the available partner offerings and the interest in building solutions on SAP BTP starts to increase. A lot of SAP partners wonder how to port their existing developments to the cloud, the satisfy the demand of their existing customers moving to SAP BTP or to reach out to a much broader market than before. 
+While the ecosystem of partner-built software for SAP On-Premise solutions has grown very well over the last decades, the available partner offerings and the interest in building solutions on SAP BTP starts to increase. A lot of SAP partners wonder how to port their existing developments to the cloud, to satisfy the demand of their existing customers moving to SAP BTP, or reach out to a much broader market than before. 
 
-For that reason, this mission and the related topic of developing multitenant SaaS applications on SAP BTP is of great interest for partners and customers. It is supposed to give all interested stakeholders an introduction to the theoretical basics of Software as a Service on SAP BTP and provides a great codeline which can be used to kickstart your own implementation. Whereas some other great sample missions on building SaaS applications in SAP BTP Kyma environment already exist ([see here](https://discovery-center.cloud.sap/missiondetail/3683/3726/)), this mission focuses on the SAP Cloud Foundry environment, which is a fundamental pillar of the SAP BTP success. 
+For that reason, this mission and the related topic of developing multitenant SaaS applications on SAP BTP is of great interest to partners and customers. It is supposed to give all interested stakeholders an introduction to the theoretical basics of Software as a Service on SAP BTP and provides a great codebase that can be used to kickstart your own implementation. Whereas some other great sample missions on building SaaS applications in SAP BTP Kyma environment already exist ([see here](https://discovery-center.cloud.sap/missiondetail/3683/3726/)), this mission focuses on the SAP Cloud Foundry environment, which is a fundamental pillar of the SAP BTP success. 
 
-There is no previous knowledge required for this mission, so all new but also experienced developers can setup the sample application. Nevertheless, a basic understanding of SAP BTP service offerings will help you grasping the ideas and concepts. 
+There is no previous knowledge required for this mission, so all new but also experienced developers can set up the sample application. Nevertheless, a basic understanding of SAP BTP service offerings will help you grasp the ideas and concepts. 
 
 
 ## 4. Focus Topics
@@ -88,15 +88,15 @@ There is no previous knowledge required for this mission, so all new but also ex
 The main topics of the mission include: 
 
 * Understanding Software as a Service and multitenancy
-* Using SaaS related features of SAP BTP, Cloud Foundry Runtime
+* Using SaaS-related features of SAP BTP, Cloud Foundry Runtime
 * Developing extensions for SAP solutions like S/4HANA based on 
   - the latest SAP CAP release features
   - a UI based on SAP Fiori Elements for OData v4 
-  - SAP HANA Cloud as powerful persistence layer
+  - SAP HANA Cloud as a powerful persistence layer
   - APIs for flexible consumer data integration
   - and many more...
 * Expert topics to consider when building SaaS apps like
-  - setup of a custom domain for your app
+  - set up a custom domain for your app
   - deploying your app to multiple regions
   - handling tenant database containers
   - usage of CI/CD and Transport Management
@@ -109,10 +109,10 @@ The tutorial is provided on an "as-is" basis. Currently, the following known iss
 
 **SAP Fiori Elements**
  - Chart destroy issue
-   - **Problem**: Trying to open the Assessments not possible after it is been successfully opened before
-   - **Issue**: If the charts in the Assessments app have not been rendered because you haven't loaded the object page subsections, some chart related components are not destroyed properly when leaving the Assessments app. 
+   - **Problem**: Trying to open the Assessments is not possible after it is been successfully opened before
+   - **Issue**: If the charts in the Assessments app have not been rendered because you haven't loaded the object page subsections, some chart-related components are not destroyed properly when leaving the Assessments app. 
    - **Workaround**: Refresh the page and open the Assessments app again. Open all Object Page Sections at least once before leaving the Assessments app.
-   - **Status**: Issue fixed by development team and released in upcoming SAPUI5 version.
+   - **Status**: Issue fixed by the development team and released in upcoming SAPUI5 version.
 
 
 ## 6. Obtain Support

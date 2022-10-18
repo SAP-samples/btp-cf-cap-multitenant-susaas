@@ -1,6 +1,6 @@
 # Prepare the Provider Subaccount
 
-In this chapter you will learn how to prepare your SAP BTP Provider Subaccount for deployment of the SaaS solution by assigning the required entitlements. 
+In this chapter, you will learn how to prepare your SAP BTP Provider Subaccount for the deployment of the SaaS solution by assigning the required entitlements. 
 
 1. [Prerequisites for Provider Subaccount](#1-Prerequisites-for-Provider-Subaccount)
 2. [Entitlements for Provider Subaccount](#2-Entitlements-for-Provider-Subaccount)
@@ -14,14 +14,14 @@ In this chapter you will learn how to prepare your SAP BTP Provider Subaccount f
 
 As already mentioned, a **Trial** account is sufficient for the deployment of the **Basic Scope**. 
 
-> **Important** - As of today, please make sure to create a SAP BTP Trial Account in the **US East (VA)** region (us10) in case you want to test this use-case. The Singapore region does not offer the required SAP HANA Cloud database support for Trial accounts.
+> **Important** - As of today, please make sure to create an SAP BTP Trial Account in the **US East (VA)** region (us10) in case you want to test this use-case. The Singapore region does not offer the required SAP HANA Cloud database support for Trial accounts.
 
 After setting up your SAP BTP Trial Account please continue with the following steps.
 
 * Enable the SAP BTP Cloud Foundry environment.
-* Create a SAP BTP Cloud Foundry Space and name it e.g., dev.
+* Create an SAP BTP Cloud Foundry Space and name it e.g., dev.
 
-Please check the limitations mentioned below when it comes to usage of SAP BTP Trial accounts or free/trial service plans. 
+Please check the limitations mentioned below when it comes to the usage of SAP BTP Trial accounts or free/trial service plans. 
 
 ## 2. Entitlements for Provider Subaccount
 
@@ -45,20 +45,20 @@ The application requires the following set of SAP BTP entitlements in the Provid
 | [SAP HANA Cloud](https://discovery-center.cloud.sap/serviceCatalog/sap-hana-cloud?tab=customerreference&region=all)                            | hana          |     1    |
 | [SAP Service Manager](https://discovery-center.cloud.sap/serviceCatalog/service-manager/?region=all)                      | container     |     1    |
 
-If you need help on assigning entitlements to your provider subaccount, you might find information [here](https://help.sap.com/docs/SERVICE_TICKET_INTELLIGENCE/fb95f4cf368448be94f0eaed1583f491/cda19c940bf5404c8e81770b0f879e82.html?locale=en-US).
+If you need help assigning entitlements to your provider subaccount, you might find information [here](https://help.sap.com/docs/SERVICE_TICKET_INTELLIGENCE/fb95f4cf368448be94f0eaed1583f491/cda19c940bf5404c8e81770b0f879e82.html?locale=en-US).
 
 
 ## 3. SAP HANA Cloud prerequisite
 
-Make sure that you have an instance of SAP HANA Cloud database in your space or you share an existing SAP HANA Cloud instance with your Cloud Foundry Org or dedicated Space. For more details see - [Create an SAP HANA Database Instance Using SAP HANA Cloud Central](https://developers.sap.com/tutorials/hana-cloud-mission-trial-2.html).
+Make sure that you have an instance of SAP HANA Cloud database in your Cloud Foundry Space or that you share an existing SAP HANA Cloud instance with your Cloud Foundry Organization or dedicated Space. For more details see - [Create an SAP HANA Database Instance Using SAP HANA Cloud Central](https://developers.sap.com/tutorials/hana-cloud-mission-trial-2.html).
 
 
 ## 4. Limitations of trial/free services
 
-If using a SAP BTP Trial account or trial/free services plans like e.g., for SAP HANA Cloud, please be aware of the following limitations:
+If using an SAP BTP Trial account or trial/free services plans like e.g., for SAP HANA Cloud, please be aware of the following limitations:
 
-- Free **SAP HANA Cloud** instances will be stopped on a daily base to recude resource consumption. Check and if necessary restart your SAP HANA Cloud instance before using your SaaS susbscription. 
-- Your applications instances will be stopped on a daily base to reduce memory consumption. Make sure to check your applications and restart them if necessary before using the application in a Trial environment. 
+- Free **SAP HANA Cloud** instances will be stopped on a daily base to reduce resource consumption. Check and if necessary restart your SAP HANA Cloud instance before using your SaaS subscription. 
+- Your application instances will be stopped on a daily base to reduce memory consumption. Make sure to check your applications and restart them if necessary before using the application in a Trial environment. 
 
 
 ## 5. Troubleshooting

@@ -28,7 +28,7 @@ $ cf undeploy susaas --delete-services --delete-service-keys
 
 ## 2. Check successful Undeployment
 
-2.1. Go to your provider subaccount and check if all service instances, subscriptions and applications are deleted. 
+2.1. Go to your provider subaccount and check if all service instances, subscriptions, and applications are deleted. 
 
 2.2. If there are still artifacts remaining on the provider subaccount, please make sure to delete them manually in the following sequence:
 - Application instances

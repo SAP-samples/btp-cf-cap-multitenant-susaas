@@ -17,7 +17,7 @@ Please make sure to conduct the steps of this chapter with a **tenant user** tha
 
 1.1. Go to your consumer subaccount and click on **Instances and Subscriptions** on the left side. Then login with the tenant administrator user you have created in step 3.5. of [Subscribe Consumer Subaccount](../4-subscribe-consumer-subaccount/README.MD).
 
-> **Hint** - If you are alredy logged in to the application, you can open the application in incognito mode to login with a different user. 
+> **Hint** - If you are already logged in to the application, you can open the application in incognito mode to log in with a different user. 
 
 [<img src="./images/go-to-app.png" width="600"/>](./images/go-to-app.png)
 
@@ -28,7 +28,7 @@ Please make sure to conduct the steps of this chapter with a **tenant user** tha
 
 ## 2. Create a new Project
 
-2.1. In your home page please select **Manage Projects**.
+2.1. On your home page please select **Manage Projects**.
 
 [<img src="./images/manage-projects.png" width="600"/>](./images/manage-projects.png)
 
@@ -109,7 +109,7 @@ Feel free to make use of the **Prefill** button available in each Assessment tab
 
 [<img src="./images/create-user.png" width="600"/>](./images/create-user.png)
 
-4.3. Fill mandatory values as shown below.
+4.3. Fill in the mandatory values as shown below.
 
 > **Hint** In basic scope the email given below should exist in SAP ID Service.
 
@@ -126,7 +126,7 @@ Feel free to make use of the **Prefill** button available in each Assessment tab
 
 [<img src="./images/manage-projects.png" width="600"/>](./images/manage-projects.png)
 
-5.2. Select the **My Test Project** which you have created at the beginning.
+5.2. Select the **My Test Project** that you have created at the beginning.
 
 [<img src="./images/select-project.png" width="600"/>](./images/select-project.png)
 
@@ -148,4 +148,4 @@ For troubleshooting please check the separate **Troubleshooting** section of thi
 
 Please use the following links to find further information on the topics above:
 
-* Currently no further information available!
+* Currently no further information is available!

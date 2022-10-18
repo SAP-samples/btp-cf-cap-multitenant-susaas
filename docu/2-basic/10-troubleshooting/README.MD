@@ -1,13 +1,13 @@
 # Troubleshooting
 
-In this section of the **Basic Scope** you can find troubleshooting information that might help you in case of errors or issues. The content of this section will be continously enhanced in the future. 
+In this section of the **Basic Scope** you can find troubleshooting information that might help you in case of errors or issues. The content of this section will be continuously enhanced in the future. 
 
 1. [Deployment Issues](#1-Deployment-Issues)
 2. [Service Broker Issues](#2-Service-Broker-Issues)
 
 ## 1. Deployment Issues
 
-The most probable reason why your deployment might fail are listed below.
+The most probable reasons why your deployment might fail are listed below.
 
 1.1. Make sure you have assigned all required entitlements to your provider subaccount before deploying the solution! If a certain entitlement is missing, you will face errors during deployment. You can find the required entitlements in the **Prepare your Provider Subaccount** chapter of the mission ([click here](../2-prepare-provider-subaccount/README.MD)).
 
@@ -31,7 +31,7 @@ The most probable reason why your deployment might fail are listed below.
         }
 ```
 
-1.4. If the deployment fails because of service plan related issues, you're probably not deploying to a SAP BTP Trial subaccount. The **Basic Scope** deployment descriptor contains e.g., the Credential Store **trial** service plan which is available in Trial accounts only. Please change the mta.yaml file accordingly and change to a service plan available in your environment like e.g., **standard** in case of the Credential Service. 
+1.4. If the deployment fails because of service plan-related issues, you're probably not deploying to an SAP BTP Trial subaccount. The **Basic Scope** deployment descriptor contains e.g., the Credential Store **trial** service plan which is available in Trial accounts only. Please change the mta.yaml file accordingly and change to a service plan available in your environment e.g., **standard** in case of the Credential Service. 
 
 ```yaml
   # ----------------- CREDENTIAL STORE  -----------------------
@@ -46,7 +46,7 @@ The most probable reason why your deployment might fail are listed below.
 
 ## 2. Service Broker Issues
 
-2.1. Make sure that you unregistered all the service brokers before you delete your consumer subaccount. If you face the error below when trying to delete a tenant subaccount probably the reason is you still have **registered service broekers** in your tenant subaccount. 
+2.1. Make sure that you unregistered all the service brokers before you delete your consumer subaccount. If you face the error below when trying to delete a tenant subaccount probably the reason is you still have **registered service brokers** in your tenant subaccount. 
 
 [<img src="./images/subaccount-delete-error.png" width="600"/>](./images/subaccount-delete-error.png)
 
@@ -58,7 +58,7 @@ btp list services/broker --subaccount <subaccountId-of-your-tenant-subaccount>
 
 [<img src="./images/list-broker.png" width="600"/>](./images/list-broker.png)
 
-Then run command below to unregister from your service broker
+Then run the command below to unregister from your service broker:
 ```
 btp unregister services/broker --name <nameofyourbroker> --url <brokerurl> --user broker-user --password <brokerpassword>  --subaccount <subaccountId>
 ```

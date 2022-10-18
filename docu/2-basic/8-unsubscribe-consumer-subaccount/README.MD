@@ -1,6 +1,6 @@
 # Unsubscribe from a Consumer Subaccount
 
-If a consumer subaccount is subscribed to the multitenant Sustainable SaaS application and created a service instance for the related SaaS API, the subaccount should look like below (click to enlarge). 
+If a consumer subaccount is subscribed to the multitenant Sustainable SaaS application and created a service instance for the related SaaS API, the subaccount should look like the below (click to enlarge). 
 
 [<img src="./images/customer-subaccount.png" width="500"/>](./images/customer-subaccount.png)
 
@@ -29,9 +29,9 @@ The following steps show how to unsubscribe from the SaaS application and how to
 
 ## 2. Check successful Unsubscription
 
-2.1. Check if the susaas_api destination is deleted from tenant subaccount.
+2.1. Check if the susaas_api destination is deleted from the tenant subaccount.
 
-> **Hint** - The **susaas_api** destination is automatically removed by the application so you should not see it in consumer subaccount after unsubscription.
+> **Hint** - The **susaas_api** destination is automatically removed by the application so you should not see it in the consumer subaccount after unsubscription.
 
 [<img src="./images/check-destination.png" width="700"/>](./images/check-destination.png)
 
@@ -39,11 +39,11 @@ The following steps show how to unsubscribe from the SaaS application and how to
 
 2.2. Check if Sustainable SaaS API Broker is unregistered.
 
-> **Hint** - The **Sustainable SaaS API Broker** is automatically unregistered when unsubscribing from the Sustainable SaaS app in a consumer subaccounts. Consequently, the Sustainable SaaS API should not be visible in a consumer subaccount anymore, when a new service instance creation attempt is made from that subaccount. As you can see below, the **Sustainable SaaS API** is not visible anymore.
+> **Hint** - The **Sustainable SaaS API Broker** is automatically unregistered when unsubscribing from the Sustainable SaaS app in a consumer subaccount. Consequently, the Sustainable SaaS API should not be visible in a consumer subaccount anymore, when a new service instance creation attempt is made from that subaccount. As you can see below, the **Sustainable SaaS API** is not visible anymore.
 
 [<img src="./images/check-broker-unregister.png" width="700"/>](./images/check-broker-unregister.png)
 
-> **Hint** - If your broker is not unregistered automatically, you should unregister it with SAP BTP CLI using this [command](https://help.sap.com/docs/BTP/btp-cli/btp-unregister-services-broker.html). Make sure your service broker is unregistered, because otherwise you can **not** delete the consumer subaccount.
+> **Hint** - If your broker is not unregistered automatically, you should unregister it with SAP BTP CLI using this [command](https://help.sap.com/docs/BTP/btp-cli/btp-unregister-services-broker.html). Make sure your service broker is unregistered because otherwise you can **not** delete the consumer subaccount.
 
 
 ## 3. Troubleshooting

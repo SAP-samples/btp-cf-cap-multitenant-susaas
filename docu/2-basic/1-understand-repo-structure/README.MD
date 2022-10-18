@@ -14,11 +14,11 @@ This part of the mission will briefly outline the structure of the **Basic Scope
 10. [API Service](#10-api-service)
 11. [Test objects](#11-test-objects)
 
-Also check out the **Explore the application** part of this mission which describes various components and their tasks in greater detail ([click here](../7-explore-the-components/README.MD)).
+Also, check out the **Explore the application** part of this mission which describes various components and their tasks in greater detail ([click here](../7-explore-the-components/README.MD)).
 
 ## 1. Overview
 
-The repository consists of several directories containing the API (service) broker, the API service and the application layers like User Interface, the business application service layer and the data models deployed in a tenant-specific and shared database container.
+The repository consists of several directories containing the API (service) broker, the API service, and the application layers like User Interface, the business application service layer, and the data models deployed in a tenant-specific and shared database container.
 
 | | |
 |:--: | :--- |
@@ -35,7 +35,7 @@ Besides the **Approuter** instance, the **app** directory contains all SAP Fiori
 
 ## 3. API Broker
 
-The **broker** directory contains the API broker related development objects.
+The **broker** directory contains the API broker-related development objects.
 
 | | |
 |:--: | :--- |
@@ -44,7 +44,7 @@ The **broker** directory contains the API broker related development objects.
 
 ## 4. Deployment Configurations
 
-In the **configs** directory, deployment related configuration files are stored and linked in the deployment descriptor (mta.yaml). 
+In the **configs** directory, deployment-related configuration files are stored and linked in the deployment descriptor (mta.yaml). 
 
 | | |
 |:--: | :--- |
@@ -53,7 +53,7 @@ In the **configs** directory, deployment related configuration files are stored 
 
 ## 5. Tenant Database Container
 
-The **db** directory contains the definition of the tenant specific data model, which is deployed to a new isolated database container for each and every SaaS tenant upon subscription. 
+The **db** directory contains the definition of the tenant-specific data model, which is deployed to a new isolated database container for each and every SaaS tenant upon subscription. 
 
 | | |
 |:--: | :--- |
@@ -62,7 +62,7 @@ The **db** directory contains the definition of the tenant specific data model, 
 
 ## 6. Shared Database Container
 
-The **db_com** directory contains the definition of the shared data model, which is accessible from all tenant database containers. It is used for data required by all consumer tenants (e.g. master data like Currencies, Languages or Countries).
+The **db_com** directory contains the definition of the shared data model, which is accessible from all tenant database containers. It is used for data required by all consumer tenants (e.g. master data like Currencies, Languages, or Countries).
 
 | | |
 |:--: | :--- |
@@ -71,7 +71,7 @@ The **db_com** directory contains the definition of the shared data model, which
 
 ## 7. HTTP Test Files
 
-The **http** directory contains http files allowing you to test the SaaS API endpoints from a SaaS consumer perspective. Further details on how to use these HTTP files can be found in a separate part of this mission ([click here](../5-push-data-to-saas-api/README.MD)).
+The **http** directory contains HTTP files allowing you to test the SaaS API endpoints from a SaaS consumer perspective. Further details on how to use these HTTP files can be found in a separate part of this mission ([click here](../5-push-data-to-saas-api/README.MD)).
 
 | | |
 |:--: | :--- |
@@ -81,7 +81,7 @@ The **http** directory contains http files allowing you to test the SaaS API end
 ## 8. Annotation Files
 
 The **annotations** directory in the **srv** directory contains all 
-business application service related annotations. These annotations define the capabilites and features of the OData services but also define the layouts of the SAP Fiori Elements interfaces. 
+business application service-related annotations. These annotations define the capabilities and features of the OData services but also define the layouts of the SAP Fiori Elements interfaces. 
 
 | | |
 |:--: | :--- |
@@ -90,7 +90,7 @@ business application service related annotations. These annotations define the c
 
 ## 9. Business Application Service
 
-The rest of the **srv** directory contains the implementation of all business application service related features. This includes the OData services for the user interfaces (Admin and User service) as well as the automation logic executed on subscription of new consumer-tenants. A lot of onboarding steps have been automated using different Cloud Foundry APIs and SAP BTP services. 
+The rest of the **srv** directory contains the implementation of all business application service-related features. This includes the OData services for the user interfaces (Admin and User service) as well as the automation logic executed on the subscription of new consumer-tenants. A lot of onboarding steps have been automated using different Cloud Foundry APIs and SAP BTP services. 
 
 | | |
 |:--: | :--- |

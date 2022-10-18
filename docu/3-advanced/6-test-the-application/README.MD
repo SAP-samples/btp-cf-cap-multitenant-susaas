@@ -12,7 +12,7 @@ In this part of the mission, since you have already subscribed to the applicatio
 
 Please make sure to conduct the steps of this chapter with a user that was assigned the SaaS application **Admin** role collection. You will learn how to create a user having a regular **Member** role collection within this chapter. 
 
-In case you already completed the Basic Scope, the following steps might be very familiar too you. Still, you can see it as a good exercise. 
+In case you already completed the Basic Scope, the following steps might be very familiar to you. Still, you can see it as good exercise. 
 
 
 ## 1. Go to Application

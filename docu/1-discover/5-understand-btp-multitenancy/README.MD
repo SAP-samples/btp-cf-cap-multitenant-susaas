@@ -18,19 +18,19 @@ Check out the following content in SAP Help for further information ([click here
 
 ## 2. SAP BTP Multitenancy Model
 
-In this tutorial we are using some keywords like provider (sub)account, consumer/tenant subaccount, provisioning, onboarding, and data isolation. 
+In this tutorial, we are using some keywords like provider (sub)account, consumer/tenant subaccount, provisioning, onboarding, and data isolation. 
 
 **Provider (sub)account** 
-The provider is the vendor of the SaaS application. This is the company that is going to build, deliver, and operate the multitenant SaaS solution for all the consumers. The vendor has a **provider account**, a global account in SAP BTP.
+The provider is the vendor of the SaaS application. This is the company that is going to build, deliver, and operate the multitenant SaaS solution for all consumers. The vendor has a **provider account**, a global account in SAP BTP.
 
 **Consumer/Tenant subaccount** 
 A consumer or tenant is the user of the SaaS application. This can be another team or company that is going to use the multitenant SaaS solution. This consumer subscribes to the SaaS solution from their **consumer subaccount** which is a subaccount of the vendor's global account in SAP BTP.
 
-> **Hint** - It's important to differentiate between *consumer* and *tenant*. While a consumer can consume multiple SaaS applications, a tenant is a specific instance of a SaaS application of a dedicated consumer. Still a *tenant subaccount* and a *consumer subaccount* refer to the same entity, meaning a dedicated subaccount in which one or multiple tenant instances of a consumer are subscribed. 
+> **Hint** - It's important to differentiate between *consumer* and *tenant*. While a consumer can consume multiple SaaS applications, a tenant is a specific instance of a SaaS application of a dedicated consumer. Still, a *tenant subaccount* and a *consumer subaccount* refer to the same entity, meaning a dedicated subaccount in which one or multiple tenant instances of a consumer are subscribed. 
 > 
->Subaccount (1..1) Consumer - For each subaccount there can only be one consumer assignment<br>
->Subaccount (1..1) Tenant - For each subaccount there can only be one tenant per SaaS application<br>
->Consumer (1..1) Tenant - For each consumer there can only be one tenant per SaaS application<br>
+>Subaccount (1..1) Consumer - For each subaccount, there can only be one consumer assignment<br>
+>Subaccount (1..1) Tenant - For each subaccount, there can only be one tenant per SaaS application<br>
+>Consumer (1..1) Tenant - For each consumer, there can only be one tenant per SaaS application<br>
 
 **Onboarding**
 This is the end-to-end process of creating a subaccount for a new SaaS consumer in the vendor's global account in SAP BTP and giving him access to the actual consumer tenant SaaS application instance. 
@@ -48,6 +48,6 @@ Putting together the general account model of an SAP BTP SaaS solution results i
 
 ## 4. SAP CAP (MTXS)
 
-The sample application has been developed using the SAP Cloud Application Programming (CAP) Model. This framework offers a dedicated npm package for handling multitenancy which is called **cap-mtxs** ([click here](https://www.npmjs.com/package/@sap/cds-mtxs)). The **@sap/cds-mtxs** package provides a set of services which implement **m**ultitenancy, features **t**oggles and e**x**tensibility (‘MTX’ stands for these three features). 
+The sample application has been developed using the SAP Cloud Application Programming (CAP) Model. This framework offers a dedicated npm package for handling multitenancy which is called **cap-mtxs** ([click here](https://www.npmjs.com/package/@sap/cds-mtxs)). The **@sap/cds-mtxs** package provides a set of services that implement **m**ultitenancy, features **t**oggles, and e**x**tensibility (‘MTX’ stands for these three features). 
 
 Please refer to the official CAP MTXS documentation for further details ([click here](https://cap.cloud.sap/docs/guides/multitenancy/mtxs)).

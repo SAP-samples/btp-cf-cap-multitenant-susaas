@@ -3,7 +3,7 @@
 In this part of the mission, you will learn about different aspects of multitenancy and how multitenancy is handled by the SaaS application.
 
 1. [Application Router](#1-Application-Router)<br>
-1.1. [Application Router and identiy zones](#11-Application-Router-and-identiy-zones)<br>
+1.1. [Application Router and identity zones](#11-Application-Router-and-identity-zones)<br>
 1.2. [Application Router and multitenancy authentication](#12-Application-Router-and-multitenancy-authentication)
 
 2. [Authorization & Trust management service](#2-Authorization-&-Trust-management-service)<br>
@@ -14,11 +14,11 @@ In this part of the mission, you will learn about different aspects of multitena
 
 ## 1. Application Router
 
-The application router is the single point-of-entry for an application running in the Cloud Foundry environment on SAP BTP. The application router is used to serve static content, authenticate users, rewrite URLs, and forward or proxy requests to other micro services while propagating user information. 
+The application router is the single point of entry for an application running in the Cloud Foundry environment on SAP BTP. The application router is used to serve static content, authenticate users, rewrite URLs, and forward or proxy requests to other microservices while propagating user information. 
 
-### 1.1. Application Router and identiy zones
+### 1.1. Application Router and identity zones
 
-Each multitenant application has to deploy its own application router, and the application router handles requests of all tenants to the application. The application router is able to determine the tenant identifier from the URL subdomain and then forwards the authentication request to the User Account and Authentication (UAA) service and the related identity zone. Each identity zone can be uniquely identified by a subdomain identifier. An identity zone is a logical boundary around the entities UAA manages. 
+Each multitenant application has to deploy its own application router, and the application router handles requests of all tenants to the application. The application router can determine the tenant identifier from the URL subdomain and then forwards the authentication request to the User Account and Authentication (UAA) service and the related identity zone. Each identity zone can be uniquely identified by a subdomain identifier. An identity zone is a logical boundary around the entities UAA manages. 
 
 Those entities in a zone include and define e.g.:
 - Users
@@ -30,9 +30,9 @@ This allows each tenant subaccount to handle users and authentication processes 
 
 ### 1.2. Application Router and multitenancy authentication
 
-The followings steps are happening during authentication of consumer requests in a multitenant application. To learn more about the prerequistes like tenant-mode **shared** and the **application** service plan, please read the following sections providing more details. 
+The following steps are happening during the authentication of consumer requests in a multitenant application. To learn more about the prerequisites like tenant-mode **shared** and the **application** service plan, please read the following sections providing more details. 
 
-The application router must determine the tenant-specific subdomain for the UAA that in turn determines the identity zone, used for authentication. This determination is done by the `TENANT_HOST_PATTERN` environment variable. The `TENANT_HOST_PATTERN` is a string containing a regular expression with a capturing group. The request host is matched against this regular expression. The value of the first capturing group is used as the tenant subdomain.
+The application router must determine the tenant-specific subdomain for the UAA that in turn determines the identity zone, used for authentication. This determination is done by the `TENANT_HOST_PATTERN` environment variable. The `TENANT_HOST_PATTERN` is a string containing a regular expression with a capturing group. The request-host is matched against this regular expression. The value of the first capturing group is used as the tenant subdomain.
 
 If you have multiple routes to the same application, for example `tenant1.<application domain>` and `tenant2.<application domain>` the respective `TENANT_HOST_PATTERN` could be `^(.*).<application domain>` capturing the group `tenant1` and `tenant2`.
 
@@ -40,7 +40,7 @@ This URL-based method of identifying a tenant by handling consumer-specific auth
 
 [<img src="./images/AR_Flow.png" width="800"/>](./images/AR_Flow.png)
 
-1) The application router derives the identity zone identifier from the URL using the `TENANT_HOST_PATTERN` approach described above. Each consumer subaccount maps to a unique identity zone and a unique subdomain associated to this identity zone. 
+1) The application router derives the identity zone identifier from the URL using the `TENANT_HOST_PATTERN` approach described above. Each consumer subaccount maps to a unique identity zone and a unique subdomain associated with this identity zone. 
 
 2) The application router calls the tenant-aware XSUAA service, which is responsible for the authentication of the business user.
 
@@ -65,15 +65,15 @@ This URL-based method of identifying a tenant by handling consumer-specific auth
 
 ### 2.1. Authorization & Trust management service - **shared** tenant-mode
 
-The tenant-mode **shared** allows you to share an UAA service instance of type **application** in a multitenant scenario. This is a central requirement of a multitenant application, as otherwise a separate UAA service instance would be required in each and every consumer subaccount. As all tenants share the same XSUAA instance and only the authentication is delegated to the respective tenant identity zone, this is a great process simplification.  
+The tenant-mode **shared** allows you to share a UAA service instance of type **application** in a multitenant scenario. This is a central requirement of a multitenant application, as otherwise a separate UAA service instance would be required in each and every consumer subaccount. As all tenants share the same XSUAA instance and only the authentication is delegated to the respective tenant identity zone, this is a great process simplification.  
 
-In a normal scenario in which the tenant-mode **dedicated** is set, XSUAA (overall) would only issue a token for a user, if he authenticates against the identity-zone in which the Auth. & Trust mgmt. service instance was created. If a user would authenticate using another identity-zone authentication endpoint (e.g. **consumer**.authentication.eu10.hana.ondemand.com), using the same Client-ID and Client Secret of the service binding, it fails. The Client-ID and Client Secret can only be used by a **dedicated** identity-zone which is the identity-zone in which the Auth. & Trust mgmt. service instance was created. 
+In a normal scenario in which the tenant-mode **dedicated** is set, XSUAA (overall) would only issue a token for a user, if he authenticates against the identity-zone in which the Auth. & Trust mgmt. service instance was created. If a user would authenticate using another identity-zone authentication endpoint (e.g. **consumer**.authentication.eu10.hana.ondemand.com), using the same Client-ID and Client Secret of the service binding, it fails. The Client-ID and Client Secret can only be used by a **dedicated** identity-zone which is the identity zone in which the Auth. & Trust Management service instance was created. 
 
-In a tenant-mode **shared** scenario, XSUAA (Overall) will also issue tokens to users authenticating via other identity-zones (e.g. consumer.authentication.eu10.hana.ondemand.com), using the exact same Client-ID and Client-Secret which is bound to the application router via service binding to retreive the token. Nevertheless XSUAA will only issue a token for identity-zones of consumer subaccounts and keeps track of these consumer identity-zones. The Auth. & Trust mgmt. service instance though will be **shared** among multiple identity-zones and allows authentication using the exact same Client-ID and Client-Secret (taken from the service binding of the application router) for users authenticated via various identity zones. 
+In a tenant-mode **shared** scenario, XSUAA (Overall) will also issue tokens to users authenticating via other identit -zones (e.g., consumer.authentication.eu10.hana.ondemand.com), using the same Client-ID and Client-Secret which is bound to the application router via service binding to retrieve the token. Nevertheless, XSUAA will only issue a token for identity zones of consumer subaccounts and keeps track of these consumer identity-zones. The Auth. & Trust mgmt. service instance though will be **shared** among multiple identity zones and allows authentication using the exact same Client-ID and Client-Secret (taken from the service binding of the application router) for users authenticated via various identity zones. 
 
-After authenticating with the **shared** client credentials to the identity-zone of the consumer, XSUAA will issue the respective scopes of the user within the consumer subaccount. These scopes are generated in the consumer subaccount upon subscription and have the same values in each an every subaccount based on the `<xsappname>!t<tenant index>` format mentioned in the **application** plan like e.g. "dev-susaas!t134415.Admin",
+After authenticating with the **shared** client credentials to the identity zone of the consumer, XSUAA will issue the respective scopes of the user within the consumer subaccount. These scopes are generated in the consumer subaccount upon subscription and have the same values in each and every subaccount based on the `<xsappname>!t<tenant index>` format mentioned in the **application** plan like e.g. "dev-susaas!t134415.Admin",
 
-Below you can see two screenshots of the provider service credentials and a token issued for one of the consumer tenants. You can see that the consumer token has been issued using the Client-ID of the provider subaccount Auth. & Trust mgmt. service instance. Still the identity zone (zid) differs from the identiy zone of the provider subaccount. 
+Below you can see two screenshots of the provider service credentials and a token issued for one of the consumer tenants. You can see that the consumer token has been issued using the Client-ID of the provider subaccount Auth. & Trust mgmt. service instance. Still, the identity zone (zid) differs from the identity zone of the provider subaccount. 
 
 **Client Credentials** (Provider subaccount)
 
@@ -88,9 +88,9 @@ Below you can see two screenshots of the provider service credentials and a toke
 
 The service plan **application** requires that the xsappname which is specified in the xs-security.json file is unique in the Cloud Foundry landscape within each tenant (SAP BTP subaccount) in which the application is deployed. This means that an application may be deployed in several SAP BTP subaccounts at the same time but not twice in the same tenant (unless you modify the xsappname in xs-security.json). You would get an error message during the second deployment. 
 
-The xsappname that is written into the credentials section of the environment is enhanced with a suffix and has the format `<xsappname>!t<tenant index>`. The tenant index is a running number that the UAA maintains internally. It differs from subaccount to subaccount. 
+The xsappname that is written into the credentials section of the environment is enhanced with a suffix and has the format `<xsappname>!t<tenant index>`. A tenant index is a running number that the UAA maintains internally. It differs from subaccount to subaccount. 
 
-In a multitenant scenario, the actual application instances only exist in the provider subaccount, whereas XSUAA related objects like scopes, role templates and role collections are duplicated during the subscription process. Scopes have an equal format `<xsappname>!t<tenant index>.<scope>` in all consumer subaccounts e.g. **dev-susaas!t134415.Admin**.
+In a multitenant scenario, the actual application instances only exist in the provider subaccount, whereas XSUAA-related objects like scopes, role templates, and role collections are duplicated during the subscription process. Scopes have an equal format `<xsappname>!t<tenant index>.<scope>` in all consumer subaccounts e.g. **dev-susaas!t134415.Admin**.
 
 
 ## 3. Further information

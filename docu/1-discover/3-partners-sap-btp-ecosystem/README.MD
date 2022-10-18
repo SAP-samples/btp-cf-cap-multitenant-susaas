@@ -1,6 +1,6 @@
 # Partners in SAP BTP Ecosystem 
 
-To learn more about how SAP BTP is helping partners and businesses succeed, check out the [Accelerating Innovation and Time to Market with SAP BTP](https://news.sap.com/2022/04/idc-study-on-sap-btp-partners-accelerate-innovation/) article, some [recent partner success stories](https://www.sap.com/products/technology-platform/partners.html) or, if you’re interested in SAP BTP software partnership opportunities with SAP, please visit [SAP PartnerEdge, Build](https://www.sap.com/partner/become/partneredge-build.html) for more information. Let us also use the chance to provide you some more input about **SAP Industry Cloud** in this context. 
+To learn more about how SAP BTP is helping partners and businesses succeed, check out the [Accelerating Innovation and Time to Market with SAP BTP](https://news.sap.com/2022/04/idc-study-on-sap-btp-partners-accelerate-innovation/) article, some [recent partner success stories](https://www.sap.com/products/technology-platform/partners.html) or, if you’re interested in SAP BTP software partnership opportunities with SAP, please visit [SAP PartnerEdge, Build](https://www.sap.com/partner/become/partneredge-build.html) for more information. Let us also use the chance to provide you with some more input about **SAP Industry Cloud** in this context. 
 
 ## What is SAP Industry Cloud?
 

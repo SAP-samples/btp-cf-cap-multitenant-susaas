@@ -16,4 +16,4 @@ This part of the mission will briefly outline the repository structure of the **
 | [srv/utils/user-management-utils.js](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/blob/advanced/srv/utils/user-management-utils.js)  | [<img src="./images/idp-origin.png" width="400"/>](./images/idp-origin.png) | The origins in XSUAA API calls have been changed to **sap.custom** from **sap.default** since we are not using the default IDP but SAP IAS on this scope. |
 
 
-> **Hint** - To see all the differences between the advanced and basic branch, you can fork this repository and create a pull request with **basic** as base branch and **advanced** as compare branch.
+> **Hint** - To see all the differences between the advanced and basic branches, you can fork this repository and create a pull request with **basic** as base branch and **advanced** as compare branch.

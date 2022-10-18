@@ -6,7 +6,7 @@ The **Basic Scope** of the mission will provide you with the core elements requi
 2. [Scope Features](#2-Scope-Features)
 3. [Scope Result](#3-Scope-Result)
 
-You can setup the Basic Scope in any kind of SAP BTP environment so even **Trial** or **Free Tier** users can deploy this version of the SaaS application. See the following screenshot to get an idea of the Basic Scope architecture.
+You can set up the Basic Scope in any kind of SAP BTP environment so even **Trial** or **Free Tier** users can deploy this version of the SaaS application. See the following screenshot to get an idea of the Basic Scope architecture.
 
 ![Basic Architecture](./images/App_Architecture_Basic.png)
 
@@ -22,12 +22,12 @@ For completing the **Basic Scope** please follow the respective cards or check o
 6. Play around with the app and **test features end-to-end**. ➜ ([click here](../6-test-the-application/README.MD))
 7. **Explore the application components** in greater detail. ➜ ([click here](../7-explore-the-components/README.MD))
 8. Learn how to **unsubscribe a consumer account**. ➜ ([click here](../8-unsubscribe-consumer-subaccount/README.MD))
-9. **Undeploy the SaaS applicaction** if required. ➜ ([click here](../9-undeploy-saas-application/README.MD))
+9. **Undeploy the SaaS application** if required. ➜ ([click here](../9-undeploy-saas-application/README.MD))
 10. Check the **Troubleshooting** section in case of issues. ➜ ([click here](../10-troubleshooting/README.MD))
 
 ## 2. Scope Features
 
-The **Basic Scope** provides the sample implementation of a CAP based multitenant SaaS application in the Cloud Foundry environment containing features like a
+The **Basic Scope** provides the sample implementation of a CAP-based multitenant SaaS application in the Cloud Foundry environment containing features like a
 
 - **SAP HANA Cloud** database model to store the application or API data of all tenants and a data model shared among all tenants.
 - **CAP OData service** providing an OData v4 service for the application layer including annotations (Service Engine).
@@ -45,32 +45,32 @@ Furthermore, the **Basic Scope** provides sample integrations and usage scenario
     - **HTML5 Application Repository** storing and serving your static application content making your app more resilient.
 - important components for SaaS usage like
     - **SAP HANA Cloud** allowing you to use the powerful container concept for tenant separation on the same database.
-    - **Service Manager** which is responsible of handling and secure communication with the tenant database containers. 
+    - **Service Manager** which is responsible for handling a secure communication with the tenant database containers. 
     - **Application Router** which is one of the key players in handling the multitenancy features of your SaaS application.
 - Authorization & Trust Management service instances of
     - **application** plan which handles the XSUAA-based application authentication and authorization of all tenants.
     - **broker** plan which takes care of the XSUAA-based API access security requirements for all tenants.
 
-As the setup includes a lot of different services and components, only the elements which are not self-explainatory will be covered in detail by this mission scope. 
+As the setup includes a lot of different services and components, only the elements which are not self-explanatory will be covered in detail by this mission scope. 
 
-We highly recommend to check SAP Help or related documentations of the components (e.g., npm packages) in case you want to learn more. Please also check the [**Explore the Components**](../7-explore-the-components/README.MD) part of this mission scope to find more details about the most important application components!
+We highly recommend checking SAP Help or related documentation of the components (e.g., npm packages) in case you want to learn more. Please also check the [**Explore the Components**](../7-explore-the-components/README.MD) part of this mission scope to find more details about the most important application components!
 
 
 ## 3. Scope Result
 
 The result of this scope will be a SaaS application running in a subaccount of your own SAP BTP global account which 
 
-- offers your tenants an user interface to
-    - **manage** the tenant specific **users** of the SaaS application.
+- offers your tenants a user interface to
+    - **manage** the tenant-specific **users** of the SaaS application.
     - create **projects** and assign users as **members** to different projects.
     - setup **assessments** for analyzing product circularity metrics.
-- provides an SAP HANA Cloud HDI container based **data separation** for all tenants.
+- provides an SAP HANA Cloud HDI (*) container based **data separation** for all tenants.
 - can be subscribed from subaccounts (**consumers**) in the same global account.
-- creates a dedicated **service broker instance** for **API access** during subscription.
+- creates a dedicated **service broker instance** for **API access** during the subscription.
 - allows your tenants to read and **update data** using a multitenant **API** endpoint.
-- let's tenants **prefill** their assessments with data uploaded through the API.
+- let tenants **prefill** their assessments with data uploaded through the API.
 
-*HDI - HANA Deployment Infrastructure
+(*) HDI - HANA Deployment Infrastructure
 
 See the following screenshots will give you an idea of the Basic Scope results (click to enlarge).
 

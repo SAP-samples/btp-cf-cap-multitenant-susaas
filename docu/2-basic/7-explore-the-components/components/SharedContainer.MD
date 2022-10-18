@@ -1,35 +1,35 @@
 # Shared Database Container
 
-To have the ability to share data among your consumer tenants, a shared database container is setup for this sample scenario. This allows you as a provider to maintain e.g., master data  like **Languages**, **Countries** or **Currencies** in a central place and update it for all consumer tenants. 
+To have the ability to share data among your consumer tenants, a shared database container is set up for this sample scenario. This allows you as a provider to maintain e.g., master data like **Languages**, **Countries**, or **Currencies** in a central place and update it for all consumer tenants. 
 
 1. [Deployment descriptor](#1-Deployment-descriptor)
 2. [Tenant Database Container](#2-Tenant-Database-Container)
 3. [Keep in mind](#3-keep-in-mind)
 4. [Further information](#4-further-information)
 
-This concept is building on the cross-container-access capabilities of database containers in the same Cloud Foundry Space. In this sample scenario, the shared database container is used to share a sample table called and master data along the tenant database containers.
+This concept is building on the cross-container-access capabilities of database containers in the same Cloud Foundry Space. In this sample scenario, the shared database container is used to share a sample table and master data along the tenant database containers.
 
 [<img src="./images/CD_Flow.png" width="500"/>](./images/CD_Flow.png)
 
 
 ## 1. Deployment descriptor
 
-The HDI container required for the shared data is defined in the mta.yaml file and created during deployment of the SaaS application to the provider subaccount. For the tenant database container instances, SAP Service Manager (container plan) takes care of the container lifecycle. For that reason, there is no need to specify any resources for these tenant-specific containers in the mta.yaml file. 
+The HDI container required for the shared data is defined in the mta.yaml file and created during the deployment of the SaaS application to the provider subaccount. For the tenant database container instances, SAP Service Manager (container plan) takes care of the container lifecycle. For that reason, there is no need to specify any resources for these tenant-specific containers in the mta.yaml file. 
 
 [<img src="./images/CD_MtaRes.png" width="500"/>](./images/CD_MtaRes.png)
 
-To deploy content (like tables and views) to your shared database container, an additional module definiton is required resulting in a Node.js application repsonsible for the deployment of your shared database artifacts.
+To deploy content (like tables and views) to your shared database container, an additional module definition is required resulting in a Node.js application responsible for the deployment of your shared database artifacts.
 
 [<img src="./images/CD_MtaMod.png" width="500"/>](./images/CD_MtaMod.png)
 
-To allow access from your tenant-specific database containers to the shared database container, it needs to be added as a dependency to the SaaS service module. This is a prerequisite as the required dependeny between a new tenant database containers and the shared database container needs to be resolved upon subscription of each new consumer tenant. As the subscription is handled by the SaaS Service module, it is essential to provide the binding in form of a so called **Service Replacement**. 
+To allow access from your tenant-specific database containers to the shared database container, it needs to be added as a dependency to the SaaS service module. This is a prerequisite as the required dependency between new tenant database containers and the shared database container needs to be resolved upon subscription of each new consumer tenant. As the subscription is handled by the SaaS Service module, it is essential to provide the binding in form of a so/called **Service Replacement**. 
 
 [<img src="./images/CD_MtaReq.png" width="500"/>](./images/CD_MtaReq.png)
 
 
 ## 2. Tenant Database Container
 
-The concept of cross-container-access is based on a trusted relation between containers in the same Cloud Foundry Space. Still, to make the shared database container accessible from your tenant-specific database containers, some prerequistes need to be fulfilled. 
+The concept of cross-container-access is based on a trusted relation between containers in the same Cloud Foundry Space. Still, to make the shared database container accessible from your tenant-specific database containers, some prerequisites need to be fulfilled. 
 
 >**Important** - The concept of cross-container-access is very powerful but not trivial. Please refer to the official documentation in SAP Help to learn more ([click here](https://help.sap.com/docs/HANA_CLOUD_DATABASE/b9902c314aef4afb8f7a29bf8c5b37b3/4adba34bd86544a880db8f9f1e32efb7.html?&locale=en-US)).
 
@@ -42,7 +42,7 @@ context susaas.common {
 }
 ```
 
-First of all, you need to assign the technical users of your tenant containers dedicated access roles defined in the shared database container. Therefore, a role **COM_EXTERNAL_ACCESS** is defined in the shared database container, providing **READ** access to a shared sample table called **SUSAAS_COMMON_SHARED** (see definition above). Same applies for the shared tables containing master data like **Countries** or **Currencies**. For the so called **Object Owner(s)** of the accessing tenant database containers, a similar role **COM_EXTERNAL_ACCESS#** is required, which includes the same permissions **including grant option**. 
+First of all, you need to assign the technical users of your tenant containers dedicated access roles defined in the shared database container. Therefore, a role **COM_EXTERNAL_ACCESS** is defined in the shared database container, providing **READ** access to a shared sample table called **SUSAAS_COMMON_SHARED** (see definition above). The same applies to the shared tables containing master data like **Countries** or **Currencies**. For the so-called **Object Owner(s)** of the accessing tenant database containers, a similar role **COM_EXTERNAL_ACCESS#** is required, which includes the same permissions **including grant option**. 
 
 **db-com/src/COM_EXTERNAL_ACCESS.hdbrole**
 
@@ -69,7 +69,7 @@ First of all, you need to assign the technical users of your tenant containers d
 }
 ```
 
-These roles can now be used in the tenant database containers, where they need to be assigned to the **Object Owner(s)** and **Application User(s)** using a so called **.hdbgrants** file. This file is processed before deployment of a new tenant database container starts. It and ensures, that the technical users used during creation of new tenant datatabae container (but also during runtime access) have the required permissions to access the shared database container. 
+These roles can now be used in the tenant database containers, where they need to be assigned to the **Object Owner(s)** and **Application User(s)** using a so-called **.hdbgrants** file. This file is processed before the deployment of a new tenant database container starts. It ensures, that the technical users used during creation of new tenant database container (but also during runtime access) have the required permissions to access the shared database container. 
 
 **db/cfg/COM.hdbgrants**
 ```json
@@ -89,7 +89,7 @@ These roles can now be used in the tenant database containers, where they need t
 }
 ```
 
-After ensuring the technical users of new tenant database containers are assigned the reuqired roles to access the shared database container, you need to define so called **synonyms** for the shared target objects (e.g., tables or views). Therefore, two files are required. A so called **.hdbsynonymconfig** and a **.hdbsynonym** file. 
+After ensuring the technical users of new tenant database containers are assigned the required roles to access the shared database container, you need to define so-called **synonyms** for the shared target objects (e.g., tables or views). Therefore, two files are required. A so-called **.hdbsynonymconfig** and a **.hdbsynonym** file. 
 
 
 **db/cfg/COM.hdbsynonymconfig**
@@ -122,7 +122,7 @@ After ensuring the technical users of new tenant database containers are assigne
 
 Whereas the hdbsynonym file defines your synonym database object, the hdbsynonymconfig file is processed before the provisioning of a new tenant database container and provides configuration information to the Node.js deployer. In this case, the deployer is advised to dynamically read the schema name of the shared database container from the container service details. As no fixed schema name is defined for the shared database container (e.g., in the mta.yaml), the schema name is automatically generated upon deployment of the SaaS application. That's why for required references in the tenant database containers, we need to read the schema name dynamically from the container service binding details. See it as some kind of dynamic replacement instead of providing the unique schema name which could be something like ABC123XYZ987DEF456UVW.... 
 
-The synonyms can now be used in CDS model definitons or other native SAP HANA database objects like Views or Calculation Views. Just make sure to use `@cds.persistence.exists` annotation in case of a CDS usage, to prevent the cds compiler from creating a new database artifact for the existing synonym.  
+The synonyms can now be used in CDS model definitions or other native SAP HANA database objects like Views or Calculation Views. Just make sure to use `@cds.persistence.exists` annotation in case of CDS usage, to prevent the CDS compiler from creating a new database artifact for the existing synonym.  
 
 **db/data-model.cds**
 ```json

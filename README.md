@@ -6,40 +6,40 @@
 
 ## Description
 
-The **Sustainable SaaS (SusaaS)** sample application has been build in a partner collaboration to help interested developers, partners and customers in developing multitenant Software as a Service applications running in the Cloud Foundry environment of the SAP Business Technology Platform (SAP BTP).
+The **Sustainable SaaS (SusaaS)** sample application has been built in a partner collaboration to help interested developers, partners, and customers in developing multitenant Software as a Service applications running in the Cloud Foundry environment of the SAP Business Technology Platform (SAP BTP).
 
-The example focuses on using standard frameworks and SAP BTP services for developing, deploying and monitoring the solution like the CAP framework, SAP API Management, CI/CD Service, Alert Notification, Autoscaler and many more. 
+The example focuses on using standard frameworks and SAP BTP services for developing, deploying, and monitoring the solution like the CAP framework, SAP API Management, CI/CD Service, Alert Notification, Autoscaler, and many more. 
 
 The sample application has a focus on the topic of sustainability and is therefore called **Sustainable SaaS** (SuSaaS) app. It allows customers (**consumer tenants**) of the SaaS application to extend their SAP solutions like S/4HANA with additional features developed by the SaaS vendor (**provider**). 
 
-Due to the technical and theoretical complexity of the topic, the sample application shall not be seen or used in any kind for productive scenarios. It is supposed to present ideas and approaches for putting your personal scenario into practice. Our goal is to cover as many topics as we can, but not in the greatest depth that might justify a productive usability.  
+Due to the technical and theoretical complexity of the topic, the sample application shall not be seen or used in any kind for productive scenarios. It is supposed to present ideas and approaches for putting your scenario into practice. Our goal is to cover as many topics as we can, but not in the greatest depth that might justify productive usability.  
 
-Below you can find an solution architecture diagram of the sample application. As you can see, the app contains a lot of services and tools which you will use during the course of this mission (click to enlarge).
+Below you can find a solution architecture diagram of the sample application. As you can see, the app contains a lot of services and tools which you will use in this mission (click to enlarge).
 
 [<img src="./images/App_Architecture.png" width="600" />](./images/App_Architecture.png)
 
 ## Content
 
-As stated above, the documentation content of this GitHub repository has been created for consumption in [SAP Discovery Center](https://discovery-center.cloud.sap/missiondetail/4064/4275), so the table of content follows the structure of the Disocvery Center scopes. While we highly recommend to start your own personal mission instance in SAP Discovery Center,  you can also follow along the steps here in GitHub using the linked README documents below.
+As stated above, the documentation content of this GitHub repository has been created for consumption in [SAP Discovery Center](https://discovery-center.cloud.sap/missiondetail/4064/4275), so the table of content follows the structure of the Discovery Center scopes. While we highly recommend starting your personal mission instance in SAP Discovery Center, you can also follow the steps here in GitHub using the linked README documents below.
 
 Besides the documentation residing in the [main](github.com/SAP-samples/btp-cf-cap-multitenant-susaas) branch of this GitHub repository, you can find two more branches:
 
 - the [basic](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/tree/basic) branch
 - the [advanced](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/tree/advanced) branch 
 
-Both contain codelines for the deployment of the basic and Advanced Scopes described in the mission target. The Expert Scope does not have it's own codeline. Instead, the main branch provides the respective code snippets and explanations to setup the different scenarios. 
+Both contain codebases for the deployment of the Basic and Advanced Scopes described in the mission target. The Expert Scope does not have its own codebase. Instead, the main branch provides the respective code snippets and explanations to set up the different scenarios. 
 
-To get started, we recommend to go through the **Discover** part first. This will introduce you to the basics of this scenario, the concepts of multitenancy and Software as a Service applications. 
+To get started, we recommend going through the **Discover** part first. This will introduce you to the basics of this scenario, the concepts of multitenancy, and Software as a Service applications. 
 
 **Discover**
 - [Discover the mission target](./docu/1-discover/1-discover-mission-target/README.MD)
 - [Learn the basics of SAP BTP](./docu/1-discover/2-learn-basics-sap-btp/README.MD)
 - [Partners in SAP BTP ecosystem](./docu/1-discover/3-partners-sap-btp-ecosystem/README.MD)
-- [Get the idea of SaaS applications](./docu/1-discover/4-get-idea-saas-applications/README.MD)
+- [Get an idea of SaaS applications](./docu/1-discover/4-get-idea-saas-applications/README.MD)
 - [Understand SAP BTP multitenancy](./docu/1-discover/5-understand-btp-multitenancy/README.MD)
 - [What's New](./docu/1-discover/6-whats-new/README.MD)
 
-Deploy the **Basic Scope** of the SusaaS sample application after preparing your provider subaccount by assigning the required entitlements. Learn about the different components used in the comprehensive SaaS sample app running in your environment now and subscribe your first consumer tenant. 
+Deploy the **Basic Scope** of the SusaaS sample application after preparing your provider subaccount by assigning the required entitlements. Learn about the different components used in the comprehensive SaaS sample app running in your environment now and subscribe a first consumer tenant. 
 
 **Basic Scope**
 - [Introduction Basic Scope](./docu/2-basic/0-introduction-basic-scope/README.MD)
@@ -56,7 +56,7 @@ Deploy the **Basic Scope** of the SusaaS sample application after preparing your
 
 Enhance your SaaS sample app with **Advanced Scope** features like API Management to monitor and manage your SaaS API endpoints or SAP Identity Authentication to provide a central user management without relying on SAP ID service. Furthermore, you will learn and see a sample of how to integrate a backend system like SAP S/4HANA from a SaaS consumer perspective. 
 
-> **Important** - The Advanced Scope is still Work-in-Progress. The code and documentation is subject to change. 
+> **Important** - The Advanced Scope is still Work-in-Progress. The code and documentation are subject to change. 
 
 **Advanced Scope (WIP)**
 - [Introduction Advanced Scope](./docu/3-advanced/0-introduction-advanced-scope/README.MD)
@@ -70,9 +70,9 @@ Enhance your SaaS sample app with **Advanced Scope** features like API Managemen
 - [Integrate with SAP API Management](./docu/3-advanced/8-integrate-sap-api-management/README.MD)
 - [Troubleshooting](./docu/3-advanced/9-troubleshooting/README.MD)
 
-The **Expert Scope** contains a variety of different topics which will make your application and life as a SaaS developer even more convenient. This reaches from the usage of CI/CD tools and SAP Transport Management for a continuous deployment to the management and backup of your tenant database containers. You will learn about multi-region deployments of SaaS applications and how to tackle topics like Custom Domain usage. 
+The **Expert Scope** contains a variety of different topics which will make your application and life as a SaaS developer even more convenient. This reaches from the usage of CI/CD tools and SAP Cloud Transport Management for continuous deployment to the management and backup of your tenant database containers. You will learn about multi-region deployments of SaaS applications and how to tackle topics like Custom Domain usage. 
 
-> **Important** - The Expert Scope is still Work-in-Progress. The code and documentation is subject to change. 
+> **Important** - The Expert Scope is still Work-in-Progress. The code and documentation are subject to change. 
 
 **Expert Scope (WIP)**
 - [Introduction Expert Scope](./docu/4-expert/0-introduction-expert-scope/README.MD)
@@ -98,7 +98,7 @@ The technical requirements for setting up this sample SaaS application can also 
 **Basic Scope**
 The Basic Scope of the sample application requires the following set of SAP BTP entitlements in the provider subaccount. 
 
-> **Important** - If you want to test the sample SaaS application in a SAP BTP Trial account, please make sure to use either **eu10** or **us10** as region of your choice! SAP HANA Cloud is not available in the Singapore Trial environment!
+> **Important** - If you want to test the sample SaaS application in an SAP BTP Trial account, please make sure to use either **eu10** or **us10** as the region of your choice! SAP HANA Cloud is not available in the Singapore Trial environment!
 
 
 | Service                           | Plan       | Number of Instances |
@@ -122,7 +122,7 @@ The Basic Scope of the sample application requires the following set of SAP BTP 
 **Advanced Scope**
 The Advanced Scope will require some more service and software components which are listed below depending which of the scenarios you want to run.
 
-> **Important** - Some of the required services like SAP Identity Authentication are not available in the SAP BTP Trial environment. Make sure to either use a SAP BTP Free Tier or Enterprise account.
+> **Important** - Some of the required services like SAP Identity Authentication are not available in the SAP BTP Trial environment. Make sure to either use an SAP BTP Free Tier or Enterprise account.
 
 | Service                                | Plan                                 | Number of Instances |
 |----------------------------------------|--------------------------------------|:-------------------:|
@@ -133,11 +133,11 @@ The Advanced Scope will require some more service and software components which 
 | [SAP Cloud Identity Services](https://discovery-center.cloud.sap/serviceCatalog/identity-authentication?region=all&tab=feature)                   | default (Application) |     1    |
 | [SAP Cloud Identity Services](https://help.sap.com/docs/IDENTITY_AUTHENTICATION/6d6d63354d1242d185ab4830fc04feb1/d5cd80c6928e4ac98586025170efdf08.html?locale=en-US)             | application   |     1    |
 
-> (*) A SAP NetWeaver system is required ff you want to test the automated data push feature from an existing SAP solution. You can use all **SAP S/4HANA** releases and also any other SAP systems which has a **SAP NetWeaver** stack version higher than 7.3.
+> (*) An SAP NetWeaver system is required ff you want to test the automated data push feature from an existing SAP solution. You can use all **SAP S/4HANA** releases and also any other SAP systems which has an **SAP NetWeaver** stack version higher than 7.3.
 
 > (**) SAP Integration Suite is required if you want to integrate your SaaS API with [SAP API Management](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/tree/main/docu/3-advanced/8-integrate-sap-api-management/README.MD).
 
-> (***) Please keep in mind - The SAP Integration Suite *trial plan* is valid for 90 days only. Your tenant will be decommissioned after 90 days and you need to setup a new tenant if you wish to do further validations with a trial tenant. 
+> (***) Please keep in mind - The SAP Integration Suite *trial plan* is valid for 90 days only. Your tenant will be decommissioned after 90 days and you need to set up a new tenant if you wish to do further validations with a trial tenant. 
 
 
 **Expert Scope**
@@ -158,10 +158,10 @@ The deployment is described in the **Basic Scope** of the mission documentation 
 
 ## Known Issues
  - Chart destroy issue
-   - **Problem**: Trying to open the Assessments not possible after it is been successfully opened before
-   - **Issue**: If the charts in the Assessments app have not been rendered because you haven't loaded the object page subsections, some chart related components are not destroyed properly when leaving the Assessments app. 
+   - **Problem**: Trying to open the Assessments is not possible after it is been successfully opened before
+   - **Issue**: If the charts in the Assessments app have not been rendered because you haven't loaded the object page subsections, some chart-related components are not destroyed properly when leaving the Assessments app. 
    - **Workaround**: Refresh the page and open the Assessments app again. Open all Object Page Sections at least once before leaving the Assessments app.
-   - **Solution**: Fix to be released in the near future. 
+   - **Solution**: Issue fixed by the development team and released in upcoming SAPUI5 version. 
 
 
 ## How to obtain support
@@ -170,7 +170,7 @@ The deployment is described in the **Basic Scope** of the mission documentation 
 For additional support, [ask a question in SAP Community](https://answers.sap.com/questions/ask.html).
 
 ## Contributing
-If you wish to contribute code, offer fixes or improvements, please send a pull request. Due to legal reasons, contributors will be asked to accept a DCO when they create the first pull request to this project. This happens in an automated fashion during the submission process. SAP uses [the standard DCO text of the Linux Foundation](https://developercertificate.org/).
+If you wish to contribute code or offer fixes or improvements, please send a pull request. Due to legal reasons, contributors will be asked to accept a DCO when they create the first pull request for this project. This happens in an automated fashion during the submission process. SAP uses [the standard DCO text of the Linux Foundation](https://developercertificate.org/).
 
 ## License
 Copyright (c) 2022 SAP SE or an SAP affiliate company. All rights reserved. This project is licensed under the Apache Software License, version 2.0 except as noted otherwise in the [LICENSE](LICENSE) file.
