@@ -180,9 +180,22 @@
         },
         "[local-with-mtx]": {
           "kind": "sql"
+        }
+      },
+      "db-ext": {
+        "[production]": {
+          "model": "db/hana"
         },
-        "[hybrid]": {
-          "kind": "hana-cloud"
+        "[development]": {
+          "model": "db/sqlite"
+        },
+        "[local-with-mtx]": {
+          "model": "db/sqlite"
+        }
+      },
+      "db-csv": {
+        "[csv]": {
+          "model": "test"
         }
       }
     }

@@ -11,9 +11,11 @@ build-parameters:
   before-all:
     - builder: custom
       commands:
-        - npx -p @sap/cds-dk cds build --production # uncomment this line to allow build without cds-dk installed
-        - npx rimraf gen/db/src/gen/data # comment this line to load of initial data which is only relevant for dev/test deployments 
-        - npx rimraf gen/db/src/gen/csv  # comment this line to load of initial data which is only relevant for dev/test deployments 
+        ### Deployment w/o csv sample files ###
+        - npx -p @sap/cds-dk cds build --profile production
+
+        ### Deployment w/ csv sample files ###
+        #- npx -p @sap/cds-dk cds build --profile production,csv
 
 modules:
   # --------------------- APPROUTER MODULE ---------------------
