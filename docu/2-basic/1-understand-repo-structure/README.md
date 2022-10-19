@@ -3,7 +3,7 @@
 This part of the mission will briefly outline the structure of the **Basic Scope** branch so you're comfortable navigating through the provided repository. The following screenshots and explanations will give you an idea of the respective branch. 
 
 1. [Overview](#1-overview)
-2. [Application Router](#2-application-router)
+2. [Application](#2-application)
 3. [API Broker](#3-api-broker)
 4. [Deployment Configurations](#4-deployment-configurations)
 5. [Tenant Database Container](#5-tenant-database-container)
@@ -16,21 +16,23 @@ This part of the mission will briefly outline the structure of the **Basic Scope
 
 Also, check out the **Explore the application** part of this mission which describes various components and their tasks in greater detail ([click here](../7-explore-the-components/README.MD)).
 
+
 ## 1. Overview
 
 The repository consists of several directories containing the API (service) broker, the API service, and the application layers like User Interface, the business application service layer, and the data models deployed in a tenant-specific and shared database container.
 
 | | |
 |:--: | :--- |
-| [<img src="./images/Repo_Structure_All.png" width="350"/>](./images/Repo_Structure_All.png) | <br> <br> **app -** Approuter and Fiori Elements <br> **broker -** Service broker configuration <br> **configs -** Deployment configurations (e.g. XSUAA) <br> **db -** Tenant data model <br> **db-com -** Shared data model <br> **http -** Http files for API testing <br> **srv -** Business application service <br> **srv-api -** API service <br> **test -** Unit tests and sample data <br> **mta.yaml -** Descriptor for .mtar deployment <br> **package.json -** CDS related configs (e.g. mtxs, build settings) |
+| [<img src="./images/Repo_Structure_All.png" width="350"/>](./images/Repo_Structure_All.png) | <br> <br> **app -** Approuter and SAP Fiori Elements <br> **broker -** Service broker configuration <br> **configs -** Deployment configurations (e.g. XSUAA) <br> **db -** Tenant data model <br> **db-com -** Shared data model <br> **http -** Http files for API testing <br> **srv -** Business application service <br> **srv-api -** API service <br> **test -** Unit tests and sample data <br> **mta.yaml -** Descriptor for .mtar deployment <br> **package.json -** CDS related configs (e.g. mtxs, build settings) |
 
-## 2. Application Router
+
+## 2. Application
 
 Besides the **Approuter** instance, the **app** directory contains all SAP Fiori Elements user interface definitions which are dynamically generated based on the business application service annotations.
 
 | | |
 |:--: | :--- |
-| [<img src="./images/Repo_Structure_App.png" width="350"/>](./images/Repo_Structure_App.png) |  **approuter -** Approuter default instance <br> **uimodule -** UI development content <p style='padding-left:1em'> **modes -** Local development configs <br> **webapp -** Fiori Elements app definitions <br><p style='padding-left:2em'>**admin -** Admin apps <br>**appconfig -** Fiori Launchpad config <br>**public -** User apps </p></p> **multi-tenant.js -** Required for local development |
+| [<img src="./images/Repo_Structure_App.png" width="350"/>](./images/Repo_Structure_App.png) |  **appconfig -** Fiori Launchpad sandbox config for local testing <br> **approuter -** Approuter default instance <br>  **deployer -** Used during build/deployment <br> **uimodule -** UI development content <p style='padding-left:1em'> **modes -** Local development configs <br> **webapp -** SAP Fiori Elements app definitions <br><p style='padding-left:2em'>**admin -** Admin apps <br>**appconfig -** SAP Fiori Launchpad sandbox config <br>**public -** User apps </p></p> **multi-tenant.js -** Required for local development |
 
 
 ## 3. API Broker
@@ -55,9 +57,11 @@ In the **configs** directory, deployment-related configuration files are stored 
 
 The **db** directory contains the definition of the tenant-specific data model, which is deployed to a new isolated database container for each and every SaaS tenant upon subscription. 
 
+> **Important** - Based on the CDS profile used in cds watch or cds build, the tenant database model includes or excludes tables for Currencies, Languages, and Countries. For local testing targeting sqlite, those master data tables and sample values are part of the individual tenant database model. For a production build targeting SAP HANA Cloud, these tables are replaced by views and synonyms pointing to the shared database container. Also check the package.json profiles in "db-ext" to get a better understanding.
+
 | | |
 |:--: | :--- |
-| [<img src="./images/Repo_Structure_Tenant_Db.png" width="350"/>](./images/Repo_Structure_Tenant_Db.png) | <br><br> **cfg -** Configuration files for shared database container access <br> **src -** Native SAP HANA database objects <br><p style='padding-left:1em'> **functions -** Functions <br> **procedures -** Stored Procedures <br> **roles -** Schema roles <br> **synonyms -** Synonyms </p> **data-models.cds -** Tenant data model definition <br> **data-types.cds -** Tenant data model types <br>|
+| [<img src="./images/Repo_Structure_Tenant_Db.png" width="350"/>](./images/Repo_Structure_Tenant_Db.png) | <br><br> **cfg -** Configuration files for shared database container access <br> **hana -** Tenant data model extension for production build <br> **sqlite -** Tenant data model extension for local testing <br> **src -** Native SAP HANA database objects <br><p style='padding-left:1em'> **functions -** Functions <br> **procedures -** Stored Procedures <br> **roles -** Schema roles <br> **synonyms -** Synonyms </p> **data-models.cds -** Tenant data model <br> **data-types.cds -** Tenant data model types <br>|
 
 
 ## 6. Shared Database Container

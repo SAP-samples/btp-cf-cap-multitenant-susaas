@@ -55,7 +55,7 @@ build-parameters:
         #- npx -p @sap/cds-dk cds build --profile production
 
         ### Deployment w/ csv sample files ###
-        - npx -p @sap/cds-dk cds build --profile production,data
+        - npx -p @sap/cds-dk cds build --profile production,csv
 ```
 
 We highly recommend deploying the sample application **without** sample files as this might lead to confusion for your consumers. Instead, please use the SaaS API features if you want to push initial data for **Products** or **Sales Orders** to your consumer tenants. You can find the related documentation in the **Basic Scope** ([click here](../5-push-data-to-saas-api/README.MD)).
