@@ -1,0 +1,21 @@
+{
+    "welcomeFile": "/susaasapppoc/index.html",
+    "authenticationMethod": "route",
+    "logout": {
+      "logoutEndpoint": "/do/logout"
+    },
+    "routes": [
+      {
+        "source": "^/appconfig/(.*)",
+        "target": "/susaasapppoc/appconfig/$1",
+        "service": "html5-apps-repo-rt",
+        "authenticationType": "xsuaa"
+      },
+      {
+        "source": "/catalog/(.*)$",
+        "target": "/catalog/$1",
+        "destination": "susaas_api",
+        "authenticationType": "xsuaa"
+      }
+    ]
+  }
