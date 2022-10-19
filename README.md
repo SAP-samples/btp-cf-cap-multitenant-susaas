@@ -39,61 +39,61 @@ Both contain a code base for the deployment of the **Basic** and **Advanced Scop
 To get started, we recommend going through the **Discover** mission scope first. It will introduce you to the basics of this scenario, the concepts of multitenancy, and Software as a Service applications. 
 
 **Discover**
-- [Discover the mission target](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/blob/main/docu/1-discover/1-discover-mission-target/README.MD)
-- [Learn the basics of SAP BTP](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/tree/main/docu/1-discover/2-learn-basics-sap-btp/README.MD)
-- [Partners in SAP BTP ecosystem](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/tree/main/docu/1-discover/3-partners-sap-btp-ecosystem/README.MD)
-- [Get the idea of SaaS applications](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/tree/main/docu/1-discover/4-get-idea-saas-applications/README.MD)
-- [Understand SAP BTP multitenancy](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/tree/main/docu/1-discover/5-understand-btp-multitenancy/README.MD)
+- [Discover the mission target](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/blob/main/docu/1-discover/1-discover-mission-target/README.md)
+- [Learn the basics of SAP BTP](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/tree/main/docu/1-discover/2-learn-basics-sap-btp/README.md)
+- [Partners in SAP BTP ecosystem](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/tree/main/docu/1-discover/3-partners-sap-btp-ecosystem/README.md)
+- [Get the idea of SaaS applications](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/tree/main/docu/1-discover/4-get-idea-saas-applications/README.md)
+- [Understand SAP BTP multitenancy](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/tree/main/docu/1-discover/5-understand-btp-multitenancy/README.md)
 - [What's New](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/tree/main/docu/1-discover/6-whats-new/README.md)
 
 Deploy the **Basic Scope** of the sample application after preparing your provider subaccount by assigning the required entitlements. Learn about the different components used in the comprehensive SaaS sample application running in your environment and subscribe your first consumer tenant. 
 
 **Basic Scope**
-- [Introduction Basic Scope](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/tree/main/docu/2-basic/0-introduction-basic-scope/README.MD)
-- [Repository structure](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/tree/main/docu/2-basic/1-understand-repo-structure/README.MD)
-- [Prepare your Provider Subaccount](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/tree/main/docu/2-basic/2-prepare-provider-subaccount/README.MD)
-- [Build and deploy the SaaS application](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/tree/main/docu/2-basic/3-build-deploy-saas-application/README.MD)
-- [Subscribe a consumer subaccount](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/tree/main/docu/2-basic/4-subscribe-consumer-subaccount/README.MD)
-- [Push data to SaaS API](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/tree/main/docu/2-basic/5-push-data-to-saas-api/README.MD)
-- [Test the application](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/tree/main/docu/2-basic/6-test-the-application/README.MD)
-- [Explore the application](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/tree/main/docu/2-basic/7-explore-the-components/README.MD)  
-- [Unsubscribe a consumer subaccount](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/tree/main/docu/2-basic/8-unsubscribe-consumer-subaccount/README.MD)
-- [Undeploy the SaaS application](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/tree/main/docu/2-basic/9-undeploy-saas-application/README.MD)
-- [Troubleshooting](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/tree/main/docu/2-basic/10-troubleshooting/README.MD)
+- [Introduction Basic Scope](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/tree/main/docu/2-basic/0-introduction-basic-scope/README.md)
+- [Repository structure](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/tree/main/docu/2-basic/1-understand-repo-structure/README.md)
+- [Prepare your Provider Subaccount](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/tree/main/docu/2-basic/2-prepare-provider-subaccount/README.md)
+- [Build and deploy the SaaS application](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/tree/main/docu/2-basic/3-build-deploy-saas-application/README.md)
+- [Subscribe a consumer subaccount](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/tree/main/docu/2-basic/4-subscribe-consumer-subaccount/README.md)
+- [Push data to SaaS API](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/tree/main/docu/2-basic/5-push-data-to-saas-api/README.md)
+- [Test the application](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/tree/main/docu/2-basic/6-test-the-application/README.md)
+- [Explore the application](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/tree/main/docu/2-basic/7-explore-the-components/README.md)  
+- [Unsubscribe a consumer subaccount](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/tree/main/docu/2-basic/8-unsubscribe-consumer-subaccount/README.md)
+- [Undeploy the SaaS application](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/tree/main/docu/2-basic/9-undeploy-saas-application/README.md)
+- [Troubleshooting](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/tree/main/docu/2-basic/10-troubleshooting/README.md)
 
 Enhance your SaaS sample application with **Advanced Scope** features like API Management to monitor and manage your SaaS API endpoints or SAP Identity Authentication to provide central user management without relying on SAP ID service. Furthermore, you will learn and see a sample of how to integrate a backend system like SAP S/4HANA from a SaaS consumer perspective. 
 
 **Advanced Scope**
-- [Introduction Advanced Scope](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/tree/main/docu/3-advanced/0-introduction-advanced-scope/README.MD)
-- [Repository structure](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/tree/main/docu/3-advanced/1-understand-repo-structure/README.MD)
-- [Prepare your Provider Subaccount](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/tree/main/docu/3-advanced/2-prepare-provider-subaccount/README.MD)
-- [Central user management with SAP IAS](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/tree/main/docu/3-advanced/3-central-user-management-ias/README.MD)
-- [Build and deploy the SaaS application](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/tree/main/docu/3-advanced/4-build-deploy-saas-application/README.MD)
-- [Subscribe a consumer subaccount](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/tree/main/docu/3-advanced/5-subscribe-consumer-subaccount/README.MD)
-- [Test the application](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/tree/main/docu/3-advanced/6-test-the-application/README.MD)
-- [Push data from SAP S/4HANA](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/tree/main/docu/3-advanced/7-push-data-s4hana-system/README.MD)
-- [Integrate with SAP API Management](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/tree/main/docu/3-advanced/8-integrate-sap-api-management/README.MD)
-- [Troubleshooting](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/tree/main/docu/3-advanced/9-troubleshooting/README.MD)
+- [Introduction Advanced Scope](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/tree/main/docu/3-advanced/0-introduction-advanced-scope/README.md)
+- [Repository structure](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/tree/main/docu/3-advanced/1-understand-repo-structure/README.md)
+- [Prepare your Provider Subaccount](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/tree/main/docu/3-advanced/2-prepare-provider-subaccount/README.md)
+- [Central user management with SAP IAS](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/tree/main/docu/3-advanced/3-central-user-management-ias/README.md)
+- [Build and deploy the SaaS application](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/tree/main/docu/3-advanced/4-build-deploy-saas-application/README.md)
+- [Subscribe a consumer subaccount](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/tree/main/docu/3-advanced/5-subscribe-consumer-subaccount/README.md)
+- [Test the application](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/tree/main/docu/3-advanced/6-test-the-application/README.md)
+- [Push data from SAP S/4HANA](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/tree/main/docu/3-advanced/7-push-data-s4hana-system/README.md)
+- [Integrate with SAP API Management](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/tree/main/docu/3-advanced/8-integrate-sap-api-management/README.md)
+- [Troubleshooting](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/tree/main/docu/3-advanced/9-troubleshooting/README.md)
 
 
 The **Expert Scope** contains a variety of different topics which will make your application and life as a SaaS provider and developer even more convenient. This reaches from the usage of CI/CD tools and SAP Cloud Transport Management for continuous deployment to the management and backup of your tenant database containers. You will learn about multi-region deployments of SaaS applications and how to tackle topics like Custom Domain usage. 
 
 
 **Expert Scope**
-- [Introduction Expert Scope](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/tree/main/docu/4-expert/0-introduction-expert-scope/README.MD)
-- [Setup SAP CI/CD for your project](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/tree/main/docu/4-expert/setup-cicd-for-project/README.MD)
-- [Configure SAP Transport Management](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/tree/main/docu/4-expert/configure-transport-management/README.MD)
-- [How to do local/hybrid development](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/tree/main/docu/4-expert/local-hybrid-development/README.MD)
-- [Manage tenant database containers](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/tree/main/docu/4-expert/manage-tenant-containers/README.MD)
-- [Backup database containers](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/tree/main/docu/4-expert/backup-database-containers/README.MD)
-- [Update tenant container databases](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/tree/main/docu/4-expert/update-tenant-containers/README.MD)
-- [Setup custom domain usage](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/tree/main/docu/4-expert/custom-domain-usage/README.MD)
-- [Custom domain for SAP IAS](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/tree/main/docu/4-expert/custom-domain-for-ias/README.MD)
-- [Integrate a customer's IdP](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/tree/main/docu/4-expert/integrate-consumers-idp/README.MD)
-- [Deploy to multiple regions](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/tree/main/docu/4-expert/deploy-multiple-regions/README.MD)
-- [Send email using Microsoft Graph API](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/tree/main/docu/4-expert/send-emails-graph-api/README.MD)
-- [Using the SAP Theme Designer](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/tree/main/docu/4-expert/using-sap-theme-designer/README.MD)
-- [Troubleshooting](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/tree/main/docu/4-expert/troubleshooting/README.MD)
+- [Introduction Expert Scope](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/tree/main/docu/4-expert/0-introduction-expert-scope/README.md)
+- [Setup SAP CI/CD for your project](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/tree/main/docu/4-expert/setup-cicd-for-project/README.md)
+- [Configure SAP Transport Management](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/tree/main/docu/4-expert/configure-transport-management/README.md)
+- [How to do local/hybrid development](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/tree/main/docu/4-expert/local-hybrid-development/README.md)
+- [Manage tenant database containers](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/tree/main/docu/4-expert/manage-tenant-containers/README.md)
+- [Backup database containers](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/tree/main/docu/4-expert/backup-database-containers/README.md)
+- [Update tenant container databases](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/tree/main/docu/4-expert/update-tenant-containers/README.md)
+- [Setup custom domain usage](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/tree/main/docu/4-expert/custom-domain-usage/README.md)
+- [Custom domain for SAP IAS](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/tree/main/docu/4-expert/custom-domain-for-ias/README.md)
+- [Integrate a customer's IdP](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/tree/main/docu/4-expert/integrate-consumers-idp/README.md)
+- [Deploy to multiple regions](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/tree/main/docu/4-expert/deploy-multiple-regions/README.md)
+- [Send email using Microsoft Graph API](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/tree/main/docu/4-expert/send-emails-graph-api/README.md)
+- [Using the SAP Theme Designer](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/tree/main/docu/4-expert/using-sap-theme-designer/README.md)
+- [Troubleshooting](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/tree/main/docu/4-expert/troubleshooting/README.md)
 
 
 ## Requirements
@@ -101,7 +101,7 @@ The **Expert Scope** contains a variety of different topics which will make your
 The technical requirements for setting up this sample SaaS application can also be found in the different scope tutorials.
 
 **Basic Scope**
-The Basic Scope of the sample application requires the following set of SAP BTP entitlements in the provider subaccount. Please find more details in the respective mission documentation [**Prepare your Provider Subaccount**](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/tree/main/docu/2-basic/2-prepare-provider-subaccount/README.MD).
+The Basic Scope of the sample application requires the following set of SAP BTP entitlements in the provider subaccount. Please find more details in the respective mission documentation [**Prepare your Provider Subaccount**](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/tree/main/docu/2-basic/2-prepare-provider-subaccount/README.md).
 
 > **Important** - If you want to test the sample SaaS application in am SAP BTP Trial account, please make sure to use either **eu10** or **us10** as the region of your choice! SAP HANA Cloud is not available in the Singapore Trial environment!
 
@@ -140,7 +140,7 @@ Compared to the Basic Scope, the **Advanced Scope** requires some additional ser
 
 > (*) A SAP NetWeaver system is required ff you want to test the automated data push feature from an existing SAP solution. You can use all **SAP S/4HANA** releases and also any other SAP systems which have an **SAP NetWeaver** stack version higher than 7.3.
 
-> (**) SAP Integration Suite is required if you want to integrate your SaaS API with [SAP API Management](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/tree/main/docu/3-advanced/8-integrate-sap-api-management/README.MD).
+> (**) SAP Integration Suite is required if you want to integrate your SaaS API with [SAP API Management](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/tree/main/docu/3-advanced/8-integrate-sap-api-management/README.md).
 
 > (***) Please keep in mind - The SAP Integration Suite *trial plan* is valid for 90 days only. Your tenant will be decommissioned after 90 days and you need to set up a new tenant if you wish to do further validations with a trial tenant. 
 
@@ -159,7 +159,7 @@ The Expert Scope will require the following additional service and software comp
 
 ## Deployment
 
-The deployment of the sample SaaS application is described in the **Basic Scope** of the mission documentation ([click here](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/tree/main/docu/2-basic/3-build-deploy-saas-application/README.MD)). 
+The deployment of the sample SaaS application is described in the **Basic Scope** of the mission documentation ([click here](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/tree/main/docu/2-basic/3-build-deploy-saas-application/README.md)). 
 
 
 ## Known Issues
