@@ -9,9 +9,9 @@
   },
   "dependencies": {
     "@sap/audit-logging": "^5",
-    "@sap/cds": "^6.1.2",
+    "@sap/cds": "^6.2.2",
     "@sap/cds-dk": "^6.0.1",
-    "@sap/cds-mtxs": "^1.1.1",
+    "@sap/cds-mtxs": "^1.2.0",
     "@sap/cds-odata-v2-adapter-proxy": "^1",
     "@sap/xsenv": "^3",
     "@sap/xssec": "^3",
@@ -79,13 +79,32 @@
       "deploy-format": "hdbtable"
     },
     "build": {
-        "tasks": [
-          { "for": "hana" },
-          { "for": "nodejs" },
-          { "for": "mtx", "src": "srv" },
-          { "for": "node-cf", "src": "srv-api", "options": { "model": "srv-api" } },
-          { "for": "hana", "src": "db-com", "options": { "model": "db-com" } }
-        ]
+      "tasks": [
+        {
+          "for": "hana"
+        },
+        {
+          "for": "nodejs"
+        },
+        {
+          "for": "mtx",
+          "src": "srv"
+        },
+        {
+          "for": "node-cf",
+          "src": "srv-api",
+          "options": {
+            "model": "srv-api"
+          }
+        },
+        {
+          "for": "hana",
+          "src": "db-com",
+          "options": {
+            "model": "db-com"
+          }
+        }
+      ]
     },
     "requires": {
       "[production]": {
@@ -161,9 +180,22 @@
         },
         "[local-with-mtx]": {
           "kind": "sql"
+        }
+      },
+      "db-ext": {
+        "[production]": {
+          "model": "db/hana"
         },
-        "[hybrid]": {
-          "kind": "hana-cloud"
+        "[development]": {
+          "model": "db/sqlite"
+        },
+        "[local-with-mtx]": {
+          "model": "db/sqlite"
+        }
+      },
+      "db-csv": {
+        "[csv]": {
+          "model": "test"
         }
       }
     }
