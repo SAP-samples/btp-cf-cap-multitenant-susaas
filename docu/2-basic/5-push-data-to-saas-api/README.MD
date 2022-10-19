@@ -36,6 +36,8 @@ To connect to the SaaS API as a consumer, make sure you followed all steps descr
 
 1.3. After updating the relevant parameters based on your tenant-specific service binding credentials, you can request the required OAuth token for accessing the SaaS API. Therefore, execute the following request which will return a Bearer token that can be used for the upcoming API calls.
 
+> **Important** - If you're facing an **Unauthorized** error, please try to URL-encode (various web-tools or npm packages available to do so) your Client ID and Secret and try to fetch a token again!
+
 ```http
 # @name getXsuaaToken
 
