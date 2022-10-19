@@ -10,7 +10,8 @@
                 "title": "My Home",
                 "isPreset": false,
                 "isVisible": true,
-                "isGroupLocked": false
+                "isGroupLocked": false,
+                "tiles": []
               },
               {
                 "id": "SusaasUser",
