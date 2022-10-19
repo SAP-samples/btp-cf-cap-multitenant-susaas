@@ -1,0 +1,13 @@
+{
+  "name": "susaasui",
+  "version": "0.0.1",
+  "engines": {
+    "node": "14.X"
+  },
+  "scripts": {
+    "start": "node node_modules/@sap/approuter/approuter.js"
+  },
+  "dependencies": {
+    "@sap/approuter": "^11"
+  }
+}

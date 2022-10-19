@@ -1,0 +1,15 @@
+_schema-version: '3.2'
+ID: susaas-dev
+extends: susaas
+
+modules:
+ - name: susaas-srv
+   build-parameters:
+      ignore: ["node_modules/", "package-lock.json", "default-*.json"]
+      builder: custom
+      commands: []
+ - name: susaas-db-com
+   build-parameters:
+      ignore: ["node_modules/", "package-lock.json", "default-*.json"]
+      builder: custom
+      commands: []

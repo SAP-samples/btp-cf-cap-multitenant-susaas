@@ -1,0 +1,25 @@
+mta_archives/
+node_modules/
+default-*.json
+.env
+.yo-rc.json
+.vscode/
+coverage/
+gen/
+dist/
+*-content.zip
+manifest-bundle.zip
+connection.properties
+*-private.http
+*.db
+*.mtar
+*.mta
+*.log
+_out
+.che/
+.gen/
+.DS_Store
+hybrid-testing.txt
+# added by cds bind
+.cdsrc-private.json
+app/deployer/resources/

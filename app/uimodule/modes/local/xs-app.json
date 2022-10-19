@@ -1,0 +1,22 @@
+{
+  "welcomeFile": "/app/",
+  "authenticationMethod": "none", 
+  "logout": {
+    "logoutEndpoint": "/do/logout"
+  },
+  "routes": [
+    {
+      "source": "/catalog/(.*)$",
+      "target": "/catalog/$1",
+      "destination": "susaas_api"
+    },{
+      "source": "^/app/(.*)$",
+      "target": "$1",
+      "localDir": "../../webapp"
+    },{
+      "source": "^/appconfig/(.*)",
+      "target": "/appconfig/$1",
+      "localDir": "../../webapp"
+    }
+  ]
+}
