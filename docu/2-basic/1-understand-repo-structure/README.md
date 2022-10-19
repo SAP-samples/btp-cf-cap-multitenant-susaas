@@ -14,7 +14,7 @@ This part of the mission will briefly outline the structure of the **Basic Scope
 10. [API Service](#10-api-service)
 11. [Test objects](#11-test-objects)
 
-Also, check out the **Explore the application** part of this mission which describes various components and their tasks in greater detail ([click here](../7-explore-the-components/README.MD)).
+Also, check out the **Explore the application** part of this mission which describes various components and their tasks in greater detail ([click here](../7-explore-the-components/README.md)).
 
 
 ## 1. Overview
@@ -75,7 +75,7 @@ The **db_com** directory contains the definition of the shared data model, which
 
 ## 7. HTTP Test Files
 
-The **http** directory contains HTTP files allowing you to test the SaaS API endpoints from a SaaS consumer perspective. Further details on how to use these HTTP files can be found in a separate part of this mission ([click here](../5-push-data-to-saas-api/README.MD)).
+The **http** directory contains HTTP files allowing you to test the SaaS API endpoints from a SaaS consumer perspective. Further details on how to use these HTTP files can be found in a separate part of this mission ([click here](../5-push-data-to-saas-api/README.md)).
 
 | | |
 |:--: | :--- |
@@ -103,7 +103,7 @@ The rest of the **srv** directory contains the implementation of all business ap
 
 ## 10. API Service
 
-The **srv-api** directory contains the implementation of the API Service which can be used by SaaS consumers to provide or maintain data in their tenant database containers. Further details can be found in a separate part of this mission ([click here](../5-push-data-to-saas-api/README.MD)).
+The **srv-api** directory contains the implementation of the API Service which can be used by SaaS consumers to provide or maintain data in their tenant database containers. Further details can be found in a separate part of this mission ([click here](../5-push-data-to-saas-api/README.md)).
 
 | | |
 |:--: | :--- |

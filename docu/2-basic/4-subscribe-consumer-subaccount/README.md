@@ -129,7 +129,7 @@ These aspects have not been covered in the sample application but feel free to a
 
 ## 5. Troubleshooting
 
-For troubleshooting please check the separate **Troubleshooting** section of this scope ([click here](../10-troubleshooting/README.MD)).
+For troubleshooting please check the separate **Troubleshooting** section of this scope ([click here](../10-troubleshooting/README.md)).
 
 
 ## 6. Further Information

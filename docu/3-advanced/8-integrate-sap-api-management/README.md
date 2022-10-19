@@ -210,7 +210,7 @@ The API Management as route service (sap-apim-route-service) instance can also b
 
 ## 12. Troubleshooting
 
-For troubleshooting please check the separate **Troubleshooting** section of the **Basic Scope** ([click here](../../2-basic/10-troubleshooting/README.MD)) and **Advanced Scope** ([click here](../9-troubleshooting/README.MD)).
+For troubleshooting please check the separate **Troubleshooting** section of the **Basic Scope** ([click here](../../2-basic/10-troubleshooting/README.md)) and **Advanced Scope** ([click here](../9-troubleshooting/README.md)).
 
 
 ## 13. Further Information

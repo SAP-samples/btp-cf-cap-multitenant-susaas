@@ -3,7 +3,7 @@
 > **Important - WIP** <br>
 > The **Advanced Scope** is currently undergoing validation. Feel free to browse the current version but make sure to pull the **main** and **advanced** branches from time to time to get the latest updates.
 
-In the [Basic Scope](../../2-basic/0-introduction-basic-scope/README.MD) we have already provided you the core elements required for a Software as a Service (SaaS) application on SAP Business Technology Platform (SAP BTP). 
+In the [Basic Scope](../../2-basic/0-introduction-basic-scope/README.md) we have already provided you the core elements required for a Software as a Service (SaaS) application on SAP Business Technology Platform (SAP BTP). 
 
 The idea of **Advanced Scope** is taking all the features implemented in the **Basic Scope** and extending it to the next level with other great services provided by SAP BTP to take you one step closer to production readiness.
 
@@ -21,18 +21,18 @@ A **Trial** setup is not available for this scope because some of the services r
 
 For completing the **Advanced Scope** please follow the respective cards or check out the linked Readme documents. 
 
-1. **Understand repository changes** compared to the Basic Scope. ➜ ([click here](../1-understand-repo-structure/README.MD))
-2. Prepare your subaccount with **further entitlements**. ➜ ([click here](../2-prepare-provider-subaccount/README.MD))
+1. **Understand repository changes** compared to the Basic Scope. ➜ ([click here](../1-understand-repo-structure/README.md))
+2. Prepare your subaccount with **further entitlements**. ➜ ([click here](../2-prepare-provider-subaccount/README.md))
 3. Create an **SAP Identity Authentication Service** (SAP IAS) tenant. <br>
 **Setup the trust** between SAP IAS and your subaccounts. ➜ 
-([click here](../3-central-user-management-ias/README.MD))
-4. **Build and deploy** the advanced scope sample application. ➜ ([click here](../4-build-deploy-saas-application/README.MD))
+([click here](../3-central-user-management-ias/README.md))
+4. **Build and deploy** the advanced scope sample application. ➜ ([click here](../4-build-deploy-saas-application/README.md))
 5. **Subscribe to the SaaS application** from a tenant subaccount. <br>
-Then set up an **API Broker service instance**. ➜ ([click here](../5-subscribe-consumer-subaccount/README.MD))
-6. **Test the Advanced Scope** and its new features in action ➜ ([click here](../6-test-the-application/README.MD))
-7. Configure a Netweaver system for an **automated sample data push**. ➜ ([click here](../7-push-data-s4hana-system/README.MD))
-8. Integrate **SAP API Management** for API management and monitoring. ➜ ([click here](../8-integrate-sap-api-management/README.MD))
-9. Check the **Troubleshooting** section in case of issues. ➜ ([click here](../9-troubleshooting/README.MD))
+Then set up an **API Broker service instance**. ➜ ([click here](../5-subscribe-consumer-subaccount/README.md))
+6. **Test the Advanced Scope** and its new features in action ➜ ([click here](../6-test-the-application/README.md))
+7. Configure a Netweaver system for an **automated sample data push**. ➜ ([click here](../7-push-data-s4hana-system/README.md))
+8. Integrate **SAP API Management** for API management and monitoring. ➜ ([click here](../8-integrate-sap-api-management/README.md))
+9. Check the **Troubleshooting** section in case of issues. ➜ ([click here](../9-troubleshooting/README.md))
 
 
 

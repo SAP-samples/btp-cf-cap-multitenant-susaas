@@ -15,7 +15,7 @@ Please make sure to conduct the steps of this chapter with a **tenant user** tha
 
 ## 1. Go to Application
 
-1.1. Go to your consumer subaccount and click on **Instances and Subscriptions** on the left side. Then login with the tenant administrator user you have created in step 3.5. of [Subscribe Consumer Subaccount](../4-subscribe-consumer-subaccount/README.MD).
+1.1. Go to your consumer subaccount and click on **Instances and Subscriptions** on the left side. Then login with the tenant administrator user you have created in step 3.5. of [Subscribe Consumer Subaccount](../4-subscribe-consumer-subaccount/README.md).
 
 > **Hint** - If you are already logged in to the application, you can open the application in incognito mode to log in with a different user. 
 
@@ -48,7 +48,7 @@ Please make sure to conduct the steps of this chapter with a **tenant user** tha
 
 3.2. Choose a product from the value help and press continue. The project is prefilled automatically. 
 
-> **Hint** - If you cannot see any products in the value help, make sure you've completed the **Push data to the SaaS API** section of the mission ([click here](../5-push-data-to-saas-api/README.MD))!
+> **Hint** - If you cannot see any products in the value help, make sure you've completed the **Push data to the SaaS API** section of the mission ([click here](../5-push-data-to-saas-api/README.md))!
 
 [<img src="./images/fill-assessment-info.png" width="600"/>](./images/fill-assessment-info.png)
 
@@ -96,7 +96,7 @@ Circularity Metrics
 
 ### Usage of the prefill feature
 
-Feel free to make use of the **Prefill** button available in each Assessment tab. In case you've provided respective sample data in the **Push data to the SaaS API** part of this mission ([click here](../5-push-data-to-saas-api/README.MD)), the prefill feature will fill your tables with the respective values. 
+Feel free to make use of the **Prefill** button available in each Assessment tab. In case you've provided respective sample data in the **Push data to the SaaS API** part of this mission ([click here](../5-push-data-to-saas-api/README.md)), the prefill feature will fill your tables with the respective values. 
 
 
 ## 4. Create a Member User
@@ -141,7 +141,7 @@ Feel free to make use of the **Prefill** button available in each Assessment tab
 
 ## 6. Troubleshooting
 
-For troubleshooting please check the separate **Troubleshooting** section of this scope ([click here](../10-troubleshooting/README.MD)).
+For troubleshooting please check the separate **Troubleshooting** section of this scope ([click here](../10-troubleshooting/README.md)).
 
 
 ## 7. Further Information

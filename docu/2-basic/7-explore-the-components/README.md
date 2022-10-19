@@ -19,7 +19,7 @@ This part of the mission will provide deeper insights into the different compone
 
 ## 1. Application Router 
 
-> **Important** - Find more details in the [Multitenancy Readme](./components/Multitenancy.MD) Reamde document!
+> **Important** - Find more details in the [Multitenancy Readme](./components/Multitenancy.md) Reamde document!
 
 The application router is the single point of entry for an application running in the Cloud Foundry environment on SAP BTP. An application router can be used to serve static content, authenticate users, rewrite URLs, and forward or proxy requests to other microservices while propagating user and tenant information.
 
@@ -36,14 +36,14 @@ To learn more about SAP Fiori Elements please check out the excellent [**SAP Fio
 
 ## 3. Business Application Service
 
-> **Important** - Find more details in the [Helper Classes](./components/HelperClasses.MD) Reamde document!
+> **Important** - Find more details in the [Helper Classes](./components/HelperClasses.md) Reamde document!
 
 The service layer of the sample application has been developed using the **SAP CAP** framework. It provides OData services for the UI component and has built-in support for multitenancy with an SAP HANA Cloud database. Furthermore, it provides the (un-)subscription callbacks required for tenant onboarding. While the OData service definition and the custom handlers are straightforward, most of the interesting code snippets can be found in the helper classes used for the automation of subscription requirements. The Business Application Service also contains the annotations required by SAP Fiori Elements for automatically rendering a proper UI. 
 
 
 ## 4. API Service 
 
-> **Important** - Find more information on how to use the SaaS API in the following part of this mission ([click here](../5-push-data-to-saas-api/README.MD))!
+> **Important** - Find more information on how to use the SaaS API in the following part of this mission ([click here](../5-push-data-to-saas-api/README.md))!
 
 
 For consumers that want to push data to their database container instances of the SaaS solution, an API endpoint has been developed using CAP. Tenants can use this API to push data to their own SAP HANA HDI containers for calculation and analysis purposes. The API is accessible using client credentials provided to consumer tenants using a service instance of the SaaS API (Service) Broker. Check out the next card to find out how to push data to this API as a SaaS consumer.
@@ -59,7 +59,7 @@ Finally, you can find samples for OData actions allowing you to bulk-update prod
 
 ## 5. API Broker 
 
-> **Important** - Find more details in the [Service Broker](./components/ServiceBroker.MD) Reamde document!
+> **Important** - Find more details in the [Service Broker](./components/ServiceBroker.md) Reamde document!
 
 Service brokers manage instances of services used by applications running in the Cloud Foundry runtime.
 
@@ -70,7 +70,7 @@ In this application scenario, we have created an API for SaaS consumers as a bac
 
 ## 6. Tenant database containers
 
-The application provides a sample data model, which supports a flexible usage of SAP Fiori Elements for OData v4 including features like Draft support. This data model is deployed upon subscription of a consumer tenant into a new SAP HANA HDI database container. You don't have to take care of this process as it is automatically handled by the Service Manager Instance (*container* plan). Check the [**Further Information**](README.MD#9-further-information) section to learn more about the HDI Containers managed by the Service Manager. Using the HANA Deployment Infrastructure (HDI) and associated containers, allows secure isolation of all tenant-related data. 
+The application provides a sample data model, which supports a flexible usage of SAP Fiori Elements for OData v4 including features like Draft support. This data model is deployed upon subscription of a consumer tenant into a new SAP HANA HDI database container. You don't have to take care of this process as it is automatically handled by the Service Manager Instance (*container* plan). Check the [**Further Information**](README.md#9-further-information) section to learn more about the HDI Containers managed by the Service Manager. Using the HANA Deployment Infrastructure (HDI) and associated containers, allows secure isolation of all tenant-related data. 
 
 As CAP is a great backing service for the usage of SAP Fiori Elements providing the required OData services and annotations, also the data model structure has to be compliant with an easy-to-consume user interface usage.
 
@@ -85,7 +85,7 @@ Below you can see an overview pf the tables deployed into new tenant database co
 
 ## 7. Shared Database Container
 
-> **Important** - Find more details in the [Shared Container](./components/SharedContainer.MD) Reamde document!
+> **Important** - Find more details in the [Shared Container](./components/SharedContainer.md) Reamde document!
 
 To have the ability to share data among your consumer tenants, a shared database container is set up for the sample scenario. This allows the provider to maintain e.g. master data (Languages, Countries, Currencies) in a central place and update it simultaneously for all consumer tenants. This concept is building on the cross-container access capabilities of database containers in the same Cloud Foundry Space. 
 

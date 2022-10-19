@@ -48,7 +48,7 @@ The application requires the following set of SAP BTP entitlements in the Provid
 | [SAP Cloud Identity Services](https://discovery-center.cloud.sap/serviceCatalog/identity-authentication?region=all&tab=feature)                   | default (Application) |     1    |
 | [SAP Cloud Identity Services](https://help.sap.com/docs/IDENTITY_AUTHENTICATION/6d6d63354d1242d185ab4830fc04feb1/d5cd80c6928e4ac98586025170efdf08.html?locale=en-US)             | application   |     1    |
 
-> (*) SAP Integration Suite and the API Management, API portal service instance are required if you want to integrate your SaaS API with [SAP API Management](../8-integrate-sap-api-management/README.MD).
+> (*) SAP Integration Suite and the API Management, API portal service instance are required if you want to integrate your SaaS API with [SAP API Management](../8-integrate-sap-api-management/README.md).
 
 > (**) Please keep in mind - The SAP Integration Suite trial plan is valid for 90 days only. Your tenant will be decommissioned after 90 days and you need to set up a new tenant if you wish to do further validations with a trial tenant. 
 
@@ -57,7 +57,7 @@ The application requires the following set of SAP BTP entitlements in the Provid
 
 If you want to test the automated data push feature from an existing SAP solution, the sample setup requires an SAP system that contains the Enterprise Procurement Model (EPM) model. The EPM is a demo application that integrates many SAP NetWeaver technologies that are used by SAP S/4HANA applications. It is based on a common business process model and follows the business object (BO) paradigm to support well-defined business logic.
 
-In this sample application you will learn how to [push data from the EPM module to the SaaS API](../7-push-data-s4hana-system/README.MD) to migrate your business data to the multitenant business application for the sustainability calculations.
+In this sample application you will learn how to [push data from the EPM module to the SaaS API](../7-push-data-s4hana-system/README.md) to migrate your business data to the multitenant business application for the sustainability calculations.
 
 You can use all **SAP S/4HANA** releases and also any other SAP systems which has an **SAP NetWeaver** stack version higher than 7.3. since these versions, all contain the EPM module by default.
 
@@ -73,7 +73,7 @@ For more details see [Create an SAP HANA Database Instance Using SAP HANA Cloud 
 
 ## 5. Further information
 
-Please also use the details provided in the **Basic Scope** ([click here](../../2-basic/2-prepare-provider-subaccount/README.MD#6-further-information)) to find further information on the topics above. 
+Please also use the details provided in the **Basic Scope** ([click here](../../2-basic/2-prepare-provider-subaccount/README.md#6-further-information)) to find further information on the topics above. 
 
 * [SAP Help - SAP Integration Suite](https://help.sap.com/docs/SAP_INTEGRATION_SUITE?locale=en-US)
 * [SAP Help - SAP Integration Suite - Using Free Service Plans](https://help.sap.com/docs/SAP_INTEGRATION_SUITE/51ab953548be4459bfe8539ecaeee98d/ddf66923270b4078ac6b88026553d068.html?locale=en-US)

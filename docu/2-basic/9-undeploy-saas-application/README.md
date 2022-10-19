@@ -14,7 +14,7 @@ If you want to undeploy the SaaS application and all related services please fol
 
 1.2. Delete all API Broker service instances from the **consumer subaccounts** before undeploying.
 
-1.3. Ensure the API Broker is unregistered ([click here](../8-unsubscribe-consumer-subaccount/README.MD#2-check-successful-unsubscription)) from all **consumer subaccounts**. 
+1.3. Ensure the API Broker is unregistered ([click here](../8-unsubscribe-consumer-subaccount/README.md#2-check-successful-unsubscription)) from all **consumer subaccounts**. 
 
 1.4. Undeploy the SaaS application from your **provider subaccount**. 
 
@@ -38,7 +38,7 @@ $ cf undeploy susaas --delete-services --delete-service-keys
 
 ## 3. Troubleshooting
 
-For troubleshooting please check the separate **Troubleshooting** section of this scope ([click here](../10-troubleshooting/README.MD)).
+For troubleshooting please check the separate **Troubleshooting** section of this scope ([click here](../10-troubleshooting/README.md)).
 
 
 ## 4. Further Information

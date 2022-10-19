@@ -117,7 +117,7 @@ The tutorial is provided on an "as-is" basis. Currently, the following known iss
 
 ## 6. Obtain Support
 
-Please check if you find your issue described in the **Known Issues** section ([click here](#5-known-issues)) or the **Troubleshooting** chapters ([basic](../../2-basic/10-troubleshooting/README.MD), [advanced](../../3-advanced/9-troubleshooting/README.MD), [expert](../../4-expert/troubleshooting/README.MD)) of the different mission parts. 
+Please check if you find your issue described in the **Known Issues** section ([click here](#5-known-issues)) or the **Troubleshooting** chapters ([basic](../../2-basic/10-troubleshooting/README.md), [advanced](../../3-advanced/9-troubleshooting/README.md), [expert](../../4-expert/troubleshooting/README.md)) of the different mission parts. 
 
 If not, please create a GitHub issue to get support or to report a bug (https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/issues).
 
@@ -129,4 +129,4 @@ Nobody is perfect so please let us know how we can improve our samples so that y
 
 ## 8. What's New
 
-Check the latest release and **What's New** details in the respective card of the **Discover** mission scope ([click here](../6-whats-new/README.MD)).
+Check the latest release and **What's New** details in the respective card of the **Discover** mission scope ([click here](../6-whats-new/README.md)).

@@ -13,19 +13,19 @@ In case you already completed the Basic Scope, the following steps will be famil
 
 ## 1. SaaS application subscription
 
-Please continue with the steps described in the corresponding part of the **Basic Scope** ([click here](../../2-basic/4-subscribe-consumer-subaccount/README.MD#1-saas-application-subscription)). 
+Please continue with the steps described in the corresponding part of the **Basic Scope** ([click here](../../2-basic/4-subscribe-consumer-subaccount/README.md#1-saas-application-subscription)). 
 
 
 ## 2. API Service Broker instance
 
-Please continue with the steps described in the corresponding part of the **Basic Scope** ([click here](../../2-basic/4-subscribe-consumer-subaccount/README.MD#2-api-service-broker-instance)). 
+Please continue with the steps described in the corresponding part of the **Basic Scope** ([click here](../../2-basic/4-subscribe-consumer-subaccount/README.md#2-api-service-broker-instance)). 
 
 
 ## 3. Initialize the SaaS application
 
 ### Basic Steps 
 
-Please continue with the steps described in the corresponding part of the **Basic Scope** ([click here](../../2-basic/4-subscribe-consumer-subaccount/README.MD#3-initialize-the-saas-application)). 
+Please continue with the steps described in the corresponding part of the **Basic Scope** ([click here](../../2-basic/4-subscribe-consumer-subaccount/README.md#3-initialize-the-saas-application)). 
 
 ### Additional Steps 
 
@@ -38,7 +38,7 @@ As the **Advanced Scope** contains a sample integration with SAP Identity Authen
 [<img src="./images/IAS_DisableLogon01.png" width="500" />](./images/IAS_DisableLogon01.png)
 [<img src="./images/IAS_DisableLogon02.png" width="280" />](./images/IAS_DisableLogon02.png)
 
-3.12. Once the **Tenant administrator** is created by the **Provider administrator** using the in-app user management, he or she will receive an e-mail from the central SAP Identity Authentication Service instance. If not, please make sure you've correctly configured the Trust Configuration in the consumer subaccount ([click here](../3-central-user-management-ias/README.MD)) and check the error logs of the susaas-srv application!
+3.12. Once the **Tenant administrator** is created by the **Provider administrator** using the in-app user management, he or she will receive an e-mail from the central SAP Identity Authentication Service instance. If not, please make sure you've correctly configured the Trust Configuration in the consumer subaccount ([click here](../3-central-user-management-ias/README.md)) and check the error logs of the susaas-srv application!
 
 [<img src="./images/IAS_CreateUser01.png" width="240" />](./images/IAS_CreateUser01.png)
 [<img src="./images/IAS_CreateUser02.png" width="300" />](./images/IAS_CreateUser02.png)
@@ -59,7 +59,7 @@ As the **Advanced Scope** contains a sample integration with SAP Identity Authen
 
 [<img src="./images/IAS_LoginSubscr.png" width="390" />](./images/IAS_LoginSubscr.png)
 
-> **Hint** - You will not see the name of the SaaS application registration (*Susaas-Dev*) in the authentication screen but the name of the application registration created by the XSUAA - SAP IAS trust setup. This relates to the [Architecture Setup](../3-central-user-management-ias/README.MD#5-architecture-and-flow) described in chapter *Central user management using SAP Identity Authentication Service*. This screen can also be customized in SAP Identity Authentication Service ([click here](https://help.sap.com/docs/IDENTITY_AUTHENTICATION/6d6d63354d1242d185ab4830fc04feb1/32f8d337f0894d269f5f89956803efac.html?locale=en-US)).
+> **Hint** - You will not see the name of the SaaS application registration (*Susaas-Dev*) in the authentication screen but the name of the application registration created by the XSUAA - SAP IAS trust setup. This relates to the [Architecture Setup](../3-central-user-management-ias/README.md#5-architecture-and-flow) described in chapter *Central user management using SAP Identity Authentication Service*. This screen can also be customized in SAP Identity Authentication Service ([click here](https://help.sap.com/docs/IDENTITY_AUTHENTICATION/6d6d63354d1242d185ab4830fc04feb1/32f8d337f0894d269f5f89956803efac.html?locale=en-US)).
 
 3.17. As a **Provider administrator** you will see the new **Tenant administrator** in your XSUAA user management using the SAP BTP Cockpit. In the following screenshot, you can see that the Provider administrator (using the Default Platform Identity Provider -> SAP ID Service) has set up the Tenant administrator (now assigned to the Custom Identity Provider -> SAP Identity Authentication). 
 
@@ -83,9 +83,9 @@ These aspects have not been covered in the sample application but feel free to a
 
 ## 5. Troubleshooting
 
-For troubleshooting please check the separate **Troubleshooting** section of the **Basic Scope** ([click here](../../2-basic/10-troubleshooting/README.MD)) and **Advanced Scope** ([click here](../9-troubleshooting/README.MD)).
+For troubleshooting please check the separate **Troubleshooting** section of the **Basic Scope** ([click here](../../2-basic/10-troubleshooting/README.md)) and **Advanced Scope** ([click here](../9-troubleshooting/README.md)).
 
 
 ## 6. Further information
 
-Please use the details provided in the **Basic Scope** ([click here](../../2-basic/4-subscribe-consumer-subaccount/README.MD#6-Further-information)) to find further information on the topics above. 
+Please use the details provided in the **Basic Scope** ([click here](../../2-basic/4-subscribe-consumer-subaccount/README.md#6-Further-information)) to find further information on the topics above. 

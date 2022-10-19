@@ -58,7 +58,7 @@ build-parameters:
         - npx -p @sap/cds-dk cds build --profile production,csv
 ```
 
-We highly recommend deploying the sample application **without** sample files as this might lead to confusion for your consumers. Instead, please use the SaaS API features if you want to push initial data for **Products** or **Sales Orders** to your consumer tenants. You can find the related documentation in the **Basic Scope** ([click here](../5-push-data-to-saas-api/README.MD)).
+We highly recommend deploying the sample application **without** sample files as this might lead to confusion for your consumers. Instead, please use the SaaS API features if you want to push initial data for **Products** or **Sales Orders** to your consumer tenants. You can find the related documentation in the **Basic Scope** ([click here](../5-push-data-to-saas-api/README.md)).
 
 1.7 Build your project from the root directory.
 
@@ -127,7 +127,7 @@ As a Username please use the value **broker-user**.
 
 ## 3. Troubleshooting
 
-For troubleshooting please check the separate **Troubleshooting** section of this scope ([click here](../10-troubleshooting/README.MD)).
+For troubleshooting please check the separate **Troubleshooting** section of this scope ([click here](../10-troubleshooting/README.md)).
 
 
 ## 4. Further information

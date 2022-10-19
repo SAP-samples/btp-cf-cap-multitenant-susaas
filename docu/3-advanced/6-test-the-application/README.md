@@ -17,24 +17,24 @@ In case you already completed the Basic Scope, the following steps might be very
 
 ## 1. Go to Application
 
-Using the **Tenant administrator** you created in the previous chapter please continue with the steps described in the corresponding part of the **Basic Scope** ([click here](../../2-basic/6-test-the-application/README.MD#1-Go-to-application)). 
+Using the **Tenant administrator** you created in the previous chapter please continue with the steps described in the corresponding part of the **Basic Scope** ([click here](../../2-basic/6-test-the-application/README.md#1-Go-to-application)). 
 
 
 ## 2. Create a new Project
 
-Please continue with the steps described the in corresponding part of the **Basic Scope** ([click here](../../2-basic/6-test-the-application/README.MD#2-create-a-new-project)). 
+Please continue with the steps described the in corresponding part of the **Basic Scope** ([click here](../../2-basic/6-test-the-application/README.md#2-create-a-new-project)). 
 
 
 ## 3. Create an Assessment
 
-Please continue with the steps described in the corresponding part of the **Basic Scope** ([click here](../../2-basic/6-test-the-application/README.MD#3-create-an-assessment)). 
+Please continue with the steps described in the corresponding part of the **Basic Scope** ([click here](../../2-basic/6-test-the-application/README.md#3-create-an-assessment)). 
 
 
 ## 4. Create a Member User
 
 ### Basic steps
 
-Please continue with the steps described in the corresponding part of the **Basic Scope** ([click here](../../2-basic/6-test-the-application/README.MD#4-create-a-member-user)). 
+Please continue with the steps described in the corresponding part of the **Basic Scope** ([click here](../../2-basic/6-test-the-application/README.md#4-create-a-member-user)). 
 
 ### Additional steps
 
@@ -43,14 +43,14 @@ In addition to the **Basic Scope**, the new user does not necessarily have to ex
 
 ## 5. Add a Project Member
 
-Please continue with the steps described in the corresponding part of the **Basic Scope** ([click here](../../2-basic/6-test-the-application/README.MD#5-add-a-member-to-project)). 
+Please continue with the steps described in the corresponding part of the **Basic Scope** ([click here](../../2-basic/6-test-the-application/README.md#5-add-a-member-to-project)). 
 
 
 ## 6. Troubleshooting
 
-For troubleshooting please check the separate **Troubleshooting** section of the **Basic Scope** ([click here](../../2-basic/10-troubleshooting/README.MD)) and **Advanced Scope** ([click here](../9-troubleshooting/README.MD)).
+For troubleshooting please check the separate **Troubleshooting** section of the **Basic Scope** ([click here](../../2-basic/10-troubleshooting/README.md)) and **Advanced Scope** ([click here](../9-troubleshooting/README.md)).
 
 
 ## 7. Further Information
 
-Please use the details provided in the **Basic Scope** ([click here](../../2-basic/6-test-the-application/README.MD#7-further-information)) to find further information on the topics above. 
+Please use the details provided in the **Basic Scope** ([click here](../../2-basic/6-test-the-application/README.md#7-further-information)) to find further information on the topics above. 

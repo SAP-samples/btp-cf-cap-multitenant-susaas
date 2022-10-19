@@ -48,7 +48,7 @@ The following steps show how to unsubscribe from the SaaS application and how to
 
 ## 3. Troubleshooting
 
-For troubleshooting please check the separate **Troubleshooting** section of this scope ([click here](../10-troubleshooting/README.MD)).
+For troubleshooting please check the separate **Troubleshooting** section of this scope ([click here](../10-troubleshooting/README.md)).
 
 
 ## 4. Further Information

@@ -85,7 +85,7 @@ Create a new development package in ABAP Development Tools for Eclipse or using 
 
 - OAuth 2.0 Client Profile: `ZSUSAAS_PUSH_API` or the name of the OAuth Client profile defined in the previous step
 - Configuration Name: `SUSAAS_PUSH_API_S4` or another name of your choice
-- OAuth 2.0 Client ID: Enter the **clientid** of the service binding created for the API service instance ([click here](../../2-basic/4-subscribe-consumer-subaccount/README.MD#2-api-service-broker-instance))
+- OAuth 2.0 Client ID: Enter the **clientid** of the service binding created for the API service instance ([click here](../../2-basic/4-subscribe-consumer-subaccount/README.md#2-api-service-broker-instance))
 
 [<img src="./images/S4_OAuth02.png" width="400" />](./images/S4_OAuth02.png)
 
@@ -317,7 +317,7 @@ To automate the push process of the latest EPM data, you can use the programs wh
 
 ## 14. Troubleshooting
 
-For troubleshooting please check the separate **Troubleshooting** section of the **Basic Scope** ([click here](../../2-basic/10-troubleshooting/README.MD)) and **Advanced Scope** ([click here](../9-troubleshooting/README.MD)).
+For troubleshooting please check the separate **Troubleshooting** section of the **Basic Scope** ([click here](../../2-basic/10-troubleshooting/README.md)) and **Advanced Scope** ([click here](../9-troubleshooting/README.md)).
 
 
 ## 15. Further Information

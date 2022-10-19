@@ -14,16 +14,16 @@ You can set up the Basic Scope in any kind of SAP BTP environment so even **Tria
 
 For completing the **Basic Scope** please follow the respective cards or check out the linked Readme documents. 
 
-1. Start with **Understanding the repo structure**. ➜ ([click here](../1-understand-repo-structure/README.MD))
-2. **Prepare your provider subaccount** for deployment. ➜ ([click here](../2-prepare-provider-subaccount/README.MD))
-3. Next, **build and deploy** your SaaS application. ➜ ([click here](../3-build-deploy-saas-application/README.MD))
-4. After deployment **subscribe a consumer subaccount**. ➜ ([click here](../4-subscribe-consumer-subaccount/README.MD))
-5. Provide sample content by **pushing data to the SaaS API**. ➜ ([click here](../5-push-data-to-saas-api/README.MD))
-6. Play around with the app and **test features end-to-end**. ➜ ([click here](../6-test-the-application/README.MD))
-7. **Explore the application components** in greater detail. ➜ ([click here](../7-explore-the-components/README.MD))
-8. Learn how to **unsubscribe a consumer account**. ➜ ([click here](../8-unsubscribe-consumer-subaccount/README.MD))
-9. **Undeploy the SaaS application** if required. ➜ ([click here](../9-undeploy-saas-application/README.MD))
-10. Check the **Troubleshooting** section in case of issues. ➜ ([click here](../10-troubleshooting/README.MD))
+1. Start with **Understanding the repo structure**. ➜ ([click here](../1-understand-repo-structure/README.md))
+2. **Prepare your provider subaccount** for deployment. ➜ ([click here](../2-prepare-provider-subaccount/README.md))
+3. Next, **build and deploy** your SaaS application. ➜ ([click here](../3-build-deploy-saas-application/README.md))
+4. After deployment **subscribe a consumer subaccount**. ➜ ([click here](../4-subscribe-consumer-subaccount/README.md))
+5. Provide sample content by **pushing data to the SaaS API**. ➜ ([click here](../5-push-data-to-saas-api/README.md))
+6. Play around with the app and **test features end-to-end**. ➜ ([click here](../6-test-the-application/README.md))
+7. **Explore the application components** in greater detail. ➜ ([click here](../7-explore-the-components/README.md))
+8. Learn how to **unsubscribe a consumer account**. ➜ ([click here](../8-unsubscribe-consumer-subaccount/README.md))
+9. **Undeploy the SaaS application** if required. ➜ ([click here](../9-undeploy-saas-application/README.md))
+10. Check the **Troubleshooting** section in case of issues. ➜ ([click here](../10-troubleshooting/README.md))
 
 ## 2. Scope Features
 
@@ -53,7 +53,7 @@ Furthermore, the **Basic Scope** provides sample integrations and usage scenario
 
 As the setup includes a lot of different services and components, only the elements which are not self-explanatory will be covered in detail by this mission scope. 
 
-We highly recommend checking SAP Help or related documentation of the components (e.g., npm packages) in case you want to learn more. Please also check the [**Explore the Components**](../7-explore-the-components/README.MD) part of this mission scope to find more details about the most important application components!
+We highly recommend checking SAP Help or related documentation of the components (e.g., npm packages) in case you want to learn more. Please also check the [**Explore the Components**](../7-explore-the-components/README.md) part of this mission scope to find more details about the most important application components!
 
 
 ## 3. Scope Result

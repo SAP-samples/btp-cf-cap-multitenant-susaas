@@ -22,7 +22,7 @@ The main entities like Products, Sales Orders and further Recycling content can 
 [<img src="./images/API_Endpoints01.png" width="300" />](./images/API_Endpoints01.png)
 [<img src="./images/API_Endpoints02.png" width="300" />](./images/API_Endpoints02.png)
 
-To connect to the SaaS API as a consumer, make sure you followed all steps described in the **Subscribe Consumer Subaccount** card or Readme document([click here](../4-subscribe-consumer-subaccount/README.MD)). You will need the service binding credentials which you created in the API Broker service instance. If you haven't created this service binding yet, please go back and do it now. 
+To connect to the SaaS API as a consumer, make sure you followed all steps described in the **Subscribe Consumer Subaccount** card or Readme document([click here](../4-subscribe-consumer-subaccount/README.md)). You will need the service binding credentials which you created in the API Broker service instance. If you haven't created this service binding yet, please go back and do it now. 
 
 [<img src="./images/API_ServiceKey.png" width="400" />](./images/API_ServiceKey.png)
 
@@ -126,7 +126,7 @@ Content-type: application/json
 
 ## 2. Troubleshooting
 
-For troubleshooting please check the separate **Troubleshooting** section of this scope ([click here](../10-troubleshooting/README.MD)).
+For troubleshooting please check the separate **Troubleshooting** section of this scope ([click here](../10-troubleshooting/README.md)).
 
 
 ## 3. Further Information

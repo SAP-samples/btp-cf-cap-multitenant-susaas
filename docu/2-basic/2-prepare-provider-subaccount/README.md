@@ -63,7 +63,7 @@ If using an SAP BTP Trial account or trial/free services plans like e.g., for SA
 
 ## 5. Troubleshooting
 
-For troubleshooting please check the separate **Troubleshooting** section of this scope ([click here](../10-troubleshooting/README.MD)).
+For troubleshooting please check the separate **Troubleshooting** section of this scope ([click here](../10-troubleshooting/README.md)).
 
 
 ## 6. Further information
