@@ -81,11 +81,30 @@
     },
     "build": {
       "tasks": [
-          { "for": "hana" },
-          { "for": "nodejs" },
-          { "for": "mtx", "src": "srv" },
-          { "for": "node-cf", "src": "srv-api", "options": { "model": "srv-api" } },
-          { "for": "hana", "src": "db-com", "options": { "model": "db-com" } }
+        {
+          "for": "hana"
+        },
+        {
+          "for": "nodejs"
+        },
+        {
+          "for": "mtx",
+          "src": "srv"
+        },
+        {
+          "for": "node-cf",
+          "src": "srv-api",
+          "options": {
+            "model": "srv-api"
+          }
+        },
+        {
+          "for": "hana",
+          "src": "db-com",
+          "options": {
+            "model": "db-com"
+          }
+        }
       ]
     },
     "requires": {
@@ -162,14 +181,22 @@
         },
         "[local-with-mtx]": {
           "kind": "sql"
-        },
-        "[hybrid]": {
-          "kind": "hana-cloud"
         }
       },
-      "data": {
-        "[data]" : {
-          "model": ["test"]
+      "db-ext": {
+        "[production]": {
+          "model": "db/hana"
+        },
+        "[development]": {
+          "model": "db/sqlite"
+        },
+        "[local-with-mtx]": {
+          "model": "db/sqlite"
+        }
+      },
+      "db-csv": {
+        "[csv]": {
+          "model": "test"
         }
       }
     }

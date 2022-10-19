@@ -1,12 +1,13 @@
 const { OAuthAuthentication, AlertNotificationClient, Severity, Category } = require("@sap_oss/alert-notification-client");
 const { Region, Platform } = require("@sap_oss/alert-notification-client/dist/utils/region");
 const xsenv = require('@sap/xsenv');
-const appEnv = JSON.parse(process.env.VCAP_APPLICATION);
 
+let appEnv = new Object();
 let serviceCredentials = new Object();
 let oAuthAuthentication= new Object();
 
 if (cds.env.profiles.includes('production')) {
+    appEnv = JSON.parse(process.env.VCAP_APPLICATION);
     serviceCredentials = xsenv.filterCFServices({label: 'alert-notification'})[0];
     oAuthAuthentication = new OAuthAuthentication({
         username: serviceCredentials.credentials.client_id,
