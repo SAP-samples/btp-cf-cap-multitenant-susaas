@@ -53,15 +53,22 @@ As SAP Integration Suite is one of the most powerful but also quite expensive Sa
 Now you need to bind the route service to your standard SaaS API route. This can be done using the cf CLI command bind-route-service (or brs). 
 
 **Windows (Command Line)**
-cf brs `<CF domain>` `<route-service>` --hostname `<API hostname>` -c '{\"api_name\":\"`<API Proxy name of your choice>`\"}'
+cf brs `<API service domain>` `<route service>` --hostname `<API service hostname>` -c '{\"api_name\":\"`<API-Proxy name>`\"}'
 
 **Windows (Power Shell)**
-cf brs `<CF domain>` `<route-service>` --hostname `<API hostname>` -c "{\"api_name\":\"`<API Proxy name of your choice>`\"}"
+cf brs `<API service domain>` `<route service>` --hostname `<API service hostname>` -c "{\"api_name\":\"`<API-Proxy name>`\"}"
+
+* **route service** - The name of your route-service instance created in the [last step](./README.md#3-apim-as-route-service).
+* **API-Proxy name** - You're free to choose the name of your API-Proxy in API Management.
+* **API service domain** - The domain of your API service like *cfapps.eu10.hana.ondemand.com*.
+* **API service hostname** - The hostname of your API service returned by the *cf apps* CLI command. <br>
+[<img src="./images/API_Hostname.png" width="500" />](./images/API_Hostname.png)
+
 
 >**Sample**<br>
->cf brs cfapps.eu10.hana.ondemand.com susaas-api-service --hostname abc84d15trial-dev-susaas-api-srv -c '{\"api_name\":\"SusaaS-API-Proxy\"}'
+>cf brs cfapps.eu10.hana.ondemand.com susaas-apim-route-service --hostname abc84d15trial-dev-susaas-api-srv -c '{\"api_name\":\"SusaaS-API-Proxy\"}'
 
-> **Important** - The command might differ depending on your cf CLI version. You can use *cf brs --help* to find the correct command related to your cf CLI version. 
+> **Important** - The command might differ depending on your cf CLI version. You can use *cf brs --help* to find the correct command related to your cf CLI version. Also make sure to change the change the API service domain in case of Custom Domain usage.
 
 After successfully running this command in your cf CLI, you will see a new API Proxy called **SusaaS-API-Proxy** in your SAP API Management **Develop** menu. 
 
@@ -87,7 +94,7 @@ You can now apply relevant API Policies to your API Proxy using preconfigured te
 
 ## 6. Decode the JWT token
 
-6.1. Open the PreFlow of your API Proxy, where you will place the rate limiter of your API. You will see that the flow already contains some elements which were created when setting up the service-route instance. Please leave them as is. 
+6.1. Open the PreFlow of your API Proxy, where you will place the rate limiter of your API. You will see that the flow already contains some elements which were created when setting up the service-route instance. Please leave them as is. Check the following [SAP Help documentation](https://help.sap.com/docs/SAP_CLOUD_PLATFORM_API_MANAGEMENT/66d066d903c2473f81ec33acfe2ccdb4/08b40d9e47a0470a8b14cc47abab89ec.html?locale=en-US) to learn more about **Flows** in SAP API Management.
 
 6.2. In this use-case, we will distinguish our SaaS API clients by their unique Client ID, which can be found in the JWT token of each request. Therefore, please first add a feature called **DecodeJWT** which will allow you to make use of the JWT token content in subsequent steps. 
 
@@ -228,5 +235,6 @@ Please use the following links to find further information on the topics above:
 * [apigee Documentation - Policy reference overview](https://docs.apigee.com/api-platform/reference/policies/)
 * [apigee Documentation - SpikeArrest policy](https://docs.apigee.com/api-platform/reference/policies/spike-arrest-policy)
 * [apigee Documentation - Quota policy](https://docs.apigee.com/api-platform/reference/policies/quota-policy)
+* [SAP Help - Flows](https://help.sap.com/docs/SAP_CLOUD_PLATFORM_API_MANAGEMENT/66d066d903c2473f81ec33acfe2ccdb4/08b40d9e47a0470a8b14cc47abab89ec.html?locale=en-US)
 * [SAP Help - Condition Strings](https://help.sap.com/docs/SAP_CLOUD_PLATFORM_API_MANAGEMENT/66d066d903c2473f81ec33acfe2ccdb4/66561009a5b343658be2408981d005bb.html?locale=en-US)
 * [SAP Help - Policy Types](https://help.sap.com/docs/SAP_CLOUD_PLATFORM_API_MANAGEMENT/66d066d903c2473f81ec33acfe2ccdb4/c918e2803dfd4fc487e86d0875e8462c.html?locale=en-US)

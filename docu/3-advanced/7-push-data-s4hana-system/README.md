@@ -20,6 +20,8 @@ In this part of the mission, you will learn how your SaaS consumers can connect 
 14. [Troubleshooting](#14-Troubleshooting)
 15. [Further Information](#15-Further-Information)
 
+> **Hint** - Some of the screenshots in this part of the documentation contain a mixture of English and German which seems to be a translation issue within the involved transactions like **SM59**. 
+
 
 ## 1. Architecture
 
@@ -44,7 +46,7 @@ You will need a NetWeaver system that contains the Enterprise Procurement Model 
 
 - Your system needs to allow outbound HTTP connections to SAP BTP.
 
-Feel free to generate some first sample values in your EPM model using the **SEPM_DB** transaction.
+Feel free to generate some first sample values in your EPM model using the **SEPM_DG** transaction.
 
 
 ## 3. Certificate setup 
@@ -54,6 +56,15 @@ To make sure your push setup is working properly, you might need to import addit
 [<img src="./images/S4_Certificates.png" width="500" />](./images/S4_Certificates.png)
 
 Especially in scenarios using a custom domain (e.g. with a CSR signed by Let's Encrypt) you might need to import additional certificates incl. missing Root certificates. This ensures secure and encrypted communication between your backend system and your API on SAP BTP. Check the detailed explanation in SAP Help ([click here](https://help.sap.com/docs/SAP_NETWEAVER_AS_ABAP_752/916a7da9481e4265809f28010a113a6a/a5a3ae031c3042f293e72bf6c5c90620.html?locale=en-US))
+
+You as a SaaS provider, or your consumers can download the certificates of their tenant instances right from within the browser (like Chrome) as you can see in the following screenshots:
+
+[<img src="./images/CERT_01.png" width="330" />](./images/CERT_01.png)
+[<img src="./images/CERT_02.png" width="330" />](./images/CERT_02.png)
+
+[<img src="./images/CERT_03.png" width="300" />](./images/CERT_03.png)
+[<img src="./images/CERT_04.png" width="300" />](./images/CERT_04.png)
+
 
 **Troubleshooting**<br>
 * Please use the trace files (Goto -> Trace File) in transaction **SMICM** to analyze certificate-related errors! 
@@ -66,9 +77,13 @@ Create a new development package in ABAP Development Tools for Eclipse or using 
 
 ## 5. OAuth Client Profile
 
-5.1. Create an OAuth Client Profile in your ABAP development package named **ZSUSAAS_PUSH_API**. Select **DEFAULT** as the type. This Client Profile is required when setting up your OAuth Client in the next step. 
+5.1. Create an OAuth Client Profile in your ABAP development package named **ZSUSAAS_PUSH_API** (click to enlarge). 
 
-[<img src="./images/S4_ClntProf.png" width="300" />](./images/S4_ClntProf.png)
+[<img src="./images/S4_ClntProf01.png" width="300" />](./images/S4_ClntProf01.png)
+
+Select **DEFAULT** as the type. This Client Profile is required when setting up your OAuth Client in the next step. 
+
+[<img src="./images/S4_ClntProf02.png" width="300" />](./images/S4_ClntProf02.png)
 
 5.2. In the **Scopes** section please add the **uaa.resource** scope. 
 
@@ -87,7 +102,7 @@ Create a new development package in ABAP Development Tools for Eclipse or using 
 - Configuration Name: `SUSAAS_PUSH_API_S4` or another name of your choice
 - OAuth 2.0 Client ID: Enter the **clientid** of the service binding created for the API service instance ([click here](../../2-basic/4-subscribe-consumer-subaccount/README.md#2-api-service-broker-instance))
 
-[<img src="./images/S4_OAuth02.png" width="400" />](./images/S4_OAuth02.png)
+  [<img src="./images/S4_OAuth02.png" width="400" />](./images/S4_OAuth02.png)
 
 6.3. On the Administration tab enter the client secret of the service key.
 
@@ -120,30 +135,31 @@ The ABAP logic pushing the EPM sample data to the SaaS API will make use of a de
 
 7.3. Select connection type G (HTTP Connection to External Server).
 
-  [<img src="./images/S4_Dest01.png" width="500" />](./images/S4_Dest01.png)
-
 7.4. On the Technical Settings tab, enter the following data:
     - Target Host: url (not uaa.url!) parameter of your service key (**without https:// prefix!**)
     - Port: 443
 
-  [<img src="./images/S4_Dest02.png" width="500" />](./images/S4_Dest02.png)
+  [<img src="./images/S4_Dest01.png" width="500" />](./images/S4_Dest01.png)
+
 
 7.5. On the Logon & Security tab provide the following settings:
     - Check **Do not use a user**
     - Set SSL to **Active**
     - Check **Do not use certificate for logon**
 
-  [<img src="./images/S4_Dest03.png" width="500" />](./images/S4_Dest03.png)
+  [<img src="./images/S4_Dest02.png" width="500" />](./images/S4_Dest02.png)
 
 7.6. Select **OAuth Settings** and provide the profile and configuration as follows:
     - Profile : ZSUSAAS_PUSH_API or the profile name you specified
     - Configuration: SUSAAS_PUSH_API_S4 or the configuration you specified
 
+  [<img src="./images/S4_Dest03.png" width="500" />](./images/S4_Dest03.png)
+
 7.7. Save your entries and click on **Connection Test** in the top left.
 
-  [<img src="./images/S4_Dest04.png" width="500" />](./images/S4_Dest04.png)
-
 7.8. Make sure the test is successful and a code **200** is returned.
+
+  [<img src="./images/S4_Dest04.png" width="500" />](./images/S4_Dest04.png)
 
 Your destination is now ready to be used from within the ABAP coding. 
 
@@ -155,7 +171,7 @@ Let's now put the puzzle pieces together and push some data using the SaaS API a
 
 ## 9. Structures
 
-Please go to your ABAP Development Tools in eclipse or use SE80 transaction in your SAP GUI to create two structures required for the upload process. 
+Please go to your ABAP Development Tools in eclipse or use SE80 transaction in your SAP GUI to create two structures required for the upload process.
 
 > **Important** - Please double-check if the structure field names and types match with the corresponding target views **EPM_V_PROD** and **EPM_V_SALES_DATA**. We cannot guarantee consistency across all releases. 
 
@@ -181,6 +197,10 @@ Description - Susaas Products Upload Structure
 |PRICE | 1 Types | SNWD_UNIT_PRICE | CURR | 15 | 2 | 0 | EPM: Product Unit Price | 
 |LANGU | 1 Types | (use Built-In Type) | CHAR | 1 | 0 | 0 | Language | 
 |TEXT | 1 Types | SNWD_DESC | CHAR | 255 | 0 | 0 | EPM: Text field for names and descriptions | 
+
+Please also map the required Currency/quantity fields mapping as shown below.
+
+[<img src="./images/S4_StrCurQan01.png" width="700" />](./images/S4_StrCurQan01.png)
 
 **Structure ZSUSAAS_S_SO_UPL**<br>
 Description - Susaas Sales Order Upload Structure
@@ -212,6 +232,9 @@ Description - Susaas Sales Order Upload Structure
 |OVERALL_STATUS | 1 Types | SNWD_SO_OA_STATUS_CODE | CHAR | 1 | 0 | 0 | EPM: Sales Order Overall Status|
 |LANGUAGE | 1 Types | (use Built-In Type) | CHAR | 1 | 0 | 0 | |
 
+Please also map the required Currency/quantity fields mapping as shown below.
+
+[<img src="./images/S4_StrCurQan02.png" width="700" />](./images/S4_StrCurQan02.png)
 
 ## 10. ABAP Objects Class
 
