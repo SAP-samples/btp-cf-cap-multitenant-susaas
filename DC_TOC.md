@@ -9,7 +9,7 @@
     - [Understand SAP BTP multitenancy](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/blob/main/docu/1-discover/5-understand-btp-multitenancy/README.md)
     - [What's New](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/blob/main/docu/1-discover/6-whats-new/README.md)
 - Basic Scope
-    - [Introduction basic scenario](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/blob/main/docu/2-basic/0-introduction-basic-scope/README.md)
+    - [Introduction Basic Scope](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/blob/main/docu/2-basic/0-introduction-basic-scope/README.md)
     - [Repository structure](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/blob/main/docu/2-basic/1-understand-repo-structure/README.md)
     - [Prepare your Provider Subaccount](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/blob/main/docu/2-basic/2-prepare-provider-subaccount/README.md)
     - [Build and deploy the SaaS application](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/blob/main/docu/2-basic/3-build-deploy-saas-application/README.md)
@@ -19,8 +19,9 @@
     - [Push data to the SaaS API](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/blob/main/docu/2-basic/5-push-data-to-saas-api/README.md)  
     - [Unsubscribe a consumer subaccount](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/blob/main/docu/2-basic/8-unsubscribe-consumer-subaccount/README.md)
     - [Undeploy the SaaS application](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/blob/main/docu/2-basic/9-undeploy-saas-application/README.md)
+    - [Troubleshooting](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/blob/main/docu/2-basic/10-troubleshooting/README.md)
 - Advanced Scope
-    - [Introduction advanced scenario](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/blob/main/docu/3-advanced/0-introduction-advanced-scope/README.md)
+    - [Introduction Advanced Scope](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/blob/main/docu/3-advanced/0-introduction-advanced-scope/README.md)
     - [Repository structure](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/blob/main/docu/3-advanced/1-understand-repo-structure/README.md)
     - [Prepare the provider subaccount](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/blob/main/docu/3-advanced/2-prepare-provider-subaccount/README.md)
     - [Central user management with SAP IAS](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/blob/main/docu/3-advanced/3-central-user-management-ias/README.md)
@@ -29,8 +30,9 @@
     - [Test the application](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/blob/main/docu/3-advanced/6-test-the-application/README.md)
     - [Push data from SAP S/4HANA system](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/blob/main/docu/3-advanced/7-push-data-s4hana-system/README.md)
     - [Integrate with SAP API Management](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/blob/main/docu/3-advanced/8-integrate-sap-api-management/README.md)
+    - [Troubleshooting](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/blob/main/docu/3-advanced/9-troubleshooting/README.md)
 - Expert Scope
-    - [Introduction expert scenario](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/blob/main/docu/4-expert/0-introduction-expert-scope/README.md)
+    - [Introduction Expert Scope](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/blob/main/docu/4-expert/0-introduction-expert-scope/README.md)
     - [Setup SAP CI/CD for your project](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/blob/main/docu/4-expert/setup-cicd-for-project/README.md)
     - [Configure SAP Transport Management](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/blob/main/docu/4-expert/configure-transport-management/README.md)
     - [How to do local/hybrid development](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/blob/main/docu/4-expert/local-hybrid-development/README.md)
