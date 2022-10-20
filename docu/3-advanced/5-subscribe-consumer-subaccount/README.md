@@ -98,6 +98,8 @@ Once the subscription of the SaaS application is successful and you created an A
 
 3.16. Once the Tenant administrator completed the registration, a success message is displayed and the page can be closed. 
 
+> **Hint** - Currently the automated redirect to the tenant specific application instance is not working and results in a 404 error. This issue is currently being analyzed. 
+
 [<img src="./images/IAS_RegSuccess.png" width="390" />](./images/IAS_RegSuccess.png)
 
 3.17. Now the new **Tenant administrator** can log in to the consumer tenant instance using the new credentials.
