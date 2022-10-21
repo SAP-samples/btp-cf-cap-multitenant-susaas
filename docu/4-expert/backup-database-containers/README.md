@@ -1,6 +1,8 @@
-# Backup SAP HANA Cloud database containers
+# Backup SAP HANA Cloud Database Containers
 
 This part of the **Expert Scope** explains how to export and import SAP HANA Cloud HDI (HANA Deployment Infrastructure) containers in a SaaS scenario. This can be useful to back up your subscriber data on a regular basis. Please be aware that the import process will overwrite the content of your target container. For this reason also make sure, not to apply incompatible database changes between the backup and import of a container. 
+
+Before approaching this part of the **Expert Scope**, please make sure to setup a new HDI Container Group Administrator first as described in the following part of the Expert Scope ([Manage Tenant Database Containers](../manage-tenant-containers/README.md)) and use the respective user for the steps below.
 
 1. [Introduction](#1-Introduction)
 2. [Prerequisites](#2-Prerequisites)
@@ -30,6 +32,8 @@ As an alternative to a manual export, please also consider an automated technica
 
 ## 2. Prerequisites
 
+Before approaching this part of the **Expert Scope**, please make sure to setup a new HDI Container Group Administrator first as described in the following part of the Expert Scope ([Manage Tenant Database Containers](../manage-tenant-containers/README.md)). 
+
 - The tables in the schema of the exported container must not be larger than 2GB.
 - The exporting user needs to be an Admin of your container's HDI Container Group. 
 - Dependent objects need to be imported first (e.g., a shared database container).
@@ -54,7 +58,7 @@ Especially for the last prerequisite, please check the [Dependencies and privile
 
 [<img src="./images/export_040.png" width="500" />](./images/export_040.png)
 
-3.4. Go to SAP HANA Database Explorer and log in with an HDI Container (Group) Admin of thec container you want to export. 
+3.4. Go to SAP HANA Database Explorer and log in with an HDI Container (Group) Admin of the database container you want to export (see Prerequisites section). 
 
 [<img src="./images/export_050.png" width="500" />](./images/export_050.png)
 

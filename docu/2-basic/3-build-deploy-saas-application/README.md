@@ -140,6 +140,6 @@ Please use the following links to find further information on the topics above:
 * [SAP Help - Multitarget Applications in the Cloud Foundry Environment](https://help.sap.com/docs/BTP/65de2977205c403bbc107264b8eccf4b/d04fc0e2ad894545aebfd7126384307c.html?locale=en-US)
 * [SAP Help - Multitarget Application Commands for the Cloud Foundry Environment](https://help.sap.com/docs/BTP/65de2977205c403bbc107264b8eccf4b/65ddb1b51a0642148c6b468a759a8a2e.html?locale=en-US)
 * [Cloud MTA Build Tool (MBT)](https://sap.github.io/cloud-mta-build-tool/)
-* [SAP capire - Providing Initial Data](https://cap.cloud.sap/docs/guides/databases?q=hdbtabledata#providing-initial-data)
-* [SAP capire - Configuration Profiles](https://cap.cloud.sap/docs/node.js/cds-env#profiles)
+* [CAP documentation - Providing Initial Data](https://cap.cloud.sap/docs/guides/databases?q=hdbtabledata#providing-initial-data)
+* [CAP documentation - Configuration Profiles](https://cap.cloud.sap/docs/node.js/cds-env#profiles)
 * [SAP Help - SAP Credential Store](https://help.sap.com/docs/CREDENTIAL_STORE?locale=en-US)
