@@ -36,6 +36,10 @@ modules:
       - name: susaas-destination
       - name: susaas-html5-repo-runtime
       - name: susaas-uaa
+    provides:
+      - name: susaas-approuter
+        properties:
+           app-url: ${default-url}
 
   # --------------------- WEBAPP DEPLOYER ----------------------
   - name: webapp_deployer
@@ -90,6 +94,7 @@ modules:
       - name: susaas-cis-central
       - name: susaas-html5-repo-runtime
       - name: susaas-alert-notification
+      - name: susaas-approuter
       - name: susaas-api-sb-srv
       - name: susaas-ias-application
         parameters:
@@ -116,6 +121,7 @@ modules:
           srv-url: ${default-url}
     properties:
       brokerUrl: ~{susaas-api-sb-srv/srv-url}
+      approuterUrl: ~{susaas-approuter/app-url}
 
    # --------------------- COMMON DB MODULE --------------------
   - name: susaas-db-com

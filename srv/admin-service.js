@@ -21,7 +21,7 @@ module.exports = cds.service.impl(async function () {
         this.before("SAVE", Users, async (req) => {
             let tenantSubdomain = req._.req.authInfo.getSubdomain();
             let vcapApplication = JSON.parse(process.env.VCAP_APPLICATION);
-            let approuterUrl = modifiedEndpoint(vcapApplication.application_uris[0],`${tenantSubdomain}-${vcapApplication.space_name}`)
+            let tenantApprouterUrl = modifiedEndpoint(process.env.approuterUrl,`${tenantSubdomain}-${vcapApplication.space_name}-susaas`)
             let loggedInUserToken = req._.req.authInfo.getTokenInfo().getTokenValue();
             let user = req.data;
             let userManagement = new UserManagement(loggedInUserToken);
@@ -37,7 +37,7 @@ module.exports = cds.service.impl(async function () {
                         first_name: user.firstName,
                         last_name: user.lastName,
                         email: user.email,
-                        target_url: approuterUrl
+                        target_url: tenantApprouterUrl
                     })
                     let shadowUser = await userManagement.createShadowUser(user.firstName, user.lastName, user.email);
                     req.data.iasLocation = iasLocation;
