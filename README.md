@@ -56,9 +56,7 @@ Deploy the **Basic Scope** of the SusaaS sample application after preparing your
 
 Enhance your SaaS sample app with **Advanced Scope** features like API Management to monitor and manage your SaaS API endpoints or SAP Identity Authentication to provide a central user management without relying on SAP ID service. Furthermore, you will learn and see a sample of how to integrate a backend system like SAP S/4HANA from a SaaS consumer perspective. 
 
-> **Important** - The Advanced Scope is still Work-in-Progress. The code and documentation are subject to change. 
-
-**Advanced Scope (WIP)**
+**Advanced Scope**
 - [Introduction Advanced Scope](./docu/3-advanced/0-introduction-advanced-scope/README.md)
 - [Repository structure](./docu/3-advanced/1-understand-repo-structure/README.md)
 - [Prepare the provider subaccount](./docu/3-advanced/2-prepare-provider-subaccount/README.md)

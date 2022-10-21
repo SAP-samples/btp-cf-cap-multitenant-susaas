@@ -1,8 +1,5 @@
 # Introduction to the Advanced Scope
 
-> **Important - WIP** <br>
-> The **Advanced Scope** is currently undergoing validation. Feel free to browse the current version but make sure to pull the **main** and **advanced** branches from time to time to get the latest updates.
-
 In the [Basic Scope](../../2-basic/0-introduction-basic-scope/README.md) we have already provided you the core elements required for a Software as a Service (SaaS) application on SAP Business Technology Platform (SAP BTP). 
 
 The idea of **Advanced Scope** is taking all the features implemented in the **Basic Scope** and extending it to the next level with other great services provided by SAP BTP to take you one step closer to production readiness.
