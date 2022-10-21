@@ -6,10 +6,11 @@ In this part of the mission, you will learn how you as a SaaS provider can set u
 2. [Advantages of using SAP IAS](#2-Advantages-of-using-SAP-IAS)
 3. [SAP IAS tenant and trust configuration](#3-SAP-IAS-tenant-and-trust-configuration)
 4. [Disable Automatic Shadow User Creation](#4-Disable-Automatic-Shadow-User-Creation)
-5. [Architecture and flow](#5-Architecture-and-flow)
-6. [Why that complicated?!](#6-Why-that-complicated?!)
-7. [Possible enhancement scenarios](#7-Possible-enhancement-scenarios)
-8. [Further Information](#8-Further-Information)
+5. [Set trusted domain in SAP IAS](#5-Set-trusted-domain-in-SAP-IAS)
+6. [Architecture and flow](#6-Architecture-and-flow)
+7. [Why that complicated?!](#7-Why-that-complicated?!)
+8. [Possible enhancement scenarios](#8-Possible-enhancement-scenarios)
+9. [Further Information](#9-Further-Information)
 
 The following tutorial will start with the technical setup requirements of the **Advanced Scope** when it comes to the usage of SAP IAS before explaining the architecture and concepts in greater detail! We recommend going through the whole tutorial to understand what's happening under the hood! 
 
@@ -96,7 +97,17 @@ Right after setting up the trust between your SAP IAS instance and your **provid
 Automated creation of shadow users results in a setup in which each and every SAP IAS user can authenticate to each consumer subaccount. As your central SAP IAS instance contains the users of all consumers, this is not desirable! Instead, we will create the subaccount-specific shadow users upon creation in the SaaS in-app user management. 
 
 
-## 5. Architecture and flow
+## 5. Set trusted domain in SAP IAS
+
+To allow an automated forwarding of consumer users to the respective tenant instance after registration in SAP IAS, you need to add your SaaS application domain as a trusted domain. Therefore, please login to SAP Identity Authentication service as an Administrator and follow the screenshots below. Make sure to replace the region *eu10* with your own region if required. 
+
+[<img src="./images/IAS_TrustedDomain01.png" width="300" />](./images/IAS_TrustedDomain01.png)
+[<img src="./images/IAS_TrustedDomain02.png" width="500" />](./images/IAS_TrustedDomain02.png)
+
+For a more secure setup, don't use the default cfapps domain with a wildcard, but specify the full qualified hostname including the different tenant-identifiers. Alternatively you can use your own custom domain. For information can be found in SAP Help ([click here](https://help.sap.com/docs/IDENTITY_AUTHENTICATION/6d6d63354d1242d185ab4830fc04feb1/08fa1fe816704d99a6bcab245158ebca.html?locale=en-US)).
+
+
+## 6. Architecture and flow
 
 See the following screenshots to get an idea of the user management architecture and to understand how authentication works in the sample application including SAP IAS (click to enlarge). 
 
@@ -167,7 +178,7 @@ Okay wow, that was a lot of information to digest. Let's summarize the steps aga
 - The user can now authenticate using the application registration created by the consumer subaccount XSUAA - SAP IAS trust.
 
 
-## 6. Why that complicated?!
+## 7. Why that complicated?!
 
 Yes, we have to admit, the setup is a bit complicated and not easy to understand at first glance. Still, it offers certain advantages that we want to highlight here. 
 
@@ -191,7 +202,7 @@ Yes, we have to admit, the setup is a bit complicated and not easy to understand
   - Probably yes - but there is no concrete timeline yet. Once there is an end-to-end integration (incl. role management) between SAP IAS and frameworks like CAP (currently XSUAA-based), a dedicated application registration for each SaaS application might be a viable option for future authentication and user management. This will allow users to directly authenticate against the same application registration which is also used for managing the users in SAP IAS. 
 
 
-## 7. Possible enhancement scenarios
+## 8. Possible enhancement scenarios
 
 This setup is only one sample of how to approach a central user store using SAP Identity Authentication Service. Still, there are further options to enhance or modify this scenario depending on your own requirements. Let's check out some of them. 
 
@@ -211,7 +222,7 @@ In-app user management will not work out of the box in this case, as the SaaS ba
   * Using dedicated user groups in SAP IAS like "Admin_ConsumerABC" and "Admin_ConsumerXYZ", you can set up a corresponding group mapping in the respective subaccounts of consumers ABC and XYZ. Instead of manually assigning role collections to your XSUAA shadow users, the only thing that needs to be done now is to map the role collections of the SaaS application to the consumer-specific user groups. Certain changes in the code will be required to automate the creation of consumer-specific user groups in SAP IAS and connect your in-app user management with the group assignment logic of SAP IAS. In this scenario, you need to ensure, that users in SAP IAS are assigned to the correct user group.
   
 
-## 8. Further information
+## 9. Further information
 
 Please use the following links to find further information on the topics above:
 
@@ -222,3 +233,4 @@ Please use the following links to find further information on the topics above:
 * [SAP Help - Trust and Federation with Identity Providers](https://help.sap.com/docs/BTP/65de2977205c403bbc107264b8eccf4b/cb1bc8f1bd5c482e891063960d7acd78.html)
 * [SAP Help - Establish Trust and Federation Between UAA and Identity Authentication](https://help.sap.com/docs/BTP/65de2977205c403bbc107264b8eccf4b/161f8f0cfac64c4fa2d973bc5f08a894.html?locale=en-US)
 * [SAP Help - Switch Off Automatic Creation of Shadow Users](https://help.sap.com/docs/BTP/65de2977205c403bbc107264b8eccf4b/d8525671e8b14147b96ef497e1e1af80.html)
+* [SAP Help - Configure Trusted Domains](https://help.sap.com/docs/IDENTITY_AUTHENTICATION/6d6d63354d1242d185ab4830fc04feb1/08fa1fe816704d99a6bcab245158ebca.html?locale=en-US)
