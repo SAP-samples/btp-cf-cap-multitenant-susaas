@@ -1,6 +1,6 @@
 # Manage Tenant Database Containers
 
-In this part of the **Expert Scope** you will learn how to access and manage tenant database containers. In this sample scenario, you will be accessing a respective tenant database container with a user that is assigned administrative permissions for the underlying database schema like **CREATE ANY, SELECT, EXECUTE or DROP** SQL permissions. 
+In this part of the **Expert Scope** you will learn how to access and manage tenant database containers. In this sample scenario, you will be accessing a respective tenant database container with a user that is assigned administrative permissions for the underlying database schema like **CREATE ANY, SELECT, EXECUTE, or DROP** SQL permissions. 
 
 1. [Introduction](#1-Introduction)
 2. [Prerequisites](#2-Prerequisites)
@@ -8,14 +8,14 @@ In this part of the **Expert Scope** you will learn how to access and manage ten
 4. [Access the tenant database container](#4-Access-the-tenant-database-container)
 5. [Further Information](#5-Further-Information)
 
-Please also check out the blog post by Andrew Lunde which is part of the **Further Information** section ([click here](./README.md#5-further-information)). It provides even more details and different approaches on how to interact with containers managed by the so called SAP Service Manager. 
+Please also check out the blog post by Andrew Lunde which is part of the **Further Information** section ([click here](./README.md#5-further-information)). It provides even more details and different approaches on how to interact with containers managed by the so-called SAP Service Manager. 
 
 
 ## 1. Introduction
 
-The demonstrated approach explains how to access a tenant database container with a so called technical **Runtime user**. This user has extensive permissions to interact with the underlying database schema and the presented access should only be used in very exceptional scenarios! This technical user is able to modify any data in a tenant container and to create and drop schema objects using plain SQL commands. 
+The demonstrated approach explains how to access a tenant database container with a so-called technical **Runtime user**. This user has extensive permissions to interact with the underlying database schema and the presented access should only be used in very exceptional scenarios! This technical user is able to modify any data in a tenant container and to create and drop schema objects using plain SQL commands. 
 
-No developer in a productive environment should ever have access to the credentials used in this step-by-step guide. This can be achieved by **not assigning** any Cloud Foundry roles like e.g., Space Developer/Supporter/Manager to developers in a productive subaccount. Instead a very limited number of named database users should be used in combination with dedicated **support roles** provided by the database schema. 
+No developer in a productive environment should ever have access to the credentials used in this step-by-step guide. This can be achieved by **not assigning** any Cloud Foundry roles like Space Developer/Supporter/Manager to developers in a productive subaccount. Instead, a very limited number of named database users should be used in combination with dedicated **support roles** provided by the database schema. 
 
 Please use this approach for learning purposes only e.g., when working in a development environment or in very exceptional circumstances by a dedicated administrator having access to the Service Binding details of the Service Manager instance! 
 
@@ -23,7 +23,7 @@ Please use this approach for learning purposes only e.g., when working in a deve
 ## 2. Prerequisites
 
 - You need to have a Developer role in the Cloud Foundry Space in which your SaaS application is deployed. 
-- You need to have acceess to the Subscription Management Dashboard which simplifies the identification of tenant IDs. 
+- You need to have access to the Subscription Management Dashboard which simplifies the identification of tenant IDs. 
 
 
 ## 3. Get the database container credentials
@@ -42,7 +42,7 @@ Please use this approach for learning purposes only e.g., when working in a deve
 
 3.3. Open the existing **Service Binding**, to read the credentials of the tenant database container you want to access. Please note the **host**, **port**, **user** and **password** property. 
 
-> **Hint** - You can see that the **user** property ends with *RT*, which stands for **RunTime** user. The **hdi_user** property ending with *DT* is the so called **DesignTime** user. 
+> **Hint** - You can see that the **user** property ends with *RT*, which stands for **RunTime** user. The **hdi_user** property ending with *DT* is the so-called **DesignTime** user. 
 
 [<img src="./images/manage_040.png" width="500" />](./images/manage_040.png)
 
@@ -63,7 +63,7 @@ Please use this approach for learning purposes only e.g., when working in a deve
 
 4.3. Once the container appears in your list of available connections, please switch to the **Tables** section. To see the tables of your tenant database container/schema, please click on the value help icon. 
 
-> **Hint** - Currently you only see the tables of runtime user's (_RT user) own schema which is empty. Keep in mind, that a database container is nothing different than a collection of database schemas. 
+> **Hint** - Currently you only see tables of the Runtime user's (_RT user) own schema which is empty. Keep in mind, that a database container is nothing different than a collection of database schemas. 
 
 [<img src="./images/manage_070.png" width="200" />](./images/manage_070.png)
 
@@ -73,7 +73,7 @@ Please use this approach for learning purposes only e.g., when working in a deve
 
 [<img src="./images/manage_080.png" width="500" />](./images/manage_080.png)
 
-4.5. You should now have access to all tables in the *shared database container/schema* and the *tenant database container/schema* of the bestrun tenant. You can use SQL commands or available user interface options to view the table content, insert/delete/modify records or to create/drop schema objects. 
+4.5. You should now have access to all tables in the *shared database container/schema* and the *tenant database container/schema* of the bestrun tenant. You can use SQL commands or available user interface options to view table content, insert/delete/modify records or create and drop schema objects. 
 
 [<img src="./images/manage_090.png" width="200" />](./images/manage_090.png)
 

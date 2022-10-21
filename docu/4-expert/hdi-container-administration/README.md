@@ -1,15 +1,15 @@
 # HDI Container Administration
 
-In this part of the **Expert Scope** you will learn how to setup a new HDI Container Group Administrator for your SaaS HDI containers. This user will be able to administrate tenant database containers (e.g., create or import backups, use the HDI Container API, ...). 
+In this part of the **Expert Scope** you will learn how to set up a new HDI Container Group Administrator for your SaaS HDI containers. This user will be able to administrate tenant database containers (e.g., create or import backups, use the HDI Container API, ...). 
 
 1. [Introduction](#1-Introduction)
 2. [Prerequisites](#2-Prerequisites)
-3. [Logon to SAP HANA Cloud Cockpit](#3-Logon-to-SAP-HANA-Cloud-Cockpit)
+3. [Login to SAP HANA Cloud Cockpit](#3-Login-to-SAP-HANA-Cloud-Cockpit)
 4. [Create a new database user](#4-Create-a-new-database-user)
 5. [Set up a new HDI Container Group administrator](#5-set-up-a-new-hdi-container-group-administrator)
 6. [Further Information](#6-Further-Information)
 
-Please check the following SAP Help documentations in case you're new to the topic of SAP HANA HDI container administration.
+Please check the following SAP Help documentation in case you're new to the topic of SAP HANA HDI container administration.
 
 * [SAP HDI Administration](https://help.sap.com/docs/HANA_CLOUD_DATABASE/c2cc2e43458d4abda6788049c58143dc/b36b4b60c9e44291ae02e520135fd898.html?locale=en-US)
 
@@ -18,11 +18,11 @@ Please check the following SAP Help documentations in case you're new to the top
 
 ## 1. Introduction
 
-Creating an HDI Container (Group) Administrator is a very critical process from a data security perspective. Especially in a productive landscape, you have to be very concious about which roles and permissions you assign to support or administrative staff. Especially permissions allowing data access to consumer database containers should be granted in very exceptional cases only! 
+Creating an HDI Container (Group) Administrator is a very critical process from a data security perspective. Especially in a productive landscape, you have to be very conscious about which roles and permissions you assign to support or administrative staff. Especially permissions allowing data access to consumer database containers should be granted in very exceptional cases only! 
 
-As a SaaS provider, you need to ensure this process is well aligned with your SaaS customers and only a very limited group of people has the permission to access, export, and import customer database containers. Make sure to create and assign dedicted roles in your database by always following the least permission model! 
+As a SaaS provider, you need to ensure this process is well aligned with your SaaS customers and that only a very limited group of people has permissions to access, export, and import customer database containers. Make sure to create and assign dedicated roles in your database by always following the least permission model! 
 
-> **Important** - The user created in this step-by-step guide is assigned very **extensive permissions** to administrate all containers created by the default HDI Container Service Broker for **simlification and demo purposes**. This means he can grant **Full Access permissions** for each HDI Container to any database user. As stated above, especially in a productive environment you will need a much more elaborated security setup. In the following sample, the DBADMIN user has e.g., assigned the sample user SUSAAS_OPS permissions to export **a specific container** only. SUSAAS_OPS has no other container related permissions except of the export feature. <br><br>
+> **Important** - The user created in this step-by-step guide is assigned very **extensive permissions** to administrate all containers created by the default HDI Container Service Broker for **simplification and demo purposes**. This means he can grant **Full Access permissions** for each HDI Container to any database user. As stated above, especially in a productive environment you will need a much more elaborated security setup. In the following sample, the DBADMIN user has e.g., assigned the sample user SUSAAS_OPS permissions to export **a specific container** only. SUSAAS_OPS has no other container-related permissions except for the export feature. <br><br>
 >[<img src="./images/hdi_group_000.png" width="500" />](./images/hdi_group_000.png)
 
 
@@ -32,7 +32,7 @@ As a SaaS provider, you need to ensure this process is well aligned with your Sa
 - You need a basic understanding of the SAP HDI concepts including SAP HDI Container Groups (also check the **Further Information** section).
 
 
-## 3. Logon to SAP HANA Cloud Cockpit
+## 3. Login to SAP HANA Cloud Cockpit
 
 3.1. Go to the SAP BTP Cloud Foundry Space in which your SAP HANA Cloud instance resides. 
 
@@ -61,13 +61,13 @@ As a SaaS provider, you need to ensure this process is well aligned with your Sa
 
 [<img src="./images/hdi_group_050.png" width="500" />](./images/hdi_group_050.png)
 
-4.3. Decide for a username and provide a valid e-mail address. Keep the default settings for **PUBLIC role** and **schema object creation**, as the support/operations user e.g., needs to create temporary tables for HDI Container exports in his own schema. 
+4.3. Decide on a username and provide a valid e-mail address. Keep the default settings for **PUBLIC role** and **schema object creation**, as the support/operations user e.g., needs to create temporary tables for HDI Container exports in his own schema. 
 
-> **Hint** - In a productive environment, we recommend to create named users like JOHNDOE or usage of employee IDs to allow proper logging of critical database activities. 
+> **Hint** - In a productive environment, we recommend creating named users like JOHNDOE or usage of employee IDs to allow proper logging of critical database activities. 
 
 [<img src="./images/hdi_group_060.png" width="500" />](./images/hdi_group_060.png)
 
-4.4. Set an initial password for your new user. You can enforce a password change and enable/disable a password lifetime if required. Finally click on **Save** to create your new database user. 
+4.4. Set an initial password for your new user. You can enforce a password change and enable/disable a password lifetime if required. Finally, click on **Save** to create your new database user. 
 
 [<img src="./images/hdi_group_070.png" width="500" />](./images/hdi_group_070.png)
 
@@ -106,7 +106,7 @@ As a SaaS provider, you need to ensure this process is well aligned with your Sa
 
 [<img src="./images/hdi_group_140.png" width="500" />](./images/hdi_group_140.png)
 
-5.8. After the user was added to the list of users, select it and click on the **+** icon in the **Groups & Containers on which User has Privileges** section. This will allow you to assign HDI Container Group permissions. In the list of Container Groups you will see the default Service Broker Container Group called **BROKER_CG**. 
+5.8. After the user was added to the list of users, select it and click on the **+** icon in the **Groups & Containers on which User has Privileges** section. This will allow you to assign HDI Container Group permissions. In the list of Container Groups, you will see the default Service Broker Container Group called **BROKER_CG**. 
 
 > **Hint** - All HDI containers created by the respective SAP BTP Service Broker will be assigned to this Container Group. 
 
@@ -128,22 +128,22 @@ As a SaaS provider, you need to ensure this process is well aligned with your Sa
 
 [<img src="./images/hdi_group_180.png" width="500" />](./images/hdi_group_180.png)
 
-5.12. You can scroll through the list of permissions, and will see that your user can now e.g., export and import all HDI Containers in this Container Group. 
+5.12. You can scroll through the list of permissions and will see that your user can now e.g., export and import all HDI Containers in this Container Group. 
 
 [<img src="./images/hdi_group_190.png" width="500" />](./images/hdi_group_190.png)
 
 [<img src="./images/hdi_group_200.png" width="500" />](./images/hdi_group_200.png)
 
-5.13. One example of using the HDI Container Administration permissions in action, can be found in another **Expert Scope** scenario covering the [**Backup of Database Containers**](../backup-database-containers/README.md). 
+5.13. One example of using the HDI Container Administration permissions in action can be found in another **Expert Scope** scenario covering the [**Backup of Database Containers**](../backup-database-containers/README.md). 
 
-5.14. Furthermore, you can login to **SAP HANA Database Explorer** with the new database user (in this case SUSAAS_OPS) and make use of the powerful HDI Container SQL API. One example can be seen in the screenshot below, in which the schema role **COM_EXTERNAL_ACCESS** of container **4D7A05F.........93C338B** was assigned to the **DBADMIN** user.
+5.14. Furthermore, you can log in to **SAP HANA Database Explorer** with the new database user (in this case SUSAAS_OPS) and make use of the powerful HDI Container SQL API. One example can be seen in the screenshot below, in which the schema role **COM_EXTERNAL_ACCESS** of container **4D7A05F.........93C338B** was assigned to the **DBADMIN** user.
 
 [<img src="./images/hdi_assignrole.png" width="500" />](./images/hdi_assignrole.png)
 
 
 ## 6. Further information
 
-The concept of HDI Container Administration is a very powerfull concept, which allows you to assign administrative permissions for your database containers to dedicated database users. This simplifies the maintenance and support of database/container related incidents. Make yourself familiar with the official SAP Help documentation to learn how to use this great SAP HANA database feature for your requirements.
+The concept of HDI Container Administration is a very powerful concept, which allows you to assign administrative permissions for your database containers to dedicated database users. This simplifies the maintenance and support of database/container-related incidents. Make yourself familiar with the official SAP Help documentation to learn how to use this great SAP HANA database feature for your requirements.
 
 [SAP Help - SAP HDI Administration](https://help.sap.com/docs/HANA_CLOUD_DATABASE/c2cc2e43458d4abda6788049c58143dc/b36b4b60c9e44291ae02e520135fd898.html?locale=en-US)
 

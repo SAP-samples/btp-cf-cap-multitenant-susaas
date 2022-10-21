@@ -2,37 +2,37 @@
 
 This part of the **Expert Scope** explains how to export and import SAP HANA Cloud HDI (HANA Deployment Infrastructure) containers in a SaaS scenario. This can be useful to back up your subscriber data on a regular basis. Please be aware that the import process will overwrite the content of your target container. For this reason also make sure, not to apply incompatible database changes between the backup and import of a container. 
 
-Before approaching this part of the **Expert Scope**, please make sure to setup a new HDI Container Group Administrator first as described in the following part of the Expert Scope ([Manage Tenant Database Containers](../manage-tenant-containers/README.md)) and use the respective user for the steps below.
+Before approaching this part of the **Expert Scope**, please make sure to set up a new HDI Container Group Administrator first as described in the following part of the Expert Scope ([Manage Tenant Database Containers](../manage-tenant-containers/README.md)) and use the respective user for the steps below.
 
 1. [Introduction](#1-Introduction)
 2. [Prerequisites](#2-Prerequisites)
-3. [Export existing container](#3-Export-existing-container)
-4. [Import into existing container](#4-Import-into-existing-container)
+3. [Export an existing container](#3-Export-an-existing-container)
+4. [Import into an existing container](#4-Import-into-an-existing-container)
 5. [Dependencies and privileges](#5-Dependencies-and-privileges)
 6. [Further Information](#6-Further-Information)
 
-In this sample use-case we assume the following backup scenario. If your scenario is different from the following assumptions, please test your requirements in a sandbox system first, before deleting any tenant datbase containers! In general, we recommend to test all backup related steps before applying them in a productive environment!
+In this sample use-case we assume the following backup scenario. If your scenario is different from the following assumptions, please test your requirements in a sandbox system first, before deleting any tenant database containers! In general, we recommend testing all backup-related steps before applying them in a productive environment!
 
 1. You did a database container backup of tenant ABC
 2. You unsubscribed tenant ABC or removed the consumer subaccount
-3. You create a new subaccount and subscribe the tenant ABC again
+3. You create a new subaccount and subscribe tenant ABC again
 4. You want to load the backup into the new and empty database container of tenant ABC
 
 So the important assumption is, that the target container for the import of the backup **already exists** and is part of the ordinary tenant database container lifecycle managed by the Service Manager. 
 
-> **Hint** - In case you don't want to overwrite the target container (e.g. due to incompatible database changes), you can also import the exported container into a new database schema instead of overwriting the target schema. After the import you can manually insert the required backups into the target container. 
+> **Hint** - In case you don't want to overwrite the target container (e.g. due to incompatible database changes), you can also import the exported container into a new database schema instead of overwriting the target schema. After the import, you can manually insert the required backups into the target container. 
 
 
 ## 1. Introduction
 
-Creating and storing backups of database containers is a very critical process from a data security perspective. As a SaaS provider, you need to ensure this process is well aligned with your SaaS customers and only a very limited group of people has the permission to access, export, and import customer database containers. 
+Creating and storing backups of database containers is a very critical process from a data security perspective. As a SaaS provider, you need to ensure this process is well aligned with your SaaS customers and that only a very limited group of people has permissions to access, export, and import customer database containers. 
 
-As an alternative to a manual export, please also consider an automated technical approach (using respective SQL commands) that includes strong encryption of exported containers in a secure location. Containers can also be backuped and exported to Cloud Sources like Azure Storage or AWS S3. Please find the required steps in the respective SAP Help documents (see [Further Information](./README.md#6-further-information)).
+As an alternative to a manual export, please also consider an automated technical approach (using respective SQL commands) that includes strong encryption of exported containers in a secure location. Containers can also be exported to Cloud Sources like Azure Storage or AWS S3. Please find the required steps in the respective SAP Help documents (see [Further Information](./README.md#6-further-information)).
 
 
 ## 2. Prerequisites
 
-Before approaching this part of the **Expert Scope**, please make sure to setup a new HDI Container Group Administrator first as described in the following part of the Expert Scope ([Manage Tenant Database Containers](../manage-tenant-containers/README.md)). 
+Before approaching this part of the **Expert Scope**, please make sure to set up a new HDI Container Group Administrator first as described in the following part of the Expert Scope ([Manage Tenant Database Containers](../manage-tenant-containers/README.md)). 
 
 - The tables in the schema of the exported container must not be larger than 2GB.
 - The exporting user needs to be an Admin of your container's HDI Container Group. 
@@ -42,9 +42,9 @@ Before approaching this part of the **Expert Scope**, please make sure to setup 
 Especially for the last prerequisite, please check the [Dependencies and privileges](#5-Dependencies-and-privileges) chapter! 
 
 
-## 3. Export existing container
+## 3. Export an existing container
 
-3.1. Find the consumer subaccount id of which you want to export the container from the Subscription Management Dashboard.
+3.1. Find the ID of the consumer tenant of which you want to export using the Subscription Management Dashboard.
 
 [<img src="./images/export_010.png" width="500" />](./images/export_010.png)
 
@@ -97,11 +97,11 @@ Especially for the last prerequisite, please check the [Dependencies and privile
 [<img src="./images/export_140.png" width="500" />](./images/export_140.png)
 
 
-## 4. Import into existing container
+## 4. Import into an existing container
 
 4.1. Go to SAP HANA Database Explorer and log in with an HDI Container (Group) Admin of the container you want to restore your backup in. 
 
-> **Important** - The database container in which you want to restore your backup, already has to exist before doing the following steps! Also check the next chapter to learn about pre-import prerequisites in case of cross-container-access scenarios!
+> **Important** - The database container in which you want to restore your backup, already has to exist before doing the following steps! Also, check the next chapter to learn about pre-import prerequisites in case of cross-container-access scenarios!
 
 [<img src="./images/import_005.png" width="500" />](./images/import_005.png)
 
@@ -184,9 +184,9 @@ CALL _SYS_DI#BROKER_CG.IMPORT_CONTAINER_FOR_COPY(
 
 ## 5. Dependencies and privileges
 
-All external objects referenced in the imported container (e.g., if the imported container is accessing a shared database container) must already be available in the database and accessible to the object owner (#OO-user) of the targeted import container when starting the import process. So, if necessary, grant the object owner of the target container required privileges for accessing these objects of a shared container.
+All external objects referenced in the imported container (e.g., if the imported container is accessing a shared database container) must already be available in the database and accessable to the object owner (#OO-user) of the targeted import container when starting the import process. So, if necessary, grant the object owner of the target container required privileges for accessing these objects of a shared container.
 
-If a shared container exposes a role for cross-container access, this role must be granted (before to import) to the object owner (#OO-user) of the import target container. The role can be granted to the #OO-user either by a role administrator (ROLE ADMIN) or by using the HDI Container API for role assignment. 
+If a shared container exposes a role for cross-container access, this role must be granted (before the import) to the object owner (#OO-user) of the import target container. The role can be granted to the #OO-user either by a role administrator (ROLE ADMIN) or by using the HDI Container API for role assignment. 
 
 Sample SQL command to assign a role using the SAP HDI Container API: 
 
