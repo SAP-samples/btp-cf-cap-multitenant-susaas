@@ -31,6 +31,7 @@
     - [Integrate with SAP API Management](../../docu/3-advanced/8-integrate-sap-api-management/README.md)
 - Expert Scope
     - [Introduction expert scenario](../../docu/4-expert/0-introduction-expert-scope/README.md)
+    - [HDI container administration](../../docu/4-expert/hdi-container-administration/README.md)
     - [Setup SAP CI/CD for your project](../../docu/4-expert/setup-cicd-for-project/README.md)
     - [Configure SAP Transport Management](../../docu/4-expert/configure-transport-management/README.md)
     - [How to do local/hybrid development](../../docu/4-expert/local-hybrid-development/README.md)

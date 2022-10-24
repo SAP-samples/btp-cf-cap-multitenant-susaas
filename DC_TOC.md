@@ -33,6 +33,7 @@
     - [Troubleshooting](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/blob/main/docu/3-advanced/9-troubleshooting/README.md)
 - Expert Scope
     - [Introduction Expert Scope](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/blob/main/docu/4-expert/0-introduction-expert-scope/README.md)
+    - [HDI container administration](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/blob/main/docu/4-expert/hdi-container-administration/README.md)
     - [Setup SAP CI/CD for your project](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/blob/main/docu/4-expert/setup-cicd-for-project/README.md)
     - [Configure SAP Transport Management](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/blob/main/docu/4-expert/configure-transport-management/README.md)
     - [How to do local/hybrid development](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/blob/main/docu/4-expert/local-hybrid-development/README.md)

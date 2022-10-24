@@ -17,7 +17,7 @@ The **Expert Scope** will cover topics from doing backups of tenant database con
 
 > **Important** - You can implement some of the Expert Scope topics in a Trial environment (see list above) whereas for other parts you will either need an SAP BTP **Free Tier** or [**Enterprise Account**](https://help.sap.com/docs/BTP/65de2977205c403bbc107264b8eccf4b/171511cc425c4e079d0684936486eee6.html). 
 
-
+* [HDI container administration](../hdi-container-administration/README.md) (Trial - **✓**)
 * [Backup database containers](../backup-database-containers/README.md) (Trial - **✓**)
 * [Configure SAP Cloud Transport Management](../configure-transport-management/README.md) (Trial - **✓**)
 * [Deploy to multiple regions](../deploy-multiple-regions/README.md) (Trial - **✓**)
