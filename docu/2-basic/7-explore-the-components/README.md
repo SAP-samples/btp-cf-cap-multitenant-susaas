@@ -59,7 +59,7 @@ Finally, you can find samples for OData actions allowing you to bulk-update prod
 
 ## 5. API Broker 
 
-> **Important** - Find more details in the [Service Broker](./components/ServiceBroker.md) Reamde document!
+> **Important** - Find more details in the [Service Broker](./components/ServiceBrokers.md) Reamde document!
 
 Service brokers manage instances of services used by applications running in the Cloud Foundry runtime.
 
