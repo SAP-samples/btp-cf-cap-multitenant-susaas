@@ -15,6 +15,8 @@ Please also check out the blog post by Andrew Lunde which is part of the **Furth
 
 The demonstrated approach explains how to access a tenant database container with a so-called technical **Runtime user**. This user has extensive permissions to interact with the underlying database schema and the presented access should only be used in very exceptional scenarios! This technical user is able to modify any data in a tenant container and to create and drop schema objects using plain SQL commands. 
 
+> **Hint** - If you want to adapt the permissions of this default access role assigned to Runtime users, please read the following SAP Help documentation ([click here](https://help.sap.com/docs/HANA_CLOUD_DATABASE/b9902c314aef4afb8f7a29bf8c5b37b3/9235c9dd8dbf410f915ffe305296a032.html?locale=en-US)). Please keep in mind, this will also restrict the permissions of the Runtime user used by the Service Manager when accessing the tenant database containers. 
+
 No developer in a productive environment should ever have access to the credentials used in this step-by-step guide. This can be achieved by **not assigning** any Cloud Foundry roles like Space Developer/Supporter/Manager to developers in a productive subaccount. Instead, a very limited number of named database users should be used in combination with dedicated **support roles** provided by the database schema. 
 
 Please use this approach for learning purposes only e.g., when working in a development environment or in very exceptional circumstances by a dedicated administrator having access to the Service Binding details of the Service Manager instance! 
@@ -89,6 +91,7 @@ Please use this approach for learning purposes only e.g., when working in a deve
 
 Please use the following links to find further information on the topics above:
 
+* [SAP Help - The Default Access Role for HDI Containers](https://help.sap.com/docs/HANA_CLOUD_DATABASE/b9902c314aef4afb8f7a29bf8c5b37b3/9235c9dd8dbf410f915ffe305296a032.html?locale=en-US)
 * [SAP Help - Using the Subscription Management Dashboard](https://help.sap.com/docs/BTP/65de2977205c403bbc107264b8eccf4b/434be695f9e946ccb4c28911dd1e16d0.html?locale=en-US)
 * [SAP Blog - The hidden life of ServiceManager handled containers](https://blogs.sap.com/2021/02/15/the-hidden-life-of-servicemanager-handled-containers/)
 * [CAP documentation - Deploy as Multitenant SaaS Application](https://cap.cloud.sap/docs/guides/deployment/as-saas#intro--overview)
