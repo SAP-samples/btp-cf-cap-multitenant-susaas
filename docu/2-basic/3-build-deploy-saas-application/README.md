@@ -12,10 +12,11 @@ Before the deployment of the sample application, you need to build the project a
 
 Let's get started with the preparation of the codebase in which a few customizations need to be undertaken before you can start the build and deployment to your provider subaccount. 
 
-1.1. (Fork and) Clone this repository, then checkout to the **basic** branch.
+1.1. (Fork and) Clone this repository, then checkout to the **basic** branch. Once the branch is checked out, run an initial **npm install** on project root level. 
 
 ```sh
 $ git checkout basic
+$ npm install
 ```
 
 1.2. Provide a receiver mail address in the **Alert Notification** service configuration which you can find in the **configs** directory.
