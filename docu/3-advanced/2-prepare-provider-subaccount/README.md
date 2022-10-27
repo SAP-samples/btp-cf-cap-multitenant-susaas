@@ -73,7 +73,7 @@ For more details see [Create an SAP HANA Database Instance Using SAP HANA Cloud 
 
 ## 5. Further information
 
-Please also use the details provided in the **Basic Scope** ([click here](../../2-basic/2-prepare-provider-subaccount/README.md#6-further-information)) to find further information on the topics above. 
+Please also use the details provided in the **Basic Scope** ([click here](../../2-basic/2-prepare-provider-subaccount/README.md#7-further-information)) to find further information on the topics above. 
 
 * [SAP Help - SAP Integration Suite](https://help.sap.com/docs/SAP_INTEGRATION_SUITE?locale=en-US)
 * [SAP Help - SAP Integration Suite - Using Free Service Plans](https://help.sap.com/docs/SAP_INTEGRATION_SUITE/51ab953548be4459bfe8539ecaeee98d/ddf66923270b4078ac6b88026553d068.html?locale=en-US)

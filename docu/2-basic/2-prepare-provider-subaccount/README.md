@@ -5,9 +5,10 @@ In this chapter, you will learn how to prepare your SAP BTP Provider Subaccount 
 1. [Prerequisites for Provider Subaccount](#1-Prerequisites-for-Provider-Subaccount)
 2. [Entitlements for Provider Subaccount](#2-Entitlements-for-Provider-Subaccount)
 3. [SAP HANA Cloud prerequisite](#3-SAP-HANA-Cloud-prerequisite)
-4. [Limitations of trial/free services](#4-Limitations-of-trial/free-services)
-5. [Troubleshooting](#5-Troubleshooting)
-6. [Further information](#6-Further-Information)
+4. [SAP Alert Notification Technical User](#4-SAP-Alert-Notification-Technical-User)
+5. [Limitations of trial/free services](#5-Limitations-of-trial/free-services)
+6. [Troubleshooting](#6-Troubleshooting)
+7. [Further information](#7-Further-Information)
 
 
 ## 1. Prerequisites for Provider Subaccount
@@ -53,7 +54,16 @@ If you need help assigning entitlements to your provider subaccount, you might f
 Make sure that you have an instance of SAP HANA Cloud database in your Cloud Foundry Space or that you share an existing SAP HANA Cloud instance with your Cloud Foundry Organization or dedicated Space. For more details see - [Create an SAP HANA Database Instance Using SAP HANA Cloud Central](https://developers.sap.com/tutorials/hana-cloud-mission-trial-2.html).
 
 
-## 4. Limitations of trial/free services
+## 4. SAP Alert Notification Technical User
+
+Please add a dedicated Technical User as a Space Auditor to the Cloud Foundry Space of your Provider Subaccount. This user is required by SAP Alert Notification to inform you about lifecycle events of your SaaS application. You can find a list of users per region in the official SAP Help documentaton ([click here](https://help.sap.com/docs/ALERT_NOTIFICATION/5967a369d4b74f7a9c2b91f5df8e6ab6/4255e6064ea44f20a540c5ae0804500d.html?locale=en-US)).
+
+For **us10** region, please add for example **sap_cp_us10_ans@sap.com** as a Space Auditor. 
+
+[<img src="./images/Space_TechUser.png" width="500"/>](./images/Space_TechUser.png)
+
+
+## 5. Limitations of trial/free services
 
 If using an SAP BTP Trial account or trial/free services plans like e.g., for SAP HANA Cloud, please be aware of the following limitations:
 
@@ -61,12 +71,12 @@ If using an SAP BTP Trial account or trial/free services plans like e.g., for SA
 - Your application instances will be stopped on a daily base to reduce memory consumption. Make sure to check your applications and restart them if necessary before using the application in a Trial environment. 
 
 
-## 5. Troubleshooting
+## 6. Troubleshooting
 
 For troubleshooting please check the separate **Troubleshooting** section of this scope ([click here](../10-troubleshooting/README.md)).
 
 
-## 6. Further information
+## 7. Further information
 
 Please use the following links to find further information on the topics above:
 
