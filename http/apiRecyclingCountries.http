@@ -13,6 +13,7 @@
 POST {{xsuaaHostname}}/oauth/token
 Accept: application/json
 Content-Type: application/x-www-form-urlencoded
+Authorization: Basic {{btpXsuaaClient}}:{{btpXsuaaSecret}}
 
 client_id={{btpXsuaaClient}}
 &client_secret={{btpXsuaaSecret}}
