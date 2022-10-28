@@ -8,7 +8,7 @@
     {
       "source": "/catalog/(.*)$",
       "target": "/catalog/$1",
-      "destination": "susaas_api"
+      "destination": "susaas-srv-api"
     },{
       "source": "^/app/(.*)$",
       "target": "$1",

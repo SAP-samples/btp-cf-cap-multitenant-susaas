@@ -1,11 +1,14 @@
-const CisCentral = require('./cis-central')
-
-const ServiceManager = require("./service-manager");
 const cfenv = require('cfenv');
 const appEnv = cfenv.getAppEnv();
+const xsenv = require('@sap/xsenv');
+xsenv.loadEnv();
+
+const ServiceManager = require("./service-manager");
+const CisCentral = require('./cis-central')
 const destination = require('./destination')
 const CFUtils = require("./cf-utils");
 const credStore = require("./credStore");
+
 
 class TenantAutomator {
     constructor() {
@@ -14,14 +17,13 @@ class TenantAutomator {
         this.destination = destination;
         this.cf = new CFUtils();
     }
-    modifiedEndpoint(endpoint, prefix) {
-        return endpoint.replace(/(^https:\/\/)([^.]+)(\..+$)/, '$1' + prefix + '$3')
-    }
-    async deployTenantArtifacts(subscribingTenant, subscribingSubdomain, subscribingUser) {
+
+    async deployTenantArtifacts(subscribingTenant, subscribingSubdomain) {
         try {
             await this.initialize(subscribingTenant, subscribingSubdomain);
-            await this.createDestination(subscribingSubdomain)
-            await this.createRoute(subscribingSubdomain);
+            await this.createSampleDestination(subscribingSubdomain, `SUSAAS_S4HANA_CLOUD`)
+            // Don't create route in case of '.' used as tenant separator - wildcard route used!
+            process.env.tenantSeparator !== '.' ? await this.createRoute(subscribingSubdomain) : null;
             await this.registerBTPServiceBroker(subscribingSubdomain);
             await this.cleanUpCreatedServices(subscribingTenant);
             console.log("Automation: Deployment has been completed successfully!")
@@ -32,9 +34,10 @@ class TenantAutomator {
 
     async undeployTenantArtifacts(unsubscribingTenant, unsubscribingSubdomain) {
         try {
-            await this.initialize(unsubscribingTenant, unsubscribingSubdomain);
-            await this.deleteDestination(unsubscribingSubdomain, "susaas_api")
-            await this.deleteRoute(unsubscribingSubdomain);
+            await this.initialize(unsubscribingTenant);
+            await this.deleteSampleDestination(unsubscribingSubdomain, `SUSAAS_S4HANA_CLOUD`)
+            // Don't delete route in case of '.' used as tenant separator - wildcard route used!
+            process.env.tenantSeparator !== '.' ? await this.deleteRoute(unsubscribingSubdomain) : null;
             await this.unregisterBTPServiceBroker(unsubscribingTenant);
             await this.cleanUpCreatedServices(unsubscribingTenant);
             console.log("Automation: Undeployment has been completed successfully!")
@@ -44,7 +47,7 @@ class TenantAutomator {
         }
     }
 
-    async initialize(subscribingTenant, subscribingSubdomain) {
+    async initialize(subscribingTenant) {
         try {
             await this.readCredentials();
             let btpAdmin = this.credentials.get("btp-admin-user")
@@ -76,7 +79,6 @@ class TenantAutomator {
                 this.credStore.readCredential("susaas", "password", "btp-admin-user"),
                 this.credStore.readCredential("susaas", "password", "susaas-broker-credentials")
             ]);
-            let credMap = new Map();
             creds.forEach((cred) => {
                 this.credentials.set(cred.name, cred)
             })
@@ -86,6 +88,7 @@ class TenantAutomator {
             throw (error);
         }
     }
+
     async cleanUpCreatedServices(tenant) {
         try {
             await this.cisCentral.deleteServiceManager(tenant);
@@ -95,11 +98,12 @@ class TenantAutomator {
             throw error;
         }
     }
-    async registerBTPServiceBroker(subscribedSubdomain) {
+    
+    async registerBTPServiceBroker() {
         try {
             let sbCreds = this.credentials.get(`susaas-broker-credentials`);
             let sbUrl = await this.getServiceBrokerUrl();
-            await this.serviceManager.createServiceBroker(`susaas-api-broker-${appEnv.app.space_name}`,
+            await this.serviceManager.createServiceBroker(`${appEnv.app.brokerName}-${appEnv.app.space_name}`,
                 sbUrl,
                 "Sustainable SaaS API Broker",
                 sbCreds.username,
@@ -113,61 +117,64 @@ class TenantAutomator {
 
     async unregisterBTPServiceBroker(tenant) {
         try {
-            let sb = await this.serviceManager.getServiceBroker(`susaas-api-broker-${appEnv.app.space_name}-${tenant}`)
+            let sb = await this.serviceManager.getServiceBroker(`${appEnv.app.brokerName}-${tenant}`)
             await this.serviceManager.deleteServiceBroker(sb.id)
-            console.log(`Service Broker susaas-api-broker-${appEnv.app.space_name} deleted`);
+            console.log(`Service Broker ${appEnv.app.brokerName} deleted`);
         } catch (error) {
-            console.log(`Service Broker susaas-api-broker-${appEnv.app.space_name} can not be deleted`);
+            console.log(`Service Broker ${appEnv.app.brokerName} can not be deleted`);
         }
     }
 
-    async createDestination(subscribedSubdomain) {
+    async createSampleDestination(subscribedSubdomain, name) {
         try {
-            let url = 'https://' + appEnv.app.application_uris[0];
             var destConfig = [{
-                "Name": "susaas_api",
+                "Name": name,
                 "Type": "HTTP",
-                "URL": url,
+                "URL": "https://sandbox.api.sap.com",
                 "Authentication": "NoAuthentication",
+                "Description": "SusaaS S/4HANA Cloud",
                 "ProxyType": "Internet",
-                "HTML5.ForwardAuthToken": 'true'
+                "HTML5.DynamicDestination": "true"
             }];
             await this.destination.subscriberCreate(subscribedSubdomain, destConfig)
-            console.log("Destination susaas_api is created");
+            console.log(`Sample destination ${name} is created in tenant subaccount`);
         } catch (error) {
-            console.log("Destination(s) can not be created.")
+            console.log("Sample destination can not be created in tenant subaccount")
         }
-
     }
-    async deleteDestination(unsubscribingSubdomain, name) {
+    
+    async deleteSampleDestination(unsubscribingSubdomain, name) {
         try {
             await this.destination.subscriberDelete(unsubscribingSubdomain, name)
-            console.log("Destination susaas_api is deleted");
+            console.log(`Sample destination ${name} is deleted from tenant subaccount`);
         } catch (error) {
-            console.log(`Destination ${name} can not be deleted`);
+            console.log(`Sample destination ${name} can not be deleted from tenant subaccount`);
         }
     }
 
     async createRoute(subscribedSubdomain) {
         try {
-            let btpAdmin = this.credentials.get("btp-admin-user");
-            await this.cf.createRoute(`${subscribedSubdomain}-${appEnv.app.space_name}-susaas`, 'susaas');
+            const services = xsenv.getServices({registry: { tag: 'SaaS' }});
+            await this.cf.createRoute(subscribedSubdomain + process.env.tenantSeparator + services.registry.appName, services.registry.appName);
         } catch (error) {
-
+            console.error("Route could not be created!")
+            throw error;
         }
     }
+
     async deleteRoute(unsubscribedSubdomain) {
         try {
-            let btpAdmin = this.credentials.get("btp-admin-user");
-            await this.cf.deleteRoute(`${unsubscribedSubdomain}-${appEnv.app.space_name}-susaas`, 'susaas');
+            const services = xsenv.getServices({registry: { tag: 'SaaS' }});
+            await this.cf.deleteRoute(unsubscribedSubdomain + process.env.tenantSeparator  + services.registry.appName, services.registry.appName);
         } catch (error) {
-
+            console.error("Route could not be deleted!")
+            throw error;
         }
     }
 
     async getServiceBrokerUrl() {
         try {
-           console.log("Broker endpoint to be registered:",process.env.brokerUrl);
+           console.log("Broker endpoint to be registered:", process.env.brokerUrl);
            return process.env.brokerUrl;
         } catch (error) {
             console.log(error.message);

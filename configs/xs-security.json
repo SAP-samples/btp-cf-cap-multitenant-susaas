@@ -1,5 +1,4 @@
 {
-    "xsappname": "susaas",
     "tenant-mode": "shared",
     "foreign-scope-references": [
         "xs_authorization.read",
@@ -122,36 +121,6 @@
                 "xs_authorization.read",
                 "xs_user.read",
                 "xs_idp.read"
-            ]
-        }
-    ]
-    ,
-    "role-collections": [
-        {
-            "name": "Susaas Member",
-            "description": "Member Access",
-            "role-template-references": [
-                "$XSAPPNAME.Member",
-                "$XSAPPNAME.Token_Exchange"
-            ]
-        },
-        {
-            "name": "Susaas Administrator",
-            "description": "Administrator Access",
-            "role-template-references": [
-                "$XSAPPNAME.Admin",
-                "$XSAPPNAME.SaaSAdmin",
-                "$XSAPPNAME.UserManagementAdmin",
-                "$XSAPPNAME.Token_Exchange"
-            ]
-        },
-        {
-            "name": "Susaas Extension Developer",
-            "description": "Extension Developer Access",
-            "role-template-references": [
-                "$XSAPPNAME.ExtendCDS",
-                "$XSAPPNAME.ExtendCDSdelete",
-                "$XSAPPNAME.Token_Exchange"
             ]
         }
     ]
