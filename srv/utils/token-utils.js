@@ -23,7 +23,7 @@ async function getTokenWithPassword(tokenEndpoint, clientid, clientsecret, usern
         let response = await axios(authOptions);
         return response.data.access_token;
     } catch (error) {
-        console.error("Token can not be retrieved!")
+        console.error("Error: Token can not be retrieved!")
         throw (error.response.status);
     }
 }
@@ -44,9 +44,8 @@ async function getTokenWithClientCreds(tokenEndpoint, clientid, clientsecret) {
         };
         let response = await axios(authOptions);
         return response.data.access_token;
-
     } catch (error) {
-        console.error("Token can not be retrieved!")
+        console.error("Error: Token can not be retrieved!")
         throw (error.response.status);
     }
 }

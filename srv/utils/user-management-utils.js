@@ -30,9 +30,10 @@ class UserManagement {
                 }
             };
             let response = await axios(authOptions);
+            console.log("Shadow users successfully retrieved from subaccount");
             return response.data;
         } catch (error) {
-            console.error("Error: Role collections can not be retrieved from subaccount..")
+            console.error("Error: Shadow users can not be retrieved from subaccount")
             throw error;
         }
     }
@@ -69,10 +70,10 @@ class UserManagement {
                 data: body
             };
             let response = await axios(authOptions);
-            console.log("Shadow user successfully created in subaccount..");
+            console.log(`Shadow user with email ${email} successfully created in subaccount`);
             return response.data;
         } catch (error) {
-            console.error("Error: Shadow user can not be created!")
+            console.error(`Error: Shadow user with email ${email} can not be created in subaccount`)
             throw error;
         }
     }
@@ -88,14 +89,14 @@ class UserManagement {
                 }
             };
             let response = await axios(options);
-            console.log(`Shadow user with ID: ${id} has been deleted.`)
+            console.log(`Shadow user with ID ${id} has been deleted from subaccount`)
             return response.data;
         } catch (error) {
-            console.error(`Error! Shadow user with ID: ${id} can not be deleted!`)
+            console.error(`Error: Shadow user with ID ${id} can not be deleted from subaccount`)
             throw error;
         }
     }
-
+    
     async getRoleCollection(roleId) {
         try {
             let roleIdEncoded = encodeURIComponent(roleId);
@@ -109,9 +110,10 @@ class UserManagement {
                 }
             };
             let response = await axios(authOptions);
+            console.log("Role collection successfully retrieved from subaccount");
             return response.data;
         } catch (error) {
-            console.error("Error: Role collections can not be retrieved from subaccount..")
+            console.error("Error: Role collection can not be retrieved from subaccount")
             throw error;
         }
     }
@@ -131,10 +133,10 @@ class UserManagement {
                 data: roleCollection
             };
             let response = await axios(authOptions);
-            console.log("Role assigned to shadow user");
+            console.log("Role collection/Group successfully updated");
             return response.data;
         } catch (error) {
-            console.error("Role can not be assigned to user!")
+            console.error("Error: Role collection/Group can not be updated")
             throw error;
         }
     }
@@ -148,18 +150,25 @@ class UserManagement {
                 "value": shadowId
             })
             await this.updateRoleCollection(roleCollection)
+            console.log("Role collection successfully assigned to shadow user");
         } catch (error) {
-            console.log("Role collection can not be assigned to user");
+            console.error("Error: Role collection can not be assigned to shadow user");
+            throw error;
         }
     }
 
     async removeRoleCollectionFromUser(roleId, shadowId) {
-        let roleCollection = await this.getRoleCollection(roleId);
-
-        roleCollection.members = roleCollection.members.filter(function (member) {
-            return member.value !== shadowId;
-        })
-        await this.updateRoleCollection(roleCollection)
+        try {
+            let roleCollection = await this.getRoleCollection(roleId);
+            roleCollection.members = roleCollection.members.filter(function (member) {
+                return member.value !== shadowId;
+            })
+            await this.updateRoleCollection(roleCollection)
+            console.log("Role collection successfully removed from shadow user");
+        } catch (error) {
+            console.error("Error: Role collection can not be removed from shadow user");
+            throw error;
+        }
     }
 
     async getRoleCollections(searchValue, pagination) {
@@ -179,13 +188,14 @@ class UserManagement {
                 }
             };
             let response = await axios(authOptions);
+            console.log("Role collections successfully retrieved from subaccount")
             if (searchValue) {
                 return response.data.resources.filter((resource) => resource.id.includes(searchValue))
             } else {
                 return response.data.resources;
             }
         } catch (error) {
-            console.error("Error: Role collections can not be retrieved from subaccount..")
+            console.error("Error: Role collections can not be retrieved from subaccount")
             throw error;
         }
     }
@@ -208,10 +218,12 @@ class UserManagement {
             // Checking here if the user trying to assign the role which is not allowed
             let notAllowed = roleCollection.roleReferences.find((roleReference) => roleReference.roleTemplateAppId !== services.xsuaa.xsappname)
             if (notAllowed) {
+                console.error(`Role collection ${roleId} is not created by this application, therefore cannot be assigned!`);
                 throw new Error(`Role collection ${roleId} is not created by this application, therefore cannot be assigned!`)
             }
-
         } catch (error) {
+            console.error(`Error: An error occored while validating role collection with ID ${roleId}`);
+            console.error("Error: ", error.message);
             throw error
         }
     }

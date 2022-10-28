@@ -8,11 +8,6 @@ if (cds.env.profiles.includes('production')) {
     services = xsenv.getServices({ destination: { tag: 'destination' } });
 }
 
-module.exports = {
-    subscriberCreate: createDestination,
-    subscriberDelete: deleteDestination,
-    get  : getDestination,
-}
 async function createDestination(subdomain, destinationConfig) {
     try {
         let tokenEndpoint = createTokenEndpoint(subdomain);
@@ -27,11 +22,11 @@ async function createDestination(subdomain, destinationConfig) {
         }
         let response = await axios(dptions);
         let destination = JSON.parse(response.config.data);
-        console.log("Destination successfully created..")
+        console.log("Destination successfully created")
         return destination;
     } catch (err) {
-        console.log("Destination can not be created..")
-        console.log(err);
+        console.error("Error: Destination can not be created")
+        console.error(`Error: ${err}`);
         throw error;
     }
 }
@@ -48,10 +43,10 @@ async function deleteDestination(subdomain, name) {
             url: services.destination.uri + `/destination-configuration/v1/subaccountDestinations/${nameEnc}`,
         }
         let response = await axios(dptions);
-        console.log("Destination successfully deleted..")
+        console.log("Destination successfully deleted")
         return response;
     } catch (error) {
-        console.log("Destination can not be deleted..")
+        console.error("Error: Destination can not be deleted")
     }
 }
 
@@ -68,14 +63,20 @@ async function getDestination(subdomain,name){
             url: services.destination.uri + `/destination-configuration/v1/subaccountDestinations/${nameEnc}`,
         }
         let response = await axios(dptions);
-        console.log("Destination retrieved..")
+        console.log("Destination retrieved")
         return response.data;
     } catch (error) {
-        console.log("Destination can not be deleted..")
+        console.error("Error: Destination can not be retrieved")
     }
 }
 
 function createTokenEndpoint(subdomain) {
     let url = services.destination.url + '/oauth/token?grant_type=client_credentials';
     return url.replace(/(^https:\/\/)([^.]+)(\..+$)/, '$1' + subdomain + '$3');
+}
+
+module.exports = {
+    subscriberCreate: createDestination,
+    subscriberDelete: deleteDestination,
+    get: getDestination,
 }

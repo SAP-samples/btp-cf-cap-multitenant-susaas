@@ -4,14 +4,6 @@
 */
 
 const debug = require('debug')('srv:credStore');
-
-module.exports = {
-    readCredential: readCredential,
-    readCredentialValue: readCredentialValue,
-    writeCredential:writeCredential,
-    deleteCredential:deleteCredential
-};
-
 const fetch = require('node-fetch');
 const jose = require('node-jose');
 const xsenv = require('@sap/xsenv');
@@ -21,7 +13,7 @@ let services = new Object()
 let binding = new Object(); 
 
 if (cds.env.profiles.includes('production')) {
-    services = xsenv.getServices({credStore: { tag: 'credstore' }});
+    services = xsenv.getServices({ credStore: { tag: 'credstore' }});
     binding = services.credStore;
 }
 
@@ -106,3 +98,10 @@ async function deleteCredential(binding, namespace, type, name) {
         }
     ).then(checkStatus);
 }
+
+module.exports = {
+    readCredential: readCredential,
+    readCredentialValue: readCredentialValue,
+    writeCredential: writeCredential,
+    deleteCredential: deleteCredential
+};
