@@ -35,11 +35,36 @@ $ npm run init:broker
 
 [<img src="./images/broker-credentials.png" width="500"/>](./images/broker-credentials.png)
 
-1.5. Go to your mta.yaml file and paste copied hashed credentials to the placeholder shown below.
+1.5. Provide the copied hashed credential in the deployment descriptor (mta.yaml) or in the respective MTA Extensions file. We recommend to use the MTA Extension Descriptors (1.5.1) for this purpose, especially if you're planning to deploy to multiple subaccounts or spaces.
+
+> **Hint** - After this configuration please note that your service broker username is **broker-user** and the corresponding password is the plaintext password from **Step 1.3.**
+
+1.5.1. Paste the hashed credentials into the **config-dev.mtaext** MTA Extension Descriptors file of the **configs/deployment/** directory. To prevent your hashed credentials being commited to Git, please copy the config-dev.mtaext file first and add *-private* to the filename (config-dev-private.mtaext). Files named *-private.mtaext will not be committed to Git.  
+
+> **Important** - For now, please start with the **config-dev.mtaext** file if using the MTA Extension Descriptors. For a multi-landscape scenario (e.g. dev, test, prod), please see the respective chapter in the **Expert Scope**. 
+
+[<img src="./images/MTA_DescExt01.png" width="250"/>](./images/MTA_DescExt01.png)
+[<img src="./images/MTA_DescExt02.png" width="400"/>](./images/MTA_DescExt02.png)
+
+As you can see, this way you can store the credentials of multiple landscapes (dev, test, prod) in respective mtaext files locally (find more details in the **Expert Scope** covering a multi-landscape scenario). Just make sure to reference your desired MTA Extension Descriptor (config-dev-private.mtaext in the basic scope) when deploying your application as explained in step 1.8. or already reference it during the build process (see below)! 
+
+**Sample**
+
+```sh
+$ cf deploy mta_archives/susaas_0.0.1.mtar -e ./configs/deployment/config-dev-private.mtaext
+```
+
+**or**
+
+```sh
+$ mbt build -e ./configs/deployment/config-dev-private.mtaext
+$ cf deploy mta_archives/susaas_0.0.1.mtar
+```
+
+1.5.2. If you don't want to use the MTA Extension Descriptors, please go straight to your mta.yaml file and paste the copied hashed credentials to the placeholder shown below. Especially if planning to deploy to multiple subaccounts or spaces within a subaccount, we recommend to use the MTA Extension Descriptor approach as it allows you to store the different landscape credentials in the local mtaext files instead of manually exchanging them for each deployment in the mta.yaml file. 
 
 [<img src="./images/paste-creds.png" width="400"/>](./images/paste-creds.png)
 
-> **Hint** - After this configuration please note that your service broker username is **broker-user** and the corresponding password is the plaintext password from **Step 1.3.**
 
 1.6. Decide if you want to deploy the sample data CSV files with your project. We recommend using the SaaS API to push the respective data after the deployment of the solution.
 
@@ -67,10 +92,16 @@ We highly recommend deploying the sample application **without** sample files as
 $ mbt build
 ```
 
-1.8. Please run the command below to deploy the SaaS application to your provider subaccount. 
+1.8. Please run the command below to deploy the SaaS application to your provider subaccount. In case you provided the hashed broker credentials in an MTA Extension Descriptor file, make sure to reference it properly (if not yet done during the build process)!
 
 ```sh
-$ cf deploy mta_archives/<your_mtar_file>
+$ cf deploy mta_archives/<your_mtar_file> -e <path of your MTA Extension Descriptor file>
+```
+
+**Sample** 
+
+```sh
+$ cf deploy mta_archives/susaas_0.0.1.mtar -e ./configs/deployment/config-dev-private.mtaext
 ```
 
 1.9. After the deployment of the Alert Notification service instance, you should have an e-mail in your inbox, requiring a confirmation that you're willing to receive messages from Alert Notification. Please confirm this request accordingly.
@@ -86,7 +117,7 @@ $ cf deploy mta_archives/<your_mtar_file>
 
 Before you learn how to subscribe new tenants in the next part of the mission, you need to provide two credentials in the Credential Store. These credentials are essential for some parts of the automated subscription process. 
 
-2.1. In your provider subaccount, please go to the Instances and Subscriptions menu and click on your **susaas-credstore** instance or use the **Manage Instance** button. 
+2.1. In your provider subaccount, please go to the Instances and Subscriptions menu and click on your **dev-susaas-credstore** instance or use the **Manage Instance** button. 
 
 [<img src="./images/CS_Service.png" width="400"/>](./images/CS_Service.png)
 
@@ -140,6 +171,7 @@ Please use the following links to find further information on the topics above:
 * [npmjs - @sap/sbf Service Broker Framework](https://www.npmjs.com/package/@sap/sbf)
 * [SAP Help - Multitarget Applications in the Cloud Foundry Environment](https://help.sap.com/docs/BTP/65de2977205c403bbc107264b8eccf4b/d04fc0e2ad894545aebfd7126384307c.html?locale=en-US)
 * [SAP Help - Multitarget Application Commands for the Cloud Foundry Environment](https://help.sap.com/docs/BTP/65de2977205c403bbc107264b8eccf4b/65ddb1b51a0642148c6b468a759a8a2e.html?locale=en-US)
+* [SAP Help - Defining MTA Extension Descriptors](https://help.sap.com/docs/BTP/65de2977205c403bbc107264b8eccf4b/50df803465324d36851c79fd07e8972c.html?locale=en-US)
 * [Cloud MTA Build Tool (MBT)](https://sap.github.io/cloud-mta-build-tool/)
 * [CAP documentation - Providing Initial Data](https://cap.cloud.sap/docs/guides/databases?q=hdbtabledata#providing-initial-data)
 * [CAP documentation - Configuration Profiles](https://cap.cloud.sap/docs/node.js/cds-env#profiles)

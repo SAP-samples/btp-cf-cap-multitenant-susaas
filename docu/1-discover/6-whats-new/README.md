@@ -2,6 +2,11 @@
 
 On this section of the mission, you will find a summary of all new features after the initial publication of the mission and the GitHub repository. 
 
-| Date | Title | Short description | Category | Type | 
-|------|-------|-------------------|----------|------|
-|      |       |                   |          |      |
+| Date       | Title                             | Branch       | Short description                             |
+|------------|-----------------------------------|--------------|-----------------------------------------------|
+| 2022/10/28 | Destination Handling | basic + advanced | AppRouter now uses the susaas-srv-api destination from the provider's destination service instance instead of a destination created (on subscription) in the local consumer subaccounts (preferLocal in xs-app.json). Creation of local consumer subaccount destinations is replaced by a sample S4HANA Cloud destination for demo purposes. Not used in app itself. Additional Northwind destination created in provider destination service, which can be used by all consumer tenants. Currently not used in app itself. Details on usage can be found in the expert scope soon |
+| 2022/10/28 | Route handling | basic + advanced | Route handling changed to support the usage of the default cfapps domains and if required a custom domain. Multiple changes were required in automator and provisioning code, to return the correct consumer tenant URL and to create correct routes in case of default domain usage |
+| 2022/10/28 | Space scoping | basic + advanced | Making the whole application more Space scoped and providing mtaext extension files for different stages incl. production deployment. In the new version, the app can be deployed into multiple (differently named) spaces in the same subaccount (e.g., dev, test) and all apps, services, and role collection names will be space scoped. For a productive deployment, the space scoping will be removed using respective mtaext files. |
+| 2022/10/28 | Refactoring | basic + advanced | General refactoring of unused code and harmonizing log handling |
+| 2022/10/28 | Custom Domain | advanced | Custom domain usage is now possible by providing the respective custom domain in an mtaext file (configs/deployment/config-prod-domain.mtaext) during build or deployment. A multi-region setup has been tested using different subdomains for each region like eu10.susaas.example.org and us10.susaas.example.org |
+| 2022/10/28 | HTTP Sample Files | basic + advanced | Included Basic Authentication into the token request of the provided HTTP files to prevent issues with non URL encoded credentials! |

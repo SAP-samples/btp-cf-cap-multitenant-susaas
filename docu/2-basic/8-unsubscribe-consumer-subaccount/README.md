@@ -29,17 +29,9 @@ The following steps show how to unsubscribe from the SaaS application and how to
 
 ## 2. Check successful Unsubscription
 
-2.1. Check if the susaas_api destination is deleted from the tenant subaccount.
+Check if Sustainable SaaS API Broker is unregistered. The **Sustainable SaaS API Broker** is automatically unregistered when unsubscribing from the Sustainable SaaS app in a consumer subaccount. Consequently, the Sustainable SaaS API should not be visible in a consumer subaccount anymore, when a new service instance creation attempt is made from that subaccount. 
 
-> **Hint** - The **susaas_api** destination is automatically removed by the application so you should not see it in the consumer subaccount after unsubscription.
-
-[<img src="./images/check-destination.png" width="700"/>](./images/check-destination.png)
-
-> **Hint** - If your destination is not removed by the application automatically please remove it manually.
-
-2.2. Check if Sustainable SaaS API Broker is unregistered.
-
-> **Hint** - The **Sustainable SaaS API Broker** is automatically unregistered when unsubscribing from the Sustainable SaaS app in a consumer subaccount. Consequently, the Sustainable SaaS API should not be visible in a consumer subaccount anymore, when a new service instance creation attempt is made from that subaccount. As you can see below, the **Sustainable SaaS API** is not visible anymore.
+As you can see below, the **Sustainable SaaS API** is not visible anymore.
 
 [<img src="./images/check-broker-unregister.png" width="700"/>](./images/check-broker-unregister.png)
 

@@ -42,13 +42,13 @@ The Automator is responsible for the following topics:
 When a tenant subscribes to the Sustainable SaaS app,
 1. A new Service Manager instance will be created in the consumer subaccount by Cloud Management Service - Central Plan.
 2. The API Broker will be registered by the Service Manager instance created in step 1.
-3. A destination called **susaas-api** will be created.
+3. A sample destination called **SUSAAS_S4HANA_CLOUD** will be created.
 4. The Service Manager instance created in step 1 will be deleted again.
 
 When a tenant unsubscribes from the Sustainable SaaS app,
 1. A new Service Manager instance will be created in the consumer subaccount by Cloud Management Service - Central Plan.
 2. The API Broker will be unregistered by the Service Manager instance created in Step 1.
-3. The **susaas-api** destination will be deleted.
+3. The **SUSAAS_S4HANA_CLOUD** destination will be deleted.
 4. The Service Manager instance created in Step 1 will be deleted.
 
 

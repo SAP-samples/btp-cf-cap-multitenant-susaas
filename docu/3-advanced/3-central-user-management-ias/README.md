@@ -210,7 +210,7 @@ This setup is only one sample of how to approach a central user store using SAP 
 
 In-app user management will not work out of the box in this case, as the SaaS backend application (running in the provider subaccount) will not be able to create an application registration within the consumer SAP IAS tenant. In that case, you need to modify the implementation to support the following scenarios:
 
-  * Manually create an application registration for user management in the SAP IAS consumer tenant and store the respective credentials on the consumer subaccount side (e.g., in a Destination or Credential Storeinstance). Use the credentials in the SaaS application to allow in-app user management again. 
+  * Manually create an application registration for user management in the SAP IAS consumer tenant and store the respective credentials on the consumer subaccount side (e.g., in a Destination or Credential Store instance). Use the credentials in the SaaS application to allow in-app user management again. 
   * Make use of group assignments in the dedicated SAP IAS consumer tenant. Applying the corresponding XSUAA group mapping in the consumer subaccount will make the role assignment work again. Also, this approach requires changes in the coding, as you will need to implement additional API calls to SAP IAS for the respective group assignment. In the case of a dedicated SAP IAS tenant, you can enable the automatic creation of shadow users, skipping the manual user creation on the XSUAA side.
 
 7.2. Allow consumers to bring their own Identity Providers. For large SaaS consumers, this might be a preferred option, as they don't need to manage users manually in the SaaS application but access will be granted based on group memberships. 
