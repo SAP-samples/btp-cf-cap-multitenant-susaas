@@ -1,0 +1,111 @@
+ID: susaas.prod
+_schema-version: 3.2.0
+version: 1.0.0
+extends: susaas
+
+modules:
+  - name: susaas
+    parameters:
+      app-name: susaas
+      memory: 128M
+      tenant-separator: '.'
+      app-domain: '<your domain>'
+      routes:
+        - route: susaas.${default-domain}
+        - route: '*.${app-domain}'
+    properties:
+      EXTERNAL_REVERSE_PROXY: true
+  - name: susaas-srv
+    parameters:
+      app-name: susaas-srv
+      memory: 256M
+  - name: susaas-db-com
+    parameters:
+      memory: 256M
+      app-name: susaas-db-com
+  - name: susaas-api-sb
+    parameters:
+      memory: 128M
+      app-name: susaas-api-sb
+    properties:
+      SBF_BROKER_CREDENTIALS_HASH:  >
+        {
+          "broker-user": "<paste your hash credentials here>"
+        }
+  - name: susaas-api-srv
+    parameters:
+      memory: 256MB
+      app-name: susaas-api-srv
+
+resources:
+- name: susaas-uaa
+  parameters:
+    service-name: susaas-uaa
+    xsuaa-app: susaas
+    config:
+      role-collections:
+        - name: Susaas Member
+          description: Member Access
+          role-template-references: 
+            - '$XSAPPNAME.Member'
+            - '$XSAPPNAME.Token_Exchange'
+        - name: Susaas Administrator
+          description: Administrator Access
+          role-template-references: 
+            - '$XSAPPNAME.Admin'
+            - '$XSAPPNAME.SaaSAdmin'
+            - '$XSAPPNAME.UserManagementAdmin'
+            - '$XSAPPNAME.Token_Exchange'
+        - name: Susaas Extension Developer
+          description: Extension Developer Access
+          role-template-references: 
+            - '$XSAPPNAME.ExtendCDS'
+            - '$XSAPPNAME.ExtendCDSdelete'
+            - '$XSAPPNAME.Token_Exchange'
+      oauth2-configuration:
+        redirect-uris:
+          - https://*.<your domain>/**
+- name: susaas-credstore
+  parameters:
+    service-name: susaas-credstore
+- name: susaas-registry
+  parameters:
+    service-name: susaas-registry
+    config:
+      displayName: Sustainable SaaS
+- name: susaas-service-manager
+  parameters: 
+    service-name: susaas-service-manager
+- name: susaas-logging
+  parameters: 
+    service-name: susaas-logging
+- name: susaas-com-hdi-container
+  parameters: 
+    service-name: susaas-com-hdi-container
+- name: susaas-destination
+  parameters: 
+    service-name: susaas-destination
+- name: susaas-html5-repo-host
+  parameters: 
+    service-name: susaas-html5-repo-host
+- name: susaas-html5-repo-runtime
+  parameters: 
+    service-name: susaas-html5-repo-runtime
+- name: susaas-autoscaler
+  parameters: 
+    service-name: susaas-autoscaler
+- name: susaas-alert-notification
+  parameters: 
+    service-name: susaas-alert-notification
+- name: susaas-cis-central
+  parameters: 
+    service-name: susaas-cis-central
+- name: susaas-api-uaa
+  parameters: 
+    xsuaa-app: susaas-api
+    service-name: susaas-api-uaa
+- name: susaas-ias-application
+  parameters: 
+    service-name: susaas-ias-application
+    config:
+        display-name: Susaas

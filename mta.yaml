@@ -25,21 +25,30 @@ modules:
     path: app/approuter
     build-parameters:
       builder: npm-ci
-      ignore: ["node_modules/", "default-*.json"]
+      ignore: [ 'node_modules/', 'default-env.json', 'manifest*.yml' ]
     parameters:
-      disk-quota: 256M 
-      memory: 128M
+      app-name: susaas-${space}
+      disk-quota: 256MB
+      memory: 128MB
+      tenant-separator: '-'
+      app-domain: ${app-name}.${default-domain}
       keep-existing-routes: true
+      routes:
+        - route: ${app-name}.${default-domain}
     properties:
-      TENANT_HOST_PATTERN: '^(.*)-${space}-${app-name}.${default-domain}'
+      TENANT_HOST_PATTERN: '^(.*)${tenant-separator}${app-domain}'
     requires:
       - name: susaas-destination
       - name: susaas-html5-repo-runtime
       - name: susaas-uaa
+      - name: susaas-srv-api
     provides:
       - name: susaas-approuter
         properties:
-           app-url: ${default-url}
+           app-url: 'https://${app-name}.${default-domain}'
+           application: ${app-name}
+           tenant-separator: ${tenant-separator}
+           app-domain: ${app-domain}
 
   # --------------------- WEBAPP DEPLOYER ----------------------
   - name: webapp_deployer
@@ -66,8 +75,9 @@ modules:
     build-parameters:
       build-result: dist
       builder: custom
+      ignore: [ 'node_modules/', 'mta_archives/',  'default-env.json', 'manifest*.yml' ]
       commands:
-        - npm install --only=prod --no-optional
+        - npm ci
         - npm run build:cf
       supported-platforms: []
 
@@ -78,15 +88,32 @@ modules:
     path: gen/srv
     build-parameters:
       builder: npm-ci
-      ignore: ["node_modules/", "default-*.json"]
+      ignore: ['node_modules/', 'default-*.json', 'manifest*.yml']
     parameters:
-      buildpack: nodejs_buildpack
-      memory: 256M
-      disk-quota: 1024M
-    
+      app-name: susaas-srv-${space}
+      memory: 256MB
+      disk-quota: 1024MB
+      routes:
+        - route: ${app-name}.${default-domain}
+    properties:
+      tenantSeparator: ~{susaas-approuter/tenant-separator}
+      appDomain: ~{susaas-approuter/app-domain}
+      brokerName: ~{susaas-api-sb-srv/app-name}
+      srvUrl: 'https://${app-name}.${default-domain}'
+      brokerUrl: ~{susaas-api-sb-srv/srv-url}
+      approuterUrl: ~{susaas-approuter/app-url}
+      appName: ~{susaas-approuter/application}
     requires:
       - name: susaas-uaa
       - name: susaas-credstore
+        parameters:
+          config:
+            authorization:
+              default_permissions:
+                - read
+                - decrypt
+                - encrypt
+                - list
       - name: susaas-logging
       - name: susaas-registry
       - name: susaas-service-manager
@@ -118,10 +145,7 @@ modules:
     provides:
       - name: susaas-srv-api
         properties:
-          srv-url: ${default-url}
-    properties:
-      brokerUrl: ~{susaas-api-sb-srv/srv-url}
-      approuterUrl: ~{susaas-approuter/app-url}
+          srv-url: 'https://${app-name}.${default-domain}'
 
    # --------------------- COMMON DB MODULE --------------------
   - name: susaas-db-com
@@ -129,11 +153,13 @@ modules:
     type: hdb
     path: gen/db-com
     build-parameters:
-      ignore: ["node_modules/", "default-*.json"]
+      ignore: ['node_modules/', 'default-*.json', 'manifest*.yml']
     parameters:
-      buildpack: nodejs_buildpack
-      memory: 256M
-      disk-quota: 1024M
+      app-name: susaas-db-com-${space}
+      memory: 256MB
+      disk-quota: 1024MB
+      routes:
+        - route: ${app-name}.${default-domain}
     requires:
       - name: susaas-com-hdi-container
 
@@ -144,7 +170,13 @@ modules:
     path: broker/
     build-parameters:
       builder: npm-ci
-      ignore: ["node_modules/", "default-*.json"]
+      ignore: ['node_modules/', 'default-*.json', 'manifest*.yml']
+    parameters:
+      app-name: susaas-api-sb-${space}
+      memory: 64MB
+      disk-quota: 265MB
+      routes:
+        - route: ${app-name}.${default-domain}
     properties:
       SBF_BROKER_CREDENTIALS_HASH:  >
         {
@@ -174,9 +206,8 @@ modules:
     provides:
       - name: susaas-api-sb-srv
         properties:
-           srv-url: ${default-url}
-    parameters:
-      memory: 128M
+          app-name: ${app-name}
+          srv-url: 'https://${app-name}.${default-domain}'
 
   # --------------------- API MODULE ---------------------------
   - name: susaas-api-srv
@@ -184,33 +215,58 @@ modules:
     type: nodejs
     path: gen/srv-api
     parameters:
-      buildpack: nodejs_buildpack
+      app-name: susaas-api-srv-${space}
       memory: 256MB
+      disk-quota: 1024MB
+      routes:
+        - route: ${app-name}.${default-domain}
     build-parameters:
       builder: npm-ci
-      ignore: ["node_modules/", "default-*.json"]
+      ignore: [ 'node_modules/', 'default-env.json', 'manifest*.yml' ]
     requires:
       - name: susaas-service-manager
       - name: susaas-api-uaa
     provides:
       - name: susaas-api-srv-api
         properties:
-          srv-url: ${default-url}
+          srv-url: 'https://${app-name}.${default-domain}'
 
 resources:
   # ----------------------- UAA SERVICE ------------------------
   - name: susaas-uaa
   # ------------------------------------------------------------
     type: org.cloudfoundry.managed-service
-    parameters:
-      service: xsuaa
-      service-plan: application
-      path: ./configs/xs-security.json
-      xsuaa-app: ${space}-susaas
-      config:
-        xsappname: ${xsuaa-app}
+    requires:
+      - name: susaas-approuter
     properties:
       XSAPPNAME: ${xsuaa-app}
+    parameters:
+      service: xsuaa
+      service-name: ${space}-susaas-uaa
+      service-plan: application
+      path: ./configs/xs-security.json
+      xsuaa-app: ~{susaas-approuter/application}
+      config:
+        xsappname: ${xsuaa-app}
+        role-collections:
+          - name: Susaas Member (${space}) 
+            description: Member Access
+            role-template-references: 
+              - '$XSAPPNAME.Member'
+              - '$XSAPPNAME.Token_Exchange'
+          - name: Susaas Administrator (${space})
+            description: Administrator Access
+            role-template-references: 
+              - '$XSAPPNAME.Admin'
+              - '$XSAPPNAME.SaaSAdmin'
+              - '$XSAPPNAME.UserManagementAdmin'
+              - '$XSAPPNAME.Token_Exchange'
+          - name: Susaas Extension Developer (${space})
+            description: Extension Developer Access
+            role-template-references: 
+              - '$XSAPPNAME.ExtendCDS'
+              - '$XSAPPNAME.ExtendCDSdelete'
+              - '$XSAPPNAME.Token_Exchange'
 
   # ----------------- CREDENTIAL STORE  -----------------------
   - name: susaas-credstore
@@ -218,6 +274,7 @@ resources:
     type: org.cloudfoundry.managed-service
     parameters:
       service: credstore
+      service-name: ${space}-susaas-credstore
       service-plan: standard
 
   # --------------------- REGISTRY SERVICE ---------------------
@@ -227,14 +284,16 @@ resources:
     requires:
       - name: susaas-uaa
       - name: susaas-srv-api
+      - name: susaas-approuter
     parameters:
       service: saas-registry
+      service-name: ${space}-susaas-registry
       service-plan: application
       config:
         xsappname: ~{susaas-uaa/XSAPPNAME}
-        appName: susaas-${space}-${org}
+        appName: ~{susaas-approuter/application}
         displayName: Sustainable SaaS ${space}
-        description: Sustainable SaaS ${space}
+        description: Sustainable SaaS Application
         category: SaaS Multitenant Apps
         appUrls:
           onSubscription: ~{susaas-srv-api/srv-url}/-/cds/saas-provisioning/tenant/{tenantId}
@@ -250,6 +309,7 @@ resources:
      - name: susaas-uaa
     parameters:
        service: service-manager
+       service-name: ${space}-susaas-service-manager
        service-plan: container
        polling_timeout_seconds: 240
        config:
@@ -262,12 +322,15 @@ resources:
     type: org.cloudfoundry.managed-service
     parameters:
       service: application-logs
+      service-name: ${space}-susaas-logging
       service-plan: lite
 
   # ----------------- COMMON DB HDI CONAINER -------------------
   - name: susaas-com-hdi-container
   # ------------------------------------------------------------
     type: com.sap.xs.hdi-container
+    parameters:
+      service-name: ${space}-susaas-com-hdi-container
     properties:
       susaas-com-container-name: '${service-name}' 
 
@@ -275,8 +338,11 @@ resources:
   - name: susaas-destination
   # ------------------------------------------------------------
     type: org.cloudfoundry.managed-service
+    requires:
+      - name: susaas-srv-api
     parameters:
       service-plan: lite
+      service-name: ${space}-susaas-destination
       service: destination
       config:
         HTML5Runtime_enabled: true
@@ -284,6 +350,22 @@ resources:
         init_data:
           instance:
             existing_destinations_policy: ignore
+            destinations:
+              - Name: SUSAAS_NORTHWIND
+                Description: SusaaS Northwind
+                URL: https://services.odata.org/v4/Northwind/Northwind.svc
+                Type: HTTP
+                ProxyType: Internet
+                Authentication: NoAuthentication
+                HTML5.DynamicDestination: true
+              - Name: susaas-srv-api
+                Description: SusaaS Service API
+                URL: ~{susaas-srv-api/srv-url}
+                Type: HTTP
+                ProxyType: Internet
+                Authentication: NoAuthentication
+                HTML5.DynamicDestination: true
+                forwardAuthToken: true
 
   # ----------------- HTML REPO HOST SERVICE (Be Used by UI) ---------  
   - name: susaas-html5-repo-host
@@ -291,6 +373,7 @@ resources:
     type: org.cloudfoundry.managed-service
     parameters:
       service-plan: app-host
+      service-name: ${space}-susaas-html5-repo-host
       service: html5-apps-repo
       config:
         sizeLimit: 2
@@ -301,6 +384,7 @@ resources:
     type: org.cloudfoundry.managed-service
     parameters:
       service-plan: app-runtime
+      service-name: ${space}-susaas-html5-repo-runtime
       service: html5-apps-repo
 
   # ----------------- AUTOSCALER  ------------------------------------   
@@ -309,6 +393,7 @@ resources:
     type: org.cloudfoundry.managed-service
     parameters:
       service: autoscaler
+      service-name: ${space}-susaas-autoscaler
       service-plan: standard
 
   # ----------------- ALERT NOTIFICATION  ---------------------------- 
@@ -317,8 +402,8 @@ resources:
     type: org.cloudfoundry.managed-service
     parameters:
       service: alert-notification
+      service-name: ${space}-susaas-alert-notification
       service-plan: standard
-      service-name: susaas-alert-notification
       path: ./configs/alert-notif.json
 
   # ----------------- CLOUD MANAGEMENT SERVICE - CENTRAL -------------
@@ -329,6 +414,7 @@ resources:
      - name: susaas-uaa
     parameters:
       service: cis
+      service-name: ${space}-susaas-cis-central
       service-plan: central
 
   # ----------------- XSUAA - BROKER ---------------------------------
@@ -337,26 +423,31 @@ resources:
     type: org.cloudfoundry.managed-service
     parameters:
       service: xsuaa
+      service-name: ${space}-susaas-api-uaa
       service-plan: broker
+      xsuaa-app: susaas-api-${space}
       config:
-        xsappname: 'susaas-api-uaa-${space}'
+        xsappname: ${xsuaa-app}
     properties:
-      xsuaa-app: susaas-api-uaa-${space}
+      xsuaa-app: ${xsuaa-app}
 
   # ----------------- IAS - APPLICATION ---------------------------------------------------
   - name: susaas-ias-application
   # ---------------------------------------------------------------------------------------
     type: org.cloudfoundry.managed-service
+    requires:
+      - name: susaas-approuter
     parameters:
       service: identity
+      service-name: ${space}-susaas-ias-application
       service-plan: application
       config:
         display-name: Susaas-${space}
         oauth2-configuration:
-          redirect-uris: 
-            - "https://*.${default-domain}/login/callback?authType=ias"
+          redirect-uris:
+            - https://*.~{susaas-approuter/app-domain}/login/callback?authType=ias
           post-logout-redirect-uris: 
-            - "https://*.${default-domain}/logout/**"
+            - https://*.~{susaas-approuter/app-domain}/logout/**
           grant-types: []
           credential-types: ["binding-secret","x509"]
         xsuaa-cross-consumption: false

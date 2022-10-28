@@ -9,39 +9,56 @@ xsenv.loadEnv();
 module.exports = (service) => {
 
     service.on('UPDATE', 'tenant', async (req, next) => {
-        const destination = require('./utils/destination.js')
-        const Automator = require("./utils/automator");
         console.log("Subscription data:",JSON.stringify(req.data));
+        const Automator = require("./utils/automator");
+        
         let tenantSubdomain = req.data.subscribedSubdomain;
         let tenant = req.data.subscribedTenantId;
-        let user = req.data.userId;
-        let tenantURL = 'https:\/\/' + tenantSubdomain + `-${appEnv.app.space_name}-susaas` + /\.(.*)/gm.exec(appEnv.app.application_uris[0])[0];
+
+        // subscriber-a16ef7 (Custom Domain)
+        // subscriber-a16ef7-susaas-dev (Default Domain Dev)
+        // subscriber-a16ef7-susaas (Default Domain Prod)
+        const tenantHost = tenantSubdomain;
+
+        // Custom Domain Samples
+        // https://subscriber-a16ef7.eu10.susaas.org
+        // https://subscriber-a16ef7.susaas.org
+
+        // Default Domain Samples
+        // https://subscriber-a16ef7-susaas-dev.cfapps.eu10.hana.ondemand.com 
+        // https://subscriber-a16ef7-susaas.cfapps.eu10.hana.ondemand.com 
+
+        // appDomain - susaas.org / eu10.susaas.org / susaas-dev.cfapps.eu10... / susaas.cfapps.eu10....
+        // tenantSeparator - . / -
+        // tenantHost - subscriber-a16ef7 / subscriber-a16ef7-susaas-dev /subscriber-a16ef7-susaas
+        const tenantURL = `https://${tenantHost}${process.env.tenantSeparator}${process.env.appDomain}`;
+
         await next();
         // Trigger tenant broker deployment on background
         cds.spawn({ tenant: tenant }, async (tx) => {
             try {
                 let automator = new Automator();
-                await automator.deployTenantArtifacts(tenant, tenantSubdomain, user);
+                await automator.deployTenantArtifacts(tenant, tenantSubdomain);
             } catch (error) {
-                console.log("Automation skipped!");
+                console.error("Error: Automation skipped because of error during subscription");
+                console.error(`Error: ${error.message}`);
             }
         })
         return tenantURL;
     });
 
     service.on('DELETE', 'tenant', async (req, next) => {
-        const destination = require('./utils/destination.js')
         const Automator = require("./utils/automator");
         let tenantSubdomain = req.data.subscribedSubdomain;
         let tenant = req.data.subscribedTenantId;
-        let user = req.data.userId;
         console.log('Unsubscribe Data: ', JSON.stringify(req.data));
         await next();
         try {
             let automator = new Automator();
-            await automator.undeployTenantArtifacts(tenant, tenantSubdomain, user);
+            await automator.undeployTenantArtifacts(tenant, tenantSubdomain);
         } catch (error) {
-            console.log("Error!", JSON.stringify(error));
+            console.error("Error: Automation skipped because of error during unsubscription");
+            console.error(`Error: ${error.message}`);
         }
         return req.data.subscribedTenantId;
     });

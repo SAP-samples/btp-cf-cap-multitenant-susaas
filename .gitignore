@@ -11,6 +11,8 @@ dist/
 manifest-bundle.zip
 connection.properties
 *-private.http
+*-private.json
+*-private.mtaext
 *.db
 *.mtar
 *.mta
