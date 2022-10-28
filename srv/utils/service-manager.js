@@ -31,9 +31,10 @@ class ServiceManager {
                 data: JSON.stringify(body)
             };
             let response = await axios(optionsInstance);
+            console.log(`Service instance successfully created for ${serviceOffering}-${servicePlan}`);
             return response.data;
         } catch (error) {
-            console.error(`Service instance can not be created for ${serviceOffering}-${servicePlan}`);
+            console.error(`Error: Service instance can not be created for ${serviceOffering}-${servicePlan}`);
             console.error(error.message);
             throw error;
         }
@@ -52,29 +53,11 @@ class ServiceManager {
                 data: JSON.stringify({ name: subscribingSubdomain, service_instance_id: serviceInstanceId })
             };
             let response = await axios(options);
+            console.log(`Service binding created for ${serviceInstanceId}`);
             return response.data;
         } catch (error) {
+            console.error(`Error: Service binding can not be created for ${serviceInstanceId}`);
             throw error;
-        }
-    }
-
-    async deleteServiceBinding(serviceBindingId) {
-        try {
-            let token = await this.getToken();
-            let optionsInstance = {
-                method: 'DELETE',
-                url: this.creds.sm_url + `/v1/service_bindings/${serviceBindingId}`,
-                headers: {
-                    'Content-Type': 'application/json',
-                    Authorization: `Bearer ${token}`
-                }
-            };
-            let response = await axios(optionsInstance);
-            return response.data;
-        } catch (error) {
-            console.error(`Service binding can not be deleted!`);
-            console.error(error.message);
-            throw error.message;
         }
     }
 
@@ -90,13 +73,36 @@ class ServiceManager {
                 }
             };
             let response = await axios(optionsInstance);
+            console.log(`Service instance ${serviceInstanceId} successfully deleted`);
             return response.data;
         } catch (error) {
-            console.error(`Service binding can not be deleted!`);
+            console.error(`Error: Service instance can not be deleted`);
             console.error(error.message);
             throw error.message;
         }
     }
+
+    async deleteServiceBinding(serviceBindingId) {
+        try {
+            let token = await this.getToken();
+            let optionsInstance = {
+                method: 'DELETE',
+                url: this.creds.sm_url + `/v1/service_bindings/${serviceBindingId}`,
+                headers: {
+                    'Content-Type': 'application/json',
+                    Authorization: `Bearer ${token}`
+                }
+            };
+            let response = await axios(optionsInstance);
+            console.log(`Service binding ${serviceBindingId} successfully deleted`);
+            return response.data;
+        } catch (error) {
+            console.error(`Error: Service binding can not be deleted`);
+            console.error(error.message);
+            throw error.message;
+        }
+    }
+
     async getAllServiceBindings(tenant) {
         try {
             let token = await this.getToken();
@@ -110,12 +116,14 @@ class ServiceManager {
                 }
             }
             let response = await axios(optionsBinding);
+            console.log(`Successfully retrieved service bindings for ${tenant}`);
             return response.data.items;
         } catch (error) {
-            console.error("Can not retrieve service bindings!")
+            console.error("Error: Can not retrieve service bindings")
             throw error;
         }
     }
+
     async getToken() {
         try {
             if (!this.tokenStore.token) {
@@ -124,10 +132,11 @@ class ServiceManager {
             }
             return this.tokenStore.token;
         } catch (error) {
-            console.error("Unable to get the token for Service Manager.. Error..");
+            console.error("Error: Unable to get a token for Service Manager");
             throw error.message;
         }
     }
+
     async createServiceBroker(name, url, description, user, password) {
         let body = {
             name: name,
@@ -152,9 +161,10 @@ class ServiceManager {
                 data: JSON.stringify(body)
             };
             let response = await axios(options);
+            console.log(`Service Broker ${name} successfully created`);
             return response.data;
         } catch (error) {
-            console.log("Service Broker can not be deleted");
+            console.error("Error: Service Broker can not be created");
         }
     }
 
@@ -170,12 +180,14 @@ class ServiceManager {
                 }
             };
             let response = await axios(options);
+            console.log(`Service Broker ${serviceBrokerId} successfully deleted`);
             return response.data;
         } catch (error) {
-            console.log("Service Broker can not be deleted");
+            console.error("Error: Service Broker can not be deleted");
             throw error;
         }
     }
+
     async getServiceBroker(name){
         try {
             let query = encodeURIComponent(`fieldQuery=name eq '${name}'`);
@@ -189,13 +201,13 @@ class ServiceManager {
                 }
             };
             let response = await axios(options);
+            console.log(`Service Broker ${name} successfully retrieved`);
             return response.data.items[0];
         } catch (error) {
-            console.log("Service Broker can not be deleted");
+            console.error("Error: Unable to retrieve Service Broker");
             throw error;
         }
     }
-
 }
 
 module.exports = ServiceManager;

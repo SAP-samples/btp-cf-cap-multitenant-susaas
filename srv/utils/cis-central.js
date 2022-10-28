@@ -5,7 +5,7 @@ const uaa = require('./token-utils');
 let services = new Object();
 
 if (cds.env.profiles.includes('production')) {
-    services = xsenv.getServices({cisCentral: { name: 'susaas-cis-central' }});
+    services = xsenv.getServices({ cisCentral: { label: 'cis' } });
 }
 
 class CloudManagementCentral{
@@ -15,6 +15,7 @@ class CloudManagementCentral{
         this.password = password;
         this.tokenStore = new Object();
     }
+
     async createServiceManager(tenant) {
         try {
             let clientid = services.cisCentral.uaa.clientid;
@@ -35,33 +36,11 @@ class CloudManagementCentral{
                 })
             };
             let response = await axios(authOptions);
+            console.log(`Service manager in tenant subaccount ${tenant} successfully created`);
             return response.data;
-
         } catch (error) {
-            console.error("Service manager can not be created, broker automation will be skipped")
-            throw error;
-        }
-    }
-
-    async getServiceManager(tenant) {
-        try {
-            let clientid = services.cisCentral.uaa.clientid;
-            let clientsecret = services.cisCentral.uaa.clientsecret;
-            let tokenEndpoint = services.cisCentral.uaa.url + '/oauth/token'
-            let token = await this.uaa.getTokenWithPassword(tokenEndpoint, clientid, clientsecret, this.username, this.password);
-            let authOptions = {
-                method: 'GET',
-                url: services.cisCentral.endpoints.accounts_service_url + `/accounts/v1/subaccounts/${tenant}/serviceManagementBinding`,
-                headers: {
-                    'Content-Type': 'application/json',
-                    Authorization: `Bearer ${token}`
-                }
-            };
-            let response = await axios(authOptions);
-            return response.data;
-
-        } catch (error) {
-            console.error("Service manager can not found in tenant subaccount, deletion should be handled manually!")
+            console.error(`Error: Service manager can not be created in tenant subaccount ${tenant}`);
+            console.error("Error: Broker automation is skipped");
             throw error;
         }
     }
@@ -81,26 +60,13 @@ class CloudManagementCentral{
                 }
             };
             let response = await axios(authOptions);
+            console.log(`Service manager in tenant subaccount ${tenant} successfully deleted`);
             return response.data;
-
         } catch (error) {
-            console.error("Service manager can not found in tenant subaccount, deletion should be handled manually!")
+            console.error(`Error: Service manager can not be deleted from tenant subaccount ${tenant}`);
             throw error;
         }
     }
-
-    async getToken() {
-        try {
-            if (!this.tokenStore.token) {
-                let tokenEndpoint = this.creds.uaa.url + '/oauth/token';
-                this.tokenStore.token = await this.uaa.getTokenWithPassword(tokenEndpoint, this.creds.uaa.clientid, this.creds.uaa.clientsecret, this.username, this.password);
-            }
-            return this.tokenStore.token;
-        } catch (error) {
-           console.error("Unable to get the token for CMS-LOCAL.. Error..");
-           throw error(error.message);
-        }
-    }
-
 }
+
 module.exports = CloudManagementCentral

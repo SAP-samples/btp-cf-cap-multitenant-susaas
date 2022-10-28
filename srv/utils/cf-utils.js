@@ -3,8 +3,8 @@ const cfenv = require('cfenv');
 const appEnv = cfenv.getAppEnv();
 
 class CloudFoundryCli {
-    constructor() {
-    }
+    constructor() {}
+
     async login(username, password) {
         try {
             let optionsInfo = {
@@ -32,9 +32,10 @@ class CloudFoundryCli {
             }
             let loginResponse = await axios(optionsLogin);
             this.token = loginResponse.data.access_token
+            console.log(`Login to CF with user ${username} successful`);
             return loginResponse.data.access_token;
         } catch (error) {
-            console.error("Can not login to CF!");
+            console.error(`Error: Can not login to CF with user ${username}`);
         }
     }
 
@@ -62,12 +63,15 @@ class CloudFoundryCli {
                 'app_id': res1.data.resources[0].guid,
                 'domain_id': res2.data.resources[0].guid
             };
+            console.log(`Domain info for ${appname} successfully retrieved`);
             return results;
         } catch (err) {
-            console.log(err.stack);
+            console.error(`Error: Can get domain info for app ${appname}`);
+            console.error(`Error: ${err.stack}`);
             return err.message;
         }
     };
+
     async createRoute(tenantHost, appname) {
         try {
             let appDomainInfo = await this.getAppDomainInfo(appname);
@@ -111,12 +115,10 @@ class CloudFoundryCli {
             }
 
             let res2 = await axios(optionsApp)
-            console.log('Route created for ' + tenantHost);
+            console.log(`Route for ${tenantHost} successfully created`);
             return res2.data;
-
-
         } catch (error) {
-            console.log("Route can not be created for:", tenantHost);
+            console.error("Error: Route can not be created for ", tenantHost);
         }
     };
 
@@ -132,11 +134,13 @@ class CloudFoundryCli {
                 }
             };
             let response = await axios(options)
+            console.log(`Route for ${tenantHost} successfully deleted`);
             return response.data;
         } catch (error) {
-            console.log("Route can not be deleted!");
+            console.error("Error: Route can not be deleted for ", tenantHost);
         }
     }
+    
     async getAppRoute(appId, tenantHost) {
         try {
             let options = {
@@ -153,12 +157,11 @@ class CloudFoundryCli {
             if (response.data.pagination.total_results === 1) {
                 return response.data;
             } else {
-                console.log(`Route for app ${appId} and host ${tenantHost} can not be found!`);
-                throw new Error(`Route for app ${appId} and host ${tenantHost} can not be found!`)
+                console.error(`Error: Route for app ${appId} and host ${tenantHost} can not be found`);
+                throw new Error(`Error: Route for app ${appId} and host ${tenantHost} can not be found`)
             }
-
         } catch (error) {
-            console.log("Can not find the route!")
+            console.error("Error: Can not find the route")
         }
     }
 }

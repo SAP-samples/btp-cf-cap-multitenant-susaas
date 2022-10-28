@@ -31,9 +31,10 @@ class UserManagement {
                 }
             };
             let response = await axios(authOptions);
+            console.log("Shadow users successfully retrieved from subaccount");
             return response.data;
         } catch (error) {
-            console.error("Error: Role collections can not be retrieved from subaccount..")
+            console.error("Error: Shadow users can not be retrieved from subaccount")
             throw error;
         }
     }
@@ -70,10 +71,10 @@ class UserManagement {
                 data: body
             };
             let response = await axios(authOptions);
-            console.log("Shadow user successfully created in subaccount..");
+            console.log(`Shadow user with email ${email} successfully created in subaccount`);
             return response.data;
         } catch (error) {
-            console.error("Error: Shadow user can not be created!")
+            console.error(`Error: Shadow user with email ${email} can not be created in subaccount`)
             throw error;
         }
     }
@@ -89,13 +90,14 @@ class UserManagement {
                 }
             };
             let response = await axios(options);
-            console.log(`Shadow user with ID: ${id} has been deleted.`)
+            console.log(`Shadow user with ID ${id} has been deleted from subaccount`)
             return response.data;
         } catch (error) {
-            console.error(`Error! Shadow user with ID: ${id} can not be deleted!`)
+            console.error(`Error: Shadow user with ID ${id} can not be deleted from subaccount`)
             throw error;
         }
     }
+
     async getIASUser(email) {
         try {
             let query = new URLSearchParams({ name_id: email }).toString()
@@ -111,9 +113,10 @@ class UserManagement {
                 })
             };
             let response = await axios(options);
+            console.log(`User with email ${email} successfully retrieved from SAP IAS`);
             return response.headers.location;
         } catch (error) {
-            console.error("Can not get user with email:", email);
+            console.error(`Error: Can not get user with email ${email} from SAP IAS`);
         }
     }
 
@@ -132,12 +135,12 @@ class UserManagement {
                 })
             };
             let response = await axios(options);
-            console.log("User has been created on IAS Side", JSON.stringify(userInfo))
-            console.log("IAS",JSON.stringify(services.ias));
+            console.log(`User with email ${userInfo.email} has been created in SAP IAS`)
+            console.log("IAS", JSON.stringify(services.ias));
             return response.headers.location;
         } catch (error) {
-            console.log("User can not be created on IAS Side!")
-            console.error("Error:",error.message);
+            console.error(`Error: User with email ${userInfo.email} can not be created SAP IAS`)
+            console.error("Error: ", error.message);
             throw error;
         }
     }
@@ -155,10 +158,10 @@ class UserManagement {
                     key: services.ias.key
                 })
             };
-            let response = await axios(options);
-            console.log("IAS User is deleted");
+            await axios(options);
+            console.log(`User ${location} successfully deleted from SAP IAS`);
         } catch (error) {
-            console.log("IAS User can not be deleted");
+            console.erroer(`Error: User ${location} can not be deleted from SAP IAS`);
         }
     }
 
@@ -178,11 +181,10 @@ class UserManagement {
                     identifier: email
                 }
             };
-
-            let response = await axios(options);
-            console.log("User password has been reset:", JSON.stringify(email))
+            await axios(options);
+            console.log("SAP IAS password has been reset of user with email ", JSON.stringify(email))
         } catch (error) {
-            console.log("User password can not be reset!", email)
+            console.error("Error: SAP IAS password can not be reset of user with email ", email)
         }
     }
 
@@ -199,9 +201,10 @@ class UserManagement {
                 }
             };
             let response = await axios(authOptions);
+            console.log("Role collection successfully retrieved from subaccount");
             return response.data;
         } catch (error) {
-            console.error("Error: Role collections can not be retrieved from subaccount..")
+            console.error("Error: Role collection can not be retrieved from subaccount")
             throw error;
         }
     }
@@ -221,10 +224,10 @@ class UserManagement {
                 data: roleCollection
             };
             let response = await axios(authOptions);
-            console.log("Role assigned to shadow user");
+            console.log("Role collection/Group successfully updated");
             return response.data;
         } catch (error) {
-            console.error("Role can not be assigned to user!")
+            console.error("Error: Role collection/Group can not be updated")
             throw error;
         }
     }
@@ -238,18 +241,25 @@ class UserManagement {
                 "value": shadowId
             })
             await this.updateRoleCollection(roleCollection)
+            console.log("Role collection successfully assigned to shadow user");
         } catch (error) {
-            console.log("Role collection can not be assigned to user");
+            console.error("Error: Role collection can not be assigned to shadow user");
+            throw error;
         }
     }
 
     async removeRoleCollectionFromUser(roleId, shadowId) {
-        let roleCollection = await this.getRoleCollection(roleId);
-
-        roleCollection.members = roleCollection.members.filter(function (member) {
-            return member.value !== shadowId;
-        })
-        await this.updateRoleCollection(roleCollection)
+        try {
+            let roleCollection = await this.getRoleCollection(roleId);
+            roleCollection.members = roleCollection.members.filter(function (member) {
+                return member.value !== shadowId;
+            })
+            await this.updateRoleCollection(roleCollection)
+            console.log("Role collection successfully removed from shadow user");
+        } catch (error) {
+            console.error("Error: Role collection can not be removed from shadow user");
+            throw error;
+        }
     }
 
     async getRoleCollections(searchValue, pagination) {
@@ -269,13 +279,14 @@ class UserManagement {
                 }
             };
             let response = await axios(authOptions);
+            console.log("Role collections successfully retrieved from subaccount")
             if (searchValue) {
                 return response.data.resources.filter((resource) => resource.id.includes(searchValue))
             } else {
                 return response.data.resources;
             }
         } catch (error) {
-            console.error("Error: Role collections can not be retrieved from subaccount..")
+            console.error("Error: Role collections can not be retrieved from subaccount")
             throw error;
         }
     }
@@ -298,10 +309,12 @@ class UserManagement {
             // Checking here if the user trying to assign the role which is not allowed
             let notAllowed = roleCollection.roleReferences.find((roleReference) => roleReference.roleTemplateAppId !== services.xsuaa.xsappname)
             if (notAllowed) {
+                console.error(`Role collection ${roleId} is not created by this application, therefore cannot be assigned!`);
                 throw new Error(`Role collection ${roleId} is not created by this application, therefore cannot be assigned!`)
             }
-
         } catch (error) {
+            console.error(`Error: An error occored while validating role collection with ID ${roleId}`);
+            console.error("Error: ", error.message);
             throw error
         }
     }
