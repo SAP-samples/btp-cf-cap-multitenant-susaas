@@ -154,7 +154,7 @@ class TenantAutomator {
 
     async createRoute(subscribedSubdomain) {
         try {
-            await this.cf.createRoute(subscribedSubdomain + process.env.tenantSeparator + services.registry.appName, services.registry.appName);
+            await this.cf.createRoute(subscribedSubdomain + process.env.tenantSeparator + process.env.appName, process.env.appName);
         } catch (error) {
             console.error("Route could not be created!")
             throw error;
@@ -163,7 +163,7 @@ class TenantAutomator {
 
     async deleteRoute(unsubscribedSubdomain) {
         try {
-            await this.cf.deleteRoute(unsubscribedSubdomain + process.env.tenantSeparator  + services.registry.appName, services.registry.appName);
+            await this.cf.deleteRoute(unsubscribedSubdomain + process.env.tenantSeparator  + process.env.appName, process.env.appName);
         } catch (error) {
             console.error("Route could not be deleted!")
             throw error;
