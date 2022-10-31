@@ -11,7 +11,7 @@ modules:
       tenant-separator: '.'
       app-domain: '<your domain>'
       routes:
-        - route: susaas.${default-domain}
+        - route: ${default-url}
         - route: '*.${app-domain}'
     properties:
       EXTERNAL_REVERSE_PROXY: true

@@ -33,8 +33,6 @@ modules:
       tenant-separator: '-'
       app-domain: ${app-name}.${default-domain}
       keep-existing-routes: true
-      routes:
-        - route: ${app-name}.${default-domain}
     properties:
       TENANT_HOST_PATTERN: '^(.*)${tenant-separator}${app-domain}'
     requires:
@@ -45,7 +43,7 @@ modules:
     provides:
       - name: susaas-approuter
         properties:
-           app-url: 'https://${app-name}.${default-domain}'
+           app-url: ${default-url}
            application: ${app-name}
            tenant-separator: ${tenant-separator}
            app-domain: ${app-domain}
@@ -93,13 +91,11 @@ modules:
       app-name: susaas-srv-${space}
       memory: 256MB
       disk-quota: 1024MB
-      routes:
-        - route: ${app-name}.${default-domain}
     properties:
       tenantSeparator: ~{susaas-approuter/tenant-separator}
       appDomain: ~{susaas-approuter/app-domain}
       brokerName: ~{susaas-api-sb-srv/app-name}
-      srvUrl: 'https://${app-name}.${default-domain}'
+      srvUrl: ${default-url}
       brokerUrl: ~{susaas-api-sb-srv/srv-url}
       approuterUrl: ~{susaas-approuter/app-url}
       appName: ~{susaas-approuter/application}
@@ -145,7 +141,7 @@ modules:
     provides:
       - name: susaas-srv-api
         properties:
-          srv-url: 'https://${app-name}.${default-domain}'
+          srv-url: ${default-url}
 
    # --------------------- COMMON DB MODULE --------------------
   - name: susaas-db-com
@@ -158,8 +154,6 @@ modules:
       app-name: susaas-db-com-${space}
       memory: 256MB
       disk-quota: 1024MB
-      routes:
-        - route: ${app-name}.${default-domain}
     requires:
       - name: susaas-com-hdi-container
 
@@ -175,8 +169,6 @@ modules:
       app-name: susaas-api-sb-${space}
       memory: 64MB
       disk-quota: 265MB
-      routes:
-        - route: ${app-name}.${default-domain}
     properties:
       SBF_BROKER_CREDENTIALS_HASH:  >
         {
@@ -207,7 +199,7 @@ modules:
       - name: susaas-api-sb-srv
         properties:
           app-name: ${app-name}
-          srv-url: 'https://${app-name}.${default-domain}'
+          srv-url: ${default-url}
 
   # --------------------- API MODULE ---------------------------
   - name: susaas-api-srv
@@ -218,8 +210,6 @@ modules:
       app-name: susaas-api-srv-${space}
       memory: 256MB
       disk-quota: 1024MB
-      routes:
-        - route: ${app-name}.${default-domain}
     build-parameters:
       builder: npm-ci
       ignore: [ 'node_modules/', 'default-env.json', 'manifest*.yml' ]
@@ -229,7 +219,7 @@ modules:
     provides:
       - name: susaas-api-srv-api
         properties:
-          srv-url: 'https://${app-name}.${default-domain}'
+          srv-url: ${default-url}
 
 resources:
   # ----------------------- UAA SERVICE ------------------------
@@ -291,7 +281,7 @@ resources:
       service-plan: application
       config:
         xsappname: ~{susaas-uaa/XSAPPNAME}
-        appName: ~{susaas-approuter/application}
+        appName: ~{susaas-approuter/application}-${org}
         displayName: Sustainable SaaS ${space}
         description: Sustainable SaaS Application
         category: SaaS Multitenant Apps
