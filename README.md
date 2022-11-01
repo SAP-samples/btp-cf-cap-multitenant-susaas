@@ -127,7 +127,7 @@ The Advanced Scope will require some more service and software components which 
 |----------------------------------------|--------------------------------------|:-------------------:|
 | [SAP Credential Store](https://discovery-center.cloud.sap/serviceCatalog/credential-store?region=all)| standard | 1 |
 | SAP NetWeaver system incl. EPM model (*) |                                      |          |
-| [SAP Integration Suite (**)](https://discovery-center.cloud.sap/serviceCatalog/integration-suite?region=all)                     | trial (***) or standard (Application)   |     1    |
+| [SAP Integration Suite (**)](https://discovery-center.cloud.sap/serviceCatalog/integration-suite?region=all)                     | standard (Application)   |     1    |
 | [SAP API Management, API portal (**)](https://help.sap.com/docs/SAP_CLOUD_PLATFORM_API_MANAGEMENT/66d066d903c2473f81ec33acfe2ccdb4/e609a3efe6d64e1781cbf81ae5592071.html?locale=en-US)         | apim-as-route-service                |     1    |
 | [SAP Cloud Identity Services](https://discovery-center.cloud.sap/serviceCatalog/identity-authentication?region=all&tab=feature)                   | default (Application) |     1    |
 | [SAP Cloud Identity Services](https://help.sap.com/docs/IDENTITY_AUTHENTICATION/6d6d63354d1242d185ab4830fc04feb1/d5cd80c6928e4ac98586025170efdf08.html?locale=en-US)             | application   |     1    |
@@ -135,8 +135,6 @@ The Advanced Scope will require some more service and software components which 
 > (*) An SAP NetWeaver system is required ff you want to test the automated data push feature from an existing SAP solution. You can use all **SAP S/4HANA** releases and also any other SAP systems which has an **SAP NetWeaver** stack version higher than 7.3.
 
 > (**) SAP Integration Suite is required if you want to integrate your SaaS API with [SAP API Management](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/tree/main/docu/3-advanced/8-integrate-sap-api-management/README.md).
-
-> (***) Please keep in mind - The SAP Integration Suite *trial plan* is valid for 90 days only. Your tenant will be decommissioned after 90 days and you need to set up a new tenant if you wish to do further validations with a trial tenant. 
 
 
 **Expert Scope**
