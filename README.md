@@ -18,7 +18,6 @@ Below you can find a solution architecture diagram of the sample application. As
 
 [<img src="./images/App_Architecture.png" width="600" />](./images/App_Architecture.png)
 
-
 ## Content
 
 As stated above, the documentation content of this GitHub repository has been created for consumption in [SAP Discovery Center](https://discovery-center.cloud.sap/missiondetail/4064/4275), so the table of content follows the structure of the Discovery Center scopes. While we highly recommend starting your personal mission instance in SAP Discovery Center, you can also follow the steps here in GitHub using the linked README documents below.
