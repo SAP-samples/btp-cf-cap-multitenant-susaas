@@ -25,3 +25,4 @@ hybrid-testing.txt
 # added by cds bind
 .cdsrc-private.json
 app/deployer/resources/
+brokerpass.txt
