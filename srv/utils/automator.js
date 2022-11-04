@@ -103,7 +103,7 @@ class TenantAutomator {
         try {
             let sbCreds = this.credentials.get(`susaas-broker-credentials`);
             let sbUrl = await this.getServiceBrokerUrl();
-            await this.serviceManager.createServiceBroker(`${appEnv.app.brokerName}-${appEnv.app.space_name}`,
+            await this.serviceManager.createServiceBroker(`${process.env.brokerName}-${appEnv.app.space_name}`,
                 sbUrl,
                 "Sustainable SaaS API Broker",
                 sbCreds.username,
@@ -117,11 +117,11 @@ class TenantAutomator {
 
     async unregisterBTPServiceBroker(tenant) {
         try {
-            let sb = await this.serviceManager.getServiceBroker(`${appEnv.app.brokerName}-${tenant}`)
+            let sb = await this.serviceManager.getServiceBroker(`${process.env.brokerName}-${tenant}`)
             await this.serviceManager.deleteServiceBroker(sb.id)
-            console.log(`Service Broker ${appEnv.app.brokerName} deleted`);
+            console.log(`Service Broker ${process.env.brokerName} deleted`);
         } catch (error) {
-            console.log(`Service Broker ${appEnv.app.brokerName} can not be deleted`);
+            console.log(`Service Broker ${process.env.brokerName} can not be deleted`);
         }
     }
 
