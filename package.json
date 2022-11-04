@@ -5,7 +5,7 @@
   "license": "UNLICENSED",
   "description": "Sustainable SaaS",
   "engines": {
-    "node": "14.x"
+    "node": ">=14.x"
   },
   "dependencies": {
     "@sap/audit-logging": "^5",
