@@ -1,17 +1,24 @@
-ID: susaas.prod
+ID: susaas.freetier.domain
 _schema-version: 3.2.0
 version: 1.0.0
-extends: susaas
+extends: susaas.freetier
 
 modules:
-  - name: susaas 
+  - name: susaas
     parameters:
-      memory: 128M
       app-name: susaas
+      memory: 128M
+      tenant-separator: '.'
+      app-domain: '<your domain>'
+      routes:
+        - route: ${default-url}
+        - route: '*.${app-domain}'
+    properties:
+      EXTERNAL_REVERSE_PROXY: true
   - name: susaas-srv
     parameters:
-      memory: 256M
       app-name: susaas-srv
+      memory: 256M
   - name: susaas-db-com
     parameters:
       memory: 256M
@@ -55,6 +62,9 @@ resources:
             - '$XSAPPNAME.ExtendCDS'
             - '$XSAPPNAME.ExtendCDSdelete'
             - '$XSAPPNAME.Token_Exchange'
+      oauth2-configuration:
+        redirect-uris:
+          - https://*.<your domain>/**
 - name: susaas-credstore
   parameters:
     service-name: susaas-credstore
