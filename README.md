@@ -1,12 +1,12 @@
-# Develop a multitenant Software as a Service app in SAP BTP, Cloud Foundry Environment
+# Develop a multitenant Software as a Service application in SAP BTP using CAP
 
 [![REUSE status](https://api.reuse.software/badge/github.com/SAP-samples/btp-cf-cap-multitenant-susaas)](https://api.reuse.software/info/github.com/SAP-samples/btp-cf-cap-multitenant-susaas)
 
-> Note: The content of this GitHub repository has been created as source for the SAP Discovery Center Mission [Develop a multitenant Software as a Service app in SAP BTP, Cloud Foundry Environment](available soon). We advise using the mission in the SAP Discovery Center directly.
+> Note: The content of this GitHub repository has been created as source for a SAP Discovery Center Mission (available soon). For a better tutorial experience, we advise using the mission in the SAP Discovery Center.
 
 ## Description
 
-The **Sustainable SaaS (SusaaS)** sample application has been built in a partner collaboration to help interested developers, partners, and customers in developing multitenant Software as a Service applications running in the Cloud Foundry environment of the SAP Business Technology Platform (SAP BTP).
+The **Sustainable SaaS (SusaaS)** sample application has been built in a partner collaboration to help interested developers, partners, and customers in developing multitenant Software as a Service applications using CAP and deploying them to the SAP Business Technology Platform (SAP BTP). For this use-case, the **Cloud Foundry Runtime** was chosen. Still, you can also develop similar SaaS applications in other runtimes like **Kyma** or  the SAP BTP **ABAP** environment.
 
 The example focuses on using standard frameworks and SAP BTP services for developing, deploying, and monitoring the solution like the CAP framework, SAP API Management, CI/CD Service, Alert Notification, Autoscaler, and many more. 
 
@@ -17,6 +17,7 @@ Due to the technical and theoretical complexity of the topic, the sample applica
 Below you can find a solution architecture diagram of the sample application. As you can see, the app contains a lot of services and tools which you will use in this mission (click to enlarge).
 
 [<img src="./images/App_Architecture.png" width="600" />](./images/App_Architecture.png)
+
 
 ## Content
 
@@ -92,68 +93,73 @@ The **Expert Scope** contains a variety of different topics which will make your
 
 ## Requirements
 
-The technical requirements for setting up this sample SaaS application can also be found in the different scope tutorials. Please find more details in the respective mission documentation [**Prepare your Provider Subaccount**](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/tree/main/docu/2-basic/2-prepare-provider-subaccount/README.md).
+The technical requirements for setting up this sample SaaS application can also be found in the different scope tutorials. Please find more details in the respective mission documentation [**Prepare your Provider Subaccount**](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/tree/main/docu/2-basic/2-prepare-provider-subaccount/README.md). 
 
-**Basic Scope**
-The Basic Scope of the sample application requires the following set of SAP BTP entitlements in the provider subaccount. 
+If not yet done, for this sample application we recommend to set up a **Pay-As-You-Go (PAYG)** or **CPEA** account and use the mentioned **Free (Tier) service plans**. A tutorial how to setup a PAYG account (allowing you to use all Free Tier service plans) can be found in the [Tutorial Navigator](https://developers.sap.com/tutorials/btp-free-tier-account.html). 
 
-> **Important** - If you want to test the sample SaaS application in an SAP BTP Trial account, please make sure to use either **eu10** or **us10** as the region of your choice! SAP HANA Cloud is not available in the Singapore Trial environment!
+### Basic Scope
 
+The **Basic Scope** of the sample application requires the following set of SAP BTP entitlements in the provider subaccount and can be done using **Free (Tier) service plans** of **PAYG** and **CPEA** accounts.
 
-| Service                           | Plan       | Number of Instances |
+> **Hint** - The Basic Scope can also be done in **Trial** accounts, although we recommend to use one of the account types mentioned above. Please make sure to choose the **us10** region to use SAP HANA Cloud in this case. 
+
+| Service                           | Free (Tier)  Plans  | Number of Instances |
 |-----------------------------------|------------|:-------------------:|
-| [SAP Alert Notification service for SAP BTP](https://discovery-center.cloud.sap/serviceCatalog/alert-notification?region=all)                        | standard      |     1    |
-| [Application Autoscaler](https://discovery-center.cloud.sap/serviceCatalog/application-autoscaler/?service_plan=standard&region=all&commercialModel=cloud)                   | standard      |     1    |
-| [SAP Application Logging Service](https://discovery-center.cloud.sap/serviceCatalog/application-logging-service/?region=all)              | lite          |     1    |
-| [SAP Authorization and Trust Management Service](https://discovery-center.cloud.sap/serviceCatalog/authorization-and-trust-management-service?region=all&tab=feature)| broker        |     1    |
-| [SAP Authorization and Trust Management Service](https://discovery-center.cloud.sap/serviceCatalog/authorization-and-trust-management-service?region=all&tab=feature)| application   |     1    |
-| [SAP BTP, Cloud Foundry Runtime](https://discovery-center.cloud.sap/serviceCatalog/cloud-foundry-runtime?region=all)                     | MEMORY        |     2    |
-| [SAP Cloud Management Service for SAP BTP](https://discovery-center.cloud.sap/serviceCatalog/cloud-management-service/?region=all)                 | central       |     1    |
-| [SAP Credential Store](https://discovery-center.cloud.sap/serviceCatalog/credential-store?region=all)                        | trial         |     1    |
-| [Destination Service](https://discovery-center.cloud.sap/serviceCatalog/destination?service_plan=lite&region=all&commercialModel=cloud)                    | lite          |     1    |
-| [SAP HTML5 Application Repository Service for SAP BTP](https://discovery-center.cloud.sap/serviceCatalog/html5-application-repository-service?region=all) | app-host      |     1    |
-| [SAP HTML5 Application Repository Service for SAP BTP](https://discovery-center.cloud.sap/serviceCatalog/html5-application-repository-service?region=all) | app-runtime   |     1    |
-| [SAP Software-as-a-Service Provisioning service](https://discovery-center.cloud.sap/serviceCatalog/saas-provisioning-service?service_plan=application&region=all&commercialModel=cloud)                 | application   |     1    |
-| [SAP HANA Cloud](https://discovery-center.cloud.sap/serviceCatalog/sap-hana-cloud?tab=customerreference&region=all)                            | hana          |     1    |
-| [SAP HANA Schemas & HDI Containers](https://help.sap.com/docs/SAP_HANA_PLATFORM/3823b0f33420468ba5f1cf7f59bd6bd9/e28abca91a004683845805efc2bf967c.html?version=2.0.04&locale=en-US)       | hdi-shared    |     1    |
-| [SAP Service Manager](https://discovery-center.cloud.sap/serviceCatalog/service-manager/?region=all)                      | container     |     1    |
+| [SAP Alert Notification service for SAP BTP](https://discovery-center.cloud.sap/serviceCatalog/alert-notification?region=all) | Free / *(Trial: Lite)* |     1    |
+| [Application Autoscaler](https://discovery-center.cloud.sap/serviceCatalog/application-autoscaler/?service_plan=standard&region=all&commercialModel=cloud) | Standard |     1    |
+| [SAP Application Logging Service](https://discovery-center.cloud.sap/serviceCatalog/application-logging-service/?region=all) | Lite |     1    |
+| [SAP Authorization and Trust Management Service](https://discovery-center.cloud.sap/serviceCatalog/authorization-and-trust-management-service?region=all&tab=feature)| Broker <br> Application |     1 <br> 1    |
+| [SAP BTP, Cloud Foundry Runtime](https://discovery-center.cloud.sap/serviceCatalog/cloud-foundry-runtime?region=all) | Free / *(Trial: Standard)* |     2    |
+| [SAP Cloud Management Service for SAP BTP](https://discovery-center.cloud.sap/serviceCatalog/cloud-management-service/?region=all) | Central |     1    |
+| [SAP Credential Store](https://discovery-center.cloud.sap/serviceCatalog/credential-store?region=all) | Free / *(Trial: Trial)* |     1    |
+| [Destination Service](https://discovery-center.cloud.sap/serviceCatalog/destination?service_plan=lite&region=all&commercialModel=cloud) | Lite |     1    |
+| [SAP HTML5 Application Repository Service for SAP BTP](https://discovery-center.cloud.sap/serviceCatalog/html5-application-repository-service?region=all) | App-host <br>App-runtime |    1 <br> 1   |
+| [SAP Software-as-a-Service Provisioning service](https://discovery-center.cloud.sap/serviceCatalog/saas-provisioning-service?service_plan=application&region=all&commercialModel=cloud) | Application |    1    |
+| [SAP HANA Cloud](https://discovery-center.cloud.sap/serviceCatalog/sap-hana-cloud?tab=customerreference&region=all) | Free / *(Trial: HANA)* |    1    |
+| [SAP HANA Schemas & HDI Containers](https://help.sap.com/docs/SAP_HANA_PLATFORM/3823b0f33420468ba5f1cf7f59bd6bd9/e28abca91a004683845805efc2bf967c.html?version=2.0.04&locale=en-US) | hdi-shared |    1    |
+| [SAP Service Manager](https://discovery-center.cloud.sap/serviceCatalog/service-manager/?region=all) | Container |    1    |
+| | |
 
-**Advanced Scope**
-The Advanced Scope will require some more service and software components which are listed below depending which of the scenarios you want to run.
+### Advanced Scope
 
-> **Important** - Some of the required services like SAP Identity Authentication are not available in the SAP BTP Trial environment. Make sure to either use an SAP BTP Free Tier or Enterprise account.
+The **Advanced Scope** requires some additional services and software components which are listed below. Please note that the **SAP Identity Authentication Service** is only available in **Pay-As-You-Go (PAYG)** and **CPEA** accounts.
 
-| Service                                | Plan                                 | Number of Instances |
-|----------------------------------------|--------------------------------------|:-------------------:|
-| [SAP Credential Store](https://discovery-center.cloud.sap/serviceCatalog/credential-store?region=all)| standard | 1 |
-| SAP NetWeaver system incl. EPM model (*) |                                      |          |
-| [SAP Integration Suite (**)](https://discovery-center.cloud.sap/serviceCatalog/integration-suite?region=all)                     | trial (***) or standard (Application)   |     1    |
-| [SAP API Management, API portal (**)](https://help.sap.com/docs/SAP_CLOUD_PLATFORM_API_MANAGEMENT/66d066d903c2473f81ec33acfe2ccdb4/e609a3efe6d64e1781cbf81ae5592071.html?locale=en-US)         | apim-as-route-service                |     1    |
-| [SAP Cloud Identity Services](https://discovery-center.cloud.sap/serviceCatalog/identity-authentication?region=all&tab=feature)                   | default (Application) |     1    |
-| [SAP Cloud Identity Services](https://help.sap.com/docs/IDENTITY_AUTHENTICATION/6d6d63354d1242d185ab4830fc04feb1/d5cd80c6928e4ac98586025170efdf08.html?locale=en-US)             | application   |     1    |
+> **Hint** - The Advanced Scope cannot be deployed to Trial accounts!
 
-> (*) An SAP NetWeaver system is required ff you want to test the automated data push feature from an existing SAP solution. You can use all **SAP S/4HANA** releases and also any other SAP systems which has an **SAP NetWeaver** stack version higher than 7.3.
+| Service | Free (Tier) Plans | Number of Instances |
+|---|---|:---:|
+| [SAP Integration Suite](https://discovery-center.cloud.sap/serviceCatalog/integration-suite?region=all) | Free  |     1    |
+| [SAP API Management, API portal](https://help.sap.com/docs/SAP_CLOUD_PLATFORM_API_MANAGEMENT/66d066d903c2473f81ec33acfe2ccdb4/e609a3efe6d64e1781cbf81ae5592071.html?locale=en-US)         | apim-as-route-service                |     1    |
+| [SAP Identity Authentication](https://discovery-center.cloud.sap/serviceCatalog/identity-authentication?region=all&tab=feature) | Free test/prod tenant |  |
+| SAP NetWeaver System | |
+| | |
 
-> (**) SAP Integration Suite is required if you want to integrate your SaaS API with [SAP API Management](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/tree/main/docu/3-advanced/8-integrate-sap-api-management/README.md).
+> **SAP Integration Suite** - The **free service plan** is usable for 90 days only. Your tenant will be decommissioned after 90 days and you need to set up a new tenant if you wish to do further validations. 
 
-> (***) Please keep in mind - The SAP Integration Suite *trial plan* is valid for 90 days only. Your tenant will be decommissioned after 90 days and you need to set up a new tenant if you wish to do further validations with a trial tenant. 
+> **SAP Identity Authentication** - When signing up for a PAYG or CPEA account, you're entitled for a free test and productive SAP Identity Authentication Service tenant. Any further tenant can be licensed as **Aditional Tenant** and will be charged according to your account type. Please also check the official SAP Help documentation ([click here](https://help.sap.com/docs/IDENTITY_AUTHENTICATION/6d6d63354d1242d185ab4830fc04feb1/93160ebd2dcb40e98aadcbb9a970f2b9.html?locale=en-US#loio93160ebd2dcb40e98aadcbb9a970f2b9__licensing_section)) and the following blog post ([click here](https://blogs.sap.com/2021/10/26/is-sap-cloud-identity-services-for-free/)) for further information.
+
+> **SAP NetWeaver System** - An SAP NetWeaver system is only required if you want to test the automated data push feature from an existing SAP solution. You can use all **SAP S/4HANA** releases and also any other SAP systems which has an SAP NetWeaver stack version higher than 7.3.
 
 
-**Expert Scope**
-The Expert Scope will require the following additional service and software components which are listed below depending which of the scenarios you want to run:
+### Expert Scope
 
-| Service                               | Plan                               | Number of Instances |
-|---------------------------------------|------------------------------------|:-------------------:|
-| [SAP Continuous Integration and Delivery](https://discovery-center.cloud.sap/serviceCatalog/continuous-integration--delivery?region=all) | default (Application)                           |          1          |
-| SAP Continuous Integration and Delivery | default                           |          1          |
-| [SAP Cloud Transport Management](https://discovery-center.cloud.sap/serviceCatalog/cloud-transport-management?region=all)            | standard (Application) / lite (Application)      |          1          |
-| SAP Cloud Transport Management           | standard                          |          1          |
-| [SAP Custom Domain Service](https://discovery-center.cloud.sap/serviceCatalog/custom-domain?service_plan=custom-domain&region=all)                 | standard (Application)             |          1          |
+The Expert Scope will require the following additional service and software components which are listed below. Almost all parts of the **Expert Scope** can be done using **Free (Tier) service plans** of **PAYG** and **CPEA** accounts. The only exception is the usage of a custom domain (see details below). 
+
+> **Hint** - Most of the **Expert Scope** can also be done in Trial accounts, although we recommend to use one of the account types mentioned above. 
+
+| Service  | Free (Tier) Plans | Number of Instances |
+|----------|------------------|:-------------------:|
+| [SAP Continuous Integration and Delivery](https://discovery-center.cloud.sap/serviceCatalog/continuous-integration--delivery?region=all) | Free / *(Trial: Trial)*  |  1 <br> 1 |
+| [SAP Cloud Transport Management](https://discovery-center.cloud.sap/serviceCatalog/cloud-transport-management?region=all) | Free / *(Trial: Lite)* | 1 |
+| [SAP Custom Domain ](https://discovery-center.cloud.sap/serviceCatalog/custom-domain?service_plan=custom-domain&region=all) | Paid plan only | 1 |
+
+> **Important** The **SAP Custom Domain** Service can only be added as **paid plan** in PAYG or CPEA accounts. Please check the respective pricing details before adding and using this service in your SAP BTP account. 
 
 
 ## Deployment
 
 The deployment is described in the **Basic Scope** of the mission documentation ([click here](./docu/2-basic/3-build-deploy-saas-application/README.md)). 
+
 
 ## Known Issues
  - Chart destroy issue
@@ -168,8 +174,10 @@ The deployment is described in the **Basic Scope** of the mission documentation 
  
 For additional support, [ask a question in SAP Community](https://answers.sap.com/questions/ask.html).
 
+
 ## Contributing
 If you wish to contribute code or offer fixes or improvements, please send a pull request. Due to legal reasons, contributors will be asked to accept a DCO when they create the first pull request for this project. This happens in an automated fashion during the submission process. SAP uses [the standard DCO text of the Linux Foundation](https://developercertificate.org/).
+
 
 ## License
 Copyright (c) 2022 SAP SE or an SAP affiliate company. All rights reserved. This project is licensed under the Apache Software License, version 2.0 except as noted otherwise in the [LICENSE](LICENSE) file.

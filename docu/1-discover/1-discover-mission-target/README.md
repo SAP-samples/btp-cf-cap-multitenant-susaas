@@ -1,6 +1,8 @@
 # Discover the Mission Target
 
-In this mission, you will learn how to set up a multitenant Software as a Service (SaaS) application in your SAP Cloud Foundry environment of the SAP Business Technology Platform (SAP BTP). The sample application has a focus on the topic of Sustainability and is called **Sustainable SaaS** (SusaaS). It allows **consumers** of your SaaS application to extend their SAP solutions like S/4HANA with additional features provided by you as a SaaS **provider**. 
+In this mission, you will learn how to set up a multitenant Software as a Service (SaaS) application using CAP in your SAP Business Technology Platform (SAP BTP) environment. For this use-case, the **Cloud Foundry** runtime was chosen. Still, you can also develop similar SaaS applications in other runtimes like **Kyma** or  the SAP BTP **ABAP** environment. 
+
+The sample application has a focus on the topic of Sustainability and is called **Sustainable SaaS** (SusaaS). It allows **consumers** of your SaaS application to extend their SAP solutions like S/4HANA with additional features provided by you as a SaaS **provider**. 
 
 1. [Mission Scopes](#1-Mission-Scopes)
 2. [GitHub Repository](#2-GitHub-Repository)
@@ -32,7 +34,7 @@ This mission is structured in three different major scopes which are **Basic**, 
 
 **Basic**
 
-The **Basic** scope contains a very comprehensive version of the **SusaaS (Sustainable SaaS)** application, which can be deployed to your SAP BTP Trial, Free Tier, or Enterprise account. It contains **free services** only and is the foundation of the Advanced Scope. The objective of this scope is a SaaS application that can be deployed and tested by each and every developer in the community. It contains all major SaaS components (including an Inbound API) which are also part of the Advanced Scope but excludes paid services which will be part of the next scope. 
+The **Basic** scope contains a very comprehensive version of the **SusaaS (Sustainable SaaS)** application, which can be deployed to your SAP BTP account using **free (tier) service plans** only. It is the foundation of the Advanced Scope. The objective of this scope is a SaaS application that can be deployed and tested by each and every developer in the community. It contains all major SaaS components (including an Inbound API) which are also part of the Advanced Scope but excludes paid services which will be part of the next scope. 
 
 **Advanced**
 
@@ -78,7 +80,9 @@ You can either clone or fork the repository to your own GitHub account.
 
 While the ecosystem of partner-built software for SAP On-Premise solutions has grown very well over the last decades, the available partner offerings and the interest in building solutions on SAP BTP starts to increase. A lot of SAP partners wonder how to port their existing developments to the cloud, to satisfy the demand of their existing customers moving to SAP BTP, or reach out to a much broader market than before. 
 
-For that reason, this mission and the related topic of developing multitenant SaaS applications on SAP BTP is of great interest to partners and customers. It is supposed to give all interested stakeholders an introduction to the theoretical basics of Software as a Service on SAP BTP and provides a great codebase that can be used to kickstart your own implementation. Whereas some other great sample missions on building SaaS applications in SAP BTP Kyma environment already exist ([see here](https://discovery-center.cloud.sap/missiondetail/3683/3726/)), this mission focuses on the SAP Cloud Foundry environment, which is a fundamental pillar of the SAP BTP success. 
+For that reason, this mission and the related topic of developing multitenant SaaS applications on SAP BTP is of great interest to partners and customers. It is supposed to give all interested stakeholders an introduction to the theoretical basics of Software as a Service on SAP BTP and provides a great codebase that can be used to kickstart your own implementation. 
+
+Whereas other great missions on building SaaS applications in the **Kyma** runtime already exist ([see here](https://discovery-center.cloud.sap/missiondetail/3683/3726/)), this mission makes use of the **Cloud Foundry** runtime. 
 
 There is no previous knowledge required for this mission, so all new but also experienced developers can set up the sample application. Nevertheless, a basic understanding of SAP BTP service offerings will help you grasp the ideas and concepts. 
 
@@ -88,7 +92,7 @@ There is no previous knowledge required for this mission, so all new but also ex
 The main topics of the mission include: 
 
 * Understanding Software as a Service and multitenancy
-* Using SaaS-related features of SAP BTP, Cloud Foundry Runtime
+* Using SaaS-features of SAP Business Technology Platform
 * Developing extensions for SAP solutions like S/4HANA based on 
   - the latest SAP CAP release features
   - a UI based on SAP Fiori Elements for OData v4 

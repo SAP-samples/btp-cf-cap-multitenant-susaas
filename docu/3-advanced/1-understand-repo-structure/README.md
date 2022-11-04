@@ -7,7 +7,6 @@ This part of the mission will briefly outline the repository structure of the **
 
 | **Filename** | **Difference** | **Description**  |
 | :---        |    :----:   |          :--- |
-| [mta.yaml](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/blob/advanced/mta.yaml) | [<img src="./images/cs-plan.png" width="400"/>](./images/cs-plan.png) | The Credential Store service plan is changed from **trial** to **standard** since the trial plan is not available in non-trial accounts. |
 | [mta.yaml](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/blob/advanced/mta.yaml)  | [<img src="./images/ias-instance.png" width="400"/>](./images/ias-instance.png) | A Cloud Identity service instance (application plan) is added to be able to communicate with SAP IAS APIs for user management ((un-)registration). |
 | [mta.yaml](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/blob/advanced/mta.yaml) | [<img src="./images/ias-binding.png" width="400"/>](./images/ias-binding.png) | The Cloud Identity service instance (application plan) is bound to the business application service (**srv**) to be able to communicate with SAP IAS for user management. |
 | [srv/admin-service.js](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/blob/advanced/srv/admin-service.js)  | [<img src="./images/create-ias-user.png" width="400"/>](./images/create-ias-user.png) | This code is added to the SAVE event to create a user in SAP IAS in addition to the shadow user. |

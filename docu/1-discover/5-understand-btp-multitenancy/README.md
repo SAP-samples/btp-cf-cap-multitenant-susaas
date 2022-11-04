@@ -1,8 +1,12 @@
 # Understand SAP BTP Multitenancy
 
-In SAP BTP, Cloud Foundry environment, you can develop and run multitenant applications that can be accessed by multiple consumers (tenants) through a dedicated URL. In this sample scenario, we decided to implement the solution based on a standardized toolset including the SAP Cloud Application Programming (CAP) Model.
+In SAP BTP, you can develop and run multitenant applications that can be accessed by multiple consumers (tenants) through a dedicated URL. In this sample scenario, we decided to implement the solution based on a standardized toolset including the SAP Cloud Application Programming (CAP) Model.
 
-See [Developing Multitenant Applications in the Cloud Foundry Environment](https://help.sap.com/docs/BTP/65de2977205c403bbc107264b8eccf4b/5e8a2b74e4f2442b8257c850ed912f48.html?version=Cloud) in SAP Help for further details.
+Check SAP Help and linked Discovery Center Missions for further details on how to develop multitenant SaaS applications in the different SAP BTP environments. 
+
+* [Cloud Foundry Environment - Developing Multitenant Applications](https://help.sap.com/docs/BTP/65de2977205c403bbc107264b8eccf4b/5e8a2b74e4f2442b8257c850ed912f48.html?locale=en-US)
+* [Kyma Environment - Develop a Multitenant Extension Application](https://discovery-center.cloud.sap/missiondetail/3683/3726/)
+* [ABAP Environment - Multitenancy and SaaS Applications](https://help.sap.com/docs/BTP/65de2977205c403bbc107264b8eccf4b/81659c0f5a2b4ca0999329b5b6c60548.html?locale=en-US)
 
 
 ## 1. Context

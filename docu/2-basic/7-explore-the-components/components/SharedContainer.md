@@ -7,7 +7,7 @@ To have the ability to share data among your consumer tenants, a shared database
 3. [Keep in mind](#3-keep-in-mind)
 4. [Further information](#4-further-information)
 
-This concept is building on the cross-container-access capabilities of database containers in the same Cloud Foundry Space. In this sample scenario, the shared database container is used to share a sample table and master data along the tenant database containers.
+This concept is building on the cross-container-access capabilities of SAP HANA Cloud HDI database containers. In this sample scenario, the shared database container is used to share a sample table and master data along the tenant database containers.
 
 [<img src="./images/CD_Flow.png" width="500"/>](./images/CD_Flow.png)
 
@@ -29,7 +29,7 @@ To allow access from your tenant-specific database containers to the shared data
 
 ## 2. Tenant Database Container
 
-The concept of cross-container-access is based on a trusted relation between containers in the same Cloud Foundry Space. Still, to make the shared database container accessible from your tenant-specific database containers, some prerequisites need to be fulfilled. 
+The concept of cross-container-access is based on a trusted relation between containers. Still, to make the shared database container accessible from your tenant-specific database containers, some prerequisites need to be fulfilled. 
 
 >**Important** - The concept of cross-container-access is very powerful but not trivial. Please refer to the official documentation in SAP Help to learn more ([click here](https://help.sap.com/docs/HANA_CLOUD_DATABASE/b9902c314aef4afb8f7a29bf8c5b37b3/4adba34bd86544a880db8f9f1e32efb7.html?&locale=en-US)).
 

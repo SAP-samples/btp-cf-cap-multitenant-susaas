@@ -94,7 +94,7 @@ business application service-related annotations. These annotations define the c
 
 ## 9. Business Application Service
 
-The rest of the **srv** directory contains the implementation of all business application service-related features. This includes the OData services for the user interfaces (Admin and User service) as well as the automation logic executed on the subscription of new consumer-tenants. A lot of onboarding steps have been automated using different Cloud Foundry APIs and SAP BTP services. 
+The rest of the **srv** directory contains the implementation of all business application service-related features. This includes the OData services for the user interfaces (Admin and User service) as well as the automation logic executed on the subscription of new consumer-tenants. A lot of onboarding steps have been automated using different platform APIs and SAP BTP services. 
 
 | | |
 |:--: | :--- |

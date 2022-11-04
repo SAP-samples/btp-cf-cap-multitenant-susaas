@@ -2,11 +2,11 @@
 
 ## Tile Description
 
-Build a multitenant Software as a Service application on SAP BTP using the Cloud Foundry Runtime. 
+Develop a multitenant Software as a Service application in SAP BTP using CAP
 
 ## Description
 
-In this mission you will learn how to setup a multitenant Software as a Service (SaaS) application in your SAP Cloud Foundry Runtime of the SAP Business Technology Platform (SAP BTP). 
+In this mission you will learn how to set up a multitenant Software as a Service (SaaS) application in the SAP Business Technology Platform (SAP BTP) using CAP. 
 
 The sample application has a focus on the topic of sustainability and shows how to use a SaaS approach to share costly resources like SAP HANA Cloud among several tenants (multitenant).  
 

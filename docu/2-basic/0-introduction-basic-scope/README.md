@@ -6,9 +6,11 @@ The **Basic Scope** of the mission will provide you with the core elements requi
 2. [Scope Features](#2-Scope-Features)
 3. [Scope Result](#3-Scope-Result)
 
-You can set up the Basic Scope in any kind of SAP BTP environment so even **Trial** or **Free Tier** users can deploy this version of the SaaS application. See the following screenshot to get an idea of the Basic Scope architecture.
+You can set up the **Basic Scope** in any productive SAP BTP environment using **Free (Tier) service plans** of your own **Pay-as-you-Go** (PAYG) or **CPEA** account. See the following screenshot to get an idea of the Basic Scope architecture.
 
 ![Basic Architecture](./images/App_Architecture_Basic.png)
+
+> **Hint** - The Basic Scope can also be done in **Trial** accounts, although we recommend to use one of the account types mentioned above. 
 
 ## 1. Step-by-Step
 
@@ -27,7 +29,7 @@ For completing the **Basic Scope** please follow the respective cards or check o
 
 ## 2. Scope Features
 
-The **Basic Scope** provides the sample implementation of a CAP-based multitenant SaaS application in the Cloud Foundry environment containing features like a
+The **Basic Scope** provides the sample implementation of a CAP-based multitenant SaaS application containing features like a
 
 - **SAP HANA Cloud** database model to store the application or API data of all tenants and a data model shared among all tenants.
 - **CAP OData service** providing an OData v4 service for the application layer including annotations (Service Engine).

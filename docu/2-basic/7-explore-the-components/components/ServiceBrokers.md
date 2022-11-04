@@ -12,13 +12,13 @@ This part of the mission will explain the details of the SaaS API backing servic
 3.5. [Implementation of Service Instance Deletion](#35-Implementation-of-Service-Instance-Deletion)<br>
 3.6. [Registering to Service Broker](#36-Registering-to-Service-Broker)<br>
 4. [What is @sap/sbf?](#4-What-is-@sap/sbf?)<br>
-5. [Sample multitenant SaaS API \(Backing Service\) on SAP BTP Cloud Foundry](#5-Sample-multitenant-SaaS-API-\(Backing-Service\)-on-SAP-BTP-Cloud-Foundry)<br>
+5. [Sample multitenant SaaS API \(Backing Service\) in SAP BTP](#5-Sample-multitenant-SaaS-API-\(Backing-Service\)-in-SAP-BTP)<br>
 5.1. [Request Number 1](#51-Request-Number-1)<br>
 5.2. [Request Number 2](#52-Request-Number-2)<br>
 5.3. [Request Number 3](#53-Request-Number-3)<br>
 5.4. [Request Number 4](#54-Request-Number-4)<br>
 5.5. [Request Number 5](#55-Request-Number-5)<br>
-6. [Further learnings](#6-Further learnings)
+6. [Further learnings](#6-Further-learnings)
 
 ## 1. What is a Service Broker?
 
@@ -396,7 +396,7 @@ is a Node.js framework that implements the Open Service Broker API. It can be us
 
 Please refer to the official documentation of @sap/sbf for further information.
 
-## 5. Sample multitenant SaaS API (Backing Service) on SAP BTP Cloud Foundry
+## 5. Sample multitenant SaaS API (Backing Service) in SAP BTP
 
 After all the theoretical background on service brokers, you will learn how we implemented the multitenant API of our sample app using the service broker approach. Before going into all details let us remember the flow again. 
 

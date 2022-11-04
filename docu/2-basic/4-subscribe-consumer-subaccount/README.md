@@ -12,7 +12,7 @@ In this part of the mission, you will learn how to subscribe from your first con
 
 ## 1. SaaS application subscription
 
-1.1. Create a new subaccount for your SaaS consumer. Make sure the subaccount is in the same region as the provider subaccount (e.g., us10 in Trial environments). 
+1.1. Create a new subaccount for your SaaS consumer. Make sure the subaccount is in the same region as the provider subaccount. 
 
 > **Important** - Especially in production scenarios, we recommend to **keep the unique ID** which is automatically generated for your subaccount like **tenant-a16ef7** instead of **tenant**. Otherwise, you will face issues with blocked subaccount subdomains as these must be unique per region (like eu10). You will be able to map to a proper domain later as explained in **Custom Domain** part of the **Expert Scope**.
 
@@ -24,7 +24,7 @@ In this part of the mission, you will learn how to subscribe from your first con
 
 [<img src="./images/SUB_CreateSub01.png" width="600"/>](./images/SUB_CreateSub01.png)
 
-1.4. Select the **Sustainable SaaS** service which might have a different name based on your provider's Cloud Foundry Space name. In the screenshot, the Cloud Foundry Space in the provider subaccount is named **dev**. 
+1.4. Select the **Sustainable SaaS** service which might have a different name based on your provider's Cloud Foundry Space. In the screenshot, the Cloud Foundry Space in the provider subaccount is named **dev**. 
 
 [<img src="./images/SUB_CreateSub02.png" width="400"/>](./images/SUB_CreateSub02.png)
 
@@ -68,7 +68,7 @@ In this part of the mission, you will learn how to subscribe from your first con
 
 ## 3. Initialize the SaaS application
 
-Once the subscription of the SaaS application is successful and you created an API Service Broker instance, you (as a provider administrator) need to set up a first administrative user for your consumer's application instance. Depending on your setup the role collection names might contain a Cloud Foundry Space identifier like **dev** or **test**. Only when deploying with the config-prod.mtaext file the resulting role collections don't include this identifier! 
+Once the subscription of the SaaS application is successful and you created an API Service Broker instance, you (as a provider administrator) need to set up a first administrative user for your consumer's application instance. Depending on your setup, the role collection names will contain a Cloud Foundry Space identifier like **dev** or **test**. This allows you to deploy the SaaS application to multiple Spaces in the same subaccount.
 
 > **Important** - As the SaaS application offers an in-app user management component, all regular consumer tenant users have to be created and managed from within the application. If you create users manually in SAP XSUAA and assign a role collection, these users will not show up in the in-app user management.  
 

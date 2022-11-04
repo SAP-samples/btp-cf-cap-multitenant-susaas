@@ -38,7 +38,7 @@ To create an application registration that can be used to send e-mails via Micro
 **Exchange Online**
 You can send e-mails by either using a shared mailbox or a regular user's inbox. For both scenarios, you need to have at least one valid license including Exchange Online access (like Office 365 F3). After creating a Microsoft Azure account, log in to the Microsoft 365 Admin Center here [https://admin.microsoft.com/#/homepage](). This is where you can buy and see your licensed products like an Office 365 F3 subscription. 
 
-> **Hint** - For trial and testing purposes, check if you're eligible for a free [Microsoft Teams Exploratory](https://learn.microsoft.com/en-us/microsoftteams/teams-exploratory) license. This license also contains the required Exchange Online access. 
+> **Hint** - For testing purposes, check if you're eligible for a free [Microsoft Teams Exploratory](https://learn.microsoft.com/en-us/microsoftteams/teams-exploratory) license. This license also contains the required Exchange Online access. 
 
 
 ## 3. Create a Shared Mailbox

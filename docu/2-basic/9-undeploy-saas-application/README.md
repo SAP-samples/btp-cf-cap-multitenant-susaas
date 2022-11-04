@@ -23,7 +23,7 @@ $ cf login -a https://api.cf.<<region>>.hana.ondemand.com
 $ cf undeploy susaas --delete-services --delete-service-keys
 ```
 
-> **Warning** - Please make sure to have the latest version of the Cloud Foundry CLI installed and the multiapps plugin is up-to-date. In older versions of the Cloud Foundry multiapps plugin, the option --delete-service-keys did not exist yet! 
+> **Warning** - Please make sure to have the latest version of the Cloud Foundry CLI installed and your **multiapps plugin** is up-to-date. In older versions of the multiapps plugin, the option --delete-service-keys did not exist yet! 
 
 
 ## 2. Check successful Undeployment

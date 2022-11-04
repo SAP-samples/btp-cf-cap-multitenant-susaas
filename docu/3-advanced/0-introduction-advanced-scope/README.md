@@ -8,9 +8,12 @@ The idea of **Advanced Scope** is taking all the features implemented in the **B
 2. [Scope Features](#2-Scope-Features)
 3. [Scope Result](#3-Scope-Result)
 
-You can set up the Advanced Scope in either a **Free Tier** or [**Enterprise Account**](https://help.sap.com/docs/BTP/65de2977205c403bbc107264b8eccf4b/171511cc425c4e079d0684936486eee6.html) type SAP BTP environments. 
 
-A **Trial** setup is not available for this scope because some of the services required like SAP Identity Authentication service are not available in Trial environments. See the following screenshot to get an idea of the Advanced Scope architecture.
+Please note that the **SAP Identity Authentication Service** used in this scope is only available in **Pay-As-You-Go** (PAYG) and **CPEA** accounts. Because of this limitation, the Advanced Scope **cannot be done** in **Trial accounts**! 
+
+Good news - A tutorial how to setup a PAYG account (allowing you to use all Free Tier service plans) can be found in the [Tutorial Navigator](https://developers.sap.com/tutorials/btp-free-tier-account.html).
+
+See the following screenshot to get an idea of the Advanced Scope architecture.
 
 ![Advanced Architecture](./images/App_Architecture_Advanced.png)
 

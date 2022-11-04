@@ -14,7 +14,7 @@ In this part of the mission, you will learn how to distribute data model changes
 ## 1. Prerequisites
 
 1. You have followed [**basic**](../../2-basic/0-introduction-basic-scope/README.md) or [**advanced**](../../3-advanced/0-introduction-advanced-scope/README.md) scope. 
-2. You have a [deployed and running multitenant application](../../2-basic/3-build-deploy-saas-application/README.md) on your SAP BTP Cloud Foundry Provider Subaccount.
+2. You have a [deployed and running multitenant application](../../2-basic/3-build-deploy-saas-application/README.md) on your SAP BTP Provider Subaccount.
 3. You already have a [subscription from a consumer subaccount](../../2-basic/4-subscribe-consumer-subaccount/README.md) to your mulititenant SaaS application.
 
 ## 2. Introduction 

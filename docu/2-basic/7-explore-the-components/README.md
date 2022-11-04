@@ -12,7 +12,9 @@ After you have deployed the sample application the following components will be 
 8. [Resiliency components](#8-Resiliency-components) to make the app more resilient
 9. [Further information](#9-Further-Information)
 
-This part of the mission will provide deeper insights into the different components and let you build up some expert knowledge about topics like **Service Brokers** or **Multitenancy**. The screenshot below shows the architecture of the **Basic Scope** which will run in the **trial** environment seamlessly.
+This part of the mission will provide deeper insights into the different components and let you build up some expert knowledge about topics like **Service Brokers** or **Multitenancy**. The screenshot below shows the architecture of the **Basic Scope** which  can be done using **Free (Tier) service plans** of your own **Pay-as-you-Go** (PAYG) or **CPEA** account.
+
+> **Hint** - The Basic Scope can also be done in **Trial** accounts, although we recommend to use one of the account types mentioned above.  
 
 [<img src="./images/basic-arch1.png" width="700"/>](./images/basic-arch1.png)
 
@@ -21,7 +23,7 @@ This part of the mission will provide deeper insights into the different compone
 
 > **Important** - Find more details in the [Multitenancy Readme](./components/Multitenancy.md) Reamde document!
 
-The application router is the single point of entry for an application running in the Cloud Foundry environment on SAP BTP. An application router can be used to serve static content, authenticate users, rewrite URLs, and forward or proxy requests to other microservices while propagating user and tenant information.
+The application router is the single point of entry for most applications running in SAP BTP. An application router can be used to serve static content, authenticate users, rewrite URLs, and forward or proxy requests to other microservices while propagating user and tenant information.
 
 Each multitenant application has to deploy its own application router, and the application router handles requests of all tenants to the application. The application router is able to determine the tenant identifier out of the URL and then forwards the authentication request to the tenant User Account and Authentication \(UAA\) service and the related identity zone.
 
@@ -61,9 +63,9 @@ Finally, you can find samples for OData actions allowing you to bulk-update prod
 
 > **Important** - Find more details in the [Service Broker](./components/ServiceBrokers.md) Reamde document!
 
-Service brokers manage instances of services used by applications running in the Cloud Foundry runtime.
+Service brokers manage instances of services used by applications running in the Cloud Foundry environment.
 
-In Cloud Foundry, the service broker is responsible for maintaining and managing instances of service brokers and all available services. Services can be bound to applications that require the services provided by a service instance. Developers can use the service broker to bind service instances to the application that wants to make use of the services.
+The service broker is responsible for maintaining and managing instances of service brokers and all available services. Services can be bound to applications that require the services provided by a service instance. Developers can use the service broker to bind service instances to the application that wants to make use of the services.
 
 In this application scenario, we have created an API for SaaS consumers as a backing service. Therefore, the service broker is responsible of creating [SaaS API](#saas-api) service instances in the tenant subaccounts. 
 
@@ -87,7 +89,7 @@ Below you can see an overview pf the tables deployed into new tenant database co
 
 > **Important** - Find more details in the [Shared Container](./components/SharedContainer.md) Reamde document!
 
-To have the ability to share data among your consumer tenants, a shared database container is set up for the sample scenario. This allows the provider to maintain e.g. master data (Languages, Countries, Currencies) in a central place and update it simultaneously for all consumer tenants. This concept is building on the cross-container access capabilities of database containers in the same Cloud Foundry Space. 
+To have the ability to share data among your consumer tenants, a shared database container is set up for the sample scenario. This allows the provider to maintain e.g. master data (Languages, Countries, Currencies) in a central place and update it simultaneously for all consumer tenants. This concept is building on the cross-container access capabilities of database containers. 
 
 
 ## 8. Resiliency components

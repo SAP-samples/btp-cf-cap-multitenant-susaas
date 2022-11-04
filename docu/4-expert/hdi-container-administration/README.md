@@ -34,7 +34,7 @@ As a SaaS provider, you need to ensure this process is well aligned with your Sa
 
 ## 3. Login to SAP HANA Cloud Cockpit
 
-3.1. Go to the SAP BTP Cloud Foundry Space in which your SAP HANA Cloud instance resides. 
+3.1. Go to the loud Foundry Space in which your SAP HANA Cloud instance resides. 
 
 3.2. Open the **additional actions** of the SAP HANA Cloud instance. 
 

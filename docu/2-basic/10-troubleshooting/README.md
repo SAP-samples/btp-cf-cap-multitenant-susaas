@@ -11,7 +11,7 @@ The most probable reasons why your deployment might fail are listed below.
 
 1.1. Make sure you have assigned all required entitlements to your provider subaccount before deploying the solution! If a certain entitlement is missing, you will face errors during deployment. You can find the required entitlements in the **Prepare your Provider Subaccount** chapter of the mission ([click here](../2-prepare-provider-subaccount/README.md)).
 
-1.2. If the deployment logs show errors related to SAP HANA Cloud or HDI container deployment issues, make sure your SAP HANA Cloud instance is up and running. In the Trial environment, SAP HANA Cloud is stopped automatically on a daily basis. Once restarted in SAP HANA Cloud Central, please wait a few minutes before trying a new deployment.  
+1.2. If the deployment logs show errors related to SAP HANA Cloud or HDI container deployment issues, make sure your SAP HANA Cloud instance is up and running. When using **Free (Tier) service plans** (e.g., hana-free), HANA Cloud is stopped automatically on a daily basis. Once restarted in SAP HANA Cloud Central, please wait a few minutes before trying a new deployment.  
 
 1.3. If the deployment logs show errors related to the service broker, make sure you executed the required **npm** script generating a custom *catalog.json* file for your service broker and the broker credentials. Make sure to put the hashed credentials into the correct place of your mta.yaml file! 
 
@@ -31,15 +31,18 @@ The most probable reasons why your deployment might fail are listed below.
         }
 ```
 
-1.4. If the deployment fails because of service plan-related issues, you're probably not deploying to an SAP BTP Trial subaccount. The **Basic Scope** deployment descriptor contains e.g., the Credential Store **trial** service plan which is available in Trial accounts only. Please change the mta.yaml file accordingly and change to a service plan available in your environment e.g., **standard** in case of the Credential Service. 
+1.4. If the deployment fails because of service plan-related issues, you're probably deploying to an SAP BTP Trial subaccount. The default **Basic Scope** deployment descriptor contains e.g., the Credential Store **free** service plan which is not available in Trial accounts. Please use the respective MTA Extension Descriptor file ([trial.mtaext](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/blob/basic/configs/deployment/trial.mtaext)) for Trial deployments to use the correct service plans (see snippet below).
 
 ```yaml
-  # ----------------- CREDENTIAL STORE  -----------------------
-  - name: susaas-credstore
-  # -----------------------------------------------------------
-    type: org.cloudfoundry.managed-service
+ID: susaas.trial
+extends: susaas
+
+resources:
+  - name: susaas-alert-notification
     parameters:
-      service: credstore
+      service-plan: lite
+  - name: susaas-credstore
+    parameters:
       service-plan: trial
 ```
 

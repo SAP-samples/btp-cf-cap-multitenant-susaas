@@ -14,7 +14,7 @@ In this part of the mission, you will learn about different aspects of multitena
 
 ## 1. Application Router
 
-The application router is the single point of entry for an application running in the Cloud Foundry environment on SAP BTP. The application router is used to serve static content, authenticate users, rewrite URLs, and forward or proxy requests to other microservices while propagating user information. 
+The application router is the single point of entry for most applications running in SAP BTP. The application router is used to serve static content, authenticate users, rewrite URLs, and forward or proxy requests to other microservices while propagating user information. 
 
 ### 1.1. Application Router and identity zones
 
@@ -86,7 +86,9 @@ Below you can see two screenshots of the provider service credentials and a toke
 
 ### 2.2. Authorization & Trust management service - **application** plan
 
-The service plan **application** requires that the xsappname which is specified in the xs-security.json file is unique in the Cloud Foundry landscape within each tenant (SAP BTP subaccount) in which the application is deployed. This means that an application may be deployed in several SAP BTP subaccounts at the same time but not twice in the same tenant (unless you modify the xsappname in xs-security.json). You would get an error message during the second deployment. 
+The service plan **application** requires that the xsappname (specified in the xs-security.json or mta.yaml file) is unique in each tenant (SAP BTP subaccount) to which the application is deployed. This means that an application may be deployed in several SAP BTP subaccounts at the same time but not twice in the same tenant (unless you modify the xsappname). You would get an error message during the second deployment. 
+
+> **Hint** - In the sample application, the xsappname is dynamically combined with the current Cloud Foundry Space name so you can deploy the application to multiple Spaces in the same subaccount if you like. 
 
 The xsappname that is written into the credentials section of the environment is enhanced with a suffix and has the format `<xsappname>!t<tenant index>`. A tenant index is a running number that the UAA maintains internally. It differs from subaccount to subaccount. 
 

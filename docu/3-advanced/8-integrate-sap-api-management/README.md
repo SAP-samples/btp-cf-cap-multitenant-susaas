@@ -30,7 +30,7 @@ See the relevant part of the solution architecture below (click to enlarge):
 
 ## 2. Prerequisites
 
-For this setup, please make sure you have an SAP API Management instance up and running. As SAP API Management is a capability of **SAP Integration Suite**, please subscribe to SAP Integration Suite and activate the respective **API Management** feature. Check the following documentation on how to enable SAP Integration Suite in a Trial [click here](https://developers.sap.com/tutorials/cp-starter-isuite-onboard-subscribe.html) and in any other environment [click here](https://help.sap.com/docs/SAP_CLOUD_PLATFORM_API_MANAGEMENT/66d066d903c2473f81ec33acfe2ccdb4/f6eb4332cd5144ef91f4a84cc614ba1c.html?locale=en-US). 
+For this setup, please make sure you have an SAP API Management instance up and running. As SAP API Management is a capability of **SAP Integration Suite**, please subscribe to SAP Integration Suite and activate the respective **API Management** feature. Check the following SAP Help documentation to find a detailed step-by-step guide ([click here](https://help.sap.com/docs/SAP_CLOUD_PLATFORM_API_MANAGEMENT/66d066d903c2473f81ec33acfe2ccdb4/f6eb4332cd5144ef91f4a84cc614ba1c.html?locale=en-US)). 
 
 [<img src="./images/API_IntegrationSuite.png" width="500" />](./images/API_IntegrationSuite.png)
 
@@ -66,7 +66,7 @@ cf brs `<API service domain>` `<route service>` --hostname `<API service hostnam
 
 
 >**Sample**<br>
->cf brs cfapps.eu10.hana.ondemand.com susaas-apim-route-service --hostname abc84d15trial-dev-susaas-api-srv -c '{\"api_name\":\"SusaaS-API-Proxy\"}'
+>cf brs cfapps.eu10.hana.ondemand.com susaas-apim-route-service --hostname dev-susaas-api-srv -c '{\"api_name\":\"SusaaS-API-Proxy\"}'
 
 > **Important** - The command might differ depending on your cf CLI version. You can use *cf brs --help* to find the correct command related to your cf CLI version. Also make sure to change the change the API service domain in case of Custom Domain usage.
 
