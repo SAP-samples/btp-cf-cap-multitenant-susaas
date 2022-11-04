@@ -261,7 +261,7 @@ resources:
     parameters:
       service: credstore
       service-name: ${space}-susaas-credstore
-      service-plan: trial
+      service-plan: free
 
   # --------------------- REGISTRY SERVICE ---------------------
   - name: susaas-registry
@@ -286,6 +286,9 @@ resources:
           onSubscriptionAsync: false
           onUnSubscriptionAsync: false
           getDependencies: ~{susaas-srv-api/srv-url}/-/cds/saas-provisioning/dependencies
+        appPlans:
+          - name: default
+            description: Sustainable SaaS default plan
 
   # ------------------- SERVICE MANAGER SERVICE ----------------
   - name: susaas-service-manager
@@ -389,7 +392,7 @@ resources:
     parameters:
       service: alert-notification
       service-name: ${space}-susaas-alert-notification
-      service-plan: standard
+      service-plan: free
       path: ./configs/alert-notif.json
 
   # ----------------- CLOUD MANAGEMENT SERVICE - CENTRAL -------------
