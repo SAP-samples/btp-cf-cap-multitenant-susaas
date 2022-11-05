@@ -139,7 +139,6 @@ The **Advanced Scope** requires some additional services and software components
 
 > **SAP NetWeaver System** - An SAP NetWeaver system is only required if you want to test the automated data push feature from an existing SAP solution. You can use all **SAP S/4HANA** releases and also any other SAP systems which has an SAP NetWeaver stack version higher than 7.3.
 
-
 ### Expert Scope
 
 The Expert Scope will require the following additional service and software components which are listed below. Almost all parts of the **Expert Scope** can be done using **Free (Tier) service plans** of **PAYG** and **CPEA** accounts. The only exception is the usage of a custom domain (see details below). 
@@ -154,7 +153,6 @@ The Expert Scope will require the following additional service and software comp
 | | |
 
 > **Important** The **SAP Custom Domain** Service can only be added as **paid plan** in PAYG or CPEA accounts. Please check the respective pricing details before adding and using this service in your SAP BTP account. 
-
 
 ## Deployment
 
@@ -174,10 +172,8 @@ The deployment is described in the **Basic Scope** of the mission documentation 
  
 For additional support, [ask a question in SAP Community](https://answers.sap.com/questions/ask.html).
 
-
 ## Contributing
 If you wish to contribute code or offer fixes or improvements, please send a pull request. Due to legal reasons, contributors will be asked to accept a DCO when they create the first pull request for this project. This happens in an automated fashion during the submission process. SAP uses [the standard DCO text of the Linux Foundation](https://developercertificate.org/).
-
 
 ## License
 Copyright (c) 2022 SAP SE or an SAP affiliate company. All rights reserved. This project is licensed under the Apache Software License, version 2.0 except as noted otherwise in the [LICENSE](LICENSE) file.
