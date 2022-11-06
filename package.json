@@ -42,7 +42,8 @@
     "api-start-hybrid": "cds serve srv-api --production",
     "test": "jest",
     "deploy:dev": "node node_modules/@sap/hdi-deploy/ --root gen/db",
-    "init:broker": "cd broker && npm i && npm run init"
+    "init:broker": "cd broker && npm i && npm run init",
+    "init:credstore": "node configs/automator/init-cred-store.js"
   },
   "eslintConfig": {
     "extends": "eslint:recommended",
