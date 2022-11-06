@@ -15,6 +15,7 @@
             "name": "susaas-<provider-space>-<provider-org>",
             "category": "APPLICATION",
             "plan": "default",
+            "targetenvironment": "sapbtp",
             "customerDeveloped": true,
             "requiredrolecollections": [
                 {
@@ -57,22 +58,6 @@
             "name": "Subaccount Service Administrator",
             "type": "account",
             "level": "sub account",
-            "assignedUserGroupsFromParameterFile": [
-                "admins"
-            ]
-        },
-        {
-            "name": "SpaceManager",
-            "type": "cloudfoundry",
-            "level": "space",
-            "assignedUserGroupsFromParameterFile": [
-                "admins"
-            ]
-        },
-        {
-            "name": "OrgManager",
-            "type": "cloudfoundry",
-            "level": "org",
             "assignedUserGroupsFromParameterFile": [
                 "admins"
             ]
