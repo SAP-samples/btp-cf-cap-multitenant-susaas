@@ -40,7 +40,7 @@ extends: susaas
 resources:
   - name: susaas-alert-notification
     parameters:
-      service-plan: lite
+      service-plan: standard
   - name: susaas-credstore
     parameters:
       service-plan: trial
