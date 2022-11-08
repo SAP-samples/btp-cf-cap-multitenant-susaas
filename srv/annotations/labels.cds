@@ -17,7 +17,7 @@ annotate db.Members with @title : '{i18n>member.typeNamePlural}' {
 };
 
 annotate db.Users with @title : '{i18n>user.typeNamePlural}' {
-    ID          @title        : '{i18n>user}';
+    ID          @title        : '{i18n>user}' @Common.Text : fullName  @Common.TextArrangement : #TextOnly;
     email       @title        : '{i18n>email}';
     firstName   @title        : '{i18n>firstName}';
     lastName    @title        : '{i18n>lastName}';

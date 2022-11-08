@@ -11,6 +11,10 @@ using { Percentage } from './data-types';
 
 context susaas.db {
 
+      entity Dummy {
+            key dummy : String default 'Dummy';
+      }
+
       entity Projects : cuid, managed {
             description  : String;
             validFrom   : Date;

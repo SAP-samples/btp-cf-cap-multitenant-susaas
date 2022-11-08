@@ -134,7 +134,16 @@
       },
       "[local-with-mtx]": {
         "multitenancy": true,
-        "toggles": true
+        "extensibility": true,
+        "toggles": true,
+        "cds.xt.ExtensibilityService": {
+          "element-prefix": [
+            "x_"
+          ],
+          "extension-allowlist": [{
+              "for": ["*"]
+          }]
+        }
       },
       "uaa": {
         "kind": "xsuaa"
@@ -162,16 +171,12 @@
               "roles": [
                 "Member"
               ]
-            },
-            "bob": {
-              "roles": [
-                "Member"
-              ]
             }
           }
         },
         "[local-with-mtx]": {
           "strategy": "mock",
+          "db": "sql-mt",
           "users": {
             "joe": {
               "ID": "joe",
@@ -179,9 +184,30 @@
               "password": "123",
               "roles": [
                 "Admin",
-                "Member"
+                "cds.Subscriber"
               ],
               "tenant": "t1"
+            },
+            "julie": {
+              "ID": "julie",
+              "GivenName": "Julie",
+              "password": "123",
+              "roles": [
+                "Admin",
+                "cds.Subscriber",
+                "cds.ExtensionDeveloper"
+              ],
+              "tenant": "t1-ext"
+            },
+            "bob": {
+              "ID": "bob",
+              "GivenName": "Bob",
+              "password": "123",
+              "roles": [
+                "Admin",
+                "cds.Subscriber"
+              ],
+              "tenant": "t2"
             }
           }
         }
