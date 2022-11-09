@@ -39,12 +39,8 @@
         }
         ,
         {
-            "name": "$XSAPPNAME.ExtendCDS",
-            "description": "Create Extensions"
-        },
-        {
-            "name": "$XSAPPNAME.ExtendCDSdelete",
-            "description": "Delete Extensions"
+            "name": "$XSAPPNAME.cds.ExtensionDeveloper",
+            "description": "Develop Extensions"
         }
     ],
     "role-templates": [
@@ -87,17 +83,10 @@
             ]
         },
         {
-            "name": "ExtendCDS",
+            "name": "ExtensionDeveloper",
             "description": "Extension Developer",
             "scope-references": [
-                "$XSAPPNAME.ExtendCDS"
-            ]
-        },
-        {
-            "name": "ExtendCDSdelete",
-            "description": "Extension Developer - Delete",
-            "scope-references": [
-                "$XSAPPNAME.ExtendCDSdelete"
+                "$XSAPPNAME.cds.ExtensionDeveloper"
             ]
         },
         {
@@ -128,7 +117,8 @@
     "authorities": [
         "$XSAPPNAME.mtcallback",
         "$XSAPPNAME.mtdeployment",
-        "$XSAPPNAME.MtxDiagnose"
+        "$XSAPPNAME.MtxDiagnose",
+        "$XSAPPNAME.cds.ExtensionDeveloper"
     ]
     ,
     "oauth2-configuration": {
