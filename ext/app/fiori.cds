@@ -10,10 +10,6 @@ annotate PublicService.Assessments:x_contact with @(
             LocalDataProperty   : x_contact_ID, 
             ValueListProperty   : 'ID' 
           },
-          { 
-            $Type               : 'Common.ValueListParameterDisplayOnly', 
-            ValueListProperty   : 'ID' 
-          },
           {
             $Type               : 'Common.ValueListParameterDisplayOnly',
             ValueListProperty   : 'firstName'
@@ -70,7 +66,7 @@ annotate PublicService.Assessments with @(
         { 
           Value : x_contact_ID,
           ![$Type] : 'UI.DataField',
-          Label : 'Contact', 
+          Label : '{i18n>contact}', 
           ![@UI.Importance] : #High
         },
         ...
@@ -88,121 +84,21 @@ annotate PublicService.Assessments with @(
 );
 
 annotate PublicService.Assessments with @(
-    UI.Facets : [
-        {
-          $Type  : 'UI.CollectionFacet',
-          ID     : 'collectionFacetSectionGeneral',
-          Label  : 'Assessment Information',
-          Facets : [
-            {
-              $Type   : 'UI.CollectionFacet',
-              ID     : 'collectionFacetSectionGeneralInformation',
-              Label  : '{i18n>generalInformation}',
-              Facets  : [
-                {
-                    $Type  : 'UI.ReferenceFacet',
-                    ID     : 'referenceFacetGeneralInformation',
-                    Target : '@UI.FieldGroup#GeneralInformation'
-                },
-              ],
-            },
-            {
-              $Type   : 'UI.CollectionFacet',
-              ID     : 'collectionFacetSectionDetailedInformation',
-              Label  : 'Detailed Information',
-              Facets  : [
-                {
-                    $Type  : 'UI.ReferenceFacet',
-                    ID     : 'referenceFacetDetailedInformation',
-                    Target : '@UI.FieldGroup#x_DetailInformation'
-                },
-              ],
-            },
-          ],
-        },{
-            $Type   : 'UI.CollectionFacet',
-            ID     : 'collectionFacetSectionCircularityMetrics',
-            Label  : '{i18n>circularityMetric.typeNamePlural}',
-            Facets  : [
-                {
-                    $Type   : 'UI.CollectionFacet',
-                    Label  : '{i18n>eolProductDesign}',
-                    ID     : 'collectionFacetSubSections1CircularityMetrics',
-                    Facets  : [
-                    {
-                        $Type  : 'UI.ReferenceFacet',
-                        Target : '@UI.FieldGroup#CircularityMetrics',
-                        Label  : '{i18n>eolProductDesign}',
-                        ID     : 'collectionFacetSubSections1Facet1'
-                    }]
-                },{
-                    $Type   : 'UI.CollectionFacet',
-                    Label  : '{i18n>circularityMetric.typeNamePlural}',
-                    ID     : 'collectionFacetSubSections2CircularityMetrics',
-                    Facets  : [
-                    {
-                        $Type  : 'UI.ReferenceFacet',
-                        Target : 'circularityMetrics/@UI.LineItem',
-                        ID     : 'collectionFacetSubSections2Facet1'
-                    },
-                    ]
-                },{
-                    $Type   : 'UI.CollectionFacet',
-                    Label  : '{i18n>chart}',
-                    ID     : 'collectionFacetSubSections3CircularityMetrics',
-                    Facets  : [
-                    {
-                
-                        $Type : 'UI.ReferenceFacet',
-                        ID     : 'collectionFacetSubSection3CircularityMetricsChart',
-                        Target : 'circularityMetrics/@UI.PresentationVariant#Chart',
-                        ![@UI.PartOfPreview] : false
-                    }],
-                    ![@UI.Hidden] : { 
-                        $edmJson : {$If : [ { $Eq : [ { $Path : 'IsActiveEntity'}, true ]}, false, true ]}
-                    }
-                }
-            ],
+    UI.Facets : [ 
+        ... up to {
+            $Type : 'UI.CollectionFacet',
+            ID     : 'collectionFacetSectionGeneral',
         },
         {
-            $Type   : 'UI.CollectionFacet',
-            ID     : 'collectionFacetSectionSalesSplits',
-            Label  : '{i18n>salesSplit.typeNamePlural}',
-            Facets  : [{
-                $Type   : 'UI.CollectionFacet',
-                Label  : '{i18n>salesSplit.typeNamePlural}',
-                ID     : 'collectionFacetSubSections1SalesSplits',
-                Facets  : [{
-                    $Type  : 'UI.ReferenceFacet',
-                    Target : 'salesSplits/@UI.LineItem',
-                }],
-            },{
-                $Type   : 'UI.CollectionFacet',
-                Label  : '{i18n>chart}',
-                ID     : 'collectionFacetSubSections2SalesSplits',
-                Facets  : [{
-                    $Type : 'UI.ReferenceFacet',
-                    Target : 'salesSplits/@UI.PresentationVariant'
-                }],
-                ![@UI.Hidden] : { 
-                    $edmJson : {$If : [ { $Eq : [ { $Path : 'IsActiveEntity'}, true ]}, false, true ]}
-                }
+            $Type  : 'UI.CollectionFacet',
+            ID     : 'collectionFacetSectionDetailed', 
+            Label  : '{i18n>detailedInformation}',
+            Facets : [{
+                $Type  : 'UI.ReferenceFacet',
+                Label  : '{i18n>detailedInformation}',
+                Target : '@UI.FieldGroup#x_DetailInformation'
             }]
-        },{
-            $Type   : 'UI.CollectionFacet',
-            ID     : 'collectionFacetSectionMaterialSplits',
-            Label  : '{i18n>materialSplit.typeNamePlural}',
-            Facets  : [{
-                $Type   : 'UI.CollectionFacet',
-                ID     : 'collectionFacetSubSection1MaterialSplits',
-                Label  : '{i18n>materialSplit.typeNamePlural}',
-                Facets  : [{
-                    $Type  : 'UI.ReferenceFacet',
-                    ID     : 'collectionFacetSubSectionMaterialSplitsLineItems',
-                    Target : 'materialSplits/@UI.LineItem'
-                }]
-            }]
-        }
+        },
+        ...
     ]
 );
-
