@@ -254,8 +254,7 @@ resources:
           - name: Susaas Extension Developer (${space})
             description: Extension Developer Access
             role-template-references: 
-              - '$XSAPPNAME.ExtendCDS'
-              - '$XSAPPNAME.ExtendCDSdelete'
+              - '$XSAPPNAME.ExtensionDeveloper'
               - '$XSAPPNAME.Token_Exchange'
 
   # ----------------- CREDENTIAL STORE  -----------------------
