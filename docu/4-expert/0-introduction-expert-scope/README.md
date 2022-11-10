@@ -23,6 +23,8 @@ The only **exception** is the usage of a custom domain in SAP BTP! The [**SAP Cu
 
 **Scenarios with Free (Tier) service plans**
 
+* [Feature Toggles](../feature-toggles/README.md)
+* [SaaS Consumer Extensibility](../consumer-extensibility/README.md)
 * [HDI container administration](../hdi-container-administration/README.md) 
 * [Backup database containers](../backup-database-containers/README.md)
 * [Configure SAP Cloud Transport Management](../configure-transport-management/README.md)
@@ -35,7 +37,6 @@ The only **exception** is the usage of a custom domain in SAP BTP! The [**SAP Cu
 * [Using SAP Theme Designer](../using-sap-theme-designer/README.md)
 * [Deploy to multiple regions](../deploy-multiple-regions/README.md) (Trial - ✘)
 * [Custom domain for SAP IAS](../custom-domain-for-ias/README.md) (Trial - ✘)
-
 
 **Scenarios with paid service plans**
 

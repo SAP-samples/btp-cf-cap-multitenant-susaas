@@ -33,6 +33,8 @@
     - [Troubleshooting](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/blob/main/docu/3-advanced/9-troubleshooting/README.md)
 - Expert Scope
     - [Introduction Expert Scope](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/blob/main/docu/4-expert/0-introduction-expert-scope/README.md)
+    - [Feature Toggles](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/blob/main/docu/4-expert/feature-toggles/README.md)
+    - [SaaS Consumer Extensibility](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/blob/main/docu/4-expert/consumer-extensibility/README.md)
     - [HDI container administration](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/blob/main/docu/4-expert/hdi-container-administration/README.md)
     - [Setup SAP CI/CD for your project](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/blob/main/docu/4-expert/setup-cicd-for-project/README.md)
     - [Configure SAP Transport Management](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/blob/main/docu/4-expert/configure-transport-management/README.md)
@@ -48,7 +50,6 @@
     - [Using the SAP Theme Designer](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/blob/main/docu/4-expert/using-sap-theme-designer/README.md)
     - [Troubleshooting](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/blob/main/docu/4-expert/troubleshooting/README.md)
 - Next Steps & Outlook
-    - [Consumer Extensibility Features](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/blob/main/docu/5-next-outlook/consumer-extensibility/README.md)
     - [Commercialization on SAP BTP](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/blob/main/docu/5-next-outlook/commercialization-btp/README.md)
     - [Automate SAP BTP subaccount setups](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/blob/main/docu/5-next-outlook/automate-subaccount-setups/README.md)
 - Complete 

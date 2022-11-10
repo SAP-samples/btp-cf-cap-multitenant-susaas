@@ -31,6 +31,8 @@
     - [Integrate with SAP API Management](../../docu/3-advanced/8-integrate-sap-api-management/README.md)
 - Expert Scope
     - [Introduction expert scenario](../../docu/4-expert/0-introduction-expert-scope/README.md)
+    - [Feature Toggles](../../docu/4-expert/feature-toggles/README.md)
+    - [SaaS Consumer Extensibility](../../docu/4-expert/consumer-extensibility/README.md)
     - [HDI container administration](../../docu/4-expert/hdi-container-administration/README.md)
     - [Setup SAP CI/CD for your project](../../docu/4-expert/setup-cicd-for-project/README.md)
     - [Configure SAP Transport Management](../../docu/4-expert/configure-transport-management/README.md)
@@ -46,7 +48,6 @@
     - [Using the SAP Theme Designer](../../docu/4-expert/using-sap-theme-designer/README.md)
     - [Troubleshooting](../../docu/4-expert/troubleshooting/README.md)
 - Next Steps & Outlook
-    - [Consumer Extensibility Features](../../docu/5-next-outlook/consumer-extensibility/README.md)
     - [Commercialization on SAP BTP](../../docu/5-next-outlook/commercialization-btp/README.md)
     - [Automate SAP BTP subaccount setups](../../docu/5-next-outlook/automate-subaccount-setups/README.md)
 - Complete 
