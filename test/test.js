@@ -11,33 +11,24 @@ describe('Multitenancy is up and running', () => {
 
 
 describe('Service Test', () => {
-  it('Admin and Catalog Service service served successfully', () => {
+  it('Admin and Public Service service served successfully', () => {
     const { AdminService } = cds.services;
-    const { CatalogService } = cds.services;
+    const { PublicService } = cds.services;
   })
 })
 
 describe('Entity Consistency Test', () => {
-  it('Projects entity is consistent', async () => {
-    const CatalogService = await cds.connect.to('CatalogService')
+  it('Countries entity is consistent', async () => {
+    const AdminService = await cds.connect.to('AdminService')
     cds.context = { user: new cds.User.Privileged,tenant:"t1" }
-    let projects = await CatalogService.read("Projects")
-    expect(projects).to.containSubset([{ "ID": "d419b9d9-897e-4e1f-9a7d-6a16e3c8f776" },
-                                       { "ID": "10cb1ac9-bc9c-408b-b44d-e2ea1d5c353d" },
-                                       { "ID": "c5d24ecb-8b18-459f-be21-4e7d5727fb56" }]);
+    let countries = await AdminService.read("Countries")
+    expect(countries).to.containSubset([{ "name": "France" }]);
   })
-  it('Products entity is consistent', async () => {
-    const CatalogService = await cds.connect.to('CatalogService')
+  it('Currencies entity is consistent', async () => {
+    const CatalogService = await cds.connect.to('PublicService')
     cds.context = { user: new cds.User.Privileged,tenant:"t1" }
-    let products = await CatalogService.read("Products")
-    expect(products).to.containSubset([{ "ID": "HT-1000" },
-                                       { "ID": "HT-1001" },
-                                       { "ID": "HT-1002" }]);
-  })
-  it('Material Splits entity is consistent', async () => {
-    const CatalogService = await cds.connect.to('CatalogService')
-    cds.context = { user: new cds.User.Privileged,tenant:"t1" }
-    let products = await CatalogService.read("MaterialSplits")
-    expect(products).to.containSubset([{ "ID": "c41984c9-707c-4c44-a647-2bd4e9a0c1f8" }]);
+    let Currencies = await CatalogService.read("Currencies")
+    expect(Currencies).to.containSubset([{ "name": "Euro" }]);
   })
 })
+

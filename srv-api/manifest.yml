@@ -3,7 +3,7 @@ applications:
 # -----------------------------------------------------------------------------------
 # API Service
 # -----------------------------------------------------------------------------------
-- name: 	susaas-api-srv
+- name: susaas-api-srv
   path: ../gen/srv-api
   memory: 256M
   buildpack: nodejs_buildpack
