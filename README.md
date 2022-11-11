@@ -18,6 +18,7 @@ Below you can find a solution architecture diagram of the sample application. As
 
 [<img src="./images/App_Architecture.png" width="600" />](./images/App_Architecture.png)
 
+
 ## Content
 
 As stated above, the documentation content of this GitHub repository has been created for consumption in [SAP Discovery Center](https://discovery-center.cloud.sap/missiondetail/4064/4275), so the table of content follows the structure of the Discovery Center scopes. While we highly recommend starting your personal mission instance in SAP Discovery Center, you can also follow the steps here in GitHub using the linked README documents below.
@@ -90,6 +91,15 @@ The **Expert Scope** contains a variety of different topics which will make your
 - [Send email using Microsoft Graph API](./docu/4-expert/send-emails-graph-api/README.md)
 - [Using the SAP Theme Designer](./docu/4-expert/using-sap-theme-designer/README.md)
 - [Troubleshooting](./docu/4-expert/troubleshooting/README.md)
+
+
+## SAP BTP Setup Automator
+
+> ([Click here](https://github.com/SAP-samples/btp-setup-automator/tree/main/usecases/released/discoverycenter/4064-cap-saas-cf)) to find the SAP BTP Setup Automator instructions for this use-case.
+
+This use-case can also be set up in your SAP BTP environment using the **SAP BTP Setup Automator**! Currently only the **Basic Scope** is supported for an automated setup using Free (Tier) or Trial services. You can find the instructions in the SAP BTP Setup Automator repository ([click here](https://github.com/SAP-samples/btp-setup-automator/tree/main/usecases/released/discoverycenter/4064-cap-saas-cf)).
+
+[<img src="./images/BTP_Setup_Automator.png" width="700" />](./images/BTP_Setup_Automator.png)
 
 
 ## Requirements
