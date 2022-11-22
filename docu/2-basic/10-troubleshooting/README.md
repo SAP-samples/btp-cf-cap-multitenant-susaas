@@ -46,6 +46,8 @@ resources:
       service-plan: trial
 ```
 
+1.5 If you are using SAP Business Application Studio and having deployment issues because of the npm registry problem, please see this [issue](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/issues/5).
+
 
 ## 2. Service Broker Issues
 
