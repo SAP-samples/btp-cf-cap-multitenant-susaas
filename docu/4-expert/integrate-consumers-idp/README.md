@@ -3,11 +3,11 @@
 In this part of the **Expert Scope** you will learn how to integrate consumer IdPs (Identity Providers) like Azure Active Directory. As we did not explicitly set up consumer IdPs in our sample scenario, in this chapter we will just briefly highlight some possible approaches. 
 
 1. [Introduction](#1-Introduction)
-2. [Provider-driven integration](#2-Provider-driven-integration)
-    a. [Central SAP IAS tenant](#2a-Central-SAP-IAS-tenant)
+2. [Provider-driven integration](#2-Provider-driven-integration)<br>
+    a. [Central SAP IAS tenant](#2a-Central-SAP-IAS-tenant)<br>
     b. [Consumer SAP IAS tenant](2b-Consumer-SAP-IAS-tenant)
-3. [Consumer-driven integration](#3-Consumer-driven-integration)
-    a. [Integration with SAP IAS](#3a-Integration-with-SAP-IAS)
+3. [Consumer-driven integration](#3-Consumer-driven-integration)<br>
+    a. [Integration with SAP IAS](#3a-Integration-with-SAP-IAS)<br>
     b. [Integration with SAP XSUAA](#3b-Integration-with-SAP-XSUAA)
 4. [Further Information](#4-Further-Information)
 
@@ -92,7 +92,7 @@ The integration of a consumer's own SAP IAS tenant (!requested by the consumer!)
 When an SAP IAS tenant is mapped to a different SAP CRM customer number, it will not appear in the **Establish Trust** dropdown list of your subaccounts. Therefore, you need to establish the trust manually and integrate the consumer-owned SAP IAS instances using the respective SAML metadata exchange. The other steps remain the same - like creating a **Corporate Identity Provider**, setting up Group Mappings in SAP XSUAA, and re-thinking the assignment of users to projects. 
 
 
-## 3b. Integration with SAP XSUAA
+### 3b. Integration with SAP XSUAA
 
 > **Important** - The direct integration between SAP XSUAA and consumer IdPs should not be your preferred solution. If possible, make use of a (central/consumer) SAP Identity Authentication Service tenant acting as a proxy. 
 
