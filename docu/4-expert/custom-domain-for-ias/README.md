@@ -26,7 +26,7 @@ So, whenever a user is forwarded to SAP IAS for authentication, this default dom
 
 2.2. In the SAP IAS admin console, please switch to **Applications & Resources** -> **Tenant Settings** and select **Custom Domain** from the list of settings. 
 
-[<img src="./images/IASCustomDomainMenu.png" width="400" />](./images/IASCustomDomainMenu.png)
+[<img src="./images/IASCustDomainMenu.png" width="400" />](./images/IASCustDomainMenu.png)
 
 2.3. You will see the following screen. In the **Domain field**, please provide the custom (sub-)domain that you want to set up for your SAP IAS instance like **authentication.sap-demo.com**. In the **DN field**, please provide at least the Common Name (CN) using the same domain like **CN=authentication.sap-demo.com**. Click **Save**. 
 
