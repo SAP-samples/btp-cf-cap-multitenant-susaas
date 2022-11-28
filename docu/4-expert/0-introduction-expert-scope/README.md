@@ -25,14 +25,16 @@ The only **exception** is the usage of a custom domain in SAP BTP! The [**SAP Cu
 
 * [Feature Toggles](../feature-toggles/README.md)
 * [SaaS Consumer Extensibility](../consumer-extensibility/README.md)
+* [Manage tenant database containers](../manage-tenant-containers/README.md)
 * [HDI container administration](../hdi-container-administration/README.md) 
 * [Backup database containers](../backup-database-containers/README.md)
+    * Prerequisite - HDI container administration
+* [Setup CI/CD for your project](../setup-cicd-for-project/README.md)
 * [Configure SAP Cloud Transport Management](../configure-transport-management/README.md)
+    * Prerequisite - Setup CI/CD for your project
 * [Integrate a consumer's IdP](../integrate-consumers-idp/README.md)
 * [Local and hybrid development](../local-hybrid-development/README.md)
-* [Manage tenant database containers](../manage-tenant-containers/README.md)
 * [Send emails using Microsoft Graph](../send-emails-graph-api/README.md)
-* [Setup CI/CD for your project](../setup-cicd-for-project/README.md)
 * [Update tenant database containers](../update-tenant-containers/README.md)
 * [Using SAP Theme Designer](../using-sap-theme-designer/README.md)
 * [Deploy to multiple regions](../deploy-multiple-regions/README.md) (Trial - ✘)
