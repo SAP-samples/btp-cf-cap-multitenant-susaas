@@ -1,14 +1,15 @@
 # Troubleshooting
 
-> **Important** - ! Available soon !
+In this part of the mission we will provide information on troubleshooting approaches that can help you doing your own development.
 
-In this part of the mission we will provide information on troubleshooting approaches that might help you doing your own development.
-
-
-## 1. Introduction
+1. [Destination Resolution](#1-Destination-Resolution)
 
 
-## 2. Destination Handling
+## 1. Destination Resolution
+
+If you ever wondered, how to tell your SaaS application whether you would like to use the destination from either the provider or consumer subaccount, you can find two sample destinations taken from a package.json file. The **selectionStrategy** setting is the central parameter allowing you to define a concrete behavior if the default is not working for you. Check the official CAP documentation ([click here](https://cap.cloud.sap/docs/guides/using-services#destination-resolution)), to learn more about the topic of destination resolution. 
+
+Also, read the SAP Approuter documentation ([click here](https://www.npmjs.com/package/@sap/approuter#Routes)), which allows you to make use of the so-called **preferLocal** parameter for your routes. This can be helpful in case of destinations that have to be resolved on the Approuter level already. 
 
 ```json
 {
@@ -18,13 +19,7 @@ In this part of the mission we will provide information on troubleshooting appro
                 "kind": "odata-v2",
                 "model": "srv/external/API_SALES_ORDER_SRV",
                 "credentials": {
-                    "[production]": {
-                        "destination": "SUSAAS_S4HANA_CLOUD",
-                        "path": "s4hanacloud/sap/opu/odata/sap/API_SALES_ORDER_SRV"
-                    },
-                    "[development]": {
-                        "url": "https://sandbox.api.sap.com/s4hanacloud/sap/opu/odata/sap/API_SALES_ORDER_SRV"
-                    }
+                    ...
                 },
                 "destinationOptions": {
                     "[production]": {
@@ -36,13 +31,7 @@ In this part of the mission we will provide information on troubleshooting appro
                 "kind": "odata",
                 "model": "srv/external/NorthWind",
                 "credentials": {
-                    "[production]": {
-                        "destination": "SUSAAS_NORTHWIND",
-                        "path": "Invoices"
-                    },
-                    "[development]": {
-                        "url": "https://services.odata.org/v4/Northwind/Northwind.svc/Invoices"
-                    }
+                    ...
                 },
                 "destinationOptions": {
                     "[production]": {
