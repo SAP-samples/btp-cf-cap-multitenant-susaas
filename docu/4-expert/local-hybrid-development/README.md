@@ -14,8 +14,7 @@ the [**basic**](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/tre
 With SAP Cloud Application Programming Model's (CAP) latest MTX package release (@sap/cds-mtxs) developers are able to run 
 their applications in local mode as mentioned [here](https://cap.cloud.sap/docs/guides/multitenancy/mtxs#test-drive-locally).
 
-### 1.1 Running CDS commands to start the application locally
-
+### 1.1. Insert recycling materials with API Locally 
 Run the command below on your projects root directory to start the backend application locally.
 
 ```sh
@@ -86,7 +85,8 @@ Therefore we were able to subscribe the credentials of user **joe** since that u
 
 For further information, please see the [official documentation](https://cap.cloud.sap/docs/guides/multitenancy/mtxs#deploymentservice).
 
-### 1.3. Check the application
+
+### 1.3. Check the application
 
 Now that the application backend is running, we can directly go to [http://localhost:4004](http://localhost:4004).
 
@@ -107,7 +107,7 @@ Local frontend development is also crucial for the developers, since as a develo
 then deploy the real environment.
 By following this section, you will be able to run your frontend application locally and do the local development.
 
-### 2.1 Create a *default-env.json* file under directory /app/uimodule/local
+### 2.1. Create a *default-env.json* file under directory /app/uimodule/local
 
 We need to create a *default-env.json* file under /app/ui/module/local directory to be able to run the application locally.
 This default-env.json file is needed for approuter to point our locally running backend.
@@ -223,8 +223,8 @@ curl --location --request POST 'http://localhost:4005/odata/api/bulkUpdateProduc
 ``` 
 
 
+### 3.4. Insert recycling materials with API Locally 
 
-### 3.4. Insert recycling materials with API Locally 
 You can use the request below from a terminal to insert recycling materials.
 
 ```sh
@@ -275,7 +275,7 @@ In this section you will learn how to run your susaas-srv module with hybrid mod
 Which means the application runtime will be on your laptop but all the other backing services will be used from your
 SAP BTP Account
 
-### 1.1 Login to the CF organization of provider subaccount 
+### 1.1. Login to the CF organization of provider subaccount 
 
 Run the command below and please make sure that you have logged in into your provider subaccount organization,
 because all the backing services are created there.
@@ -284,14 +284,14 @@ because all the backing services are created there.
 cf login
 ```
 
-### 1.2 Get environment variables for susaas-srv 
+### 1.2. Get environment variables for susaas-srv 
 Your susaas-srv application name is built as susaas-srv-<yourcfspacename>.
 Run the command below on your root directory.
 
 ```sh
 cf de susaas-srv-<yourcfspacename>
 ```
-### 1.3 Start the multitenant application in hybrid mode with production profile
+### 1.3. Start the multitenant application in hybrid mode with production profile
 Now that you have downloaded the environment variables, run the command below to 
 start your application in hybrid mode.
 
