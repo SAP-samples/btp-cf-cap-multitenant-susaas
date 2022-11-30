@@ -42,6 +42,8 @@ Did you get an understanding of the basic wordings and concepts? Well then let's
 
 ## 2. Setup SAP CI/CD Service
 
+The **SAP CI/CD Service** gives you access to a selected set of the **Project "Piper"** General Purpose pipeline stages and steps. Learn more about Project "Piper" in - [13. Enhance your pipeline](#13-enhance-your-pipeline). The supported steps are continously enhanced so we appreciate your feedback on any missing functionalities.
+
 2.1. Go to your SAP BTP subaccount.
 
 2.2. Navigate to the **Service Marketplace**.
@@ -304,6 +306,7 @@ Last but not least, visit the OpenSAP course **Efficient DevOps with SAP** ([cli
 
 Please use the following links to find further information on the topics above:
 
+* [SAP Help - Continuous Integration and Delivery Introduction Guide](https://help.sap.com/docs/CICD_OVERVIEW/ee5a61247061455ab232c19179fe4c3b/7fc38a80cda446ef856c01f748dbede8.html?language=en-US&locale=en-US)
 * [CAP Documentation - Deploy using CI/CD Pipelines](https://cap.cloud.sap/docs/guides/deployment/cicd)
 * [SAP Help - SAP Continuous Integration and Delivery](https://help.sap.com/docs/CONTINUOUS_DELIVERY/99c72101f7ee40d0b2deb4df72ba1ad3/618ca03fdca24e56924cc87cfbb7673a.html?language=en-US&locale=en-US)
 * [SAP Help - SAP Cloud Application Programming Model Pipeline](https://help.sap.com/docs/CONTINUOUS_DELIVERY/99c72101f7ee40d0b2deb4df72ba1ad3/7c2a049670f64993b9d67c8f84ba0969.html?language=en-US&locale=en-US)
