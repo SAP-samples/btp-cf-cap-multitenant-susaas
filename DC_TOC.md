@@ -2,8 +2,8 @@
 
 <!-- disco-toc-start -->
 - Discover
-    - [Discover the mission target](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/blob/main/docu/1-discover/1-discover-mission-target/README.md)<!-- dc-card: {"label": ["Test DC Card", "BASICS"]} dc-card ->
-    - [Learn on basics of SAP BTP](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/blob/main/docu/1-discover/2-learn-basics-sap-btp/README.md)
+    - [Discover the mission target](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/blob/main/docu/1-discover/1-discover-mission-target/README.md)<!-- dc-card: {"label": ["BASICS", "basics"]} dc-card ->
+    - [Learn on basics of SAP BTP](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/blob/main/docu/1-discover/2-learn-basics-sap-btp/README.md)<!-- dc-card: {"label": ["BASICS", "basics"]} dc-card ->
     - [Partners in SAP BTP ecosystem](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/blob/main/docu/1-discover/3-partners-sap-btp-ecosystem/README.md)
     - [Get the idea of SaaS applications](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/blob/main/docu/1-discover/4-get-idea-saas-applications/README.md)
     - [Understand SAP BTP multitenancy](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/blob/main/docu/1-discover/5-understand-btp-multitenancy/README.md)
