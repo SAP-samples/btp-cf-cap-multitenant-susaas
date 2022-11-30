@@ -10,7 +10,8 @@ The **Basic Scope** of the mission will provide you with the core elements requi
 
 You can set up the **Basic Scope** in any productive SAP BTP environment using **Free (Tier) service plans** of your own **Pay-as-you-Go** (PAYG) or **CPEA** account. See the following screenshot to get an idea of the Basic Scope architecture.
 
-![Basic Architecture](./images/App_Architecture_Basic.png)
+[<img src="./images/App_Architecture_Basic.png" width="700" />](./images/App_Architecture_Basic.png)
+
 
 > **Hint** - The Basic Scope can also be done in **Trial** accounts, although we recommend to use one of the account types mentioned above. 
 
