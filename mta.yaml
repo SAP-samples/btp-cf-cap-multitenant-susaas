@@ -265,6 +265,9 @@ resources:
       service: credstore
       service-name: ${space}-susaas-credstore
       service-plan: free
+      config: 
+         authentication:
+              type: basic
 
   # --------------------- REGISTRY SERVICE ---------------------
   - name: susaas-registry
