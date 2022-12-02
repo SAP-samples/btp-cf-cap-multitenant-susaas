@@ -2,7 +2,7 @@
 
 In this part of the **Expert Scope** you will get an ideo how to set up a scenario in which you do not want to share the same SAP HANA Cloud instance among all your SaaS consumers but require separate SAP HANA Cloud instances for selected or all your customers. This might for example be required for legal reasons concerning data privacy regulations. 
 
-> **Important** - This part of of the Expert Scope has been added based on a question in the SAP Community. As the approach has not been tested extensively by our team, please please make sure to test your setup end-to-end including the whole lifecycle of the container managed by the Service Manager - Create, Update, Delete!
+> **Important** - This part of of the Expert Scope has been added based on a question in the SAP Community. As the approach has not been tested extensively by our team, please make sure to test your setup end-to-end including the whole lifecycle of the container managed by the Service Manager - Create, Update, Delete!
 
 1. [Setup Steps](#1-Setup-Steps)
 2. [Further Details](#2-Further-Details)
