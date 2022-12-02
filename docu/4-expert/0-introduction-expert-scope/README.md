@@ -37,6 +37,10 @@ The only **exception** is the usage of a custom domain in SAP BTP! The [**SAP Cu
 * [Send emails using Microsoft Graph](../send-emails-graph-api/README.md)
 * [Update tenant database containers](../update-tenant-containers/README.md)
 * [Using SAP Theme Designer](../using-sap-theme-designer/README.md)
+
+<br>
+
+* [Multiple SAP HANA Cloud instances](./docu/4-expert/multiple-hana-cloud/README.md) (Trial - ✘)
 * [Deploy to multiple regions](../deploy-multiple-regions/README.md) (Trial - ✘)
 * [Custom domain for SAP IAS](../custom-domain-for-ias/README.md) (Trial - ✘)
 * [Custom domain usage](../custom-domain-usage/README.md) (Trial - ✘)

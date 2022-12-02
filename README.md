@@ -90,6 +90,7 @@ The **Expert Scope** contains a variety of different topics which will make your
 - [Deploy to multiple regions](./docu/4-expert/deploy-multiple-regions/README.md)
 - [Send email using Microsoft Graph API](./docu/4-expert/send-emails-graph-api/README.md)
 - [Using the SAP Theme Designer](./docu/4-expert/using-sap-theme-designer/README.md)
+- [Multiple SAP HANA Cloud instances](./docu/4-expert/multiple-hana-cloud/README.md)
 - [Troubleshooting](./docu/4-expert/troubleshooting/README.md)
 
 
