@@ -156,7 +156,7 @@ Besides an API rate limiter feature preventing you from e.g. DoS attacks, you ca
 
 > **Hint** - The service plan identification using the JWT scope claim might be improved by a better approach in the future.
 
-8.5. Now we can send requests through different flows depending on the consumer tenant's plan, we will now add different quota allowances based on the plans. To add a quota limit to your API, add the **Quota** feature from your policies toolbox. Name your flow element **quotaPremium** in the standard flow and **quotaStandard** in the premium flow. 
+8.5. Now we can send requests through different flows depending on the consumer tenant's plan, we will now add different quota allowances based on the plans. To add a quota limit to your API, add the **Quota** feature from your policies toolbox. Name your flow element **quotaStandard** in the standard flow and **quotaPremium** in the premium flow. 
 
 [<img src="./images/API_Quota04.png" width="600" />](./images/API_Quota04.png)
 
