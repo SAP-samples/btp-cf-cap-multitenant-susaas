@@ -144,8 +144,8 @@ modules:
       - name: susaas-alert-notification
       - name: susaas-api-sb-srv
       - name: susaas-approuter
-      - name: susaas-autoscaler
       - name: susaas-theming ## Here the theme designer service instance bounded to SRV
+      - name: susaas-autoscaler
         parameters:
           config:
             instance_min_count: 1
