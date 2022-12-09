@@ -136,7 +136,7 @@ The ABAP logic pushing the EPM sample data to the SaaS API will make use of a de
 7.3. Select connection type G (HTTP Connection to External Server).
 
 7.4. On the Technical Settings tab, enter the following data:
-    - Target Host: url (not uaa.url!) parameter of your service key (**without https:// prefix!**)
+    - Target Host: apiUrl (not uaa.url!) parameter of your service key (**without https:// prefix!**)
     - Port: 443
 
   [<img src="./images/S4_Dest01.png" width="500" />](./images/S4_Dest01.png)

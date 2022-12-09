@@ -52,4 +52,10 @@ mo_http_util->post_data_to_api(
     ev_reason = DATA(lv_reason)
     ev_code = DATA(lv_code) ).
 
+IF lv_code <> 200.
+  MESSAGE | Error during upload! { lv_response_text } |  TYPE 'I' DISPLAY LIKE 'E'.
+ELSE.
+  MESSAGE 'Data successfully uploaded!' TYPE 'S'.
+ENDIF.
+
 mo_http_util->close_connection( ).
