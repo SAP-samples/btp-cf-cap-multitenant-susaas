@@ -59,8 +59,7 @@ resources:
         - name: Susaas Extension Developer
           description: Extension Developer Access
           role-template-references: 
-            - '$XSAPPNAME.ExtendCDS'
-            - '$XSAPPNAME.ExtendCDSdelete'
+            - '$XSAPPNAME.ExtensionDeveloper'
             - '$XSAPPNAME.Token_Exchange'
       oauth2-configuration:
         redirect-uris:
