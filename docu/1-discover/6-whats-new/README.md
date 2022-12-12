@@ -4,7 +4,7 @@ On this section of the mission, you will find a summary of all new features afte
 
 | Date       | Title                             | Branch       | Short description                             |
 |------------|-----------------------------------|--------------|-----------------------------------------------|
-| 2022/12/12 | Update SAPUI5 release to fix bix | basic + advanced | SAPUI5 release has been upgraded to 1.108.4 to fix known issues, |
+| 2022/12/12 | Update SAPUI5 release to fix bix | basic + advanced | SAPUI5 release has been upgraded to 1.108.4 to fix known issues. |
 | 2022/11/10 | Extensibility | basic + advanced | CAP Extensibility has been enabled for the basic and advanced branch in the package.json file. Fine the related instructions in the Expert Scope to learn how to use Feature Toggles and SaaS consumer extensibility. |
 | 2022/11/10 | CDS version update | basic + advanced | The project has been updated to the latest CDS npm package which implied some changes to the SaaS API implementation. Make sure to pull the latest version of the basic and advanced branch and also update your global @sap/cds-dk dependency. |
 | 2022/11/07 | SAP BTP Setup Automator | basic | You can now use the SAP BTP Setup Automator to set up the Basic Scope of the repository in your own SAP BTP environment using Free (Tier) or Trial service plans. Check the main README document to find the details and links to the SAP BTP Setup Automator. |

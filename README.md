@@ -173,12 +173,17 @@ The deployment is described in the **Basic Scope** of the mission documentation 
 
 
 ## Known Issues
- - Chart destroy issue
+**Open**
+
+Currently no known issues. 
+
+**Solved**
+ - Chart destroy issue (Solved - 12/12/2022)
    - **Problem**: Trying to open the Assessments is not possible after it is been successfully opened before
    - **Issue**: If the charts in the Assessments app have not been rendered because you haven't loaded the object page subsections, some chart-related components are not destroyed properly when leaving the Assessments app. 
    - **Workaround**: Refresh the page and open the Assessments app again. Open all Object Page Sections at least once before leaving the Assessments app.
    - **Solution**: Issue fixed by the development team and released in upcoming SAPUI5 version. Latest SAPUI5 version currently not usable due to percentage sign issue. 
- - Percentage sign issue
+ - Percentage sign issue (Solved - 12/12/2022)
    - **Problem**: Using the latest SAPUI5 versions, fields with percentage signs cannot be edited properly anymore
    - **Issue**: Fields show the percentage sign once within and once outside of the edit box. When changing the edit box value, no requests are triggered to the backend and changes to drafts cannot be saved. 
    - **Workaround**: Use SAPUI5 release 1.102.5 or lower. 
