@@ -4,6 +4,7 @@ On this section of the mission, you will find a summary of all new features afte
 
 | Date       | Title                             | Branch       | Short description                             |
 |------------|-----------------------------------|--------------|-----------------------------------------------|
+| 2022/12/12 | Try Fiori Horizon Evening Theme | basic + advanced | To use the sample application with the new SAP Fiori Horizon Evening theme, just open your application with the following URL-parameter **sap-theme=sap_horizon_dark** like **https://subscriber.susaas.com?sap-theme=sap_horizon_dark**. If you want to set SAP Fiori Horizon Evening as default theme, exchange it in the index.html file. |
 | 2022/12/12 | Update SAPUI5 release to fix bix | basic + advanced | SAPUI5 release has been upgraded to 1.108.4 to fix known issues. |
 | 2022/11/10 | Extensibility | basic + advanced | CAP Extensibility has been enabled for the basic and advanced branch in the package.json file. Fine the related instructions in the Expert Scope to learn how to use Feature Toggles and SaaS consumer extensibility. |
 | 2022/11/10 | CDS version update | basic + advanced | The project has been updated to the latest CDS npm package which implied some changes to the SaaS API implementation. Make sure to pull the latest version of the basic and advanced branch and also update your global @sap/cds-dk dependency. |
