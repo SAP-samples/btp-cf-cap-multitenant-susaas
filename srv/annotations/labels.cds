@@ -24,7 +24,7 @@ annotate db.Users with @title : '{i18n>user.typeNamePlural}' {
     shadowId    @title        : '{i18n>shadowId}';
     iasLocation @title        : '{i18n>iasLocation}';
     // associations
-    role        @title        : '{i18n>role}'  @Common.Text : role.description  @Common.TextArrangement : #TextOnly;
+    role        @title        : '{i18n>role}'  @Common.Text : role.description  @Common.TextArrangement : #TextSeparate;
 };
 
 annotate db.Assessments with @title : '{i18n>assessment.typeNamePlural}' {
