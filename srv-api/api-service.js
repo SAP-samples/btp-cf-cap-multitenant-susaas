@@ -3,7 +3,7 @@ const debug = require('debug')('srv:api-service');
 const log = require('cf-nodejs-logging-support');
 log.setLoggingLevel('info');
 
-class APIService extends cds.ApplicationService {
+class ApiService extends cds.ApplicationService {
   async init() {
     const {
       Products,
@@ -11,6 +11,7 @@ class APIService extends cds.ApplicationService {
       RecyclingCountries,
       RecyclingMaterials
     } = this.entities;
+    
     // register your event handlers...
     this.on("bulkInsertSalesOrders", async (req) => {
       try {
@@ -98,8 +99,21 @@ class APIService extends cds.ApplicationService {
         return req.error(404,`Error occured during upload": ${error}`)
       }
     });
+
+    this.on("bulkUpsertSalesOrders", async (req) => {
+      try {
+        let upload = JSON.stringify(req.data);
+        res = await cds.run(`CALL SUSAAS_DB_UPSERT_SALES_ORDERS(salesOrders => ?, result => ?)`, [upload]);
+        
+        return "Records successfully uploaded!" 
+  
+      } catch(error){
+        return req.error(404,`Error occured during upload": ${error}`)
+      }
+    });
+
     // ensure to call super.init()
     await super.init() 
   }
 }
-module.exports = APIService
+module.exports = { ApiService }
