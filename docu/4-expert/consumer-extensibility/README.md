@@ -1,5 +1,7 @@
 # SaaS Consumer Extensibility
 
+> **Important** - Applying a Consumer extension currently results in the Push API not being usable by the extended tenant anymore. We are exploring workarounds and will provide an update as soon as possible (2022/12/15). 
+
 In this part of the mission you will learn how SaaS consumers can extend their SaaS subscriptions with their own **data model extensions** and **user interface extensions** using dedicated **CAP extensibility** features. 
 
 1. [Introduction](#1-Introduction)
