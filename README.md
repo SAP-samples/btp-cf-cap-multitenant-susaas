@@ -174,11 +174,11 @@ The deployment is described in the **Basic Scope** of the mission documentation 
 
 ## Known Issues
 **Open**
-  - Consumer extension API issue (Open - 2022/12/15)
+  - Consumer extension API issue (Workaround available - 2022/12/19)
     - **Problem**: Applying a Consumer extension currently results in the Push API not being usable by the extended tenant anymore. 
     - **Issue**: The current implementation has issues to read and process the CSN file of the extended SaaS CAP service. This service serves as a base for the API CAP service.
-    - **Workaround**: Currently no workaround available.
-    - **Solution**: We are exploring workarounds and will provide an update as soon as possible. 
+    - **Workaround**: Extensibiltiy has been temporarily disabled for the CAP API Service using an additional server.js file. 
+    - **Solution**: Issues has been addressed with the CAP product management and potential solutions will be worked on. 
 
 **Solved**
  - Chart destroy issue (Solved - 12/12/2022)
