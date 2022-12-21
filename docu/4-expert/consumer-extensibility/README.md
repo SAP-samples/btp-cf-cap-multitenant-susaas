@@ -1,7 +1,5 @@
 # SaaS Consumer Extensibility
 
-> **Important** - Applying a Consumer extension currently results in the Push API not being usable by the extended tenant anymore. We are exploring workarounds and will provide an update as soon as possible (2022/12/15). 
-
 In this part of the mission you will learn how SaaS consumers can extend their SaaS subscriptions with their own **data model extensions** and **user interface extensions** using dedicated **CAP extensibility** features. 
 
 1. [Introduction](#1-Introduction)
@@ -48,7 +46,7 @@ $ cds watch --profile local-with-mtx
 3.2. Once the application is running locally, subscribe the **t1-ext** tenant which you want to extend in the next steps by running the following command in **a new command line instance**. 
 
 ```sh
-cds subscribe t1-ext --to http://localhost:4004 --user julie:123
+cds subscribe t1-ext --to http://localhost:4004 --user bob
 ```
 
 3.3. Once the subscription is successful, please open a **new command line instance** and switch to the path to which you unzipped the **ext.zip** file to or open the path in VS Code (recommended!) 
@@ -61,12 +59,12 @@ or to open the path in VS Code
 $ code \path\of\unzipped\ext\folder 
 ```
 
-3.4. In the **ext** folder, fetch the latest CDS model details from the local CAP service by running the following CDS command with the user julie (assigned to the **t1-ext** tenant). 
+3.4. In the **ext** folder, fetch the latest CDS model details from the local CAP service by running the following CDS command with the user bob (assigned to the **t1-ext** tenant). 
 
 > **Important** - The **cds watch** process still needs to run in the other command line instance. 
 
 ```sh
-$ cds pull --from http://localhost:4004 --user julie:123
+$ cds pull --from http://localhost:4004 --user bob
 ```
 
 [<img src="./images/CE_TestPull.png" width="500" />](./images/CE_TestPull.png)
@@ -75,12 +73,12 @@ $ cds pull --from http://localhost:4004 --user julie:123
 
 ```sh
 $ cds build
-$ cds push --to http://localhost:4004 --user julie:123
+$ cds push --to http://localhost:4004 --user bob
 ```
 
 3.6. Open http://localhost:4004/uimodule/webapp/index.html#Assessments-manage in an **Incognito** browser session.
 
-3.7. Login with **julie/123** (user of tenant **t1-ext**).
+3.7. Login with **bob** (user of tenant **t1-ext**). Leave the password field blank.
 
 3.8. You should see the extended SaaS application version including the new consumer extension feature.
 
@@ -88,15 +86,15 @@ $ cds push --to http://localhost:4004 --user julie:123
 
 3.9. If you want to see the default version of the SaaS application without the consumer extension, please onboard a new **t1** tenant like you've done in step 3.2. already. 
 
-> **Hint** - You can see this time another user joe is used. Check the **local-with-mtx** profile in the package.json file to see the assignments of mock users to the different tenants.
+> **Hint** - You can see this time another user alice is used. Check the **local-with-mtx** profile in the package.json file to see the assignments of mock users to the different tenants.
 
 ```sh
-cds subscribe t1 --to http://localhost:4004 --user joe:123
+cds subscribe t1 --to http://localhost:4004 --user alice
 ```
 
 3.10. Close the existing Incognito browser session (or use a different browser) and open http://localhost:4004/uimodule/webapp/index.html#Assessments-manage again in a new **Incognito** session.
 
-3.11. Login with **joe/123** (user of tenant **t1**) instead of julie (user of extended tenant t1-ext).
+3.11. Login with **alice** (user of tenant **t1**) instead of bob (user of extended tenant t1-ext).
 
 3.12. You should see the default SaaS application without any consumer extensions.
 
@@ -134,6 +132,7 @@ Pushing SaaS consumer extensions in a productive scenario (to a CAP application 
 ```sh
 $ cd \path\of\unzipped\ext\folder 
 ```
+
 or to open the path in VS Code
 
 ```sh

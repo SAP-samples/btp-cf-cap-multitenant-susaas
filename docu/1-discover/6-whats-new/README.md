@@ -4,6 +4,9 @@ On this section of the mission, you will find a summary of all new features afte
 
 | Date       | Title                             | Branch       | Short description                             |
 |------------|-----------------------------------|--------------|-----------------------------------------------|
+| 2022/12/21 | Node.js and dependency updates | basic + advanced | Node.js version has been upgraded to v16 including some dependency updates. |
+| 2022/12/21 | Test users updated | basic + advanced | Test users for local testing have been changed in accordance to CAP documentation. |
+| 2022/12/21 | Refactoring UI modules and HTML5 Mock Repo | basic + advanced | The monolithic SAPUI5 application has been split up in several independent SAPUI5 applications. Usage of HTML5 Mock Repo has been simplified and documentation has been updated. |
 | 2022/12/13 | Bugfixes | basic + advanced | Update redirectURIs for local testing and change textArrangement of role association in User entity for correct display |
 | 2022/12/12 | Try Fiori Horizon Evening Theme | basic + advanced | To use the sample application with the new SAP Fiori Horizon Evening theme, just open your application with the following URL-parameter **sap-theme=sap_horizon_dark** like **https://subscriber.susaas.com?sap-theme=sap_horizon_dark**. If you want to set SAP Fiori Horizon Evening as default theme, exchange it in the index.html file. |
 | 2022/12/12 | Update SAPUI5 release to fix bix | basic + advanced | SAPUI5 release has been upgraded to 1.108.4 to fix known issues. |

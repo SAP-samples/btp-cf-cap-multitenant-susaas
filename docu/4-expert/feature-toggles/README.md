@@ -55,7 +55,7 @@ $ cds watch --profile local-with-mtx
 **Command line #2**
 
 ```sh
-cds subscribe t1 --to http://localhost:4004 --user joe:123
+cds subscribe t1 --to http://localhost:4004 --user alice
 ```
 
 3.3. After subscription of tenant t1, please also subscribe tenant **t1-ext**, which will see the new features enabled by the **feature toggle**. 
@@ -63,7 +63,7 @@ cds subscribe t1 --to http://localhost:4004 --user joe:123
 **Command line #2**
 
 ```sh
-cds subscribe t1-ext --to http://localhost:4004 --user julie:123
+cds subscribe t1-ext --to http://localhost:4004 --user bob
 ```
 
 You can now open the application in two different browser sessions and test whether the new features are visible for tenant **t1-ext** while tenant **t1** should not see them. 
@@ -73,7 +73,7 @@ You can now open the application in two different browser sessions and test whet
 **Default Browser Session (t1 tenant)**
 
 - Open http://localhost:4004/uimodule/webapp/index.html#Assessments-manage.
-- Login with **joe/123** (user of tenant **t1**).
+- Login with **alice** (user of tenant **t1**). Leave the password field blank.
 - You will see the default version of the application without new features.
 
     [<img src="./images/FT_AppNoFeatures.png" width="500" />](./images/FT_AppNoFeatures.png)
@@ -81,7 +81,7 @@ You can now open the application in two different browser sessions and test whet
 **Incognito Browser Session (t1-ext tenant)**
 
 - Open http://localhost:4004/uimodule/webapp/index.html#Assessments-manage.
-- Login with **julie/123** (user of tenant **t1-ext**).
+- Login with **bob** (user of tenant **t1-ext**). Leave the password field blank.
 - You should see the extended application including the new features enabled by the feature toggle.
 
     [<img src="./images/FT_AppFeatures01.png" width="500" />](./images/FT_AppFeatures01.png)

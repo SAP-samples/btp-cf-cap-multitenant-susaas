@@ -8,8 +8,8 @@ In this part of the **Expert Scope** you will learn how to use the local and hyb
     1.2. [Onboard a new SaaS tenant to your application](#12-Onboard-a-new-SaaS-tenant-to-your-application)<br>
     1.3. [Check the application](#13-Check-the-application)
 2. [Running the frontend application locally (susaas)](#2-Running-the-frontend-application-locally-susaas)<br>
-    2.1. [Create a *default-env.json* file in your /app/uimodule/local directory](#21-Create-a-default-envjson-file-in-your-appuimodulelocal-directory)<br>
-    2.2. [Start the frontend application locally](#22-Start-the-frontend-application-locally)
+    2.1. [Local testing using cds watch --open](#21-Local-testing-using-cds-watch---open)<br>
+    2.2. [Local testing using the HTML5 Repo Mock](#22-Local-testing-using-the-HTML5-Repo-Mock )
 3. [Running the API Endpoint Locally](#3-Running-the-API-Endpoint-locally)<br>
     3.1. [Start the API locally](#31-Start-the-API-locally)<br>
     3.2. [Read data from API locally](#32-Read-data-from-API-locally)<br>
@@ -23,8 +23,8 @@ In this part of the **Expert Scope** you will learn how to use the local and hyb
     1.3. [Start the multitenant application in hybrid mode with production profile](#13-start-the-multitenant-application-in-hybrid-mode-with-production-profile)
 2. [Running frontend application in hybrid mode](#2-running-frontend-application-in-hybrid-mode)<br>
     2.1. [Read environment variables from Approuter (susaas)](#21-read-environment-variables-from-approuter-susaas)<br>
-    2.2. [Replace TENANT_HOST_PATTERN variable for hybrid development purposes](#22-replace-tenanthostpattern-variable-for-hybrid-development-purposes)<br>
-    2.3. [Add destination to your backend application in the *default-env.json* file](#23-add-destination-to-your-backend-application-in-the-default-envjson-file)<br>
+    2.2. [Replace the TENANT_HOST_PATTERN variable](#22-replace-the-tenanthostpattern-variable)<br>
+    2.3. [Add a destination to your backend application](#23-add-a-destination-to-your-backend-application)<br>
     2.4. [Run the frontend application in hybrid mode](#24-Run-the-frontend-application-in-hybrid-mode)<br>
     2.5. [Start the UI Application](#25-start-the-ui-application)
 3. [Running the multitenant API in hybrid mode (susaas-api-srv)](#3-running-the-multitenant-api-in-hybrid-mode-susaas-api-srv)<br>
@@ -50,7 +50,7 @@ their applications in local mode as mentioned [here](https://cap.cloud.sap/docs/
 Run the command below in your project root directory to start the backend application locally. This will start the application including multitenancy support on your local device. An initial **t0** tenant is initialized which contains technical data managed by CAP. The t0 tenant is not a real SaaS application tenant. 
 
 ```sh
-cds run --profile local-with-mtx
+cds watch --profile local-with-mtx
 ```
 
 If everything is fine, you should see an output as shown below.
@@ -83,7 +83,7 @@ Since we have our application up and running, the next step is adding a new SaaS
 Create a new terminal instance and run the command below to onboard tenant **t1**.
 
 ```sh
-cds subscribe t1 --to http://localhost:4004 -u joe:123
+cds subscribe t1 --to http://localhost:4004 -u alice
 ```
 
 You should see an output as shown below.
@@ -93,7 +93,7 @@ Subscribing { tenant: 't1' } to { url: 'http://localhost:4004' }
 Subscription succeeded.
 ```
 
-Please note that user **joe** is defined in your [package.json](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/blob/basic/package.json) file as a member of tenant **t1** with the roles **Admin** and **cds.Subscriber** as shown below. Therefore we were able to subscribe the credentials of user **joe** since that user has privileges to subscribe a tenant.
+Please note that user **alice** is defined in your [package.json](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/blob/basic/package.json) file as a member of tenant **t1** with the roles **Admin**, **cds.Subscriber** and **cds.ExtensionDeveloper** as shown below. Therefore we were able to subscribe the credentials of user **alice** since that user has privileges to subscribe a tenant.
 
 ```json
 ...
@@ -101,15 +101,13 @@ Please note that user **joe** is defined in your [package.json](https://github.c
           "strategy": "mock",
           "db": "sql-mt",
           "users": {
-            "joe": {
-              "ID": "joe",
-              "GivenName": "Joe",
-              "password": "123",
+           "alice": {
+              "tenant": "t1",
               "roles": [
                 "Admin",
-                "cds.Subscriber"
-              ],
-              "tenant": "t1"
+                "cds.Subscriber",
+                "cds.ExtensionDeveloper"
+              ]
             },
   ...
 ```
@@ -121,60 +119,86 @@ For further information, please see the [official documentation](https://cap.clo
 
 Now that the application backend is running, we can directly go to [http://localhost:4004](http://localhost:4004).
 
-[<img src="./images/localhost.jpg" width="700"/>](./images/localhost.jpg)
+[<img src="./images/localhost.png" width="400"/>](./images/localhost.png)
 
-After e.g., clicking on the **Projects** entity, a popup will ask for your credentials. You can again enter **joe** as username and **123** as password since that is our tenant **t1** sample user.
+After e.g., clicking on the **Projects** entity, a popup will ask for your credentials. You can again enter **alice** as username since that is our tenant **t1** sample user. Leave the password field blank and hit **Enter**.
 
-[<img src="./images/localhostcreds.jpg" width="700"/>](./images/localhostcreds.jpg)
+[<img src="./images/localhostcreds.png" width="500"/>](./images/localhostcreds.png)
 
 You should see the projects in your browser as a response, as shown below.
 
-[<img src="./images/projects-response.jpg" width="700"/>](./images/projects-response.jpg)
+[<img src="./images/projects-response.png" width="600"/>](./images/projects-response.png)
 
 
 ## 2. Running the frontend application locally (susaas)
 
 Local frontend development is also crucial for the developers, since as a developer you would like to try things locally first
-then deploy the real environment. By following this section, you will be able to run your frontend application locally and do the local development.
+then deploy the real environment. By following this section, you will be able to run your frontend application locally and do the local development. 
 
-### 2.1. Create a *default-env.json* file in your /app/uimodule/local directory
+Local testing can be as easy as calling **cds watch --open**, but if you want to test like in a production environment, you can make use of the so called **HTML5 Repo Mock**. This tool allows you to mock an SAP HTML5 Application Repository like it is used in you SAP BTP account. 
 
-We need to create a *default-env.json* file under /app/ui/module/local directory to be able to run the application locally. This default-env.json file is needed for SAP Approuter to point your local backend.
 
-[<img src="./images/ui-default-env-local.jpg" width="200"/>](./images/ui-default-env-local.jpg)
+### 2.1. Local testing using cds watch --open
 
-After creating file paste the content below into your default-env.json file.
+For local testing without the HTML5 Repo Mock, just simply start the application as explained in the previous step w/ multitencany or w/o multitenancy. 
+
+**w/ Multitenancy**
+
+```sh
+cds watch --profile=local-with-mtx --open
+```
+
+> **Hint** - Don't forget to subscribe your t1 tenant in this case before opening the application in your browser. 
+
+
+**w/o multitenancy**
+
+```sh
+cds watch --open
+```
+
+Your browser should automatically open **http://localhost:4004**. You will see a link */approuter/resources/index.html* pointing to a **Web Application** providing a mocked Fiori Launchpad for opening and testing all provided SAPUI5 apps. Furthermore, you will find links to the standalone SAPUI5 apps if required for testing.
+
+[<img src="./images/localwomock.png" width="500"/>](./images/localwomock.png)
+
+Click on the standalone link(s) or the respective tiles within the Fiori Launchpad and you will be asked for username and password in a dialog. Use **alice** as username and leave the password field blank as we explained in the previous [step](#12-onboard-a-new-initial-tenant-to-your-application). Then you can explore the application, modify the UI by changing the annotations in the backend and test your development.
+
+
+### 2.2. Local testing using the HTML5 Repo Mock 
+
+Using the HTML5 Repo Mock requires a few more steps then using the pure *cds watch* test approach. Still, this approach is similar to what's actually happening in your SAP BTP environment. To use the HTML5 Repo Mock, you need to create a *default-env.json* file in the */app/approuter/local-testing* directory to be able to run the application locally. This default-env.json file is needed for SAP Approuter to point your local backend. You can use and rename the provided sample file in the respective directory. The VCAP_SERVICES object can remain empty. 
+
+[<img src="./images/ui-default-env-local.png" width="600"/>](./images/ui-default-env-local.png)
 
 ```js
 {
-    "destinations" : [
-          {
-              "name": "susaas-srv-api",
-              "url": "http://localhost:4004"
-          }
-    ], 
-    "VCAP_SERVICES":{
-
-    }
+    "destinations": [{
+        "name":"susaas-srv-api", 
+        "url": "http://localhost:4004"
+    },
+    {
+        "name": "ui5",
+        "url": "https://ui5.sap.com"
+    }],
+    "VCAP_SERVICES": {}
 }
 ```
 
-### 2.2. Start the frontend application locally
+> **Important** - In case you modify the *xs-app.json* of your Approuter, please also update the xs-app.json file in the *app/approuter/local-testing* directory accordingly. Just make sure the **authenticationMethod** of the local-testing file remains **none**.
 
-To start your frontend application locally run the commands below.
+Before you start the HTML5 Repo Mock, make sure your backend is started (*cds watch*). Then start your frontend application locally (using the HTML5 Repo Mock) by running the commands below:
 
 ```sh
-cd app/uimodule
+cd app/approuter/
+npm install (only required once)
 npm run start:local
 ```
 
 After running the commands, go to [http://localhost:5000](http://localhost:5000). You should see the application as below.
 
-[<img src="./images/local-running-app-ui.jpg" width="200"/>](./images/local-running-app-ui.jpg)
+[<img src="./images/local-running-app-ui.png" width="500"/>](./images/local-running-app-ui.png)
 
-Click on anything and you will be asked for username and password in a dialog. Use **joe** as username and **123** as password as we created in the previous [step](#12-onboard-a-new-initial-tenant-to-your-application).
-
-Then you can explore the application, modify the UI by changing the annotations in the backend and test your development.
+Click on anything and you will be asked for username and password in a dialog. Use **alice** as username and leave the password field blank as we explained in the previous [step](#12-onboard-a-new-initial-tenant-to-your-application). Then you can explore the application, modify the UI by changing the annotations in the backend and test your development.
 
 
 ## 3. Running the API Endpoint locally 
@@ -223,10 +247,11 @@ There is no service, therefore does not serve multitenancy!
 
 You can use the request below from a terminal to read the current products.
 
-```sh
-curl http://localhost:4005/odata/api/Products -u "joe:123"
-``` 
+> **Hint** - The port might be different in your case (e.g., 4004). Check the output of your *npm run api-start-local* command.
 
+```sh
+curl http://localhost:4005/odata/api/Products -u "alice"
+``` 
 
 
 ### 3.3. Insert Products to API locally
@@ -235,7 +260,7 @@ You can use the request below from a terminal to insert products.
 
 ```sh
 curl --location --request POST 'http://localhost:4005/odata/api/bulkUpdateProducts' \
---user 'joe:123' \
+--user 'alice' \
 --header 'Content-Type: application/json' \
 --data-raw '
 {
@@ -253,7 +278,7 @@ You can use the request below from a terminal to insert recycling materials.
 
 ```sh
 curl --location --request POST 'http://localhost:4005/odata/api/bulkInsertRecyclingMaterials' \
---user 'joe:123' \
+--user 'alice' \
 --header 'Content-Type: application/json' \
 --data-raw '{
       "recyclingMaterials" : [
@@ -329,24 +354,26 @@ After executing this command your application should be up and running but the l
 
 ## 2. Running frontend application in hybrid mode
 
-In this section you will be running your frontend application with the connection to the backing services in your SAP BTP Cloud Foundry Space such as XSUAA or Destination Service.
+In this section you will be running your frontend application with the connection to the backing services in your SAP BTP Cloud Foundry Space such as XSUAA or Destination Service. For hybrid testing of your frontend application, you will again use the HTML5 Repo Mock. A simplified testing using *cds watch* is not possible in this case as a SAP Approuter instance is required. 
 
 
 ### 2.1. Read environment variables from Approuter (susaas)
 
-First switch to the directory to which you need to download our environment variables to.
+First switch to the Approuter directory to which you need to download our environment variables to.
 
 ```sh
-cd app/uimodule/modes/hybrid/ 
+cd app/approuter
 cf de susaas-<your-cf-space-name>
 ```
 
-Please note that in app/uimodule/modes/hybrid directory, a default-env.json file will be created.
+Please note that in the *app/approuter* directory, a default-env.json file will be created.
 
 
-### 2.2. Replace TENANT_HOST_PATTERN variable for hybrid development purposes
+### 2.2. Replace the TENANT_HOST_PATTERN variable 
 
-Go to your default-env.json file and replace the TENANT_HOST_PATTERN value as shown below.
+Go to your *default-env.json* file and replace the TENANT_HOST_PATTERN value as shown below.
+
+> **Hint** - A sample file can be found in the same directory for your reference. 
 
 ```json
     {
@@ -361,13 +388,16 @@ Go to your default-env.json file and replace the TENANT_HOST_PATTERN value as sh
     }
 ```
 
-### 2.3. Add destination to your backend application in the *default-env.json* file
 
-To be able to connect to your backend you need to set the **destination** property in our **default-env.json** file.
+### 2.3. Add a destination to your backend application
+
+To be able to connect to your backend you also need to set the **destination** property in our *default-env.json* file.
 
 With this **destination** property you can connect your UI application to:
 - The backend application running on SAP BTP
 - The backend application running locally on localhost
+
+> **Hint** - A sample file can be found in the same directory for your reference. 
 
 ```json
     {
@@ -378,8 +408,12 @@ With this **destination** property you can connect your UI application to:
       ...
     },
     "DEPLOY_ATTRIBUTES": "{\n  \"app-content-digest\" : \"123123123123\"\n}",
-    "TENANT_HOST_PATTERN": "^(.*).localhost", // Put this value into your file,
+    "TENANT_HOST_PATTERN": "^(.*).localhost", // <-- Put this value into your file
     "destinations" : [
+        {
+            "name": "ui5",
+            "url": "https://ui5.sap.com"
+        },
         {
             "name": "susaas-srv-api",     
             "url": "http://localhost:4004", // <-- you can also provide your deployed SAP BTP backend application url
@@ -389,12 +423,13 @@ With this **destination** property you can connect your UI application to:
     }
 ```
 
+### 2.4. Run the frontend application in hybrid mode
 
-### 2.4. Run the frontend application in hybrid mode
-
-Go to the */app/uimodule/* directory and run the command below.
+Go to the */app/approuter/* directory and run the command below.
 
 ```sh
+cd /app/approuter
+npm install (only required once)
 npm run start:hybrid
 ```
 
@@ -403,13 +438,11 @@ You should see that your application will be up and running and your approuter i
 
 ### 2.5. Start the UI Application
 
-Go to your **consumer subaccount** and get its subdomain.
-
-Start the application by going to - **yourconsumersubdomain**.localhost:5000. For example if your consumer subdomain is - **consumer-123xyz** - the endpoint that you should go is - **consumer-123xyz**.localhost:5000.
+Go to your **consumer subaccount** and get its subdomain (e.g., from the Subaccount Overview page). Start the application by going to - **yourconsumersubdomain**.localhost:5000. For example if your consumer subdomain is - **consumer-123xyz** - the endpoint that you should go is - **consumer-123xyz**.localhost:5000.
 
 You should see that the app is up and running as below.
 
-[<img src="./images/hybrid-ui-running.jpg" width="500"/>](./images/hybrid-ui-running.jpg)
+[<img src="./images/hybrid-ui-running.png" width="600"/>](./images/hybrid-ui-running.png)
 
 
 ## 3. Running the multitenant API in hybrid mode (susaas-api-srv)
