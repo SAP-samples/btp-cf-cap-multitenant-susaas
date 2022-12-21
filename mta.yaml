@@ -3,6 +3,7 @@ ID: susaas
 version: 0.0.1
 
 parameters:
+  deploy_mode: html5-repo
   enable-parallel-deployments: true
   autoscalerMinInstance: 1
   autoscalerMaxInstance: 2
@@ -17,6 +18,7 @@ build-parameters:
         ### Deployment w/ csv sample files ###
         #- npx -p @sap/cds-dk cds build --profile production,csv
 
+
 modules:
   # --------------------- APPROUTER MODULE ---------------------
   - name: susaas
@@ -25,7 +27,7 @@ modules:
     path: app/approuter
     build-parameters:
       builder: npm-ci
-      ignore: [ 'node_modules/', 'default-env.json', 'manifest*.yml' ]
+      ignore: [ 'node_modules/', 'default-env.json', 'manifest*.yml', 'local-testing/' ]
     parameters:
       app-name: susaas-${space}
       disk-quota: 256MB
@@ -48,36 +50,88 @@ modules:
            tenant-separator: ${tenant-separator}
            app-domain: ${app-domain}
 
+
   # --------------------- WEBAPP DEPLOYER ----------------------
-  - name: webapp_deployer
+  - name: susaas-app-deployer
   # ------------------------------------------------------------
     type: com.sap.application.content
-    path: app/deployer
+    path: .
     requires:
       - name: susaas-html5-repo-host
         parameters:
           content-target: true
     build-parameters:
-      build-result: resources
+      build-result: app-build
       requires:
-        - name: susaas-ui
-          artifacts:
-            - susaasui.zip
-          target-path: resources/
+      - name: sapsusaasuiadminprojects
+        target-path: app-build/
+        artifacts:
+          - sapsusaasuiadminprojects.zip
+      - name: sapsusaasuiadminusers
+        target-path: app-build/
+        artifacts:
+        - sapsusaasuiadminusers.zip
+      - name: sapsusaasuipublicprojects
+        target-path: app-build/
+        artifacts:
+        - sapsusaasuipublicprojects.zip
+      - name: sapsusaasuipublicassessments
+        target-path: app-build/
+        artifacts:
+        - sapsusaasuipublicassessments.zip
 
-  # --------------------- UI MODULE ----------------------------
-  - name: susaas-ui
+
+  # --------------------- UI MODULES ----------------------------
+  #
   # ------------------------------------------------------------
+  - name: sapsusaasuiadminprojects
     type: html5
-    path: app/uimodule
+    path: app/ui-admin-projects
     build-parameters:
       build-result: dist
       builder: custom
-      ignore: [ 'node_modules/', 'mta_archives/',  'default-env.json', 'manifest*.yml' ]
+      ignore: [ 'node_modules/',  'default-env.json', 'manifest*.yml' ]
+      commands:
+      - npm ci
+      - npm run build:cf
+      supported-platforms: []
+    
+  - name: sapsusaasuiadminusers
+    type: html5
+    path: app/ui-admin-users
+    build-parameters:
+      build-result: dist
+      builder: custom
+      ignore: [ 'node_modules/',  'default-env.json', 'manifest*.yml' ]
+      commands:
+      - npm ci
+      - npm run build:cf
+      supported-platforms: []
+  
+  - name: sapsusaasuipublicprojects
+    type: html5
+    path: app/ui-public-projects
+    build-parameters:
+      build-result: dist
+      builder: custom
+      ignore: [ 'node_modules/',  'default-env.json', 'manifest*.yml' ]
+      commands:
+      - npm ci
+      - npm run build:cf
+      supported-platforms: []
+  
+  - name: sapsusaasuipublicassessments
+    type: html5
+    path: app/ui-public-assessments
+    build-parameters:
+      build-result: dist
+      builder: custom
+      ignore: [ 'node_modules/',  'default-env.json', 'manifest*.yml' ]
       commands:
         - npm ci
         - npm run build:cf
       supported-platforms: []
+
 
   # --------------------- SERVER MODULE ------------------------
   - name: susaas-srv
@@ -153,6 +207,7 @@ modules:
     requires:
       - name: susaas-com-hdi-container
 
+
   # ----------- BROKER MODULE (OSBAPI Implementation) ----------
   - name: susaas-api-sb
   # ------------------------------------------------------------
@@ -196,6 +251,7 @@ modules:
         properties:
           app-name: ${app-name}
           srv-url: ${default-url}
+
 
   # --------------------- API MODULE ---------------------------
   - name: susaas-api-srv
@@ -340,15 +396,8 @@ resources:
         version: 1.0.0
         init_data:
           instance:
-            existing_destinations_policy: ignore
+            existing_destinations_policy: update
             destinations:
-              - Name: SUSAAS_NORTHWIND
-                Description: SusaaS Northwind
-                URL: https://services.odata.org/v4/Northwind/Northwind.svc
-                Type: HTTP
-                ProxyType: Internet
-                Authentication: NoAuthentication
-                HTML5.DynamicDestination: true
               - Name: susaas-srv-api
                 Description: SusaaS Service API
                 URL: ~{susaas-srv-api/srv-url}
@@ -357,6 +406,19 @@ resources:
                 Authentication: NoAuthentication
                 HTML5.DynamicDestination: true
                 forwardAuthToken: true
+              - Name: ui5
+                Authentication: NoAuthentication
+                ProxyType: Internet
+                Type: HTTP
+                URL: https://ui5.sap.com
+              - Name: SUSAAS_NORTHWIND
+                Description: SusaaS Northwind
+                URL: https://services.odata.org/v4/Northwind/Northwind.svc
+                Type: HTTP
+                ProxyType: Internet
+                Authentication: NoAuthentication
+                HTML5.DynamicDestination: true
+              
 
   # ----------------- HTML REPO HOST SERVICE (Be Used by UI) ---------  
   - name: susaas-html5-repo-host

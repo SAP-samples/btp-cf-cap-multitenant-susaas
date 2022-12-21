@@ -7,6 +7,7 @@ default-*.json
 coverage/
 gen/
 dist/
+app-build/
 *-content.zip
 manifest-bundle.zip
 connection.properties
@@ -21,8 +22,6 @@ _out
 .che/
 .gen/
 .DS_Store
-hybrid-testing.txt
 # added by cds bind
 .cdsrc-private.json
-app/deployer/resources/
 brokerpass.txt
