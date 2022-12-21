@@ -101,8 +101,8 @@
                 "navigationMode": "embedded",
                 "resolutionResult": {
                   "applicationType": "SAPUI5",
-                  "additionalInformation": "SAPUI5.Component=susaas.projects.mainApp",
-                  "url": "public/projects/webapp"
+                  "additionalInformation": "SAPUI5.Component=sap.susaas.ui.public.projects",
+                  "url": "/ui-public-projects/webapp"
                 }
               },
               "ManageAssessments": {
@@ -110,18 +110,14 @@
                 "action": "manage",
                 "title": "Manage Assessments",
                 "signature": {
-                  "parameters": {
-                    "ID":{
-                      "renameTo": "ID"
-                    }
-                  },
+                  "parameters": { "ID":{ "renameTo": "ID" } },
                   "additionalParameters": "allowed"
                 },
                 "navigationMode": "embedded",
                 "resolutionResult": {
                   "applicationType": "SAPUI5",
-                  "additionalInformation": "SAPUI5.Component=susaas.assessments.mainApp",
-                  "url": "public/assessments/webapp"
+                  "additionalInformation": "SAPUI5.Component=sap.susaas.ui.public.assessments",
+                  "url": "/ui-public-assessments/webapp"
                 }
               },
               "CreateAssessments": {
@@ -136,17 +132,15 @@
                           "format" : "plain"
                       }
                     },
-                    "project_ID":{
-                        "renameTo": "project_ID"
-                    }
+                    "project_ID":{ "renameTo": "project_ID" }
                   },
                   "additionalParameters": "allowed"
                 },
                 "navigationMode": "embedded",
                 "resolutionResult": {
                   "applicationType": "SAPUI5",
-                  "additionalInformation": "SAPUI5.Component=susaas.assessments.mainApp",
-                  "url": "public/assessments/webapp"
+                  "additionalInformation": "SAPUI5.Component=sap.susaas.ui.public.assessments",
+                  "url": "/ui-public-assessments/webapp"
                 }
               },
               "ManageProjects": {
@@ -154,15 +148,14 @@
                 "action": "manage",
                 "title": "Manage Projects",
                 "signature": {
-                  "parameters": {
-                  },
+                  "parameters": { },
                   "additionalParameters": "allowed"
                 },
                 "navigationMode": "embedded",
                 "resolutionResult": {
                   "applicationType": "SAPUI5",
-                  "additionalInformation": "SAPUI5.Component=susaas.admin.projects.mainApp",
-                  "url": "admin/projects/webapp"
+                  "additionalInformation": "SAPUI5.Component=sap.susaas.ui.admin.projects",
+                  "url": "/ui-admin-projects/webapp"
                 }
               },
               "ManageUsers": {
@@ -170,15 +163,14 @@
                 "action": "manage",
                 "title": "Manage Users",
                 "signature": {
-                  "parameters": {
-                  },
+                  "parameters": { },
                   "additionalParameters": "ignored"
                 },
                 "navigationMode": "embedded",
                 "resolutionResult": {
                   "applicationType": "SAPUI5",
-                  "additionalInformation": "SAPUI5.Component=susaas.admin.users.mainApp",
-                  "url": "admin/users/webapp"
+                  "additionalInformation": "SAPUI5.Component=sap.susaas.ui.admin.users",
+                  "url": "/ui-admin-users/webapp"
                 }
               }
             }

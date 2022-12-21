@@ -1,13 +1,14 @@
 {
   "name": "susaas",
   "version": "0.0.1",
-  "repository": "<Add your repository here>",
-  "license": "UNLICENSED",
+  "repository": "https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas",
+  "license": "Apache License 2.0",
   "description": "Sustainable SaaS",
   "engines": {
-    "node": ">=14.x"
+    "node": ">=16.x"
   },
   "dependencies": {
+    "@sap_oss/alert-notification-client": "^1.4.0",
     "@sap/audit-logging": "^5",
     "@sap/cds": "^6.3.2",
     "@sap/cds-dk": "^6.3.2",
@@ -15,7 +16,6 @@
     "@sap/cds-odata-v2-adapter-proxy": "^1",
     "@sap/xsenv": "^3",
     "@sap/xssec": "^3",
-    "@sap_oss/alert-notification-client": "^1.4.0",
     "cds-swagger-ui-express": "^0.5.0",
     "cf-nodejs-logging-support": "^6",
     "cfenv": "^1",
@@ -101,7 +101,7 @@
           "src": "srv"
         },
         {
-          "for": "node-cf",
+          "for": "nodejs",
           "src": "srv-api",
           "options": {
             "model": "srv-api"
@@ -125,9 +125,13 @@
           "element-prefix": [
             "x_"
           ],
-          "extension-allowlist": [{
-              "for": ["*"]
-          }]
+          "extension-allowlist": [
+            {
+              "for": [
+                "*"
+              ]
+            }
+          ]
         }
       },
       "[development]": {
@@ -141,9 +145,13 @@
           "element-prefix": [
             "x_"
           ],
-          "extension-allowlist": [{
-              "for": ["*"]
-          }]
+          "extension-allowlist": [
+            {
+              "for": [
+                "*"
+              ]
+            }
+          ]
         }
       },
       "uaa": {
@@ -156,19 +164,13 @@
         "[development]": {
           "strategy": "mock",
           "users": {
-            "joe": {
-              "ID": "joe@sap.com",
-              "GivenName": "Joe",
-              "password": "123",
-              "email": "joe@sap.com",
+            "alice": {
               "roles": [
                 "Admin",
                 "Member"
               ]
             },
-            "julie": {
-              "ID": "julie@sap.com",
-              "email": "julie@sap.com",
+            "carol": {
               "roles": [
                 "Member"
               ]
@@ -179,37 +181,42 @@
           "strategy": "mock",
           "db": "sql-mt",
           "users": {
-            "joe": {
-              "ID": "joe",
-              "GivenName": "Joe",
-              "password": "123",
-              "roles": [
-                "Admin",
-                "cds.Subscriber"
-              ],
-              "tenant": "t1"
-            },
-            "julie": {
-              "ID": "julie",
-              "GivenName": "Julie",
-              "password": "123",
+            "alice": {
+              "tenant": "t1",
               "roles": [
                 "Admin",
                 "cds.Subscriber",
                 "cds.ExtensionDeveloper"
-              ],
-              "tenant": "t1-ext"
+              ]
+            },
+            "carol": {
+              "tenant": "t1",
+              "roles": [
+                "Member"
+              ]
             },
             "bob": {
-              "ID": "bob",
-              "GivenName": "Bob",
-              "password": "123",
+              "tenant": "t1-ext",
+              "roles": [
+                "Admin",
+                "cds.Subscriber",
+                "cds.ExtensionDeveloper"
+              ]
+            },
+            "dave": {
+              "tenant": "t2",
               "roles": [
                 "Admin",
                 "cds.Subscriber"
-              ],
-              "tenant": "t2"
-            }
+              ]
+            },
+            "erin": {
+              "tenant": "t2",
+              "roles": [
+                "Member"
+              ]
+            },
+            "*": false
           }
         }
       },
@@ -244,5 +251,11 @@
         }
       }
     }
-  }
+  },
+  "sapux": [
+    "app/ui-admin-projects",
+    "app/ui-admin-users",
+    "app/ui-public-assessments",
+    "app/ui-public-projects"
+  ]
 }
