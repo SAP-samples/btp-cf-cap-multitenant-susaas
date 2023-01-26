@@ -4,6 +4,7 @@ On this section of the mission, you will find a summary of all new features afte
 
 | Date       | Title                             | Branch       | Short description                             |
 |------------|-----------------------------------|--------------|-----------------------------------------------|
+| 2023/01/26 | Update SAPUI5 release and fix bug | basic + advanced | SAPUI5 release updated to 1.108.4 again and UI5 issue fixed. |
 | 2023/01/25 | Revert SAPUI5 release to fix bug | basic + advanced | SAPUI5 release has been reverted to 1.102.13 to fix an issues. |
 | 2022/12/21 | Node.js and dependency updates | basic + advanced | Node.js version has been upgraded to v16 including some dependency updates. |
 | 2022/12/21 | Test users updated | basic + advanced | Test users for local testing have been changed in accordance to CAP documentation. |
