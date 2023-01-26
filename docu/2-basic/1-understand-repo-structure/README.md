@@ -8,11 +8,12 @@ This part of the mission will briefly outline the structure of the **Basic Scope
 4. [Deployment Configurations](#4-deployment-configurations)
 5. [Tenant Database Container](#5-tenant-database-container)
 6. [Shared Database Container](#6-shared-database-container)
-7. [HTTP Test Files](#7-http-test-files)
-8. [Annotation Files](#8-annotation-files)
-9. [Business Application Service](#9-business-application-service)
-10. [API Service](#10-api-service)
-11. [Test objects](#11-test-objects)
+7. [Extension Files](#7-extension-files)
+8. [HTTP Test Files](#8-http-test-files)
+9. [Annotation Files](#9-annotation-files)
+10. [Business Application Service](#10-business-application-service)
+11. [API Service](#11-api-service)
+12. [Test objects](#12-test-objects)
 
 Also, check out the **Explore the application** part of this mission which describes various components and their tasks in greater detail ([click here](../7-explore-the-components/README.md)).
 
@@ -23,7 +24,7 @@ The repository consists of several directories containing the API (service) brok
 
 | | |
 |:--: | :--- |
-| [<img src="./images/Repo_Structure_All.png" width="350"/>](./images/Repo_Structure_All.png) | <br> <br> **app -** Approuter and SAP Fiori Elements <br> **broker -** Service broker configuration <br> **configs -** Deployment configurations (e.g. XSUAA) <br> **db -** Tenant data model <br> **db-com -** Shared data model <br> **http -** Http files for API testing <br> **srv -** Business application service <br> **srv-api -** API service <br> **test -** Unit tests and sample data <br> **mta.yaml -** Descriptor for .mtar deployment <br> **package.json -** CDS related configs (e.g. mtxs, build settings) |
+| [<img src="./images/Repo_Structure_All.png" width="350"/>](./images/Repo_Structure_All.png) | <br> <br> **app -** Approuter and SAP Fiori Elements <br> **broker -** Service broker configuration <br> **configs -** Deployment configurations (e.g. XSUAA) <br> **db -** Tenant data model <br> **db-com -** Shared data model <br> **ext -** Extension files <br> **http -** Http files for API testing <br> **srv -** Business application service <br> **srv-api -** API service <br> **test -** Unit tests and sample data <br> **mta.yaml -** Descriptor for .mtar deployment <br> **package.json -** CDS related configs (e.g. mtxs, build settings) |
 
 
 ## 2. Application
@@ -32,7 +33,7 @@ Besides the **Approuter** instance, the **app** directory contains all SAP Fiori
 
 | | |
 |:--: | :--- |
-| [<img src="./images/Repo_Structure_App.png" width="350"/>](./images/Repo_Structure_App.png) |  **appconfig -** Fiori Launchpad sandbox config for local testing <br> **approuter -** Approuter default instance <br>  **deployer -** Used during build/deployment <br> **uimodule -** UI development content <p style='padding-left:1em'> **modes -** Local development configs <br> **webapp -** SAP Fiori Elements app definitions <br><p style='padding-left:2em'>**admin -** Admin apps <br>**appconfig -** SAP Fiori Launchpad sandbox config <br>**public -** User apps </p></p> **multi-tenant.js -** Required for local development |
+| [<img src="./images/Repo_Structure_AppRouter.png" width="170"/>](./images/Repo_Structure_AppRouter.png) [<img src="./images/Repo_Structure_Apps.png" width="170"/>](./images/Repo_Structure_Apps.png) |  **appconfig -** Configuration for local testing <br> **approuter -** AppRouter instance <p style='padding-left:1em'> **local-testing -** Config files for local testing <br> (e.g. authenticationType *none*) <br> **resources -** Static AppRouter resources <br> (e.g. index.html and Sandbox Launchpad configuration)<br> **xs-app.json -** Route definitions </p> **ui-admin-\* -** Admin UI modules <p style='padding-left:1em'> **xs-app.json -** Route definitions <br> **webapp -** SAPUI5 application resources </p> **ui-public-\* -** Public UI modules |
 
 
 ## 3. API Broker
@@ -50,7 +51,7 @@ In the **configs** directory, deployment-related configuration files are stored 
 
 | | |
 |:--: | :--- |
-| [<img src="./images/Repo_Structure_Configs.png" width="350"/>](./images/Repo_Structure_Configs.png) | **alert-notif.json -** Alert Notification configuration <br> **xs-security.json -** XSUAA configuration |
+| [<img src="./images/Repo_Structure_Configs.png" width="350"/>](./images/Repo_Structure_Configs.png) | **automator -** SAP BTP Setup Automator resources <br> (check README for details) <p style='padding-left:1em'> **parameters.json -** Parameter file for setup <br> **usecase_\*.json -** Usecase definitions (environment specific) </p> **deployment -** MTA extensions for Free Tier and Trial <br> **alert-notif.json -** Alert Notification configuration <br> **xs-security.json -** XSUAA configuration |
 
 
 ## 5. Tenant Database Container
@@ -72,17 +73,25 @@ The **db_com** directory contains the definition of the shared data model, which
 |:--: | :--- |
 | [<img src="./images/Repo_Structure_Shared_Db.png" width="350" />](./images/Repo_Structure_Shared_Db.png) | **src -** Native SAP HANA database objects <br><p style='padding-left:1em'> **data -** Sample csv files for Countries, Languages and Currencies <br> **\*_ACCESS.hdbrole -** Roles for external access by tenant database containers </p>  **data-model.cds -** Shared data model definition |
 
+## 7. Extension files
 
-## 7. HTTP Test Files
-
-The **http** directory contains HTTP files allowing you to test the SaaS API endpoints from a SaaS consumer perspective. Further details on how to use these HTTP files can be found in a separate part of this mission ([click here](../5-push-data-to-saas-api/README.md)).
+The **ext** directory contains files for a sample extension project, which can be used by SaaS subscribers to extend an existing SaaS solution. Please check the Expert Scope for further details
 
 | | |
 |:--: | :--- |
-| [<img src="./images/Repo_Structure_Http.png" width="350"/>](./images/Repo_Structure_Http.png) |  **api\*.http -** HTTP files for API testing |
+| [<img src="./images/Repo_Structure_Ext.png" width="350" />](./images/Repo_Structure_Ext.png) | **app -** CDS extensions for data model, services and SAP Fiori <br> **i18n -** Translations for extensions |
 
 
-## 8. Annotation Files
+## 8. HTTP Test Files
+
+The **http** directory contains HTTP files allowing you to test the SaaS API endpoints from a SaaS consumer perspective. Further details on how to use these HTTP files can be found in a separate part of this mission ([click here](../5-push-data-to-saas-api/README.md)). Furthermore, you can find a sample http file allowing you to upgrade your tenant databases in case of data model changes. 
+
+| | |
+|:--: | :--- |
+| [<img src="./images/Repo_Structure_Http.png" width="350"/>](./images/Repo_Structure_Http.png) |  **api-test-hybrid.http -** HTTP file for hybrid API testing <br> **api\*.http -** HTTP files for SAP BTP API testing <br> **tenantUpgrade.http -** HTTP file for tenant database updates <br> |
+
+
+## 9. Annotation Files
 
 The **annotations** directory in the **srv** directory contains all 
 business application service-related annotations. These annotations define the capabilities and features of the OData services but also define the layouts of the SAP Fiori Elements interfaces. 
@@ -92,7 +101,7 @@ business application service-related annotations. These annotations define the c
 | [<img src="./images/Repo_Structure_Annotations.png" width="350"/>](./images/Repo_Structure_Annotations.png) |  **admin -** Admin service annotations <br> **public -** User service annotations <br><p style='padding-left:1em'> **capabilities.cds -** Service capability annotations <br>**fieldControls.cds -** Service field control annotations <br>**layouts_\*.cds -** Fiori Elements layout annotations </p> **labels.cds -** Label annotations <br> **valueHelp.cds -** Value help annotations  <br> |
 
 
-## 9. Business Application Service
+## 10. Business Application Service
 
 The rest of the **srv** directory contains the implementation of all business application service-related features. This includes the OData services for the user interfaces (Admin and User service) as well as the automation logic executed on the subscription of new consumer-tenants. A lot of onboarding steps have been automated using different platform APIs and SAP BTP services. 
 
@@ -101,16 +110,16 @@ The rest of the **srv** directory contains the implementation of all business ap
 | [<img src="./images/Repo_Structure_Service.png" width="350"/>](./images/Repo_Structure_Service.png) | **i18n -** Language files <br> **utils -** Service utilities (mainly for automation purpose) <br><p style='padding-left:1em'> **alertNotification.js -** Alert Notification utilities <br> **automator.js -** Automation scripts <br> **cf-utils.js -** Cloud Foundry utilities <br>**cis-central.js -** Cloud Management Service utilities <br>**credStore.js -** Credential Store utilities <br>**destination.js -** Destination Service utilities <br>**service-manager.js -** Service Manager utilities <br>**token-utils.js -** Token helper utilities <br>**user-management.js -** User management utilities </p> **admin-service.cds -** Admin service definition <br>**admin-service.js -** Admin service handler <br> **annotations.cds -** Annotation file collector <br>**provisioning.js -** Provisioning handler <br> **public-service.cds -** User service definition <br> **public-service.js -** User service handler <br> **server.js -** Custom server.js  |
 
 
-## 10. API Service
+## 11. API Service
 
 The **srv-api** directory contains the implementation of the API Service which can be used by SaaS consumers to provide or maintain data in their tenant database containers. Further details can be found in a separate part of this mission ([click here](../5-push-data-to-saas-api/README.md)).
 
 | | |
 |:--: | :--- |
-| [<img src="./images/Repo_Structure_API.png" width="350"/>](./images/Repo_Structure_API.png) |  **api-capabilities.cds -** API service capabilities <br> **api-service.cds -** API service definition <br> **api-service.js -** API service handler <br> |
+| [<img src="./images/Repo_Structure_API.png" width="350"/>](./images/Repo_Structure_API.png) |  **api-capabilities.cds -** API service capabilities <br> **api-service.cds -** API service definition <br> **api-service.js -** API service handler <br> **server.js -** Custom server.js to disable mtxs features <br> |
 
 
-## 11. Test objects
+## 12. Test objects
 
 The **test** directory contains sample data for local development and testing purposes as well as sample unit tests. 
 

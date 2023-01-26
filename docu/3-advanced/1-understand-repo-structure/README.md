@@ -1,6 +1,6 @@
 # Understand the Repository Structure
 
-This part of the mission will briefly outline the repository structure of the **Advanced Scope** [branch](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/tree/advanced). The general file structure is same as in the **Basic Scope** [branch]](../../2-basic/1-understand-repo-structure/README.md), but the **Advanced Scope** has some relevant source code differences.
+This part of the mission will briefly outline the repository structure of the **Advanced Scope** [branch](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/tree/advanced). The general file structure is same as in the **Basic Scope** [branch](../../2-basic/1-understand-repo-structure/README.md), but the **Advanced Scope** has some relevant source code differences.
 
 
 ## Differences in the Advanced Scope codebase

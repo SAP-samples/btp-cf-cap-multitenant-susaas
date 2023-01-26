@@ -30,44 +30,42 @@ Each multitenant application has to deploy its own application router, and the a
 
 ## 2. UI Component
 
-The user interface of this sample application has been developed using **SAP Fiori Elements**. SAP Fiori Elements-based applications benefit from a template and metadata-driven approach. SAP Fiori Elements provides designs for UI patterns and predefined floorplans for common application use cases. App developers can use SAP Fiori Elements to create SAP Fiori applications based on OData services and annotations that don't need JavaScript UI coding. 
+The user interface of this sample application has been developed using **SAP Fiori Elements**. SAP Fiori Elements applications benefit from a template and metadata-driven approach. SAP Fiori Elements provides designs for UI patterns and predefined floorplans for common application use cases. App developers can use SAP Fiori Elements to create SAP Fiori applications based on OData services and annotations that don't need JavaScript UI coding. 
 
-The resulting app uses predefined views and controllers that are provided centrally. This means no application-specific view instances are required. SAPUI5 interprets metadata and annotations of the underlying OData service and uses the corresponding views for the SAP Fiori app at startup. Still, SAP Fiori Elements-based applications can be easily extended with minimal coding effort.
+The resulting Fiori Elements components use predefined views and controllers that are provided centrally. This means no application-specific view instances are required. SAPUI5 interprets metadata and annotations of the underlying OData service and uses the corresponding views for the SAP Fiori app at startup. Still, SAP Fiori Elements applications can be extended with minimal coding effort.
 
 To learn more about SAP Fiori Elements please check out the excellent [**SAP Fiori elements for OData V4 Feature Showcase**](https://github.com/SAP-samples/fiori-elements-feature-showcase/) and the links provided in the **Further Information** section.
+
 
 ## 3. Business Application Service
 
 > **Important** - Find more details in the [Helper Classes](./components/HelperClasses.md) Reamde document!
 
-The service layer of the sample application has been developed using the **SAP CAP** framework. It provides OData services for the UI component and has built-in support for multitenancy with an SAP HANA Cloud database. Furthermore, it provides the (un-)subscription callbacks required for tenant onboarding. While the OData service definition and the custom handlers are straightforward, most of the interesting code snippets can be found in the helper classes used for the automation of subscription requirements. The Business Application Service also contains the annotations required by SAP Fiori Elements for automatically rendering a proper UI. 
+The service layer of the sample application has been developed using the **SAP CAP** framework. It provides OData services for the UI component and has built-in support for multitenancy with an SAP HANA Cloud database. Furthermore, it provides the (un-)subscription callbacks required for tenant onboarding. While the OData service definition and the custom handlers are straightforward, most of the interesting code snippets can be found in the **helper** functions and classes used for the automation of subscription requirements. The Business Application Service also contains the annotations required by SAP Fiori Elements for automatically rendering a proper UI. 
 
 
 ## 4. API Service 
 
 > **Important** - Find more information on how to use the SaaS API in the following part of this mission ([click here](../5-push-data-to-saas-api/README.md))!
 
+For consumers that want to push data to their database container instances, an API endpoint has been developed using CAP. Tenants can use this API to push data to their own SAP HANA HDI containers for calculation and analysis purposes. The API is accessible using client credentials provided to consumer tenants using a service instance of the SaaS API Service Broker. Check out the next chapter to find out how to push data to this API as a SaaS consumer.
 
-For consumers that want to push data to their database container instances of the SaaS solution, an API endpoint has been developed using CAP. Tenants can use this API to push data to their own SAP HANA HDI containers for calculation and analysis purposes. The API is accessible using client credentials provided to consumer tenants using a service instance of the SaaS API (Service) Broker. Check out the next card to find out how to push data to this API as a SaaS consumer.
-
-Below you can see the available entities of the SaaS API. Besides application-related data like Product information or Sales Order records, also master data like Currencies, Languages, or Countries can be maintained using the API. 
+Below you can see the available entities of the SaaS API like Product details and Sales Orders.
 
 [<img src="./images/API_Endpoints.png" width="700"/>](./images/API_Endpoints.png)
 
-Besides the default CRUD methods for entity maintenance, also some sample actions are provided allowing a bulk-insert (delete & insert) for the major application entities. 
-
-Finally, you can find samples for OData actions allowing you to bulk-update products using CAP CQL UPDATE feature and to bulk-upsert Sales Orders using an SAP HANA Stored procedure.
+Besides the default CRUD methods for entity maintenance, also  sample actions are provided allowing bulk upload (DELETE & INSERT) for the main application entities. Finally, you can find samples for OData actions allowing you to bulk-update products using CAP CQL UPDATE feature and to bulk-upsert Sales Orders using an SAP HANA Stored procedure.
 
 
 ## 5. API Broker 
 
 > **Important** - Find more details in the [Service Broker](./components/ServiceBrokers.md) Reamde document!
 
-Service brokers manage instances of services used by applications running in the Cloud Foundry environment.
+Service brokers manage instances of services used by applications running in the SAP BTP environment.
 
-The service broker is responsible for maintaining and managing instances of service brokers and all available services. Services can be bound to applications that require the services provided by a service instance. Developers can use the service broker to bind service instances to the application that wants to make use of the services.
+A service broker is responsible for managing service instances of a certain service implementation. Such service instances can then be bound to applications that require the features provided by such a service implementation. For this purpose, a service broker can also be used to create and manage bindings between service instances and applications that want to make use of the service features. 
 
-In this application scenario, we have created an API for SaaS consumers as a backing service. Therefore, the service broker is responsible of creating [SaaS API](#saas-api) service instances in the tenant subaccounts. 
+In this application scenario, we created an API for SaaS subscribers as a backing service. Therefore, the service broker is responsible for creating [SaaS API](#saas-api) service instances in the tenant subaccounts. Using these service instances, subscribers can then create so-called service bindings, providing them with client credentials to interact with the SaaS API. Both, creating a service instance and corresponding service bindings, are handled by the API Service Broker. 
 
 
 ## 6. Tenant database containers
