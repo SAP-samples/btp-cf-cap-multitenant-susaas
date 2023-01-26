@@ -13,23 +13,16 @@ sap.ui.define(["sap/ui/core/mvc/ControllerExtension"], function(ControllerExtens
 			},
 
 			onBeforeRendering : function() {},
-		
-			onAfterRendering : function() {
-				let oTableMaterialSplits = this.getView().byId("fe::table::materialSplits::LineItem");
-			},
 
 			onExit : function(){},
 
 			routing: {
+				onBeforeBinding : function() {},
 				onAfterBinding: function() {}
 			},
 
 			paginator: {
 				onContextUpdate: function() {}
-			},
-
-			routing: {
-				onBeforeBinding : function() {}
 			},
 
 			share: {
@@ -42,10 +35,26 @@ sap.ui.define(["sap/ui/core/mvc/ControllerExtension"], function(ControllerExtens
 						fnResolve();
 					});
 				},
-				onBeforeEdit: function() {},
-				onBeforeDiscard: function() {},
-				onBeforeCreate: function() {},
-				onBeforeDelete: function() {}
+				onBeforeEdit: function() {
+					return new Promise(function(fnResolve, fnReject) {
+						fnResolve();
+					});
+				},
+				onBeforeDiscard: function() {
+					return new Promise(function(fnResolve, fnReject) {
+						fnResolve();
+					});
+				},
+				onBeforeCreate: function() {
+					return new Promise(function(fnResolve, fnReject) {
+						fnResolve();
+					});
+				},
+				onBeforeDelete: function() {
+					return new Promise(function(fnResolve, fnReject) {
+						fnResolve();
+					});
+				}
 			},
 
 			viewState: {
