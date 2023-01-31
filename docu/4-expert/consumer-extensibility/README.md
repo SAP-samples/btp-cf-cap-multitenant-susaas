@@ -61,7 +61,7 @@ $ code \path\of\unzipped\ext\folder
 
 3.4. In the **ext** folder, fetch the latest CDS model details from the local CAP service by running the following CDS command with the user bob (assigned to the **t1-ext** tenant). 
 
-> **Important** - The **cds watch** process still needs to run in the other command line instance. 
+> **Important** - The **cds watch** process still needs to run in the other command line instance. In case the **cds pull** command is executed successfully but you cannot see the required *csn* and *json* files in your **node_modules** directory, please try to run the extensibility scenario in SAP Business Application Studio. 
 
 ```sh
 $ cds pull --from http://localhost:4004 --user bob
