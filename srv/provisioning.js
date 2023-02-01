@@ -13,7 +13,7 @@ module.exports = (service) => {
         const Automator = require("./utils/automator");
         
         let tenantSubdomain = req.data.subscribedSubdomain;
-        let tenant = req.data.subscribedTenantId;
+        let tenant = req.data.subscribedZoneId;
 
         // subscriber-a16ef7 (Custom Domain)
         // subscriber-a16ef7-susaas-dev (Default Domain Dev)
