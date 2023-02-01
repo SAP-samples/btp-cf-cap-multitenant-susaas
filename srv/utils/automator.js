@@ -18,28 +18,28 @@ class TenantAutomator {
         this.cf = new CFUtils();
     }
 
-    async deployTenantArtifacts(subscribingTenant, subscribingSubdomain) {
+    async deployTenantArtifacts(subscribingSubdomain,subscribingSubaccountId) {
         try {
-            await this.initialize(subscribingTenant, subscribingSubdomain);
+            await this.initialize(subscribingSubaccountId);
             await this.createSampleDestination(subscribingSubdomain, `SUSAAS_S4HANA_CLOUD`)
             // Don't create route in case of '.' used as tenant separator - wildcard route used!
             process.env.tenantSeparator !== '.' ? await this.createRoute(subscribingSubdomain) : null;
             await this.registerBTPServiceBroker(subscribingSubdomain);
-            await this.cleanUpCreatedServices(subscribingTenant);
+            await this.cleanUpCreatedServices(subscribingSubaccountId);
             console.log("Automation: Deployment has been completed successfully!")
         } catch (error) {
             throw error;
         }
     }
 
-    async undeployTenantArtifacts(unsubscribingTenant, unsubscribingSubdomain) {
+    async undeployTenantArtifacts(unsubscribingSubaccountId, unsubscribingSubdomain) {
         try {
-            await this.initialize(unsubscribingTenant);
+            await this.initialize(unsubscribingSubaccountId);
             await this.deleteSampleDestination(unsubscribingSubdomain, `SUSAAS_S4HANA_CLOUD`)
             // Don't delete route in case of '.' used as tenant separator - wildcard route used!
             process.env.tenantSeparator !== '.' ? await this.deleteRoute(unsubscribingSubdomain) : null;
-            await this.unregisterBTPServiceBroker(unsubscribingTenant);
-            await this.cleanUpCreatedServices(unsubscribingTenant);
+            await this.unregisterBTPServiceBroker(unsubscribingSubaccountId);
+            await this.cleanUpCreatedServices(unsubscribingSubaccountId);
             console.log("Automation: Undeployment has been completed successfully!")
         } catch (error) {
             console.error("Tenant artifacts cannot be undeployed!")
@@ -47,11 +47,11 @@ class TenantAutomator {
         }
     }
 
-    async initialize(subscribingTenant) {
+    async initialize(subscribingSubdomainId) {
         try {
             await this.readCredentials();
             let btpAdmin = this.credentials.get("btp-admin-user")
-            this.serviceManager = await this.createServiceManager(subscribingTenant);
+            this.serviceManager = await this.createServiceManager(subscribingSubdomainId);
             await this.cf.login(btpAdmin.username, btpAdmin.value);
             console.log("Automator successfully initialized!")
         } catch (error) {
@@ -60,16 +60,16 @@ class TenantAutomator {
         }
     }
 
-    async createServiceManager(subscribingTenant) {
+    async createServiceManager(subscribingSubdomainId) {
         try {
             let btpAdmin = this.credentials.get("btp-admin-user")
             this.cisCentral = new CisCentral(btpAdmin.username, btpAdmin.value);
-            let serviceManagerCredentials = await this.cisCentral.createServiceManager(subscribingTenant);
+            let serviceManagerCredentials = await this.cisCentral.createServiceManager(subscribingSubdomainId);
             console.log("Service manager has been created successfully!")
             return new ServiceManager(serviceManagerCredentials);
         } catch (error) {
             console.error("Service Manager can not be created!")
-            throw error.message;
+            throw error;
         }
     }
 
@@ -89,9 +89,9 @@ class TenantAutomator {
         }
     }
 
-    async cleanUpCreatedServices(tenant) {
+    async cleanUpCreatedServices(tenantSubaccountId) {
         try {
-            await this.cisCentral.deleteServiceManager(tenant);
+            await this.cisCentral.deleteServiceManager(tenantSubaccountId);
             console.log("Service Manager is deleted");
         } catch (error) {
             console.error("Clean up can not be completed!");
@@ -115,9 +115,9 @@ class TenantAutomator {
         }
     }
 
-    async unregisterBTPServiceBroker(tenant) {
+    async unregisterBTPServiceBroker(subaccountId) {
         try {
-            let sb = await this.serviceManager.getServiceBroker(`${process.env.brokerName}-${tenant}`)
+            let sb = await this.serviceManager.getServiceBroker(`${process.env.brokerName}-${subaccountId}`)
             await this.serviceManager.deleteServiceBroker(sb.id)
             console.log(`Service Broker ${process.env.brokerName} deleted`);
         } catch (error) {

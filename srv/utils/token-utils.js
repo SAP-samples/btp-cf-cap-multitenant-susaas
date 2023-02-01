@@ -21,6 +21,7 @@ async function getTokenWithPassword(tokenEndpoint, clientid, clientsecret, usern
             }).toString()
         };
         let response = await axios(authOptions);
+        console.log("Token Retrieved successfully");
         return response.data.access_token;
     } catch (error) {
         console.error("Error: Token can not be retrieved!")
