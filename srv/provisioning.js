@@ -41,6 +41,17 @@ module.exports = (service) => {
                 let automator = new Automator();
                 await automator.deployTenantArtifacts(tenant, tenantSubdomain);
             } catch (error) {
+                // Send generic alert using Alert Notification
+                alertNotification.sendEvent({
+                    type : 'GENERIC',
+                    data : {
+                        subject : 'Error: Automation skipped because of error during subscription',
+                        body : JSON.stringify(error.message),
+                        eventType : 'alert.app.generic',
+                        severity : 'FATAL',
+                        category : 'ALERT'
+                    }
+                });
                 console.error("Error: Automation skipped because of error during subscription");
                 console.error(`Error: ${error.message}`);
             }
