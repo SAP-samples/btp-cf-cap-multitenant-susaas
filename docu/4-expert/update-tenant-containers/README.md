@@ -75,7 +75,7 @@ cf deploy mta_archives/*
 
 
 ## 5. Create and display a service key for your XSUAA instance
-
+> **Hint** - The following steps can alternatively be done by using the [Subscription Management Dashboard](https://help.sap.com/docs/btp/sap-business-technology-platform/using-subscription-management-dashboard?locale=en-US)
 Run the commands below.
 
 ```sh
