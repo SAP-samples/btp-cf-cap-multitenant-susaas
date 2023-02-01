@@ -3,8 +3,8 @@ const debug = require('debug')('srv:provisioning');
 const cfenv = require('cfenv');
 const appEnv = cfenv.getAppEnv();
 const xsenv = require('@sap/xsenv');
+const alertNotification = require('./utils/alertNotification');
 xsenv.loadEnv();
-
 
 module.exports = (service) => {
 
@@ -40,6 +40,17 @@ module.exports = (service) => {
                 let automator = new Automator();
                 await automator.deployTenantArtifacts(tenant, tenantSubdomain);
             } catch (error) {
+                // Send generic alert using Alert Notification
+                alertNotification.sendEvent({
+                    type : 'GENERIC',
+                    data : {
+                        subject : 'Error: Automation skipped because of error during subscription',
+                        body : JSON.stringify(error.message),
+                        eventType : 'alert.app.generic',
+                        severity : 'FATAL',
+                        category : 'ALERT'
+                    }
+                });
                 console.error("Error: Automation skipped because of error during subscription");
                 console.error(`Error: ${error.message}`);
             }
