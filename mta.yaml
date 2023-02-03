@@ -335,7 +335,7 @@ resources:
       service-plan: application
       config:
         xsappname: ~{susaas-uaa/XSAPPNAME}
-        appName: '~{susaas-approuter/application}-GCOE DS_cf-runtime-btp-apps'
+        appName: ~{susaas-approuter/application}-${org}
         displayName: Sustainable SaaS ${space}
         description: Sustainable SaaS Application
         category: SaaS Multitenant Apps
