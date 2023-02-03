@@ -11,7 +11,7 @@
         "description": "{{appDescription}}",
         "dataSources": {
             "mainService": {
-                "uri": "/catalog/PublicService/",
+                "uri": "catalog/PublicService/",
                 "type": "OData",
                 "settings": {
                     "odataVersion": "4.0"

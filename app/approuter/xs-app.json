@@ -1,51 +1,42 @@
 {
-    "welcomeFile": "/resources/index.html",
+    "welcomeFile": "/index.html",
     "authenticationMethod": "route",
     "logout": {
       "logoutEndpoint": "/do/logout"
     },
     "routes": [
       {
-        "source": "^/resources/(.*)$",
-        "target": "/$1",
+        "source": "^/index.html$",
         "localDir": "resources",
         "authenticationType": "xsuaa"
       },
       {
         "source": "^/appconfig/(.*)$",
-        "target": "/appconfig/$1",
         "localDir": "resources",
         "authenticationType": "xsuaa"
       },
       {
-        "source": "^/susaasuipublicassessments/(.*)$",
-        "target": "/susaasuipublicassessments/$1",
-        "service": "html5-apps-repo-rt",
-        "authenticationType": "xsuaa"
-      },
-      {
-        "source": "^/susaasuipublicprojects/(.*)$",
-        "target": "/susaasuipublicprojects/$1",
-        "service": "html5-apps-repo-rt",
-        "authenticationType": "xsuaa"
-      },
-      {
-        "source": "^/susaasuiadminprojects/(.*)$",
-        "target": "/susaasuiadminprojects/$1",
-        "service": "html5-apps-repo-rt",
-        "authenticationType": "xsuaa"
-      },
-      {
-        "source": "^/susaasuiadminusers/(.*)$",
-        "target": "/susaasuiadminusers/$1",
-        "service": "html5-apps-repo-rt",
-        "authenticationType": "xsuaa"
-      },
-      {
-        "source": "^/catalog/(.*)$",
-        "target": "/catalog/$1",
-        "destination": "susaas-srv-api",
+        "source": "^/resources/(.*)$",
+        "authenticationType": "none",
         "preferLocal": true,
+        "destination": "ui5"
+      },
+      {
+        "source": "^/test-resources/(.*)$",
+        "authenticationType": "none",
+        "preferLocal": true,
+        "destination": "ui5"
+      },
+      {
+        "source": "^/user-api(.*)",
+        "target": "$1",
+        "service": "sap-approuter-userapi",
+        "authenticationType": "xsuaa"
+      },
+      {
+        "source": "^(.*)$",
+        "target": "$1",
+        "service": "html5-apps-repo-rt",
         "authenticationType": "xsuaa"
       }
     ]

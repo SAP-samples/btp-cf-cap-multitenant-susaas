@@ -5,7 +5,7 @@
     },
     {
         "name": "ui5",
-        "url": "https://ui5.sap.com"
+        "url": "https://ui5.sap.com/1.108.4"
     }],
     "VCAP_SERVICES": {}
 }
