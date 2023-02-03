@@ -1,44 +1,37 @@
 {
-  "welcomeFile": "/resources/index.html",
-  "authenticationMethod": "none",
-  "logout": {
-    "logoutEndpoint": "/do/logout"
-  },
-  "routes": [
-    {
-      "source": "^/resources/(.*)$",
-      "target": "/$1",
-      "localDir": "../resources"
+    "welcomeFile": "/index.html",
+    "authenticationMethod": "none",
+    "logout": {
+      "logoutEndpoint": "/do/logout"
     },
-    {
-      "source": "^/appconfig/(.*)$",
-      "target": "/appconfig/$1",
-      "localDir": "../resources"
-    },
-    {
-      "source": "^/susaasuipublicassessments/(.*)$",
-      "target": "/susaasuipublicassessments/$1",
-      "service": "html5-apps-repo-rt"
-    },
-    {
-      "source": "^/susaasuipublicprojects/(.*)$",
-      "target": "/susaasuipublicprojects/$1",
-      "service": "html5-apps-repo-rt"
-    },
-    {
-      "source": "^/susaasuiadminprojects/(.*)$",
-      "target": "/susaasuiadminprojects/$1",
-      "service": "html5-apps-repo-rt"
-    },
-    {
-      "source": "^/susaasuiadminusers/(.*)$",
-      "target": "/susaasuiadminusers/$1",
-      "service": "html5-apps-repo-rt"
-    },
-    {
-      "source": "^/catalog/(.*)$",
-      "target": "/catalog/$1",
-      "destination": "susaas-srv-api"
-    }
-  ]
-}
+    "routes": [
+      {
+        "source": "^/index.html$",
+        "target": "/$1",
+        "localDir": "../resources"
+      },
+      {
+        "source": "^/appconfig/(.*)$",
+        "target": "/appconfig/$1",
+        "localDir": "../resources"
+      },
+      {
+        "source": "^/test-resources/(.*)$",
+        "destination": "ui5"
+      },
+      {
+        "source": "^/resources/(.*)$",
+        "destination": "ui5"
+      },
+      {
+        "source": "^/catalog/(.*)$",
+        "target": "/catalog/$1",
+        "destination": "susaas-srv-api"
+      },
+      {
+        "source": "^(.*)$",
+        "target": "$1",
+        "service": "html5-apps-repo-rt"
+      }
+    ]
+  }
