@@ -7,7 +7,6 @@
     "routes": [
       {
         "source": "^/index.html$",
-        "target": "/$1",
         "localDir": "../resources"
       },
       {
