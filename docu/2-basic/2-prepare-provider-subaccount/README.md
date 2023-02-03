@@ -21,7 +21,11 @@ As already mentioned, you can set up the **Basic Scope** in any SAP BTP environm
 After provisioning of your SAP BTP account (which might take a few hours after placing your free order in SAP Store), please continue with the following steps.
 
 * Enable the SAP BTP Cloud Foundry environment using the **free** service plan (assign in Entitlements if not visible!)
+> **Important** -  Please make sure to your Cloud Foundry Org(anization) name does not contain any spaces (follows the ^\s*\S+\s*$ Regex format)
+
 * Create an SAP BTP Cloud Foundry Space and name it e.g., dev.
+> **Important** -  Please make sure to your Cloud Foundry Space name does not contain any spaces (follows the ^\s*\S+\s*$ Regex format)
+
 * Set up a SAP HANA Cloud instance using the **hana-free** service plan.
 
 > **Important** - Make sure to create the Cloud Foundry environment using the **free** plan and not the **Standard** plan. Otherwise, you will be charged from the first GB of runtime used. 
