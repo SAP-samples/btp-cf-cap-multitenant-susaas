@@ -18,7 +18,7 @@ Customers and partners in the SAP ecosphere have developed various SAP based sol
 
 ## Benefits
 
-Following a mulitenant Software as a Service approach as covered by this mission, customers and partners can develop and monetize their own software solutions integrating with SAP solutions (like SAP S/4HANA) or SAP BTP service offerings. 
+Following a multitenant Software as a Service approach as covered by this mission, customers and partners can develop and monetize their own software solutions integrating with SAP solutions (like SAP S/4HANA) or SAP BTP service offerings. 
 
 Compared to traditional deployments to a customer's on-premise infrastructure this approach is much faster, simpler and leads to minimal marginal costs the more customers are onboarded.  
 
