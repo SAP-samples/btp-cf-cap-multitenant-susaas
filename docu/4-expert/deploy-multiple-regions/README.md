@@ -15,7 +15,7 @@ This chapter is kept comparatively short, and we ask for your feedback here. The
 
 The SAP Business Technology Platform allows you to deploy solutions to SAP-managed datacenters and four different hyperscalers (AWS, Azure, Google, Alicloud) using the same SAP BTP Global Account. While this is already a great benefit, as you're not forced to have a separate enterprise contract with all of these providers, you can also benefit from the great regional availability. With four hyperscalers to choose from, your SAP BTP solutions can be deployed all across the globe from Australia to Asia, Europe and North or even South America. 
 
-[<img src="./images/MR_Regions.png" width="400" />](./images/MR_Regions.png?raw=true)
+![<img src="./images/MR_Regions.png" width="400" />](./images/MR_Regions.png?raw=true)
 
 Let us summarize some major advantages of deploying your solution to multiple SAP BTP regions:
 
@@ -40,7 +40,7 @@ Hosting your solution in multiple regions comes with increased costs. Not just f
 
 Multi-region is not always the best choice to solve your requirements. Be clear on your multi-region scenario and potential alternative approaches that might be much simpler and cost-efficient. For application updates, consider using [blue-green deployment](https://help.sap.com/docs/BTP/65de2977205c403bbc107264b8eccf4b/772ab72204f04946b79ce2d962e64970.html?locale=en-US) approaches instead of routing traffic to a secondary region during update timeframes. 
 
-[<img src="./images/MR_BlueGreen.png" width="400" />](./images/MR_BlueGreen.png?raw=true)
+![<img src="./images/MR_BlueGreen.png" width="400" />](./images/MR_BlueGreen.png?raw=true)
 
 Make sure you completely understand the existing scalability and failover options (e.g., using the Autoscaler service or SAP HANA Cloud in multiple Availability Zones) for all your application layers before setting up an additional region. Also, consider provisioning an additional region on-demand only or start and stop expensive resources in a region if not in use. 
 
@@ -52,7 +52,7 @@ You should start to deploy the first instance of your SaaS application in a regi
 
 In case your application is storing data that is subject to government regulations or data privacy laws, you might be enforced to stick to certain regions that guarantee that data is not leaving or can only be accessed from within a certain region.
 
-[<img src="./images/MR_EUAccess.png" width="400" />](./images/MR_EUAccess.png?raw=true)
+![<img src="./images/MR_EUAccess.png" width="400" />](./images/MR_EUAccess.png?raw=true)
 
 ### Hyperscaler affinity
 
@@ -108,7 +108,7 @@ So much for now about considerations and aspects, you should keep in mind when e
 
 Let us provide you with one sample scenario for a multi-region SaaS application setup and deployment process. Check the below architecture to get an idea what such a simple setup could look like. 
 
-[<img src="./images/MR_Architecture.png" width="700" />](./images/MR_Architecture.png?raw=true)
+![<img src="./images/MR_Architecture.png" width="700" />](./images/MR_Architecture.png?raw=true)
 
 The above sample scenario covers the deployment of a sample SaaS application to **three stages** (dev, test, production) in two different regions **eu10** and **eu20**. Let us check the development, test, and release flow before highlighting some of the discussed multi-region aspects. 
 
@@ -129,13 +129,13 @@ From a persistency aspect, this scenario is only suitable for consumers that don
 
 The following screenshot shows a sample directory and subaccount structure for the above scenario in which a SaaS application is running in two different regions (eu10 and eu20). You can see that the **Subscriber** has a **Test** subaccount in the **eu10** region and **Production** subaccounts in the **eu10** and **eu20** regions. Development happens in a central **eu10** subaccount. 
 
-[<img src="./images/MR_SampleSubAcc.png" width="700" />](./images/MR_SampleSubAcc.png?raw=true)
+![<img src="./images/MR_SampleSubAcc.png" width="700" />](./images/MR_SampleSubAcc.png?raw=true)
 
 The number of subaccounts will increase with the number of SaaS consumers, so make sure to properly gather your subaccounts into directories (stages, apps, regions, consumers, ...) and assign proper labels. To add to the above subaccount structure - a potential Landscape Visualization in SAP Cloud Transport Management could look like the following. 
 
 > **Hint** - For sure, you can also include further nodes in your own scenario (Pre-Prod, Performance,  ...) or handle the deployment to different regions using the SAP CI/CD service or your own Jenkins server. 
 
-[<img src="./images/MR_SampleTMS.png" width="700" />](./images/MR_SampleTMS.png?raw=true)
+![<img src="./images/MR_SampleTMS.png" width="700" />](./images/MR_SampleTMS.png?raw=true)
 
 
 
@@ -143,15 +143,15 @@ The number of subaccounts will increase with the number of SaaS consumers, so ma
 
 Especially in the case of mult-region deployments, it is important to have an understanding of the Custom Domain service. Instead of offering your consumers a default SAP-provided application domain like **subscriber-7k7tmze3-susaas.cfapps.eu10.hana.ondemand.com**, you can offer them simple domains like **subscriber.eu10.susaas.com** or even **subscriber.susaas.com**.
 
-[<img src="./images/CD_DotExpert.png" width="700" />](./images/CD_DotExpert.png?raw=true)
+![<img src="./images/CD_DotExpert.png" width="700" />](./images/CD_DotExpert.png?raw=true)
 
 Using custom domains is also essential in case of failover scenarios. For these scenarios, you usually provide your consumers a single point of entry like **subscriber.susaas.com**. The actual failover from **subscriber.eu10.susaas.com** to **subscriber.eu20.susaas.com** is happening in the background without the user even noticing. 
 
 To get a proper understanding of the Custom Domain service and how to set up scenarios like the one above, please check the respective **Expert Scope** chapter on [Custom Domain Usage](../custom-domain-usage/README.md). Below you can see sample route mappings of a consumer named **subscriber** in two regions (eu10 and eu20). 
 
-[<img src="./images/MR_MultiReg01.png" width="400" />](./images/MR_MultiReg01.png?raw=true)
+![<img src="./images/MR_MultiReg01.png" width="400" />](./images/MR_MultiReg01.png?raw=true)
 
-[<img src="./images/MR_MultiReg02.png" width="400" />](./images/MR_MultiReg02.png?raw=true)
+![<img src="./images/MR_MultiReg02.png" width="400" />](./images/MR_MultiReg02.png?raw=true)
 
 These almost equivalent route mappings in the Custom Domain service of both regions are then combined with an intelligent routing mechanism provided by a hyperscaler like AWS ([Route 53](https://aws.amazon.com/route53/)) or Azure ([Traffic Manager](https://learn.microsoft.com/en-us/azure/traffic-manager/traffic-manager-overview)). 
 
@@ -159,15 +159,15 @@ This makes the multi-region application instances reachable by either using regi
 
 Below you can see sample screenshots of an Azure Traffic Manager profile, which is routing traffic to either **eu10** or **eu20** based on **availability** whereas the eu10 region has the highest priority. 
 
-[<img src="./images/MR_TrafficMgr01.png" width="400" />](./images/MR_TrafficMgr01.png?raw=true)
+![<img src="./images/MR_TrafficMgr01.png" width="400" />](./images/MR_TrafficMgr01.png?raw=true)
 
-[<img src="./images/MR_TrafficMgr02.png" width="400" />](./images/MR_TrafficMgr02.png?raw=true)
+![<img src="./images/MR_TrafficMgr02.png" width="400" />](./images/MR_TrafficMgr02.png?raw=true)
 
 The screenshots below show the result of such a smart routing feature. One and the same application can now be reached via two different URLs. Either region-dependent or region-independent based on the Traffic Manager profile above. 
 
-[<img src="./images/MR_MultiReg07.png" width="400" />](./images/MR_MultiReg07.png?raw=true)
+![<img src="./images/MR_MultiReg07.png" width="400" />](./images/MR_MultiReg07.png?raw=true)
 
-[<img src="./images/MR_MultiReg08.png" width="400" />](./images/MR_MultiReg08.png?raw=true)
+![<img src="./images/MR_MultiReg08.png" width="400" />](./images/MR_MultiReg08.png?raw=true)
 
 
 ## 5. Further information

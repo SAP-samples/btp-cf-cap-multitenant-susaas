@@ -83,7 +83,7 @@ cf create-service-key susaas-uaa my-key
 cf service-key susaas-uaa my-key
 ```
 
-[<img src="./images/uaa-service-key.png" width="400"/>](./images/uaa-service-key.png?raw=true)
+![<img src="./images/uaa-service-key.png" width="400"/>](./images/uaa-service-key.png?raw=true)
 
 
 ## 6. Fill your [HTTP file](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/blob/basic/http/tenantUpgrade.http) with the values and distribute the changes
@@ -104,19 +104,19 @@ cf service-key susaas-uaa my-key
 
 Replace the credentials from your service key with your http file  placeholders as shown below. 
 
-[<img src="./images/credmapping.png" width="700"/>](./images/credmapping.png?raw=true)
+![<img src="./images/credmapping.png" width="700"/>](./images/credmapping.png?raw=true)
 
 ### 6.3. Put **susaas-srv** url from your SAP BTP **Provider** Account to your [HTTP file](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/blob/basic/http/tenantUpgrade.http)
 
 Go to your **provider subaccount**, into your CF Runtime and space and get **susaas-srv** application url. After that put the url into your relevant file placeholder in your http file.
 
-[<img src="./images/srv-url-mapping.png" width="700"/>](./images/srv-url-mapping.png?raw=true)
+![<img src="./images/srv-url-mapping.png" width="700"/>](./images/srv-url-mapping.png?raw=true)
 
 ### 6.4. Put the tenant id from **consumer subaccount** into your [HTTP file](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/blob/basic/http/tenantUpgrade.http)
 
 Go to your **consumer subaccount** overview. After that put the **tenant** into your relevant file placeholder in your [http file](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/blob/basic/http/tenantUpgrade.http).
 
-[<img src="./images/tenantid-mapping.png" width="700"/>](./images/tenantid-mapping.png?raw=true)
+![<img src="./images/tenantid-mapping.png" width="700"/>](./images/tenantid-mapping.png?raw=true)
 
 
 ## 7. Send DB Upgrade request for your tenant

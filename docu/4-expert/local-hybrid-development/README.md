@@ -119,15 +119,15 @@ For further information, please see the [official documentation](https://cap.clo
 
 Now that the application backend is running, we can directly go to [http://localhost:4004](http://localhost:4004).
 
-[<img src="./images/localhost.png" width="400"/>](./images/localhost.png?raw=true)
+![<img src="./images/localhost.png" width="400"/>](./images/localhost.png?raw=true)
 
 After e.g., clicking on the **Projects** entity, a popup will ask for your credentials. You can again enter **alice** as username since that is our tenant **t1** sample user. Leave the password field blank and hit **Enter**.
 
-[<img src="./images/localhostcreds.png" width="500"/>](./images/localhostcreds.png?raw=true)
+![<img src="./images/localhostcreds.png" width="500"/>](./images/localhostcreds.png?raw=true)
 
 You should see the projects in your browser as a response, as shown below.
 
-[<img src="./images/projects-response.png" width="600"/>](./images/projects-response.png?raw=true)
+![<img src="./images/projects-response.png" width="600"/>](./images/projects-response.png?raw=true)
 
 
 ## 2. Running the frontend application locally (susaas)
@@ -159,7 +159,7 @@ cds watch --open
 
 Your browser should automatically open **http://localhost:4004**. You will see a link */approuter/resources/index.html* pointing to a **Web Application** providing a mocked Fiori Launchpad for opening and testing all provided SAPUI5 apps. Furthermore, you will find links to the standalone SAPUI5 apps if required for testing.
 
-[<img src="./images/localwomock.png" width="500"/>](./images/localwomock.png?raw=true)
+![<img src="./images/localwomock.png" width="500"/>](./images/localwomock.png?raw=true)
 
 Click on the standalone link(s) or the respective tiles within the Fiori Launchpad and you will be asked for username and password in a dialog. Use **alice** as username and leave the password field blank as we explained in the previous [step](#12-onboard-a-new-initial-tenant-to-your-application). Then you can explore the application, modify the UI by changing the annotations in the backend and test your development.
 
@@ -168,7 +168,7 @@ Click on the standalone link(s) or the respective tiles within the Fiori Launchp
 
 Using the HTML5 Repo Mock requires a few more steps then using the pure *cds watch* test approach. Still, this approach is similar to what's actually happening in your SAP BTP environment. To use the HTML5 Repo Mock, you need to create a *default-env.json* file in the */app/approuter/local-testing* directory to be able to run the application locally. This default-env.json file is needed for SAP Approuter to point your local backend. You can use and rename the provided sample file in the respective directory. The VCAP_SERVICES object can remain empty. 
 
-[<img src="./images/ui-default-env-local.png" width="600"/>](./images/ui-default-env-local.png?raw=true)
+![<img src="./images/ui-default-env-local.png" width="600"/>](./images/ui-default-env-local.png?raw=true)
 
 ```js
 {
@@ -196,7 +196,7 @@ npm run start:local
 
 After running the commands, go to [http://localhost:5000](http://localhost:5000). You should see the application as below.
 
-[<img src="./images/local-running-app-ui.png" width="500"/>](./images/local-running-app-ui.png?raw=true)
+![<img src="./images/local-running-app-ui.png" width="500"/>](./images/local-running-app-ui.png?raw=true)
 
 Click on anything and you will be asked for username and password in a dialog. Use **alice** as username and leave the password field blank as we explained in the previous [step](#12-onboard-a-new-initial-tenant-to-your-application). Then you can explore the application, modify the UI by changing the annotations in the backend and test your development.
 
@@ -442,7 +442,7 @@ Go to your **consumer subaccount** and get its subdomain (e.g., from the Subacco
 
 You should see that the app is up and running as below.
 
-[<img src="./images/hybrid-ui-running.png" width="600"/>](./images/hybrid-ui-running.png?raw=true)
+![<img src="./images/hybrid-ui-running.png" width="600"/>](./images/hybrid-ui-running.png?raw=true)
 
 
 ## 3. Running the multitenant API in hybrid mode (susaas-api-srv)
@@ -471,7 +471,7 @@ npm run api-start-hybrid
 
 Before testing your API in hybrid mode, go to your existing consumer subaccount. Make sure this consumer subaccount already has a **Sustainable SaaS API** service instance including an existing service binding. If not, please create both. 
 
-[<img src="./images/api-key-hybrid.jpg" width="700"/>](./images/api-key-hybrid.jpg?raw=true)
+![<img src="./images/api-key-hybrid.jpg" width="700"/>](./images/api-key-hybrid.jpg?raw=true)
 
 Select the service instance and open your service binding credentials. Copy the binding credentials, use them to fill the placeholders in the following [http file](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/blob/basic/http/api-test-hybrid.http) and you're ready to go.
 

@@ -21,7 +21,7 @@ $ npm install
 
 1.2. Provide a receiver mail address in the **Alert Notification** service configuration which you can find in the **configs** directory.
 
-[<img src="./images/DEPL_EmailNotifSrv.png" width="500"/>](./images/DEPL_EmailNotifSrv.png?raw=true)
+![<img src="./images/DEPL_EmailNotifSrv.png" width="500"/>](./images/DEPL_EmailNotifSrv.png?raw=true)
 
 1.3. From the root directory please execute the following npm script to create catalog IDs and credentials for your service broker instance. 
 
@@ -33,7 +33,7 @@ $ npm run init:broker
 
 > **Important** - Please make sure to store the hashed and plaintext password in a secure place especially in a productive scenario that you and also other SAP BTP platform administrators can access at any time!  
 
-[<img src="./images/broker-credentials.png" width="500"/>](./images/broker-credentials.png?raw=true)
+![<img src="./images/broker-credentials.png" width="500"/>](./images/broker-credentials.png?raw=true)
 
 1.5. Provide the copied hashed credential in the deployment descriptor (mta.yaml) or in the respective MTA Extensions file. We recommend to use **private** MTA Extension Descriptors (1.5.1) for this purpose which are not being pushed to Git by mistake
 
@@ -41,8 +41,8 @@ $ npm run init:broker
 
 1.5.1. Paste the hashed credentials value to the relevant MTA Extension Descriptor file in the **configs/deployment/** directory. To prevent your hashed credentials being commited to Git, please first copy the free-tier.mtaext or trial.mtaext file (depending on your target environment) and add *-private* to the filename (e.g., free-tier-private.mtaext). Files named *-private.mtaext will not be committed to Git.  
 
-[<img src="./images/MTA_DescExt01.png" width="250"/>](./images/MTA_DescExt01.png?raw=true)
-[<img src="./images/MTA_DescExt02.png" width="400"/>](./images/MTA_DescExt02.png?raw=true)
+![<img src="./images/MTA_DescExt01.png" width="250"/>](./images/MTA_DescExt01.png?raw=true)
+![<img src="./images/MTA_DescExt02.png" width="400"/>](./images/MTA_DescExt02.png?raw=true)
 
 Just make sure to reference your MTA Extension Descriptor (free-tier-private.mtaext or trial-private.mtaext) when deploying your application as explained in step 1.8. or already reference it during the build process (see below)! 
 
@@ -61,7 +61,7 @@ $ cf deploy mta_archives/susaas_0.0.1.mtar
 
 1.5.2. If you don't want to use the MTA Extension Descriptors, please go straight to your mta.yaml file and paste the copied hashed credentials to the placeholder shown below. Still, we hightly recommend to use the MTA Extension Descriptor approach as it allows you to store the credentials in the local mtaext files instead of manually exchanging values for each deployment in the mta.yaml file. 
 
-[<img src="./images/paste-creds.png" width="400"/>](./images/paste-creds.png?raw=true)
+![<img src="./images/paste-creds.png" width="400"/>](./images/paste-creds.png?raw=true)
 
 1.6. Decide if you want to deploy the sample data CSV files with your project. We recommend using the SaaS API to push the respective data after the deployment of the solution.
 
@@ -105,7 +105,7 @@ $ cf deploy mta_archives/susaas_0.0.1.mtar -e ./configs/deployment/free-tier-pri
 
 > **Hint** - If you don't receive an e-mail, please make sure you successfully completed step 1.2. of the current chapter. If not, please repeat the previous steps or change the recipient in the existing Alert Notification service instance. Also check your Spam folder. 
 
-[<img src="./images/AN_ConfirmMail.png" width="400"/>](./images/AN_ConfirmMail.png?raw=true)
+![<img src="./images/AN_ConfirmMail.png" width="400"/>](./images/AN_ConfirmMail.png?raw=true)
 
 1.10. Once the deployment has finished, you're almost ready to go. To support some automation steps like the creation of routes or deployment of the API Service Broker in the consumer subaccounts, make sure not to miss the next step before settings up your first consumer subaccount. 
 
@@ -116,15 +116,15 @@ Before you learn how to subscribe new tenants in the next part of the mission, y
 
 2.1. In your provider subaccount, please go to the Instances and Subscriptions menu and click on your **dev-susaas-credstore** instance or use the **Manage Instance** button. 
 
-[<img src="./images/CS_Service.png" width="400"/>](./images/CS_Service.png?raw=true)
+![<img src="./images/CS_Service.png" width="400"/>](./images/CS_Service.png?raw=true)
 
 2.2. In the instance management, please switch to the **Credential Store** menu and click on **Create Namespace**. 
 
-[<img src="./images/CS_Namespace.png" width="400"/>](./images/CS_Namespace.png?raw=true)
+![<img src="./images/CS_Namespace.png" width="400"/>](./images/CS_Namespace.png?raw=true)
 
 2.3. A namespace needs to be created together with the first credential value. Therefore, please select the Credential Type **Password** and click on **Next**. 
 
-[<img src="./images/CS_InitialValue.png" width="400"/>](./images/CS_InitialValue.png?raw=true)
+![<img src="./images/CS_InitialValue.png" width="400"/>](./images/CS_InitialValue.png?raw=true)
 
 2.4. In the following screen, define the namespace called **susaas** and provide the following credential value details.  
 
@@ -136,7 +136,7 @@ Provide the e-mail address (Username) and password (Value) of an SAP BTP user wh
 
 > **Hint** - If you don't want to use a personal/named user for this purpose, we recommend using a custom IdP and defining a technical user there. The usage of **P or S-User** for technical tasks is possible but especially for productive scenarios not recommended by SAP. 
 
-[<img src="./images/CS_AdminUser.png" width="200"/>](./images/CS_AdminUser.png?raw=true)
+![<img src="./images/CS_AdminUser.png" width="200"/>](./images/CS_AdminUser.png?raw=true)
 
 2.5. Please create a second **Password** credential value as described below.
 
@@ -147,11 +147,11 @@ Provide the e-mail address (Username) and password (Value) of an SAP BTP user wh
 As Value please provide the **Plaintext Password** of your API broker user. This password is required when registering the API broker in any of your consumer subaccounts during automation.
 
 > **Hint** - You created this password in step 1.4 of "[Prepare the SaaS Application for deployment](#1-Prepare-the-SaaS-Application-for-deployment)". 
-  [<img src="./images/SB_PlainText.png" width="500"/>](./images/SB_PlainText.png?raw=true)
+  ![<img src="./images/SB_PlainText.png" width="500"/>](./images/SB_PlainText.png?raw=true)
 
 As a Username please use the value **broker-user**. 
 
-[<img src="./images/CS_BrokerUser.png" width="200"/>](./images/CS_BrokerUser.png?raw=true)
+![<img src="./images/CS_BrokerUser.png" width="200"/>](./images/CS_BrokerUser.png?raw=true)
 
 
 ## 3. Troubleshooting

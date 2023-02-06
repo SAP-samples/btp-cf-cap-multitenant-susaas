@@ -228,7 +228,7 @@ Go to your **provider subaccount**, assign the roles for **Subscription Manageme
 Then open the **Subscription Management Dashboard** from your provider subaccount, and update **all** existing tenants as shown below.
 
 
-[<img src="./images/subscription-management-update.jpg" width="700"/>](./images/subscription-management-update.jpg?raw=true)
+![<img src="./images/subscription-management-update.jpg" width="700"/>](./images/subscription-management-update.jpg?raw=true)
 
 
 ## 6. Open UI Theme Designer for your consumer subaccount (tenant)
@@ -250,22 +250,22 @@ So create a role collection as described [here](https://help.sap.com/docs/SAP_S4
 
 Then go to your **Theme Admin** role collection and add the roles as shown below.
 
-[<img src="./images/assign-roles.jpg" width="700"/>](./images/assign-roles.jpg?raw=true)
+![<img src="./images/assign-roles.jpg" width="700"/>](./images/assign-roles.jpg?raw=true)
 
 
 
 ### 6.3. Modify the application endpoint 
 Go to your tenant subaccount, and then click on **Go to Application**.
 
-[<img src="./images/go-to-app.jpg" width="700"/>](./images/go-to-app.jpg?raw=true)
+![<img src="./images/go-to-app.jpg" width="700"/>](./images/go-to-app.jpg?raw=true)
 
 After that you should be going to your application endpoint.
 
-[<img src="./images/app-main-page.jpg" width="700"/>](./images/app-main-page.jpg?raw=true)
+![<img src="./images/app-main-page.jpg" width="700"/>](./images/app-main-page.jpg?raw=true)
 
 Replace your application endpoint in the browser with : *<yourapprouterurl>/comsapuitheming.themedesigner/* as shown below.
 
-[<img src="./images/theme-designer-main.jpg" width="700"/>](./images/theme-designer-main.jpg?raw=true)
+![<img src="./images/theme-designer-main.jpg" width="700"/>](./images/theme-designer-main.jpg?raw=true)
 
 ## 7. Create a custom theme for your application
 
@@ -274,25 +274,25 @@ Replace your application endpoint in the browser with : *<yourapprouterurl>/coms
 Press create new theme on your UI Theme Designer page as shown below.
 And then chose theme you want to extend and press create again.
 
-[<img src="./images/create-new-theme.jpg" width="700"/>](./images/create-new-theme.jpg?raw=true)
+![<img src="./images/create-new-theme.jpg" width="700"/>](./images/create-new-theme.jpg?raw=true)
 
 ### 7.2. Change logo of the theme
 
 To be able to change logo, press first company logo section and upload your logo.
 Then press refresh to see the logo you have uploaded.
 
-[<img src="./images/change-logo.jpg" width="700"/>](./images/change-logo.jpg?raw=true)
+![<img src="./images/change-logo.jpg" width="700"/>](./images/change-logo.jpg?raw=true)
 
 ### 7.3. Publish theme with the new logo
 
 Press on the **Theme** button on top left, then press **Save & Publish** as shown below.
 
-[<img src="./images/publish-theme.jpg" width="700"/>](./images/publish-theme.jpg?raw=true)
+![<img src="./images/publish-theme.jpg" width="700"/>](./images/publish-theme.jpg?raw=true)
 
 Then give the choice **Theme ID** : custom_horizon (you will need this ID later).
 Optional: You can also give **sap_horizon** as fallback theme id.
 
-[<img src="./images/theme-id.jpg" width="700"/>](./images/theme-id.jpg?raw=true)
+![<img src="./images/theme-id.jpg" width="700"/>](./images/theme-id.jpg?raw=true)
     
 And press **Save & Publish** again to finalize saving.
 
@@ -300,7 +300,7 @@ And press **Save & Publish** again to finalize saving.
 
 Go to your [index.html](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/blob/basic/app/uimodule/webapp/index.html) file in your application and edit as described below.
 
-[<img src="./images/modify-index.jpg" width="700"/>](./images/modify-index.jpg?raw=true)
+![<img src="./images/modify-index.jpg" width="700"/>](./images/modify-index.jpg?raw=true)
 
 These properties must be added or modified : 
     - **data-sap-ui-theme**="custom_horizon" 
@@ -328,5 +328,5 @@ Build and deploy your application again to push the changes to your applcation.
 
 Go to your consumer subaccount and click on "Go to Application" then you should see the new theme is being used.
 
-[<img src="./images/new-theme.jpg" width="700"/>](./images/new-theme.jpg?raw=true)
+![<img src="./images/new-theme.jpg" width="700"/>](./images/new-theme.jpg?raw=true)
 
