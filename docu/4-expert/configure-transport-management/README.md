@@ -23,7 +23,7 @@ We can differentiate -
 
 * A *delivery* landscape, based on strict **transport management rules** (such as policies, schedules, and roles) and used to verify release candidate versions, where propagation towards production is typically done with manual confirmation)
 
-[<img src="./images/tms1.png" width="650" />](./images/tms1.png)
+[<img src="./images/tms1.png" width="650" />](./images/tms1.png?raw=true)
 
 > **Prerequisites** - Make sure that you have three subaccounts (Dev, Test, Prod) to successfully execute the transport and release. Additionally to a **Dev** subaccount, create **Test** and **Prod** subaccounts with a sufficient quota to deploy the application. Alternatively, you can also use three different Cloud Foundry **Spaces** in the same subaccount for testing purposes. For a production scenario, separate subaccounts are recommended. 
 
@@ -44,7 +44,7 @@ Before we can combine both services, we need to set up SAP Cloud Transport Manag
 
 2.5. In the subsequent dialog, select the saas-application plan and click on Create.
 
-[<img src="./images/tms2.png" width="500" />](./images/tms2.png)
+[<img src="./images/tms2.png" width="500" />](./images/tms2.png?raw=true)
 
 
 ## 3. Assign User Roles and Permissions
@@ -60,40 +60,40 @@ After a successful subscription, you need to configure user access to the subscr
 
 3.3. Click on **+**.
      
-[<img src="./images/tms3.png" width="500" />](./images/tms3.png)
+[<img src="./images/tms3.png" width="500" />](./images/tms3.png?raw=true)
 
 3.4. Enter the name **TMS Import Operator** for the new role collection, and click on **Create**. 
      
-[<img src="./images/tms4.png" width="300" />](./images/tms4.png)
+[<img src="./images/tms4.png" width="300" />](./images/tms4.png?raw=true)
 
 3.5. Repeat the previous steps to create the **TMS Admin** role collection.
 
 3.6. The new role collections are added to the list.
      
-[<img src="./images/tms5.png" width="400" />](./images/tms5.png)
+[<img src="./images/tms5.png" width="400" />](./images/tms5.png?raw=true)
 
 3.7. In your subaccount, choose **Services** > **Instances and Subscriptions**.
   
-[<img src="./images/tms6.png" width="500" />](./images/tms6.png)
+[<img src="./images/tms6.png" width="500" />](./images/tms6.png?raw=true)
     
 3.8. On the Subscriptions tab, in the Cloud Transport Management row, choose ... (Actions) and Manage Roles.
   
-[<img src="./images/tms7.png" width="200" />](./images/tms7.png)
+[<img src="./images/tms7.png" width="200" />](./images/tms7.png?raw=true)
 
 3.9. The default role templates are displayed.
   
-[<img src="./images/tms8.png" width="500" />](./images/tms8.png)
+[<img src="./images/tms8.png" width="500" />](./images/tms8.png?raw=true)
   
 3.10. Assign the Cloud Transport Management roles to the role collections you just created.
 
 * ImportOperator > TMS Import Operator
 * Administrator > TMS Admin
   
-[<img src="./images/tms9.png" width="400" />](./images/tms9.png)
+[<img src="./images/tms9.png" width="400" />](./images/tms9.png?raw=true)
    
 3.11. Assign the new role collections (TMS Import Operator & TMS Admin) to your own user.
      
-[<img src="./images/tms11.png" width="500" />](./images/tms11.png)
+[<img src="./images/tms11.png" width="500" />](./images/tms11.png?raw=true)
 
 
 ## 4. Configuring the TMS Landscape
@@ -125,7 +125,7 @@ In SAP Cloud Transport Management, transport destinations are used to address th
 
 In the following screenshot, the TEST and PROD subaccounts are situated in different regions. This is possible, as long as the required services are available in a certain region. 
 
-[<img src="./images/tms12.png" width="500" />](./images/tms12.png)
+[<img src="./images/tms12.png" width="500" />](./images/tms12.png?raw=true)
 
 > **Hint** - Instead of Basic Authentication, it is also possible to use OAuth2Password Authentication. More details can be found [here](https://help.sap.com/viewer/7f7160ec0d8546c6b3eab72fb5ad6fd8/Cloud/en-US/c9905c142cf14aea86fe2451434faed9.html)
 
@@ -136,7 +136,7 @@ You can use the Transport Landscape Wizard to configure the transport nodes and 
 
 4.3. Open your SAP Cloud Transport Management subscription.
 
-[<img src="./images/tms10.png" width="500" />](./images/tms10.png)
+[<img src="./images/tms10.png" width="500" />](./images/tms10.png?raw=true)
 
 4.4. Start the **Landscape Wizard**.
 
@@ -144,7 +144,7 @@ You can use the Transport Landscape Wizard to configure the transport nodes and 
 
 > **Hint** - Two Nodes, since the **Dev** subaccount is part of the development landscape and is delivered by CI.
 
-[<img src="./images/tms13.png" width="500" />](./images/tms13.png)
+[<img src="./images/tms13.png" width="500" />](./images/tms13.png?raw=true)
 
 4.6. Provide the details of nodes:
   
@@ -153,43 +153,43 @@ You can use the Transport Landscape Wizard to configure the transport nodes and 
 | Node 1 | TEST | true         | Auto         | Multi-Target App | TMS-TEST    |
 | Node 2 | PROD | false        | Auto         | Multi-Target App | TMS-PROD    |
 
-[<img src="./images/tms14a.png" width="400" />](./images/tms14a.png)
+[<img src="./images/tms14a.png" width="400" />](./images/tms14a.png?raw=true)
   
 4.7. Give a name for the transport route: **route_test_prod**
     
-[<img src="./images/tms14b.png" width="400" />](./images/tms14b.png)
+[<img src="./images/tms14b.png" width="400" />](./images/tms14b.png?raw=true)
   
 4.8. After successfully finishing the step, you will find the newly defined Nodes in **Landscape Visualization**
 
-[<img src="./images/tms15.png" width="400" />](./images/tms15.png)
+[<img src="./images/tms15.png" width="400" />](./images/tms15.png?raw=true)
 
 
 ## 5. Connect to CI/CD Pipeline
    
 Follow the next steps to connect the CI/CD Pipeline to Cloud Transport Management
 
-[<img src="./images/tms1.png" width="600" />](./images/tms1.png)
+[<img src="./images/tms1.png" width="600" />](./images/tms1.png?raw=true)
 
 5.1. First, create new service instance of **Cloud Transport Management** with service plan **standard**.
 
 > **Hint** - If the service plan **standard** is not available, please add it in the **Entitlements**.<br>
->[<img src="./images/tmsentitlement.png" width="300" />](./images/tmsentitlement.png)
+>[<img src="./images/tmsentitlement.png" width="300" />](./images/tmsentitlement.png?raw=true)
 
-[<img src="./images/tms16.png" width="500" />](./images/tms16.png)
+[<img src="./images/tms16.png" width="500" />](./images/tms16.png?raw=true)
 
 5.2. Create a new **Service Key** and name it  tms-service-key.
 
-[<img src="./images/tms17.png" width="500" />](./images/tms17.png)
+[<img src="./images/tms17.png" width="500" />](./images/tms17.png?raw=true)
 
 5.3. View the credentials of the service key and copy the JSON.
 
-[<img src="./images/tms18.png" width="500" />](./images/tms18.png)
+[<img src="./images/tms18.png" width="500" />](./images/tms18.png?raw=true)
 
 5.4. Open the SAP CI/CD service and go to the **Credentials** tab to create credentials for SAP TMS.
     
 5.5. Create a new credential value by clicking on **+**.
   
-[<img src="./images/tms19.png" width="500" />](./images/tms19.png)
+[<img src="./images/tms19.png" width="500" />](./images/tms19.png?raw=true)
 
 5.6. Provide a name for the credential value like **"tms"**.
 
@@ -197,7 +197,7 @@ Follow the next steps to connect the CI/CD Pipeline to Cloud Transport Managemen
 
 5.8. Paste the copied JSON from the previous step and create the credential value.
 
-[<img src="./images/tms20.png" width="400" />](./images/tms20.png)
+[<img src="./images/tms20.png" width="400" />](./images/tms20.png?raw=true)
 
 5.9. Activate the **Upload to TMS** in your pipeline by adjusting your ***.pipeline > config.yml*** file. 
 
@@ -228,7 +228,7 @@ Follow the next steps to connect the CI/CD Pipeline to Cloud Transport Managemen
 
 5.13. Changes in GitHub will trigger a run of the SAP CI/CD service.
     
-[<img src="./images/tms21.png" width="500" />](./images/tms21.png)
+[<img src="./images/tms21.png" width="500" />](./images/tms21.png?raw=true)
 
 
 ## 6. Import queue of Cloud Transport Management
@@ -239,57 +239,57 @@ After the pipeline has finished all (Build > Test > Deploy to Dev > Upload TMS),
 
 6.2. You will find one entry in a queue with the name **TMS Upload** which is the mtar archive created by the SAP CI/CD service.
 
-[<img src="./images/tms22.png" width="500" />](./images/tms22.png)
+[<img src="./images/tms22.png" width="500" />](./images/tms22.png?raw=true)
 
 6.3. Before you import this transport request, you need to provide the correct **MTA Extension Descriptor** file for the stage. To do so, please click on the following icon in the top right of your screen. 
 
-[<img src="./images/tms22a.png" width="500" />](./images/tms22a.png)
+[<img src="./images/tms22a.png" width="500" />](./images/tms22a.png?raw=true)
 
 6.4. In the pop-up, please click on **Add** to upload a new MTA Extension Descriptor (mtaext) file.
 
-[<img src="./images/tms22b.png" width="400" />](./images/tms22b.png)
+[<img src="./images/tms22b.png" width="400" />](./images/tms22b.png?raw=true)
 
 6.5. Click on **Browse** and upload the correct mtaext file for the current stage. Feel free to change the description. Click on **Submit new descriptor** to finish the upload.
 
 > **Important** - Make sure you pick the right mtaext file containing your hashed API Service Broker credentials (e.g. free-tier-private.mtaext). 
 
-[<img src="./images/tms22c.png" width="400" />](./images/tms22c.png)
+[<img src="./images/tms22c.png" width="400" />](./images/tms22c.png?raw=true)
 
 6.6. You will see the uploaded **mtaext** file in the list of available MTA Extension Descriptors. Click on the details icon to check again whether you picked the correct mtaext file. 
 
-[<img src="./images/tms22d.png" width="400" />](./images/tms22d.png)
+[<img src="./images/tms22d.png" width="400" />](./images/tms22d.png?raw=true)
 
 6.7. Double-check the content and make sure you picked the correct mtaext file containing the hashed API Service Broker credentials for the current stage. If yes, you can close the pop-up and return to the Node overview page. 
 
-[<img src="./images/tms22e.png" width="400" />](./images/tms22e.png)
+[<img src="./images/tms22e.png" width="400" />](./images/tms22e.png?raw=true)
 
 6.8. Import the changes to the TEST Node by checking the content details of this transport request first.
 
-[<img src="./images/tms24.png" width="250" />](./images/tms24.png)
+[<img src="./images/tms24.png" width="250" />](./images/tms24.png?raw=true)
 
 6.9. Select the transport request entry and press **Import Selected**.
 
-[<img src="./images/tms23.png" width="500" />](./images/tms23.png)
+[<img src="./images/tms23.png" width="500" />](./images/tms23.png?raw=true)
 
 6.10. After **Approval**, SAP TMS will run a deployment to the **TEST** subaccount and forward the mtar file to the PROD Node.
 
-[<img src="./images/tms24a.png" width="400" />](./images/tms24a.png)
+[<img src="./images/tms24a.png" width="400" />](./images/tms24a.png?raw=true)
 
 6.11. While the deployment is running, you can check the **Logs** of the transport entry. 
 
 > **Hint** - In case of issues during deployment, you can find the details of failure in this log.
 
-[<img src="./images/tms25.png" width="400" />](./images/tms25.png)
+[<img src="./images/tms25.png" width="400" />](./images/tms25.png?raw=true)
 
 6.12. After finishing the import you will find the application deployed to your **TEST Subaccount**.
 
-[<img src="./images/tms26.png" width="400" />](./images/tms26.png)
+[<img src="./images/tms26.png" width="400" />](./images/tms26.png?raw=true)
 
 6.13. Similarly, you can import the application to your PROD subaccount from the **PROD Node queue**.
 
 > **Important** - Don't forget to also provide the correct mtaext file for the production environment!
 
-[<img src="./images/tms27.png" width="400" />](./images/tms27.png)
+[<img src="./images/tms27.png" width="400" />](./images/tms27.png?raw=true)
 
 That's it, you've successfully configured SAP Cloud Transport Management Service and implemented an integration with SAP CI/CD service. This allows you to build and deploy your project to your Dev subaccount using SAP CI/CD and a convenient transport option to your Test and Prod subaccounts using SAP Cloud Transport Management.
 

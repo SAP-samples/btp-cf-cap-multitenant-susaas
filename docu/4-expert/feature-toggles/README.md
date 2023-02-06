@@ -24,7 +24,7 @@ Due to the complexity of the Feature Toggles topic, the actual implementation de
 
     > **Important** - Please don't change the folder name!
 
-    [<img src="./images/FT_RepoStructure.png" width="275" />](./images/FT_RepoStructure.png)
+    [<img src="./images/FT_RepoStructure.png" width="275" />](./images/FT_RepoStructure.png?raw=true)
 
 - Please add the following **tenants** object to the **local-with-mtx** profile of your package.json file (as you can see below). This enables the two new features (product-details and assessment-details) for tenant **t1-ext** only. Furthermore, please check if the **db** property is set to **sql-mt**. This ensures that changes are persisted even after restart of the application.
 
@@ -76,7 +76,7 @@ You can now open the application in two different browser sessions and test whet
 - Login with **alice** (user of tenant **t1**). Leave the password field blank.
 - You will see the default version of the application without new features.
 
-    [<img src="./images/FT_AppNoFeatures.png" width="500" />](./images/FT_AppNoFeatures.png)
+    [<img src="./images/FT_AppNoFeatures.png" width="500" />](./images/FT_AppNoFeatures.png?raw=true)
 
 **Incognito Browser Session (t1-ext tenant)**
 
@@ -84,9 +84,9 @@ You can now open the application in two different browser sessions and test whet
 - Login with **bob** (user of tenant **t1-ext**). Leave the password field blank.
 - You should see the extended application including the new features enabled by the feature toggle.
 
-    [<img src="./images/FT_AppFeatures01.png" width="500" />](./images/FT_AppFeatures01.png)
+    [<img src="./images/FT_AppFeatures01.png" width="500" />](./images/FT_AppFeatures01.png?raw=true)
 
-    [<img src="./images/FT_AppFeatures02.png" width="500" />](./images/FT_AppFeatures02.png)
+    [<img src="./images/FT_AppFeatures02.png" width="500" />](./images/FT_AppFeatures02.png?raw=true)
 
 
 ## 4. Further Information

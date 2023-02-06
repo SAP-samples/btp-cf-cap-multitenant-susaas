@@ -34,57 +34,57 @@ Please use this approach for learning purposes only e.g., when working in a deve
 
 > **Hint** - Make sure your SAP BTP subaccount user has the required roles to access the Subscription Management Dashboard. If necessary, create and assign a new role collection containing the required roles. 
 
-[<img src="./images/manage_010.png" width="500" />](./images/manage_010.png)
+[<img src="./images/manage_010.png" width="500" />](./images/manage_010.png?raw=true)
 
-[<img src="./images/manage_020.png" width="500" />](./images/manage_020.png)
+[<img src="./images/manage_020.png" width="500" />](./images/manage_020.png?raw=true)
 
 3.2. Identify the related tenant database container instance within your SaaS Service Manager by checking the labels and comparing it to the tenant ID you identified in the Subscription Management Dashboard. 
 
-[<img src="./images/manage_030.png" width="500" />](./images/manage_030.png)
+[<img src="./images/manage_030.png" width="500" />](./images/manage_030.png?raw=true)
 
 3.3. Open the existing **Service Binding**, to read the credentials of the tenant database container you want to access. Please note the **host**, **port**, **user** and **password** property. 
 
 > **Hint** - You can see that the **user** property ends with *RT*, which stands for **RunTime** user. The **hdi_user** property ending with *DT* is the so-called **DesignTime** user. 
 
-[<img src="./images/manage_040.png" width="500" />](./images/manage_040.png)
+[<img src="./images/manage_040.png" width="500" />](./images/manage_040.png?raw=true)
 
 3.4. Switch to the SAP HANA Database Explorer to add the tenant database container connection.
 
-[<img src="./images/manage_050.png" width="500" />](./images/manage_050.png)
+[<img src="./images/manage_050.png" width="500" />](./images/manage_050.png?raw=true)
 
 
 ## 4. Access the tenant database container
 
 4.1. Click the **+** icon to add a new database connection. Select the Instance Type **SAP HANA Database**.
 
-[<img src="./images/manage_055.png" width="500" />](./images/manage_055.png)
+[<img src="./images/manage_055.png" width="500" />](./images/manage_055.png?raw=true)
 
 4.2. Provided the service binding credentials of step 3.3. into the corresponding fields. Enable the SSL-based communication as shown in the screenshot. Click **OK** to add the tenant container/schema to your SAP HANA Database Explorer. 
 
-[<img src="./images/manage_060.png" width="500" />](./images/manage_060.png)
+[<img src="./images/manage_060.png" width="500" />](./images/manage_060.png?raw=true)
 
 4.3. Once the container appears in your list of available connections, please switch to the **Tables** section. To see the tables of your tenant database container/schema, please click on the value help icon. 
 
 > **Hint** - Currently you only see tables of the Runtime user's (_RT user) own schema which is empty. Keep in mind, that a database container is nothing different than a collection of database schemas. 
 
-[<img src="./images/manage_070.png" width="200" />](./images/manage_070.png)
+[<img src="./images/manage_070.png" width="200" />](./images/manage_070.png?raw=true)
 
 4.4. Select the two available schemas with randomly generated names, which are the **shared database container schema** and the **tenant database container schema**. Click on **Select** to close the value help.
 
 > **Hint** - You can uncheck the **RT** (Runtime) user's own schema. 
 
-[<img src="./images/manage_080.png" width="500" />](./images/manage_080.png)
+[<img src="./images/manage_080.png" width="500" />](./images/manage_080.png?raw=true)
 
 4.5. You should now have access to all tables in the *shared database container/schema* and the *tenant database container/schema* of the bestrun tenant. You can use SQL commands or available user interface options to view table content, insert/delete/modify records or create and drop schema objects. 
 
-[<img src="./images/manage_090.png" width="200" />](./images/manage_090.png)
+[<img src="./images/manage_090.png" width="200" />](./images/manage_090.png?raw=true)
 
 4.6. An alternative approach to access the tenant database container is displayed in the following screenshots using the Instance Type **Application Managed Service Instance**. Just make sure to select the correct Service Manager instance in the second dropdown.
 
 > **Hint** - Please be aware that you don't have direct access to the corresponding **shared database container/schema objects** using this approach. 
 
-[<img src="./images/manage_100.png" width="250" />](./images/manage_100.png)
-[<img src="./images/manage_110.png" width="300" />](./images/manage_110.png)
+[<img src="./images/manage_100.png" width="250" />](./images/manage_100.png?raw=true)
+[<img src="./images/manage_110.png" width="300" />](./images/manage_110.png?raw=true)
 
 
 ## 5. Further information

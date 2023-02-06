@@ -79,7 +79,7 @@ In case you don't have an SAP IAS tenant or you haven't configured it as a trust
 
 3.5. You or your SAP BTP global account administrator will receive a mail with instructions on how to initialize your new SAP IAS tenant once it is provisioned. The initial admin user can create further users or admins in SAP IAS. 
 
-[<img src="./images/IAS_ActivationMail.png" width="300" />](./images/IAS_ActivationMail.png)
+[<img src="./images/IAS_ActivationMail.png" width="300" />](./images/IAS_ActivationMail.png?raw=true)
 
 3.6. Once the IAS tenant is provisioned, it will also appear in the dropdown list of your **Trust Configuration** and you can finish the trust set up in your consumer and provider subaccounts.
 
@@ -90,9 +90,9 @@ In case you don't have an SAP IAS tenant or you haven't configured it as a trust
 
 Right after setting up the trust between your SAP IAS instance and your **provider** and **consumer** subaccounts, please disable the following setting in the **Trust Configuration** of your SAP IAS trust settings. 
 
-[<img src="./images/IAS_ShadowUser01.png" width="300" />](./images/IAS_ShadowUser01.png)
+[<img src="./images/IAS_ShadowUser01.png" width="300" />](./images/IAS_ShadowUser01.png?raw=true)
 
-[<img src="./images/IAS_ShadowUser02.png" width="300" />](./images/IAS_ShadowUser02.png)
+[<img src="./images/IAS_ShadowUser02.png" width="300" />](./images/IAS_ShadowUser02.png?raw=true)
 
 Automated creation of shadow users results in a setup in which each and every SAP IAS user can authenticate to each consumer subaccount. As your central SAP IAS instance contains the users of all consumers, this is not desirable! Instead, we will create the subaccount-specific shadow users upon creation in the SaaS in-app user management. 
 
@@ -101,8 +101,8 @@ Automated creation of shadow users results in a setup in which each and every SA
 
 To allow an automated forwarding of consumer users to the respective tenant instance after registration in SAP IAS, you need to add your SaaS application domain as a trusted domain. Therefore, please login to SAP Identity Authentication service as an Administrator and follow the screenshots below. Make sure to replace the region *eu10* with your own region if required. 
 
-[<img src="./images/IAS_TrustedDomain01.png" width="300" />](./images/IAS_TrustedDomain01.png)
-[<img src="./images/IAS_TrustedDomain02.png" width="500" />](./images/IAS_TrustedDomain02.png)
+[<img src="./images/IAS_TrustedDomain01.png" width="300" />](./images/IAS_TrustedDomain01.png?raw=true)
+[<img src="./images/IAS_TrustedDomain02.png" width="500" />](./images/IAS_TrustedDomain02.png?raw=true)
 
 For a more secure setup, don't use the default cfapps domain with a wildcard, but specify the full qualified hostname including the different tenant-identifiers. Alternatively you can use your own custom domain. For information can be found in SAP Help ([click here](https://help.sap.com/docs/IDENTITY_AUTHENTICATION/6d6d63354d1242d185ab4830fc04feb1/08fa1fe816704d99a6bcab245158ebca.html?locale=en-US)).
 
@@ -111,8 +111,8 @@ For a more secure setup, don't use the default cfapps domain with a wildcard, bu
 
 See the following screenshots to get an idea of the user management architecture and to understand how authentication works in the sample application including SAP IAS (click to enlarge). 
 
-[<img src="./images/APP_Architecture.png" width="550" />](./images/APP_Architecture.png)
-[<img src="./images/IAS_Architecture.png" width="400" />](./images/IAS_Architecture.png)
+[<img src="./images/APP_Architecture.png" width="550" />](./images/APP_Architecture.png?raw=true)
+[<img src="./images/IAS_Architecture.png" width="400" />](./images/IAS_Architecture.png?raw=true)
 
 Compared to the Basic Scope, the **Advanced Scope** relies on the usage of a central SAP Identity Authentication tenant. This central SAP IAS instance is managed by the SaaS provider and added to each consumer subaccount as a trusted IdP. This allows all SAP IAS users to authenticate against consumer subaccounts using SAP IAS instead of the default SAP ID Service. 
 
@@ -128,25 +128,25 @@ So let's have a closer look at the registration and authentication process in ca
 
 Using a binding to a service instance of type **Cloud Identity Service** (application plan) defined in the mta.yaml of the **Advanced Scope**, the SaaS backend is able to interact with the central SAP IAS tenant. A Cloud Identity Service instance with service plan *application* can only be created in subaccounts with an SAP IAS instance configured as a trusted Identity Provider. 
 
-[<img src="./images/IAS_ServiceInstance.png" width="300" />](./images/IAS_ServiceInstance.png)
+[<img src="./images/IAS_ServiceInstance.png" width="300" />](./images/IAS_ServiceInstance.png?raw=true)
 
 > **Important** - When setting up the SAP IAS trust in the SAP BTP **Trust Configuration**, an application registration in SAP IAS is created, which is used for authentication to all XSUAA-protected applications in the subaccount. 
 
-[<img src="./images/IAS_ProviderTrust.png" width="300" />](./images/IAS_ProviderTrust.png)
+[<img src="./images/IAS_ProviderTrust.png" width="300" />](./images/IAS_ProviderTrust.png?raw=true)
 
 Additionally, the Cloud Identity Service instance (application plan) defined in the mta.yaml of our sample application creates another application registration in SAP IAS during deployment. This service instance is bound to the SaaS backend and is used to programmatically interact with SAP IAS (e.g., to register or unregister users)
 
-[<img src="./images/IAS_ServiceAppReg01.png" width="300" />](./images/IAS_ServiceAppReg01.png)
+[<img src="./images/IAS_ServiceAppReg01.png" width="300" />](./images/IAS_ServiceAppReg01.png?raw=true)
 
-[<img src="./images/IAS_ServiceAppReg02.png" width="300" />](./images/IAS_ServiceAppReg02.png)
+[<img src="./images/IAS_ServiceAppReg02.png" width="300" />](./images/IAS_ServiceAppReg02.png?raw=true)
 
 Binding such a service instance to the SaaS backend will give you access to an X.509 certificate. Using this X.509 certificate, the SaaS backend can call SAP IAS APIs (e.g. to register or unregister users) on behalf of the application registration which is created in SAP IAS by the service broker.
 
-[<img src="./images/IAS_BindingCert01.png" width="300" />](./images/IAS_BindingCert01.png)
+[<img src="./images/IAS_BindingCert01.png" width="300" />](./images/IAS_BindingCert01.png?raw=true)
 
 As you can see in the screenshot below, the X.509 certificate generated during the binding process, allows you to manage the application registration in SAP IAS and manage (register, unregister) users on behalf of the application registration. Keep in mind, this application registration in SAP IAS is created during the deployment of the SaaS application and is independent of the various application registrations created by trust setups between XSUAA and SAP IAS for each subaccount. 
 
-[<img src="./images/IAS_BindingCert02.png" width="300" />](./images/IAS_BindingCert02.png)
+[<img src="./images/IAS_BindingCert02.png" width="300" />](./images/IAS_BindingCert02.png?raw=true)
 
 Being able to programmatically interact with SAP IAS, the SaaS backend can create a new user in SAP IAS on behalf of the app-specific application registration. Once the user **Chuck** is registered in SAP IAS, he receives an automated email, asking him to complete the SAP Identity Authentication registration. This e-mail (style and content) can be customized by the SaaS provider. 
 
@@ -155,7 +155,7 @@ Being able to programmatically interact with SAP IAS, the SaaS backend can creat
 
 5.3. While the user registration process is triggered in SAP IAS, **Chuck** is also created as a **shadow user** in the dedicated XSUAA user base of the ABC consumer subaccount and the respective **role collection** is assigned. For this shadow user, the central SAP IAS tenant (*Custom IAS tenant* managed by the provider) is chosen as **Identity Provider** instead of the default SAP ID Service (**Basic Scope**). 
 
-[<img src="./images/IAS_UserCustomIdP.png" width="300" />](./images/IAS_UserCustomIdP.png)
+[<img src="./images/IAS_UserCustomIdP.png" width="300" />](./images/IAS_UserCustomIdP.png?raw=true)
 
 Based on the XSUAA - SAP IAS trust setup and a dedicated shadow user in XSUAA of the consumer subaccount, SAP IAS (acting as IdP) can now be used to authenticate requests to XSUAA-based applications like the SaaS sample application - As long as the shadow user exists and has the required role collections assigned. 
 
@@ -165,7 +165,7 @@ As explained - while we're using a dedicated SAP IAS application registration fo
 
 SaaS users have to authenticate using the application registration created when the trust between a consumer subaccount and SAP IAS is initiated - as XSUAA will propagate the authentication to SAP IAS (acting as IdP) using this consumer subaccount-specific application registration. 
 
-[<img src="./images/IAS_SubscriberTrust.png" width="300" />](./images/IAS_SubscriberTrust.png)
+[<img src="./images/IAS_SubscriberTrust.png" width="300" />](./images/IAS_SubscriberTrust.png?raw=true)
 
 Until a native integration of SAP IAS into CAP (incl. role management in SAP IAS) is in place, the authentication using the consumer subaccount-specific application registration has to be used. This application registration can unfortunately not be used for automated user management at the same time, as it does not manifest in a service instance on the SAP BTP side. 
 

@@ -67,7 +67,7 @@ $ code \path\of\unzipped\ext\folder
 $ cds pull --from http://localhost:4004 --user bob
 ```
 
-[<img src="./images/CE_TestPull.png" width="500" />](./images/CE_TestPull.png)
+[<img src="./images/CE_TestPull.png" width="500" />](./images/CE_TestPull.png?raw=true)
 
 3.5. Run the following command to push the SaaS consumer extension to the **t1-ext** consumer tenant. 
 
@@ -82,7 +82,7 @@ $ cds push --to http://localhost:4004 --user bob
 
 3.8. You should see the extended SaaS application version including the new consumer extension feature.
 
-[<img src="./images/CE_ExtensionFeature.png" width="500" />](./images/CE_ExtensionFeature.png)
+[<img src="./images/CE_ExtensionFeature.png" width="500" />](./images/CE_ExtensionFeature.png?raw=true)
 
 3.9. If you want to see the default version of the SaaS application without the consumer extension, please onboard a new **t1** tenant like you've done in step 3.2. already. 
 
@@ -98,7 +98,7 @@ cds subscribe t1 --to http://localhost:4004 --user alice
 
 3.12. You should see the default SaaS application without any consumer extensions.
 
-[<img src="./images/CE_AppNoFeatures.png" width="500" />](./images/CE_AppNoFeatures.png)
+[<img src="./images/CE_AppNoFeatures.png" width="500" />](./images/CE_AppNoFeatures.png?raw=true)
 
 
 ## 4. Productive usage
@@ -109,23 +109,23 @@ Pushing SaaS consumer extensions in a productive scenario (to a CAP application 
 
 4.1. It is recommended to provide your SaaS consumers an option to **test** their extension in a **separate tenant** before pushing them to their productive tenant. Therefore, after deploying your SaaS application to a provider subaccount (e.g., SusaaS Provider) please create two new subaccounts (e.g., SusaaS-Subscriber and SusaaS-Subscriber-Ext). 
 
-[<img src="./images/CE_ProdPush01.png" width="500" />](./images/CE_ProdPush01.png)
+[<img src="./images/CE_ProdPush01.png" width="500" />](./images/CE_ProdPush01.png?raw=true)
 
 4.2. Create respective **Sustainable SaaS** application subscriptions in both consumer subaccounts. 
 
-[<img src="./images/CE_ProdPush02.png" width="500" />](./images/CE_ProdPush02.png)
+[<img src="./images/CE_ProdPush02.png" width="500" />](./images/CE_ProdPush02.png?raw=true)
 
 4.3. After successful subscription, please make sure that you assign the **Susaas Extension Developer** role to the consumer's developer user who is supposed to push the SaaS consumer extension in one of the next steps. 
 
-[<img src="./images/CE_ProdPush03.png" width="500" />](./images/CE_ProdPush03.png)
+[<img src="./images/CE_ProdPush03.png" width="500" />](./images/CE_ProdPush03.png?raw=true)
 
 4.4. To push the sample SaaS consumer extension to the **test tenant**, please open the respective consumer test subaccount and note down the **Subdomain** from the subaccount overview. 
 
-[<img src="./images/CE_ProdPush05.png" width="500" />](./images/CE_ProdPush05.png)
+[<img src="./images/CE_ProdPush05.png" width="500" />](./images/CE_ProdPush05.png?raw=true)
 
 4.5. Furthermore, your consumer will need the URL of the CAP service running in the provider subaccount. This URL has to be provided to consumers that wish to extend their tenants.
 
-[<img src="./images/CE_ProdPush06.png" width="500" />](./images/CE_ProdPush06.png)
+[<img src="./images/CE_ProdPush06.png" width="500" />](./images/CE_ProdPush06.png?raw=true)
 
 4.6. From now on, please imagine you are a SaaS consumer developer. Open a command line window and switch to the unzipped **ext** folder again (see previous chapter) or open the respective path in VS Code (recommended!). 
 
@@ -139,7 +139,7 @@ or to open the path in VS Code
 $ code \path\of\unzipped\ext\folder 
 ```
 
-[<img src="./images/CE_ProdPush04.png" width="500" />](./images/CE_ProdPush04.png)
+[<img src="./images/CE_ProdPush04.png" width="500" />](./images/CE_ProdPush04.png?raw=true)
 
 4.7. In the **ext** folder, open a command line and use the **cds login** command to connect to the SaaS extensibility feature as SaaS consumer. 
 
@@ -157,7 +157,7 @@ $ cds login cf-susaas-provider-ef3f1f64.cfapps.us10-001.hana.ondemand.com -s sus
 
 4.8. You may be asked to enter a (temporary) passcode. 
 
-[<img src="./images/CE_ProdPush07.png" width="500" />](./images/CE_ProdPush07.png)
+[<img src="./images/CE_ProdPush07.png" width="500" />](./images/CE_ProdPush07.png?raw=true)
 
 4.9. You can generate that passcode by opening the following URL in your browser and logging in with your credentials.
 
@@ -167,11 +167,11 @@ https://\<consumer tenant subomdain\>.authentication.\<region\>.hana.ondemand.co
 
 https://susaas-subscriber-ext-f4tthx5.authentication.us10.hana.ondemand.com/passcode
 
-[<img src="./images/CE_ProdPush08.png" width="500" />](./images/CE_ProdPush08.png)
+[<img src="./images/CE_ProdPush08.png" width="500" />](./images/CE_ProdPush08.png?raw=true)
 
 4.10. Copy the passcode and paste it into your command line. Press Enter to continue. The authentication data will be stored on your local device to simplify further process steps. 
 
-[<img src="./images/CE_ProdPush09.png" width="500" />](./images/CE_ProdPush09.png)
+[<img src="./images/CE_ProdPush09.png" width="500" />](./images/CE_ProdPush09.png?raw=true)
 
 4.11. Pull the latest default CDS model by running the following command in your command line. This will generate a node_modules folder containing the default CDS model which is referenced in the sample SaaS consumer extension.
 
@@ -181,7 +181,7 @@ https://susaas-subscriber-ext-f4tthx5.authentication.us10.hana.ondemand.com/pass
 $ cds pull
 ```
 
-[<img src="./images/CE_ProdPush10.png" width="500" />](./images/CE_ProdPush10.png)
+[<img src="./images/CE_ProdPush10.png" width="500" />](./images/CE_ProdPush10.png?raw=true)
 
 4.12. Build the sample SaaS consumer extension project by running the following command. This will generate the **gen** folder. 
 
@@ -189,7 +189,7 @@ $ cds pull
 $ cds build
 ```
 
-[<img src="./images/CE_ProdPush11.png" width="500" />](./images/CE_ProdPush11.png)
+[<img src="./images/CE_ProdPush11.png" width="500" />](./images/CE_ProdPush11.png?raw=true)
 
 4.13. Push the sample SaaS consumer extension by running the following command in your command line. 
 
@@ -199,19 +199,19 @@ $ cds build
 $ cds push
 ```
 
-[<img src="./images/CE_ProdPush12.png" width="500" />](./images/CE_ProdPush12.png)
+[<img src="./images/CE_ProdPush12.png" width="500" />](./images/CE_ProdPush12.png?raw=true)
 
 4.14. Once the **Activation succeeded**, you can open the SaaS consumer subscription from the **Instances and Subscriptions** section of the SAP BTP Cockpit. 
 
 > **Important** - Please make sure to the Susaas Administrator or Member role collection to your user if not done yet. 
 
-[<img src="./images/CE_ProdPush13.png" width="500" />](./images/CE_ProdPush13.png)
+[<img src="./images/CE_ProdPush13.png" width="500" />](./images/CE_ProdPush13.png?raw=true)
 
 4.15. You can see that the **Detailed Information** tab has been added to the **Assessments** Object Page. 
 
 > **Hint** - To create an assessment, you might need to push some sample data using the SaaS API first. 
 
-[<img src="./images/CE_ProdPush14.png" width="500" />](./images/CE_ProdPush14.png)
+[<img src="./images/CE_ProdPush14.png" width="500" />](./images/CE_ProdPush14.png?raw=true)
 
 4.16. Once you're comfortable with the extension in the SaaS consumer test tenant, you can repeat the process and push the extension to SaaS consumer production tenant. 
 
