@@ -10,10 +10,9 @@ The sample application has a focus on the topic of Sustainability and is called 
 2. [GitHub Repository](#2-GitHub-Repository)
 3. [Mission Audience](#3-Mission-Audience)
 4. [Focus Topics](#4-Focus-Topics)
-5. [Known Issues](#5-Known-Issues)
-6. [Obtain Support](#6-Obtain-Support)
-7. [Provide Feedback](#7-Provide-Feedback)
-8. [What's New](#8-What's-New)
+5. [Obtain Support](#5-Obtain-Support)
+6. [Provide Feedback](#6-Provide-Feedback)
+7. [What's New](#7-What's-New)
 
 In this simple scenario, the application allows you to assign users to multiple projects, in which they can assess dedicated circularity metrics of products imported from an SAP backend system like S/4HANA. Besides the assessment of financial product sales data, the app also allows to import or to enter recycling data or product design information. 
 
@@ -109,30 +108,18 @@ The main topics of the mission include:
   - and many more...
 
 
-## 5. Known Issues
-
-The tutorial is provided on an "as-is" basis. Currently, the following known issues for the project exist.
-
-**SAP Fiori Elements**
- - Chart destroy issue
-   - **Problem**: Trying to open the Assessments is not possible after it is been successfully opened before
-   - **Issue**: If the charts in the Assessments app have not been rendered because you haven't loaded the object page subsections, some chart-related components are not destroyed properly when leaving the Assessments app. 
-   - **Workaround**: Refresh the page and open the Assessments app again. Open all Object Page Sections at least once before leaving the Assessments app.
-   - **Status**: Issue fixed by the development team and released in upcoming SAPUI5 version.
-
-
-## 6. Obtain Support
+## 5. Obtain Support
 
 Please check if you find your issue described in the **Known Issues** section ([click here](#5-known-issues)) or the **Troubleshooting** chapters ([basic](../../2-basic/10-troubleshooting/README.md), [advanced](../../3-advanced/9-troubleshooting/README.md), [expert](../../4-expert/troubleshooting/README.md)) of the different mission parts. 
 
 If not, please create a GitHub issue to get support or to report a bug (https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/issues).
 
 
-## 7. Provide Feedback
+## 6. Provide Feedback
 
 Nobody is perfect so please let us know how we can improve our samples so that you can take the most out of it! Feel free to share your feedback with us using the Discovery Center **Ask Expert** messaging feature or create an issue in GitHub as described above. This will help us to improve this mission and further content for you and other stakeholders. 
 
 
-## 8. What's New
+## 7. What's New
 
 Check the latest release and **What's New** details in the respective card of the **Discover** mission scope ([click here](../6-whats-new/README.md)).
