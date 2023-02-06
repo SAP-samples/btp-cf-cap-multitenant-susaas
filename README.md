@@ -2,7 +2,7 @@
 
 [![REUSE status](https://api.reuse.software/badge/github.com/SAP-samples/btp-cf-cap-multitenant-susaas)](https://api.reuse.software/info/github.com/SAP-samples/btp-cf-cap-multitenant-susaas)
 
-> Note: The content of this GitHub repository has been created as source for a SAP Discovery Center Mission (available soon). For a better tutorial experience, we advise using the mission in the SAP Discovery Center.
+> Note: The content of this GitHub repository has been created as source for a [SAP Discovery Center Mission](https://discovery-center.cloud.sap/)(available soon). For a better tutorial experience, we advise using the mission in the SAP Discovery Center.
 
 
 ## Advanced Scope
@@ -27,7 +27,7 @@ Below you can find the **Advanced Scope** solution architecture diagram of the s
 
 ## Content
 
-As stated above, the documentation content of this GitHub repository has been created for consumption in a SAP Discovery Center Mission(available soon), so the table of content follows the structure of the SAP Discovery Center scopes. While we highly recommend starting your own personal mission instance in SAP Discovery Center, you can also follow the steps here in GitHub using the linked documents below.
+As stated above, the documentation content of this GitHub repository has been created for consumption in [SAP Discovery Center](https://discovery-center.cloud.sap/)(available soon), so the table of content follows the structure of the SAP Discovery Center scopes. While we highly recommend starting your own personal mission instance in SAP Discovery Center, you can also follow the steps here in GitHub using the linked documents below.
 
 Besides the documentation residing in the [main](github.com/SAP-samples/btp-cf-cap-multitenant-susaas) branch of this GitHub repository, you can find two more branches:
 
