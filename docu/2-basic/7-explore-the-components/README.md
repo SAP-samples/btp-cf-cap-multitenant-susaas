@@ -16,7 +16,7 @@ This part of the mission will provide deeper insights into the different compone
 
 > **Hint** - The Basic Scope can also be done in **Trial** accounts, although we recommend to use one of the account types mentioned above.  
 
-![<img src="./images/basic-arch1.png" width="700"/>](./images/basic-arch1.png?raw=true)
+[<img src="./images/basic-arch1.png" width="700"/>](./images/basic-arch1.png?raw=true)
 
 
 ## 1. Application Router 
@@ -52,7 +52,7 @@ For consumers that want to push data to their database container instances, an A
 
 Below you can see the available entities of the SaaS API like Product details and Sales Orders.
 
-![<img src="./images/API_Endpoints.png" width="700"/>](./images/API_Endpoints.png?raw=true)
+[<img src="./images/API_Endpoints.png" width="700"/>](./images/API_Endpoints.png?raw=true)
 
 Besides the default CRUD methods for entity maintenance, also  sample actions are provided allowing bulk upload (DELETE & INSERT) for the main application entities. Finally, you can find samples for OData actions allowing you to bulk-update products using CAP CQL UPDATE feature and to bulk-upsert Sales Orders using an SAP HANA Stored procedure.
 
@@ -78,7 +78,7 @@ Furthermore, the requirement for a tenant-based SaaS API is fulfilled by dedicat
 
 Below you can see an overview pf the tables deployed into new tenant database containers upon subscription.
 
-![<img src="./images/DM_Tables.png" width="700"/>](./images/DM_Tables.png?raw=true)
+[<img src="./images/DM_Tables.png" width="700"/>](./images/DM_Tables.png?raw=true)
 
 > **Hint** - The **Roles** table is only used for local development scenarios. If running the app in SAP BTP, the roles are automatically fetched from SAP XSUAA and no separate storage is required. 
 
@@ -201,7 +201,7 @@ try {
 
 The result of such a custom event looks similar to the following screenshot.
 
-![<img src="./images/AN_ErrorMail.png" width="700"/>](./images/AN_ErrorMail.png?raw=true)
+[<img src="./images/AN_ErrorMail.png" width="700"/>](./images/AN_ErrorMail.png?raw=true)
 
 
 ## 9. Further information

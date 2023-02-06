@@ -14,7 +14,7 @@ Please see the diagram below for an overview of the structure of SAP Industry cl
 
 As an SAP partner, make sure to check out the latest SAP Discovery Center feature, which is providing **Pay-As-You-Go for Partners** pricing information. Make sure to log in to SAP Discovery Center to see the respective tab in your browser (click to enlarge). 
 
-![<img src="./images/PAYGO_Partners.png" width="500" />](./images/PAYGO_Partners.png?raw=true)
+[<img src="./images/PAYGO_Partners.png" width="500" />](./images/PAYGO_Partners.png?raw=true)
 
 ## 4. Further information
 

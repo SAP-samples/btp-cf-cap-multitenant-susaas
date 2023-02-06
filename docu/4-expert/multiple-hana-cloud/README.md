@@ -14,7 +14,7 @@ In this part of the **Expert Scope** you will get an ideo how to set up a scenar
 
 Since release 1.1.0, the **@sap/cds-mtxs** package ([click here](https://www.npmjs.com/package/@sap/cds-mtx)) provides you an option to pass a **database_id** in the subscription payload ([click here](https://cap.cloud.sap/docs/releases/changelog/?q=provisioning_parameters)) to define the target database of the new tenant container.
 
-![<img src="./images/MHC_Docu.png" width="700" />](./images/MHC_Docu.png?raw=true)
+[<img src="./images/MHC_Docu.png" width="700" />](./images/MHC_Docu.png?raw=true)
 
 If you adapt the **saas-registry** config in your **mta.yaml** file accordingly, you can provide the database_id of an **existing SAP HANA Cloud database** available in your Cloud Foundry Space upon setup of a new subscription. Start by changing the saas-registry resource configuration in your mta.yaml file as you can see below. This allows you to provide a **databaseId** parameter during the subscription process of a new SaaS consumer tenant. 
 
@@ -66,7 +66,7 @@ config:
 
 The resulting popup when creating a new subscription will look like the following. Just paste the ID of the target SAP HANA Cloud database here when setting up a new subscription in a tenant subaccount. 
 
-![<img src="./images/MHC_Parameter.jpeg" width="600" />](./images/MHC_Parameter.jpeg?raw=true)
+[<img src="./images/MHC_Parameter.jpeg" width="600" />](./images/MHC_Parameter.jpeg?raw=true)
 
 During subscription, you can read the **databaseId** parameter and add it to the subscription payload in the required format (as described in the CAP changelog - [click here](https://cap.cloud.sap/docs/releases/changelog/?q=provisioning_parameters)). 
 
@@ -113,7 +113,7 @@ Before your deploy your changes, make sure to provide a **default** database_id 
 
 So how can you check whether a container has been deployed to the separate SAP HANA Cloud instance you provided in the subscription process? Well, you can check it in the Service Manager binding details. As you can see in the following screenshot, the Service Manager currently manages three containers. Besides the technical **t0** container, two additional SaaS tenant containers are available. As you can see in the details, the tenant containers are deployed to different SAP HANA Cloud instances, based on the database ID parameter provided in the subscription process.  
 
-![<img src="./images/MHC_Result.png" />](./images/MHC_Result.png?raw=true)
+[<img src="./images/MHC_Result.png" />](./images/MHC_Result.png?raw=true)
 
 
 ## 2. Further Details

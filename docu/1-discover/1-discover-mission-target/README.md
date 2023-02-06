@@ -19,15 +19,15 @@ In this simple scenario, the application allows you to assign users to multiple 
 
 See the following screenshots to get an idea of the application features. The details will be described in later parts of the mission (click to enlarge).
 
-![<img src="./images/App_Launchpad.png" width="300" />](./images/App_Launchpad.png?raw=true)
-![<img src="./images/App_Assessment_01.png" width="300" />](./images/App_Assessment_01.png?raw=true)
-![<img src="./images/App_Assessment_02.png" width="300" />](./images/App_Assessment_02.png?raw=true)
+[<img src="./images/App_Launchpad.png" width="300" />](./images/App_Launchpad.png?raw=true)
+[<img src="./images/App_Assessment_01.png" width="300" />](./images/App_Assessment_01.png?raw=true)
+[<img src="./images/App_Assessment_02.png" width="300" />](./images/App_Assessment_02.png?raw=true)
 
 Due to the technical and theoretical complexity of the topic, the sample application shall not be seen or used in any kind for productive scenarios. Furthermore, it shall give you a lot of ideas and approaches for your own scenario implementation. We aim to cover as many topics as possible but not in the greatest depth that might justify productive usability.  
 
 Below you can find a solution architecture diagram of the sample application. As you can see, the app contains a lot of services and tools which you will use during the course of this mission (click to enlarge).
 
-![<img src="./images/App_Architecture.png" width="600" />](./images/App_Architecture.png?raw=true)
+[<img src="./images/App_Architecture.png" width="600" />](./images/App_Architecture.png?raw=true)
 
 
 ## 1. Mission Scopes

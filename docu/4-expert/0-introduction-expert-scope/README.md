@@ -13,7 +13,7 @@ The idea of **Expert Scope** builds on the Basic and Advanced Scope and features
 
 See the following screenshot to get an idea of the Expert Scope architecture.
 
-![<img src="./images/App_Architecture_Expert.png" width="600" />](./images/App_Architecture_Expert.png?raw=true)
+[<img src="./images/App_Architecture_Expert.png" width="600" />](./images/App_Architecture_Expert.png?raw=true)
 
 The **Expert Scope** will cover topics from doing backups of tenant database containers to using a custom domain for your SaaS application. Below you can find the current list of topics covered.  
 

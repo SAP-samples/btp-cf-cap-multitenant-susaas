@@ -16,7 +16,7 @@ Due to the technical and theoretical complexity of the topic, the sample applica
 
 Below you can find a solution architecture diagram of the sample application. As you can see, the app contains a lot of services and tools which you will use in this mission (click to enlarge).
 
-![<img src="./images/App_Architecture.png" width="600" />](./images/App_Architecture.png?raw=true)
+[<img src="./images/App_Architecture.png" width="600" />](./images/App_Architecture.png?raw=true)
 
 
 ## Content
@@ -100,7 +100,7 @@ The **Expert Scope** contains a variety of different topics which will make your
 
 This use-case can also be set up in your SAP BTP environment using the **SAP BTP Setup Automator**! Currently only the **Basic Scope** is supported for an automated setup using Free (Tier) or Trial services. You can find the instructions in the SAP BTP Setup Automator repository ([click here](https://github.com/SAP-samples/btp-setup-automator/tree/main/usecases/released/discoverycenter/4064-cap-saas-cf)).
 
-![<img src="./images/BTP_Setup_Automator.png" width="700" />](./images/BTP_Setup_Automator.png?raw=true)
+[<img src="./images/BTP_Setup_Automator.png" width="700" />](./images/BTP_Setup_Automator.png?raw=true)
 
 
 ## Requirements

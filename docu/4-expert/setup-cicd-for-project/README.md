@@ -25,17 +25,17 @@ In the following part of the **Expert Scope**, you will learn how to set up an S
 
 To understand the basics of Continuous Integration and Delivery, please start reading the official **SAP Help** documentation ([click here](https://help.sap.com/docs/CONTINUOUS_DELIVERY/f3d64e9188f242ffb7873da5dfad4278/618ca03fdca24e56924cc87cfbb7673a.html?locale=en-US)).
 
-![<img src="./images/CICD_Basics01.png" width="300" />](./images/CICD_Basics01.png?raw=true)
+[<img src="./images/CICD_Basics01.png" width="300" />](./images/CICD_Basics01.png?raw=true)
 
 Continue with the most important **Concepts**, to understand the differences between **Jobs and Builds** or the concepts of **Pipelines, Stages, and Steps**, as we will use these words throughout this part of the **Expert Scope**. You can find great explanations in the official SAP Help documentation ([click here](https://help.sap.com/docs/CONTINUOUS_DELIVERY/f3d64e9188f242ffb7873da5dfad4278/707017c681aa4bc09d0279f08115dcae.html?locale=en-US))
 
-![<img src="./images/CICD_Basics02.png" width="400" />](./images/CICD_Basics02.png?raw=true)
+[<img src="./images/CICD_Basics02.png" width="400" />](./images/CICD_Basics02.png?raw=true)
 
-![<img src="./images/CICD_Basics03.png" width="400" />](./images/CICD_Basics03.png?raw=true)
+[<img src="./images/CICD_Basics03.png" width="400" />](./images/CICD_Basics03.png?raw=true)
 
 Once you're familiar with the basic concepts, check out the details of the **SAP Cloud Application Programming Model** pipeline which we will use in the following steps. The official SAP Help documentation ([click here](https://help.sap.com/docs/CONTINUOUS_DELIVERY/f3d64e9188f242ffb7873da5dfad4278/bfe48a4b12ed41868f92fa564829f752.html?locale=en-US])) describes the pipeline and the various stages and steps used in great detail. 
 
-![<img src="./images/CICD_Basics04.png" width="400" />](./images/CICD_Basics04.png?raw=true)
+[<img src="./images/CICD_Basics04.png" width="400" />](./images/CICD_Basics04.png?raw=true)
 
 Did you get an understanding of the basic wordings and concepts? Well then let's go and get some DevOps into your sample application! 
 
@@ -50,11 +50,11 @@ The **SAP CI/CD Service** gives you access to a selected set of the **Project "P
 
 2.3. Find the Continuous Integration & Delivery Service and subscribe to the application.
 
-![<img src="./images/CICD_Setup01.png" width="400" />](./images/CICD_Setup01.png?raw=true)
+[<img src="./images/CICD_Setup01.png" width="400" />](./images/CICD_Setup01.png?raw=true)
 
 2.4. Assign the new Role Collection **"CICD Service Administrator"** to your user.
 
-![<img src="./images/CICD_Setup02.png" width="400" />](./images/CICD_Setup02.png?raw=true)
+[<img src="./images/CICD_Setup02.png" width="400" />](./images/CICD_Setup02.png?raw=true)
 
 
 ## 3. Provide SAP BTP credentials
@@ -65,7 +65,7 @@ The **SAP CI/CD Service** gives you access to a selected set of the **Project "P
 
 3.3. Click on **Go to Application**.
 
-![<img src="./images/CICD_Setup03.png" width="400" />](./images/CICD_Setup03.png?raw=true)
+[<img src="./images/CICD_Setup03.png" width="400" />](./images/CICD_Setup03.png?raw=true)
 
 3.4. Add your SAP BTP credentials by clicking on the **Credentials** tab.
 
@@ -73,7 +73,7 @@ The **SAP CI/CD Service** gives you access to a selected set of the **Project "P
 
 3.5. Click on **+**.
 
-![<img src="./images/CICD_Setup04.png" width="400" />](./images/CICD_Setup04.png?raw=true)
+[<img src="./images/CICD_Setup04.png" width="400" />](./images/CICD_Setup04.png?raw=true)
 
 3.6. Enter a name of your choice. In this example, the name is **cf-credentials**.
 
@@ -89,13 +89,13 @@ The **SAP CI/CD Service** gives you access to a selected set of the **Project "P
 
 3.10. Click on **Create**.
 
-![<img src="./images/CICD_Setup05.png" width="400" />](./images/CICD_Setup05.png?raw=true)
+[<img src="./images/CICD_Setup05.png" width="400" />](./images/CICD_Setup05.png?raw=true)
 
 ## 4. Provide GitHub credentials
 
 4.1. In the **Credentials** menu, click on **+**.
 
-![<img src="./images/CICD_Setup04.png" width="400" />](./images/CICD_Setup04.png?raw=true)
+[<img src="./images/CICD_Setup04.png" width="400" />](./images/CICD_Setup04.png?raw=true)
 
 4.2. Enter a name of your choice. In this example, the name is **git-credentials**.
 
@@ -108,13 +108,13 @@ The **SAP CI/CD Service** gives you access to a selected set of the **Project "P
 4.5. As a Password, use a **personal access token** created in GitHub.
 
 > **Hint** - Personal access tokens can be created in GitHub by going to *Settings* -> *Developer Settings*. Below you can find the steps to set up a sample access token. Depending on your requirements, you might need to choose a more granular security setup.<br>
-![<img src="./images/CICD_Setup06.png" width="150" />](./images/CICD_Setup06.png?raw=true)
-![<img src="./images/CICD_Setup07.png" width="150" />](./images/CICD_Setup07.png?raw=true)
-![<img src="./images/CICD_Setup08.png" width="150" />](./images/CICD_Setup08.png?raw=true)
+[<img src="./images/CICD_Setup06.png" width="150" />](./images/CICD_Setup06.png?raw=true)
+[<img src="./images/CICD_Setup07.png" width="150" />](./images/CICD_Setup07.png?raw=true)
+[<img src="./images/CICD_Setup08.png" width="150" />](./images/CICD_Setup08.png?raw=true)
 
 4.6. Click on create.
 
-![<img src="./images/CICD_Setup09.png" width="300" />](./images/CICD_Setup09.png?raw=true)
+[<img src="./images/CICD_Setup09.png" width="300" />](./images/CICD_Setup09.png?raw=true)
 
 
 ## 5. Provide Service Broker credentials
@@ -122,7 +122,7 @@ The **SAP CI/CD Service** gives you access to a selected set of the **Project "P
 Instead of pushing your hashed API Service Broker credentials to GitHub, the credentials will be injected by SAP CI/CD Service during the deployment of your application. Therefore, you need to store these credentials in SAP CI/CD Service as a **Secret Text**. 
 
 > **Important** - Please ensure to commit the **catalog.json** file in your broker directory including the **generated GUIDs** before running your pipeline! Otherwise, the deployment will fail! <br>
-![<img src="./images/CICD_CatalogIDs.png" width="400" />](./images/CICD_CatalogIDs.png?raw=true)
+[<img src="./images/CICD_CatalogIDs.png" width="400" />](./images/CICD_CatalogIDs.png?raw=true)
 
 5.1. In the **Credentials** menu, click on **+**.
 
@@ -134,7 +134,7 @@ Instead of pushing your hashed API Service Broker credentials to GitHub, the cre
 
 5.4. Paste in the hashed credentials of your API Service Broker. 
 
-![<img src="./images/CICD_SecretText.png" width="400" />](./images/CICD_SecretText.png?raw=true)
+[<img src="./images/CICD_SecretText.png" width="400" />](./images/CICD_SecretText.png?raw=true)
 
 5.5. Click on **Create**.
 
@@ -151,7 +151,7 @@ Instead of pushing your hashed API Service Broker credentials to GitHub, the cre
 
 6.4. Select your GitHub credentials (**git-credentials**) created in previous steps and click **Add**.
 
-![<img src="./images/CICD_Setup10.png" width="400" />](./images/CICD_Setup10.png?raw=true)
+[<img src="./images/CICD_Setup10.png" width="400" />](./images/CICD_Setup10.png?raw=true)
 
 
 ## 7. Create a GitHub Webhook
@@ -166,11 +166,11 @@ In this and the next step, you will read the so-called Webhook Data of the repos
 
 7.4. Click on **Webhook Data**.
 
-![<img src="./images/CICD_Setup11.png" width="400" />](./images/CICD_Setup11.png?raw=true)
+[<img src="./images/CICD_Setup11.png" width="400" />](./images/CICD_Setup11.png?raw=true)
    
 7.5 You will see a pop-up like the one below. Keep the pop-up open for the next steps. 
 
-![<img src="./images/CICD_Setup12.png" width="400" />](./images/CICD_Setup12.png?raw=true)
+[<img src="./images/CICD_Setup12.png" width="400" />](./images/CICD_Setup12.png?raw=true)
 
 
 ## 8.  Add the Webhook to GitHub
@@ -181,7 +181,7 @@ In this and the next step, you will read the so-called Webhook Data of the repos
 
 8.3. Choose **Add webhook**.
 
-![<img src="./images/CICD_WebhookGit01.png" width="400" />](./images/CICD_WebhookGit01.png?raw=true)
+[<img src="./images/CICD_WebhookGit01.png" width="400" />](./images/CICD_WebhookGit01.png?raw=true)
 
 
 8.4. The data required can be found in the CI/CD popup. First, enter the Payload URL.
@@ -192,7 +192,7 @@ In this and the next step, you will read the so-called Webhook Data of the repos
 
 8.7. Keep the other values default and click on **Add webhook**.
 
-![<img src="./images/CICD_WebhookGit02.png" width="400" />](./images/CICD_WebhookGit02.png?raw=true)
+[<img src="./images/CICD_WebhookGit02.png" width="400" />](./images/CICD_WebhookGit02.png?raw=true)
 
 
 ## 9. Configure a CI/CD Job
@@ -217,14 +217,14 @@ In this and the next step, you will read the so-called Webhook Data of the repos
 
 9.8. Choose **Create**.
 
-![<img src="./images/CICD_Setup13.png" width="400" />](./images/CICD_Setup13.png?raw=true)
+[<img src="./images/CICD_Setup13.png" width="400" />](./images/CICD_Setup13.png?raw=true)
 
 
 ## 10. Create the pipeline files
 
 10.1. Copy the provided [config.yml](./files/config.yml) file to a new directory named **.pipeline** (don't forget the dot!) and place the provided [Jenkinsfile](./files/Jenkinsfile) in the root of your project.
 
-![<img src="./images/CICD_RepoStructure.png" width="200" />](./images/CICD_RepoStructure.png?raw=true)
+[<img src="./images/CICD_RepoStructure.png" width="200" />](./images/CICD_RepoStructure.png?raw=true)
 
 10.2. Place the provided [free-tier-cicd.mtaext](./files/free-tier-cicd.mtaext) file in the root of your project or add it to the *./configs/deployment/* directory. 
 
@@ -239,7 +239,7 @@ In this and the next step, you will read the so-called Webhook Data of the repos
 * mtaExtensionDescriptor - The relative path to which you saved the **mtaext file**. 
 
 
-![<img src="./images/CICD_ConfigSample.png" width="400" />](./images/CICD_ConfigSample.png?raw=true)
+[<img src="./images/CICD_ConfigSample.png" width="400" />](./images/CICD_ConfigSample.png?raw=true)
 
 
 ## 11. Push and test
@@ -258,7 +258,7 @@ git push
 
 11.4. Check on the right-hand side whether the build has been triggered.
 
-![<img src="./images/CICD_Setup14.png" width="400" />](./images/CICD_Setup14.png?raw=true)
+[<img src="./images/CICD_Setup14.png" width="400" />](./images/CICD_Setup14.png?raw=true)
 
 That's it, you've successfully configured your pipeline. It's a very basic setup but still should give you a good idea of how to get started and can be enhanced and customized based on your individual needs. 
 
@@ -292,8 +292,8 @@ To enhance your pipeline, start with the official [SAP Help documentation](https
 
 Once you feel comfortable understanding the various stages and steps included in this pipeline, you can deep dive into the official [**Project "Piper"**](https://www.project-piper.io/) documentation. SAP implements most tooling for continuous delivery in the project "Piper". The goal of project "Piper" is to substantially ease setting up continuous delivery in your project using SAP technologies. If you compare the available steps of the **Build stage** described in Project "Piper" ([click here](https://www.project-piper.io/stages/build/#build)), you will find the exact same steps in the official SAP Help documentation ([click here](https://help.sap.com/docs/CONTINUOUS_DELIVERY/99c72101f7ee40d0b2deb4df72ba1ad3/bfe48a4b12ed41868f92fa564829f752.html?locale=en-US)). 
 
-![<img src="./images/CICD_PiplineComp01.png" width="300" />](./images/CICD_PiplineComp01.png?raw=true)
-![<img src="./images/CICD_PiplineComp02.png" width="300" />](./images/CICD_PiplineComp02.png?raw=true)
+[<img src="./images/CICD_PiplineComp01.png" width="300" />](./images/CICD_PiplineComp01.png?raw=true)
+[<img src="./images/CICD_PiplineComp02.png" width="300" />](./images/CICD_PiplineComp02.png?raw=true)
 
 The reason is very simple. Under the hood, the SAP CI/CD service also uses Project "Piper" and the various stages and steps available. Therefore, you can also use the Project "Piper" documentation to find even more details about the different stages and steps used by SAP CI/CD service and the CAP-specific pipeline. This will be very helpful to fine-tune your CI/CD pipeline!
 

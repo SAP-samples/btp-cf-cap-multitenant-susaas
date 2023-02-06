@@ -8,29 +8,29 @@ The SaaS application is equipped with a built-in API, that your SaaS consumers c
 
 In the Basic Scope, we will keep it short and simple and explain how to interact with the API using generic HTTP requests based on the HTTP sample files provided in the GitHub repository. You can run similar HTTP requests as provided below using tools like Postman or Insomnia. 
 
-![<img src="./images/API_ArchDetails.png" width="600" />](./images/API_ArchDetails.png?raw=true)
+[<img src="./images/API_ArchDetails.png" width="600" />](./images/API_ArchDetails.png?raw=true)
 
 
 ## 1. SaaS API access
 
 Below you can see the tables of the tenant data model which can be maintained by consumers using the SaaS API. Besides product master data, SaaS consumers can also use the API for transactional data allowing them to prefill their Sustainability assessments.
 
-![<img src="./images/DM_Tables.png" width="500" />](./images/DM_Tables.png?raw=true)
+[<img src="./images/DM_Tables.png" width="500" />](./images/DM_Tables.png?raw=true)
 
 The main entities like Products, Sales Orders and further Recycling content can be maintained using the API. As you can see, also some sample actions are provided for bulk inserts, updates, and upserts whereas the last one has been implemented as an SAP HANA Stored Procedure (click to enlarge). 
 
-![<img src="./images/API_Endpoints01.png" width="300" />](./images/API_Endpoints01.png?raw=true)
-![<img src="./images/API_Endpoints02.png" width="300" />](./images/API_Endpoints02.png?raw=true)
+[<img src="./images/API_Endpoints01.png" width="300" />](./images/API_Endpoints01.png?raw=true)
+[<img src="./images/API_Endpoints02.png" width="300" />](./images/API_Endpoints02.png?raw=true)
 
 To connect to the SaaS API as a consumer, make sure you followed all steps described in the **Subscribe Consumer Subaccount** card or Readme document([click here](../4-subscribe-consumer-subaccount/README.md)). You will need the service binding credentials which you created in the API Broker service instance. If you haven't created this service binding yet, please go back and do it now. 
 
-![<img src="./images/API_ServiceKey.png" width="400" />](./images/API_ServiceKey.png?raw=true)
+[<img src="./images/API_ServiceKey.png" width="400" />](./images/API_ServiceKey.png?raw=true)
 
 1.1. Within your development project change to the **http** directory. Here you will find sample API calls that you can use to push data to a tenant database container. In this sample we will push some **Product** data (*apiProducts.http*) to the SaaS API which will be stored in the respective database container. Make sure you have the required plugin installed (e.g., for VS Code) to run HTTP files.  
 
 1.2. Each of the HTTP files contains a header section in which you can insert the tenant-specific service binding details used to connect to the SaaS API. Please update the parameters according to your values. Make sure **not to push** these changes back to GitHub! Either remove the credentials before saving or rename your HTTP files to ***-private.http** (e.g., apiProducts-private.http), which are excluded in the .gitignore file. 
 
-![<img src="./images/API_HttpCreds.png" width="900" />](./images/API_HttpCreds.png?raw=true)
+[<img src="./images/API_HttpCreds.png" width="900" />](./images/API_HttpCreds.png?raw=true)
 
 > **Hint** - The *xsuaaHostname* is equal to the *uaa.url* parameter. The *apiEndpointBtp* equals the *apiUrl* parameter.
 
@@ -119,7 +119,7 @@ Content-type: application/json
 
 1.7. After pushing all data provided in the HTTP files, you will be able to progress with the next part of this mission and test the application end-to-end. You can create Assessments for the uploaded sample products and even **prefill** Sales Order, Material, and Recycling sample values for certain products e.g., HT-1000 or HT-1001. Below you can see a sample Assessment that was created based on the provided data for product HT-1000.
 
-![<img src="./images/API_SampleHT1000.png" width="700" />](./images/API_SampleHT1000.png?raw=true)
+[<img src="./images/API_SampleHT1000.png" width="700" />](./images/API_SampleHT1000.png?raw=true)
 
 1.8. Feel free to go to the next part of the mission and test the consumer instance end-to-end.
 

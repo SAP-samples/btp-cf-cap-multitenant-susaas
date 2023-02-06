@@ -10,7 +10,7 @@ The **Basic Scope** of the mission will provide you with the core elements requi
 
 You can set up the **Basic Scope** in any productive SAP BTP environment using **Free (Tier) service plans** of your own **Pay-as-you-Go** (PAYG) or **CPEA** account. See the following screenshot to get an idea of the Basic Scope architecture.
 
-![<img src="./images/App_Architecture_Basic.png" width="700" />](./images/App_Architecture_Basic.png?raw=true)
+[<img src="./images/App_Architecture_Basic.png" width="700" />](./images/App_Architecture_Basic.png?raw=true)
 
 
 > **Hint** - The Basic Scope can also be done in **Trial** accounts, although we recommend to use one of the account types mentioned above. 
@@ -79,38 +79,38 @@ The result of this scope will be a SaaS application running in a subaccount of y
 
 See the following screenshots will give you an idea of the Basic Scope results (click to enlarge).
 
-| ![<img src="./images/App_Sample01.png" width="300" alt="Main Menu"/>](./images/App_Sample01.png?raw=true) | ![<img src="./images/App_Sample02.png" width="300" alt="Project List"/>](./images/App_Sample02.png?raw=true)
+| [<img src="./images/App_Sample01.png" width="300" alt="Main Menu"/>](./images/App_Sample01.png?raw=true) | [<img src="./images/App_Sample02.png" width="300" alt="Project List"/>](./images/App_Sample02.png?raw=true)
 |:----------: | :------------: |
 | *Main Menu* | *Project List* |
 
-| ![<img src="./images/App_Sample03.png" width="300" alt="Project Details"/>](./images/App_Sample03.png?raw=true) | ![<img src="./images/App_Sample04.png" width="300" alt="Project Assessments"/>](./images/App_Sample04.png?raw=true)
+| [<img src="./images/App_Sample03.png" width="300" alt="Project Details"/>](./images/App_Sample03.png?raw=true) | [<img src="./images/App_Sample04.png" width="300" alt="Project Assessments"/>](./images/App_Sample04.png?raw=true)
 |:----------------: | :-------------------: |
 | *Project Details* | *Project Assessments* |
 
-| ![<img src="./images/App_Sample05.png" width="300" alt="Project Members"/>](./images/App_Sample05.png?raw=true) | ![<img src="./images/App_Sample06.png" width="300" alt="Add Project Member"/>](./images/App_Sample06.png?raw=true)
+| [<img src="./images/App_Sample05.png" width="300" alt="Project Members"/>](./images/App_Sample05.png?raw=true) | [<img src="./images/App_Sample06.png" width="300" alt="Add Project Member"/>](./images/App_Sample06.png?raw=true)
 |:----------------: | :------------------: |
 | *Project Members* | *Add Project Member* |
 
-| ![<img src="./images/App_Sample07.png" width="300" alt="User List"/>](./images/App_Sample07.png?raw=true) | ![<img src="./images/App_Sample08.png" width="300" alt="User Details"/>](./images/App_Sample08.png?raw=true)
+| [<img src="./images/App_Sample07.png" width="300" alt="User List"/>](./images/App_Sample07.png?raw=true) | [<img src="./images/App_Sample08.png" width="300" alt="User Details"/>](./images/App_Sample08.png?raw=true)
 |:----------: | :------------: |
 | *User List* | *User Details* |
 
-| ![<img src="./images/App_Sample09.png" width="300" alt="Assessment List"/>](./images/App_Sample09.png?raw=true) | ![<img src="./images/App_Sample10.png" width="300" alt="Assessment Details"/>](./images/App_Sample10.png?raw=true)
+| [<img src="./images/App_Sample09.png" width="300" alt="Assessment List"/>](./images/App_Sample09.png?raw=true) | [<img src="./images/App_Sample10.png" width="300" alt="Assessment Details"/>](./images/App_Sample10.png?raw=true)
 |:----------------: | :------------------: |
 | *Assessment List* | *Assessment Details* |
 
-| ![<img src="./images/App_Sample11.png" width="300" alt="Circularity Metrics"/>](./images/App_Sample11.png?raw=true) | ![<img src="./images/App_Sample12.png" width="300" alt="Circularity Charts"/>](./images/App_Sample12.png?raw=true)
+| [<img src="./images/App_Sample11.png" width="300" alt="Circularity Metrics"/>](./images/App_Sample11.png?raw=true) | [<img src="./images/App_Sample12.png" width="300" alt="Circularity Charts"/>](./images/App_Sample12.png?raw=true)
 |:--------------------: | :------------------: |
 | *Circularity Metrics* | *Circularity Charts* |
 
-| ![<img src="./images/App_Sample13.png" width="300" alt="Sales Splits"/>](./images/App_Sample13.png?raw=true) | ![<img src="./images/App_Sample14.png" width="300" alt="Prefill Sales Splits"/>](./images/App_Sample14.png?raw=true)
+| [<img src="./images/App_Sample13.png" width="300" alt="Sales Splits"/>](./images/App_Sample13.png?raw=true) | [<img src="./images/App_Sample14.png" width="300" alt="Prefill Sales Splits"/>](./images/App_Sample14.png?raw=true)
 |:-------------: | :--------------------: |
 | *Sales Splits* | *Prefill Sales Splits* |
 
-| ![<img src="./images/App_Sample15.png" width="300" alt="Material Splits"/>](./images/App_Sample15.png?raw=true) | ![<img src="./images/App_Sample16.png" width="300" alt="Modify Material Splits"/>](./images/App_Sample16.png?raw=true)
+| [<img src="./images/App_Sample15.png" width="300" alt="Material Splits"/>](./images/App_Sample15.png?raw=true) | [<img src="./images/App_Sample16.png" width="300" alt="Modify Material Splits"/>](./images/App_Sample16.png?raw=true)
 |:----------------: | :----------------------: |
 | *Material Splits* | *Modify Material Splits* |
 
-| ![<img src="./images/App_Sample17.png" width="300" alt="Material Splits"/>](./images/App_Sample17.png?raw=true) 
+| [<img src="./images/App_Sample17.png" width="300" alt="Material Splits"/>](./images/App_Sample17.png?raw=true) 
 |:----------------: |
 | *Material Splits* |

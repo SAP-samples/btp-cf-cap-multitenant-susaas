@@ -13,7 +13,7 @@ In this part of the mission you will learn how to configure a custom domain for 
 
 So, in this part of the **Expert Scope**, you will learn how to get from the default cfapps domain (e.g., **abc-7k7tmze3-susaas.cfapps.eu10...**), to a SaaS domain based on your custom domain (e.g., **abc-7k7tmze3.susaas.sap-demo.com**) to a proper consumer-specific custom domain (e.g., **abc.susaas.sap-demo.com**) using the Custom Domain Service. If you want to set up the sample scenario with your own custom domain, please make sure to to use the correct MTA extension descriptor file ([click here](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/blob/advanced/configs/deployment/free-tier-domain.mtaext)). Search for the placeholder \<your domain\> and replace it with your desired wildcard domain configured in the Custom Domain Service as you can see in the sample screenshot below. 
 
-![<img src="./images/CDS_Mtaext.png" width="400" />](./images/CDS_Mtaext.png?raw=true)
+[<img src="./images/CDS_Mtaext.png" width="400" />](./images/CDS_Mtaext.png?raw=true)
 
 Then go ahead with the build and deployment as explained in the **Basic** and **Advanced** scope. 
 
@@ -35,11 +35,11 @@ As the consumer-specific hostname is build based on the consumer's subaccount su
 
 **Don't do this!**
 
-![<img src="./images/SubDom_fix.png" width="300" />](./images/SubDom_fix.png?raw=true)
+[<img src="./images/SubDom_fix.png" width="300" />](./images/SubDom_fix.png?raw=true)
 
 **Please do this instead!**
 
-![<img src="./images/SubDom_dyn.png" width="300" />](./images/SubDom_dyn.png?raw=true)
+[<img src="./images/SubDom_dyn.png" width="300" />](./images/SubDom_dyn.png?raw=true)
 
 Okay, so how can the above setup be improved to achieve an enterprise-ready setup with a fully flexible consumer subdomain based on a custom domain owned by the provider like **susaas.com** or **susaas.sap-demo.com**? Well, This is exactly what you will learn in this part of the **Expert Scope**.
 
@@ -113,7 +113,7 @@ When using a custom domain, for your SaaS scenario, there's a few things to cons
 
 ### Number of SaaS applications
 
-![<img src="./images/CD_Apps.png" width="500" />](./images/CD_Apps.png?raw=true)
+[<img src="./images/CD_Apps.png" width="500" />](./images/CD_Apps.png?raw=true)
 
 The number of certificates required, depends on the number of SaaS applications you want to use in your landscape. Let's assume the following scenario where you only have one SaaS application in your subaccount:
 
@@ -155,7 +155,7 @@ That means, that three wildcard SSL certificates are required or one SAN certifi
 
 As you can see, for the development and test stage, you just simply keep the default **\*.cfapps** domain, which any SAP BTP customer can use for free. The only job you have to do, is making sure that you have an application and landscape identifiert in our hostname. Only for the production environment, you're using a nice and shiny domain, so you end up with requiring only one SSL wildcard certificate for **\*.susaas.com**. 
 
-![<img src="./images/CD_Stages.png" width="500" />](./images/CD_Stages.png?raw=true)
+[<img src="./images/CD_Stages.png" width="500" />](./images/CD_Stages.png?raw=true)
 
 *Sample Setup for two stages*
 
@@ -239,7 +239,7 @@ Using subdomains instead of dashes to separate stages or regions will **easy the
 
 Easy setup, requiring only two CNAME records pointing to the different regions. A bit more expensive, as two wildcard certificates will be required but very flexible as these two CNAMEs will cover all consumers in the two regions.
 
-![<img src="./images/CD_Dot.png" width="500" />](./images/CD_Dot.png?raw=true)
+[<img src="./images/CD_Dot.png" width="500" />](./images/CD_Dot.png?raw=true)
 
 *Sample Setup using a subdomain-based region separation*
 
@@ -258,7 +258,7 @@ Easy setup, requiring only two CNAME records pointing to the different regions. 
 
 More complicated setup, requiring **region AND consumer specific CNAME records** pointing to the different consumers in the different regions. Cheaper as only one wildcard SSL certificate is required but additional effort for each multi-region consumer!
 
-![<img src="./images/CD_Dash.png" width="500" />](./images/CD_Dash.png?raw=true)
+[<img src="./images/CD_Dash.png" width="500" />](./images/CD_Dash.png?raw=true)
 
 *Sample setup using a dash-based region separation*
 
@@ -287,7 +287,7 @@ Making the consumer's tenant available in different regions using the same domai
 
 This setup requires a bit more effort, as two so called **route mappings** need to be created for each consumer on the SAP BTP side and you will be requiring a smart routing approach defined with for example an Hyperscaler of your choice (e.g., Azure, AWS, ...).
 
-![<img src="./images/CD_DotExpert.png" width="500" />](./images/CD_DotExpert.png?raw=true)
+[<img src="./images/CD_DotExpert.png" width="500" />](./images/CD_DotExpert.png?raw=true)
 
 *Sample expert setup using subdomain-based region separation*
 
@@ -304,7 +304,7 @@ From an effort perspective, also in this setup two **route mappings** have to be
 >* us20 - abc-us20.susaas.com<br>
 > ------- abc.susaas.com
 
-![<img src="./images/CD_DashExpert.png" width="500" />](./images/CD_DashExpert.png?raw=true)
+[<img src="./images/CD_DashExpert.png" width="500" />](./images/CD_DashExpert.png?raw=true)
 
 *Sample expert setup using dash-based region separation*
 
@@ -336,89 +336,89 @@ Also feel free to check the official SAP Help documentation ([click here](https:
 
 4.1. To setup a custom domain in your SAP BTP provider subaccount, please add the respective entitlement in your SAP BTP Cockpit. Make sure to use the **standard (Application)** plan, as the *custom_domains* plan is deprecated and will not receive future updates. 
 
-![<img src="./images/CusDom_Plans.png" width="500" />](./images/CusDom_Plans.png?raw=true)
+[<img src="./images/CusDom_Plans.png" width="500" />](./images/CusDom_Plans.png?raw=true)
 
 4.2. After adding the entitlement to your subaccount, please subscribe to the **Custom Domain Service** using the **standard** service plan.
 
-![<img src="./images/CDS_Subscribe01.png" width="500" />](./images/CDS_Subscribe01.png?raw=true)
+[<img src="./images/CDS_Subscribe01.png" width="500" />](./images/CDS_Subscribe01.png?raw=true)
 
 4.3. Once subscribed, you will see the subscription in your **Instances and Subscriptions** area of your SAP BTP Subaccount. Before using it, please make sure to create and assign the required role collections. 
 
-![<img src="./images/CDS_SetupDomain01.png" width="500" />](./images/CDS_SetupDomain01.png?raw=true)
+[<img src="./images/CDS_SetupDomain01.png" width="500" />](./images/CDS_SetupDomain01.png?raw=true)
 
 4.4. Create a new role collection (e.g., Custom Domain Administrator) in your provider subaccount and add the CustomDomainAdmin role template. Make sure your SAP BTP Subaccount administrator is assigned the new role collection. 
 
-![<img src="./images/CDS_RoleCollection.png" width="500" />](./images/CDS_RoleCollection.png?raw=true)
+[<img src="./images/CDS_RoleCollection.png" width="500" />](./images/CDS_RoleCollection.png?raw=true)
 
 4.5. After assigning the new role collection, please open the Custom Domain Service subscription you just created in a new browser tab. Once the application has loaded, please click on **Domains**.
 
-![<img src="./images/CDS_SetupDomain02.png" width="500" />](./images/CDS_SetupDomain02.png?raw=true)
+[<img src="./images/CDS_SetupDomain02.png" width="500" />](./images/CDS_SetupDomain02.png?raw=true)
 
 4.6. In the following window, you can reserve your custom domain in the current region (e.g. eu10). This ensures, that no other SAP BTP customer can use it or related subdomains. So, please click on **Add Reserved Domain**.
 
-![<img src="./images/CDS_SetupDomain03.png" width="500" />](./images/CDS_SetupDomain03.png?raw=true)
+[<img src="./images/CDS_SetupDomain03.png" width="500" />](./images/CDS_SetupDomain03.png?raw=true)
 
 4.7. Provide the custom domain which you want to use for your SaaS application. Either provide a domain (like susaas.com) or a dedicated subdomain (like susaas.apps.com) of your choice. If you provide a domain (like susaas.com) you can still add custom subdomains (like eu10.susaas.com) in the next step. Click on **Add**.
 
 > **Important** - You should be a DNS owner of this domain or subdomain!
 
-![<img src="./images/CDS_SetupDomain04.png" width="500" />](./images/CDS_SetupDomain04.png?raw=true)
+[<img src="./images/CDS_SetupDomain04.png" width="500" />](./images/CDS_SetupDomain04.png?raw=true)
 
 4.8. Switch to the Custom Domain tab and click on **Create Cutom Domain**.
 
-![<img src="./images/CDS_SetupDomain05.png" width="500" />](./images/CDS_SetupDomain05.png?raw=true)
+[<img src="./images/CDS_SetupDomain05.png" width="500" />](./images/CDS_SetupDomain05.png?raw=true)
 
 4.8. Select **for your Subaccount's CF Organization**, which allows you to setup a custom domain for your Cloud Foundry based applications. 
 
-![<img src="./images/CDS_SetupDomain06.png" width="500" />](./images/CDS_SetupDomain06.png?raw=true)
+[<img src="./images/CDS_SetupDomain06.png" width="500" />](./images/CDS_SetupDomain06.png?raw=true)
 
 4.9. You will see for which Cloud Foundry landscape the custom domain is created. You an only use the custom domain in this landscape. Please click on **Next**.
 
-![<img src="./images/CDS_SetupDomain07.png" width="500" />](./images/CDS_SetupDomain07.png?raw=true)
+[<img src="./images/CDS_SetupDomain07.png" width="500" />](./images/CDS_SetupDomain07.png?raw=true)
 
 4.10. Select the domain which you just added to the **Reserved Domains** and click on **Next**.
 
-![<img src="./images/CDS_SetupDomain08.png" width="500" />](./images/CDS_SetupDomain08.png?raw=true)
+[<img src="./images/CDS_SetupDomain08.png" width="500" />](./images/CDS_SetupDomain08.png?raw=true)
 
 4.11. If required, you can define a subdomain of your reserved domain like eu10.susaas.com. In our sample we didn't do so. Click on **Finish**.
 
-![<img src="./images/CDS_SetupDomain09.png" width="500" />](./images/CDS_SetupDomain09.png?raw=true)
+[<img src="./images/CDS_SetupDomain09.png" width="500" />](./images/CDS_SetupDomain09.png?raw=true)
 
 4.12. Go back to the Custom Domain Service main menu and click on **TLS Configuration**. In the below screen, please click on **Create TLS Configuration**. 
 
-![<img src="./images/CDS_SetupDomain10.png" width="500" />](./images/CDS_SetupDomain10.png?raw=true)
+[<img src="./images/CDS_SetupDomain10.png" width="500" />](./images/CDS_SetupDomain10.png?raw=true)
 
 4.13. Provide a name for the new TLS configuration like **susaas**. Click on **Next Step**.
 
-![<img src="./images/CDS_SetupDomain11.png" width="500" />](./images/CDS_SetupDomain11.png?raw=true)
+[<img src="./images/CDS_SetupDomain11.png" width="500" />](./images/CDS_SetupDomain11.png?raw=true)
 
 4.14. Client Authentication (mTLS) can only be enabled once the configuration is created and you uploaded CA certificates. For now, please click on **Next Step**. 
 
-![<img src="./images/CDS_SetupDomain12.png" width="500" />](./images/CDS_SetupDomain12.png?raw=true)
+[<img src="./images/CDS_SetupDomain12.png" width="500" />](./images/CDS_SetupDomain12.png?raw=true)
 
 4.15. Finish the process by clicking on **Finish**.
 
-![<img src="./images/CDS_SetupDomain13.png" width="500" />](./images/CDS_SetupDomain13.png?raw=true)
+[<img src="./images/CDS_SetupDomain13.png" width="500" />](./images/CDS_SetupDomain13.png?raw=true)
 
 4.16. You will see the new TLS configuration which is currently **not used** yet as we did not provide a valid SSL certificate so far. 
 
-![<img src="./images/CDS_SetupDomain14.png" width="500" />](./images/CDS_SetupDomain14.png?raw=true)
+[<img src="./images/CDS_SetupDomain14.png" width="500" />](./images/CDS_SetupDomain14.png?raw=true)
 
 4.17. Go back to the Custom Domain Service main menu and click on **Server Certificates**. In the below screen, please click on **Create Server Certificate**. 
 
-![<img src="./images/CDS_SetupDomain15.png" width="500" />](./images/CDS_SetupDomain15.png?raw=true)
+[<img src="./images/CDS_SetupDomain15.png" width="500" />](./images/CDS_SetupDomain15.png?raw=true)
 
 4.18. Select the **for your (wildcard) Custom Domains** option.
 
-![<img src="./images/CDS_SetupDomain16.png" width="500" />](./images/CDS_SetupDomain16.png?raw=true)
+[<img src="./images/CDS_SetupDomain16.png" width="500" />](./images/CDS_SetupDomain16.png?raw=true)
 
 4.19. Provide an alias like **susaas** for the new server certificate. If required, you can change the Key Size. Click on **Next Step**.
 
-![<img src="./images/CDS_SetupDomain17.png" width="500" />](./images/CDS_SetupDomain17.png?raw=true)
+[<img src="./images/CDS_SetupDomain17.png" width="500" />](./images/CDS_SetupDomain17.png?raw=true)
 
 4.20. Select your region and click on **Next Step**.
 
-![<img src="./images/CDS_SetupDomain18.png" width="500" />](./images/CDS_SetupDomain18.png?raw=true)
+[<img src="./images/CDS_SetupDomain18.png" width="500" />](./images/CDS_SetupDomain18.png?raw=true)
 
 4.21. As **Subject Alternative Names**, please choose your **wildcard** (sub-)domain, which you've create a few steps ago (e.g., \*.susaas.com) and click on **Next Step**. 
 
@@ -426,25 +426,25 @@ Also feel free to check the official SAP Help documentation ([click here](https:
 
 > **Important** - If you plan to use multiple stages like Dev or Test in the same region, make sure to create the respective  wildcard custom domains (e.g., *. dev.susaas.com) first. Then also select these subdomains as Subject Alternative Names. This way you will only pay for one Custom Domain Service instance but can use multiple wildcard subdomains. 
 
-![<img src="./images/CDS_SetupDomain19.png" width="500" />](./images/CDS_SetupDomain19.png?raw=true)
+[<img src="./images/CDS_SetupDomain19.png" width="500" />](./images/CDS_SetupDomain19.png?raw=true)
 
 4.22. As CommmonName (CN), use the wildcard (sub-)domain, which you created some steps ago (e.g., *.susaas.com). Provide the additional details before clicking on **Finish**. 
 
 > **Hint** - In case you're facing errors when clicking on Finish, only fill the mandatory field (CN) and try again. 
 
-![<img src="./images/CDS_SetupDomain20.png" width="500" />](./images/CDS_SetupDomain20.png?raw=true)
+[<img src="./images/CDS_SetupDomain20.png" width="500" />](./images/CDS_SetupDomain20.png?raw=true)
 
 4.23. You will see, that an Alias for your server certificate is created and a Certificate Signing Request (CSR) is available. 
 
-![<img src="./images/CDS_SetupDomain21.png" width="500" />](./images/CDS_SetupDomain21.png?raw=true)
+[<img src="./images/CDS_SetupDomain21.png" width="500" />](./images/CDS_SetupDomain21.png?raw=true)
 
 4.24. Select your new Alias and scroll down to click on the **Get Certificate Signing Request** button.
 
-![<img src="./images/CDS_SetupDomain22.png" width="500" />](./images/CDS_SetupDomain22.png?raw=true)
+[<img src="./images/CDS_SetupDomain22.png" width="500" />](./images/CDS_SetupDomain22.png?raw=true)
 
 4.25. From the popup, please copy the whole CSR content. Save it in a file on your local device and send it to your preferred SSL certificate provider. 
 
-![<img src="./images/CDS_SetupDomain23.png" width="500" />](./images/CDS_SetupDomain23.png?raw=true)
+[<img src="./images/CDS_SetupDomain23.png" width="500" />](./images/CDS_SetupDomain23.png?raw=true)
 
 > **Hint** - You can use Let's Encrypt ([click here](https://letsencrypt.org/)) for creating a free SSL certificate which is valid for three months. You can find more details how to do so in the following GitHub repository ([click here](https://github.com/SAP-samples/btp-services-intelligent-routing/tree/ci_azure/03-MapCustomDomainRoutes)). Check the steps 10 to 17 of the respective README file.
 
@@ -453,25 +453,25 @@ Also feel free to check the official SAP Help documentation ([click here](https:
 
 4.27. Click on **Upload full Certificate Chain**
 
-![<img src="./images/CDS_SetupDomain22.png" width="500" />](./images/CDS_SetupDomain22.png?raw=true)
+[<img src="./images/CDS_SetupDomain22.png" width="500" />](./images/CDS_SetupDomain22.png?raw=true)
 
 4.28. Paste the certificate chain which your received from your SSL certificate provider and click on **Next Step**.
 
-![<img src="./images/CDS_SetupDomain24.png" width="500" />](./images/CDS_SetupDomain24.png?raw=true)
+[<img src="./images/CDS_SetupDomain24.png" width="500" />](./images/CDS_SetupDomain24.png?raw=true)
 
 4.29. If the certificate chain is correct, you will see an overview of your certificate details. Please click on **Next Step** if everything is correct and confirm the certificate upload
 
-![<img src="./images/CDS_SetupDomain25.png" width="500" />](./images/CDS_SetupDomain25.png?raw=true)
+[<img src="./images/CDS_SetupDomain25.png" width="500" />](./images/CDS_SetupDomain25.png?raw=true)
 
 > **Hint** - In case you're facing an error message, your certificate chain is probably incomplete. Try to open the certificate manually on your device and check if the full chain certificate contains a root, an intermediate and your sever certificate. 
 
 4.30. Once the upload of your certificate is successful, you will see that your **Server Certificate** will change to status **inactive**. 
 
-![<img src="./images/CDS_SetupDomain26.png" width="500" />](./images/CDS_SetupDomain26.png?raw=true)
+[<img src="./images/CDS_SetupDomain26.png" width="500" />](./images/CDS_SetupDomain26.png?raw=true)
 
 4.31. To activate your server certificate, please select the entry from the list and click **Activate** in the respective settings. 
 
-![<img src="./images/CDS_SetupDomain26a.png" width="500" />](./images/CDS_SetupDomain26a.png?raw=true)
+[<img src="./images/CDS_SetupDomain26a.png" width="500" />](./images/CDS_SetupDomain26a.png?raw=true)
 
 4.32. Once the server certificate is active, it can be used to setup custom domains for applications in your Cloud Foundry environment. 
 
@@ -479,7 +479,7 @@ Also feel free to check the official SAP Help documentation ([click here](https:
 
 4.33. While you can now use your custom domain(s) to setup routes in Cloud Foundry, these routes will not yet be reachable from the public internet. 
 
-![<img src="./images/CDS_SetupDomain39.png" width="500" />](./images/CDS_SetupDomain39.png?raw=true)
+[<img src="./images/CDS_SetupDomain39.png" width="500" />](./images/CDS_SetupDomain39.png?raw=true)
 
 4.34. To make your new custom domain routes reachable from the public internet, please continue with the next chapter and create required CNAME record(s) in your DNS zone. 
 
@@ -490,7 +490,7 @@ Before you can reach your Cloud Foundry applications using the custom domain(s) 
 
 > **Hint** - Also check the official SAP Help documentation ([click here](https://help.sap.com/docs/CUSTOM_DOMAINS/6f35a23466ee4df0b19085c9c52f9c29/ec2903f6c1a7400aabd77fbbbdefa25b.html?locale=en-US&version=Cloud)) which provides further information on setting the required CNAME record(s).
 
-![<img src="./images/CDS_DNSRecords.png" width="500" />](./images/CDS_DNSRecords.png?raw=true)
+[<img src="./images/CDS_DNSRecords.png" width="500" />](./images/CDS_DNSRecords.png?raw=true)
 
 * \*.eu.susaas.sap-demo.com -> api.cf.eu10.hana.ondemand.com
 * \*.us.susaas.sap-demo.com -> api.cf.us10.hana.ondemand.com
@@ -511,7 +511,7 @@ Alternatively to setting up a wildcard CNAME record, you can also setup a dedica
 
 Once you've created the CNAME records pointing to the Cloud Foundry API endpoint(s) of your region(s), you can reach your consumer tenants using the routes you specified for your consumer tenant within your SAP BTP environment. 
 
-![<img src="./images/CDS_RouteBefore.png" width="500" />](./images/CDS_RouteBefore.png?raw=true)
+[<img src="./images/CDS_RouteBefore.png" width="500" />](./images/CDS_RouteBefore.png?raw=true)
 
 
 Okay, so far your consumer can reach their tenants using **abc-7k7tmze3.susaas.com**. But how can we beautify that even more so the resulting domain is **abc.susaas.com**? Well, this is where you can use the so called **Route Mapping** feature for. 
@@ -560,65 +560,65 @@ As you can see, the default hostname created based on the consumers subaccount s
 
 6.1. Start with identifying the Tenant ID of the consumer tenant which you want to create a route mapping for. You can find the ID in the **Subscription Management Dashboard** of your provider subaccount. Note the ID for your reference. 
 
-![<img src="./images/CDS_SetupDomain29.png" width="500" />](./images/CDS_SetupDomain29.png?raw=true)
+[<img src="./images/CDS_SetupDomain29.png" width="500" />](./images/CDS_SetupDomain29.png?raw=true)
 
 6.2. To allow a custom domain route mapping for your consumer subaccounts, you first need to enable the Cloud Foundry environment in that consumer subaccount. Please do so by opening the consumer subaccount in the SAP BTP Cockpit and click on **Enable Cloud Foundry**. 
 
-![<img src="./images/CDS_SetupDomain30.png" width="500" />](./images/CDS_SetupDomain30.png?raw=true)
+[<img src="./images/CDS_SetupDomain30.png" width="500" />](./images/CDS_SetupDomain30.png?raw=true)
 
 6.3. Change the default settings if required and click on **Create**. 
 
-![<img src="./images/CDS_SetupDomain31.png" width="500" />](./images/CDS_SetupDomain31.png?raw=true)
+[<img src="./images/CDS_SetupDomain31.png" width="500" />](./images/CDS_SetupDomain31.png?raw=true)
 
 6.4. Back in your provider subaccount, open your Custom Domain Service from the Instances and Susbscriptions sectiont. In the menu, click on **SaaS Routes**. 
 
-![<img src="./images/CDS_SetupDomain02.png" width="500" />](./images/CDS_SetupDomain02.png?raw=true)
+[<img src="./images/CDS_SetupDomain02.png" width="500" />](./images/CDS_SetupDomain02.png?raw=true)
 
 6.5. In the below screen, please click on **Create Custom Route**. 
 
-![<img src="./images/CDS_SetupDomain28.png" width="500" />](./images/CDS_SetupDomain28.png?raw=true)
+[<img src="./images/CDS_SetupDomain28.png" width="500" />](./images/CDS_SetupDomain28.png?raw=true)
 
 6.6. Disable the *Continue with current subaccount's list of subscriptions* checkbox and provide the Tenant ID of your consumer which you noted some steps ago. Click on **Next Step**.
 
-![<img src="./images/CDS_SetupDomain32.png" width="500" />](./images/CDS_SetupDomain32.png?raw=true)
+[<img src="./images/CDS_SetupDomain32.png" width="500" />](./images/CDS_SetupDomain32.png?raw=true)
 
 6.7. Select the SaaS subscription of your consumer subaccount for which you want to set up a route mapping. Click on **Next Step**.
 
 > **Hint** - If you face an error message instead of the screen below, make sure you enabled Cloud Foundry in the consumer subaccount!
 
-![<img src="./images/CDS_SetupDomain33.png" width="500" />](./images/CDS_SetupDomain33.png?raw=true)
+[<img src="./images/CDS_SetupDomain33.png" width="500" />](./images/CDS_SetupDomain33.png?raw=true)
 
 6.8. Don't change the standard route which is based on your consumer's subaccount subdomain and click on **Next Step**.
 
 > **Hint** - In this case the subaccount subdomain was **...subscriber-prod-uhm5gyoy**.
 
-![<img src="./images/CDS_SetupDomain34.png" width="500" />](./images/CDS_SetupDomain34.png?raw=true)
+[<img src="./images/CDS_SetupDomain34.png" width="500" />](./images/CDS_SetupDomain34.png?raw=true)
 
 6.9. Select the custom domain which you want to use for the route mapping. Click on **Next Step**.
 
-![<img src="./images/CDS_SetupDomain35.png" width="500" />](./images/CDS_SetupDomain35.png?raw=true)
+[<img src="./images/CDS_SetupDomain35.png" width="500" />](./images/CDS_SetupDomain35.png?raw=true)
 
 6.10. Define the new hostname of your route mapping. You can now provide a proper hostname instead of the GUID-based subaccount subdomain. Click on **Finish** to create the route mapping. 
 
-![<img src="./images/CDS_SetupDomain36.png" width="500" />](./images/CDS_SetupDomain36.png?raw=true)
+[<img src="./images/CDS_SetupDomain36.png" width="500" />](./images/CDS_SetupDomain36.png?raw=true)
 
-![<img src="./images/CDS_SetupDomain36.png" width="500" />](./images/CDS_SetupDomain36a.png?raw=true)
+[<img src="./images/CDS_SetupDomain36.png" width="500" />](./images/CDS_SetupDomain36a.png?raw=true)
 
 6.11. To make your mapping available in Cloud Foundry, you need to sync your changes. Therefore, please switch to the main menu and click on the **Domains** tile.
 
-![<img src="./images/CDS_SetupDomain02.png" width="500" />](./images/CDS_SetupDomain02.png?raw=true)
+[<img src="./images/CDS_SetupDomain02.png" width="500" />](./images/CDS_SetupDomain02.png?raw=true)
 
 6.12. Select the **Custom Domains** tab and click on **Cloud Foundry Sync**.
 
-![<img src="./images/CDS_SetupDomain37.png" width="500" />](./images/CDS_SetupDomain37.png?raw=true)
+[<img src="./images/CDS_SetupDomain37.png" width="500" />](./images/CDS_SetupDomain37.png?raw=true)
 
 6.13. Wait until you see a confirmation message toast.
 
-![<img src="./images/CDS_SetupDomain38.png" width="500" />](./images/CDS_SetupDomain38.png?raw=true)
+[<img src="./images/CDS_SetupDomain38.png" width="500" />](./images/CDS_SetupDomain38.png?raw=true)
 
 6.14. You should now be able to access the consumer SaaS instance using the simplified domain which you specified in the route mapping. 
 
-![<img src="./images/CDS_RouteAfter.png" width="500" />](./images/CDS_RouteAfter.png?raw=true)
+[<img src="./images/CDS_RouteAfter.png" width="500" />](./images/CDS_RouteAfter.png?raw=true)
 
 That's it! Your consumers can now reach their individual SaaS tenants using a proper custom domain.
 
@@ -638,42 +638,42 @@ To complete this tutorial, we well give you a brief introduction how to setup a 
 
 Two respective route mappings for the consumer **subscriber** have been definded in the Custom Domain Service of region **eu10**. 
 
-![<img src="./images/CDS_MultiReg01.png" width="500" />](./images/CDS_MultiReg01.png?raw=true)
+[<img src="./images/CDS_MultiReg01.png" width="500" />](./images/CDS_MultiReg01.png?raw=true)
 
 Two similar route mappings for the consumer **subscriber** have been definded in the Custom Domain Service of region **eu20**. 
 
-![<img src="./images/CDS_MultiReg02.png" width="500" />](./images/CDS_MultiReg02.png?raw=true)
+[<img src="./images/CDS_MultiReg02.png" width="500" />](./images/CDS_MultiReg02.png?raw=true)
 
 In Microsoft Azure, a **Traffic Manager** profile has been defined with two endpoints for eu10 and eu20. 
 
-![<img src="./images/CDS_MultiReg03.png" width="500" />](./images/CDS_MultiReg03.png?raw=true)
+[<img src="./images/CDS_MultiReg03.png" width="500" />](./images/CDS_MultiReg03.png?raw=true)
 
 The Traffic Manager profile has been setup for Priority routing, which allows you to define a priority for your target endpoints. 
 
-![<img src="./images/CDS_MultiReg04.png" width="500" />](./images/CDS_MultiReg04.png?raw=true)
+[<img src="./images/CDS_MultiReg04.png" width="500" />](./images/CDS_MultiReg04.png?raw=true)
 
 The target endpoint for region eu10 has been assigned the value **1** whereas region eu20 has the value **2**. You can also have further endpoints if required. 
 
-![<img src="./images/CDS_MultiReg05.png" width="500" />](./images/CDS_MultiReg05.png?raw=true)
+[<img src="./images/CDS_MultiReg05.png" width="500" />](./images/CDS_MultiReg05.png?raw=true)
 
 Three DNS records have been defined for the scenario. Two wildcard CNAME records allowing an access for the region-specific consumer domains (*.eu10.susaas.sap-demo.com and *.eu20.susaas.sap-demo.com) and one wildcard record pointing to Azure Traffic manager (*.susaas.sap-demo.com). 
 
 > **Hint** - A more specific CNAME will be matched before a generic one. If a user tries to open subscriber.eu10.susaas.sap-demo.com the *.eu10.susaas.sap-demo.com CNAME will match before *.susaas.sap-demo.com.
 
-![<img src="./images/CDS_MultiReg06.png" width="500" />](./images/CDS_MultiReg06.png?raw=true)
+[<img src="./images/CDS_MultiReg06.png" width="500" />](./images/CDS_MultiReg06.png?raw=true)
 
 Users of consumer **subscriber** can now reach the application by using the region specific subdomain or a the region independent subdomain. 
 
-![<img src="./images/CDS_MultiReg07.png" width="500" />](./images/CDS_MultiReg07.png?raw=true)
+[<img src="./images/CDS_MultiReg07.png" width="500" />](./images/CDS_MultiReg07.png?raw=true)
 
-![<img src="./images/CDS_MultiReg08.png" width="500" />](./images/CDS_MultiReg08.png?raw=true)
+[<img src="./images/CDS_MultiReg08.png" width="500" />](./images/CDS_MultiReg08.png?raw=true)
 
 
 **Consumer Domain**
 
 To complete the picture, below you can find a sample screenshot in which a default SaaS route was mapped to a dedicated subdomain of a consumer (e.g., **susaas.sap.com**). As already explained in the respective chapter, this is possible but not recommended. 
 
-![<img src="./images/CDS_ConsumerDomain.png" width="500" />](./images/CDS_ConsumerDomain.png?raw=true)
+[<img src="./images/CDS_ConsumerDomain.png" width="500" />](./images/CDS_ConsumerDomain.png?raw=true)
 
 
 ## 8. Further Information

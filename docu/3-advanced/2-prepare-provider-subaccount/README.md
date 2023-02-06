@@ -90,7 +90,7 @@ Please add a dedicated Technical User as a Space Auditor to the Cloud Foundry Sp
 
 For **us10** region, please add for example **sap_cp_us10_ans@sap.com** as a Space Auditor. 
 
-![<img src="./images/Space_TechUser.png" width="500"/>](./images/Space_TechUser.png?raw=true)
+[<img src="./images/Space_TechUser.png" width="500"/>](./images/Space_TechUser.png?raw=true)
 
 
 ## 6. Limitations of free services plans

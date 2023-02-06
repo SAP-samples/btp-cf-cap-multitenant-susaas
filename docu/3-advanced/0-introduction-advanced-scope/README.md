@@ -17,7 +17,7 @@ Good news - A tutorial how to setup a PAYG account (allowing you to use all Free
 
 See the following screenshot to get an idea of the Advanced Scope architecture.
 
-![<img src="./images/App_Architecture_Advanced.png" width="700"/>](./images/App_Architecture_Advanced.png?raw=true)
+[<img src="./images/App_Architecture_Advanced.png" width="700"/>](./images/App_Architecture_Advanced.png?raw=true)
 
 ## 1. Step-by-Step
 
@@ -85,10 +85,10 @@ The result of this scope will be a SaaS application running in a subaccount of y
 
 While the user interface of the SaaS application remains the same as in the Basic Scope, the following screenshots will give you an idea of the additional Advanced Scope results like SAP IAS or SAP API Management (click to enlarge).
 
-| ![<img src="./images/IAS_Overview.png" width="300" alt="SAP IAS Overview"/>](./images/IAS_Overview.png?raw=true) |  ![<img src="./images/API_Decode.png" width="300" alt="SAP IAS Overview"/>](./images/API_Decode.png?raw=true)
+| [<img src="./images/IAS_Overview.png" width="300" alt="SAP IAS Overview"/>](./images/IAS_Overview.png?raw=true) |  [<img src="./images/API_Decode.png" width="300" alt="SAP IAS Overview"/>](./images/API_Decode.png?raw=true)
 |:----------------: | :----------------: | 
 | *SAP IAS Overview* | *SAP API Management Overview* | 
 
-| ![<img src="./images/S4_Push.png" width="300" alt="SAP S/4HANA Push with ABAP"/>](./images/S4_Push.png?raw=true) |
+| [<img src="./images/S4_Push.png" width="300" alt="SAP S/4HANA Push with ABAP"/>](./images/S4_Push.png?raw=true) |
 |:----------------: | 
 | *SAP S/4HANA Push with ABAP* | 

@@ -53,7 +53,7 @@ resources:
 
 2.1. Make sure that you unregistered all the service brokers before you delete your consumer subaccount. If you face the error below when trying to delete a tenant subaccount probably the reason is you still have **registered service brokers** in your tenant subaccount. 
 
-![<img src="./images/subaccount-delete-error.png" width="600"/>](./images/subaccount-delete-error.png?raw=true)
+[<img src="./images/subaccount-delete-error.png" width="600"/>](./images/subaccount-delete-error.png?raw=true)
 
 To be able to fix that issue you need to run the command in your terminal with the help of BTP CLI.
 
@@ -61,7 +61,7 @@ To be able to fix that issue you need to run the command in your terminal with t
 btp list services/broker --subaccount <subaccountId-of-your-tenant-subaccount>
 ```
 
-![<img src="./images/list-broker.png" width="600"/>](./images/list-broker.png?raw=true)
+[<img src="./images/list-broker.png" width="600"/>](./images/list-broker.png?raw=true)
 
 Then run the command below to unregister from your service broker:
 ```

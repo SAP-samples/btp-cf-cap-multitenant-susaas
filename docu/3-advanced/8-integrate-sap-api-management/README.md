@@ -25,14 +25,14 @@ SAP API Management is a new component in the central part of the **Advanced Scop
 
 See the relevant part of the solution architecture below (click to enlarge):
 
-![<img src="./images/API_Architecture.png" width="500" />](./images/API_Architecture.png?raw=true)
+[<img src="./images/API_Architecture.png" width="500" />](./images/API_Architecture.png?raw=true)
 
 
 ## 2. Prerequisites
 
 For this setup, please make sure you have an SAP API Management instance up and running. As SAP API Management is a capability of **SAP Integration Suite**, please subscribe to SAP Integration Suite and activate the respective **API Management** feature. Check the following SAP Help documentation to find a detailed step-by-step guide ([click here](https://help.sap.com/docs/SAP_CLOUD_PLATFORM_API_MANAGEMENT/66d066d903c2473f81ec33acfe2ccdb4/f6eb4332cd5144ef91f4a84cc614ba1c.html?locale=en-US)). 
 
-![<img src="./images/API_IntegrationSuite.png" width="500" />](./images/API_IntegrationSuite.png?raw=true)
+[<img src="./images/API_IntegrationSuite.png" width="500" />](./images/API_IntegrationSuite.png?raw=true)
 
 
 ## 3. APIM as route service
@@ -43,7 +43,7 @@ Combining this service instance with your API route allows you to enforce API po
 
 > **Hint** - If you cannot find the respective service plan, make sure you assigned it in your subaccount entitlements!
 
-![<img src="./images/API_ServiceInstance.png" width="500" />](./images/API_ServiceInstance.png?raw=true)
+[<img src="./images/API_ServiceInstance.png" width="500" />](./images/API_ServiceInstance.png?raw=true)
 
 As SAP Integration Suite is one of the most powerful but also quite expensive SaaS products, you might consider the usage for your productive SaaS environment only.
 
@@ -62,7 +62,7 @@ cf brs `<API service domain>` `<route service>` --hostname `<API service hostnam
 * **API-Proxy name** - You're free to choose the name of your API-Proxy in API Management.
 * **API service domain** - The domain of your API service like *cfapps.eu10.hana.ondemand.com*.
 * **API service hostname** - The hostname of your API service returned by the *cf apps* CLI command. <br>
-![<img src="./images/API_Hostname.png" width="500" />](./images/API_Hostname.png?raw=true)
+[<img src="./images/API_Hostname.png" width="500" />](./images/API_Hostname.png?raw=true)
 
 
 >**Sample**<br>
@@ -72,11 +72,11 @@ cf brs `<API service domain>` `<route service>` --hostname `<API service hostnam
 
 After successfully running this command in your cf CLI, you will see a new API Proxy called **SusaaS-API-Proxy** in your SAP API Management **Develop** menu. 
 
-![<img src="./images/API_Proxy.png" width="500" />](./images/API_Proxy.png?raw=true)
+[<img src="./images/API_Proxy.png" width="500" />](./images/API_Proxy.png?raw=true)
 
 Checking the API Proxy details you will see in the description that this API Proxy is bound to a Cloud Foundry application which is your SaaS API. From now on, all requests reaching your SaaS API route will be running through SAP API Management, and respective API policies are applied.
 
-![<img src="./images/API_ProxyDetails.png" width="500" />](./images/API_ProxyDetails.png?raw=true)
+[<img src="./images/API_ProxyDetails.png" width="500" />](./images/API_ProxyDetails.png?raw=true)
 
 
 ## 5. API Policies 
@@ -85,11 +85,11 @@ You can now apply relevant API Policies to your API Proxy using preconfigured te
 
 5.1. To set up the respective policies, click on **Policies** in the top right of your API Proxy. 
 
-![<img src="./images/API_Policies.png" width="300" />](./images/API_Policies.png?raw=true)
+[<img src="./images/API_Policies.png" width="300" />](./images/API_Policies.png?raw=true)
 
 5.2. Switch to edit mode by clicking on **Edit** in the Policy Editor. 
 
-![<img src="./images/API_EditMode.png" width="300" />](./images/API_EditMode.png?raw=true)
+[<img src="./images/API_EditMode.png" width="300" />](./images/API_EditMode.png?raw=true)
 
 
 ## 6. Decode the JWT token
@@ -98,22 +98,22 @@ You can now apply relevant API Policies to your API Proxy using preconfigured te
 
 6.2. In this use-case, we will distinguish our SaaS API clients by their unique Client ID, which can be found in the JWT token of each request. Therefore, please first add a feature called **DecodeJWT** which will allow you to make use of the JWT token content in subsequent steps. 
 
-![<img src="./images/API_DecodeJWT01.png" width="500" />](./images/API_DecodeJWT01.png?raw=true)
+[<img src="./images/API_DecodeJWT01.png" width="500" />](./images/API_DecodeJWT01.png?raw=true)
 
 6.3. You can name the flow element **decodeJwt**. If you choose a different name, please note it down as you will need it in one of the next steps. 
 
-![<img src="./images/API_DecodeJWT02.png" width="300" />](./images/API_DecodeJWT02.png?raw=true)
+[<img src="./images/API_DecodeJWT02.png" width="300" />](./images/API_DecodeJWT02.png?raw=true)
 
 6.4. Please remove the **`<Source>var.jwt</Source>`** line from the configuration. 
 
-![<img src="./images/API_DecodeJWT03.png" width="500" />](./images/API_DecodeJWT03.png?raw=true)
+[<img src="./images/API_DecodeJWT03.png" width="500" />](./images/API_DecodeJWT03.png?raw=true)
 
 
 ## 7. Spike Arrest feature
 
 7.1. After decoding the JWT token, please add the **Spike Arrest** feature from your policies toolbox. You can name the flow element **spikeArrest**. 
 
-![<img src="./images/API_SpikeArrest01.png" width="500" />](./images/API_SpikeArrest01.png?raw=true)
+[<img src="./images/API_SpikeArrest01.png" width="500" />](./images/API_SpikeArrest01.png?raw=true)
 
 7.2. Configure your Spike Arrest instance by providing the identifier which is the Client-ID in our case (see below). The required information is coming from the previous flow element used to decode the JWT token. You might need to change the **decodeJwt** value in case you named your flow element differently. 
 
@@ -127,7 +127,7 @@ You can now apply relevant API Policies to your API Proxy using preconfigured te
 <Rate>1ps</Rate> instead of <Rate>30pm</Rate>
 ```
 
-![<img src="./images/API_SpikeArrest02.png" width="600" />](./images/API_SpikeArrest02.png?raw=true)
+[<img src="./images/API_SpikeArrest02.png" width="600" />](./images/API_SpikeArrest02.png?raw=true)
 
 
 ## 8. API quotas
@@ -136,11 +136,11 @@ Besides an API rate limiter feature preventing you from e.g. DoS attacks, you ca
 
 8.1. Let's start by introducing different subflows for your different API plans. To create a new subflow for the API Proxy PreFlow just click on the respective **+** icon.
 
-![<img src="./images/API_Quota01.png" width="600" />](./images/API_Quota01.png?raw=true)
+[<img src="./images/API_Quota01.png" width="600" />](./images/API_Quota01.png?raw=true)
 
 8.2. Create two new subflows called **standardPlanFlow** and **premiumPlanFlow**. These flows will be executed after the generic PreFlow depending on conditions you define. 
 
-![<img src="./images/API_Quota02.png" width="200" />](./images/API_Quota02.png?raw=true)
+[<img src="./images/API_Quota02.png" width="200" />](./images/API_Quota02.png?raw=true)
 
 8.3. We will differentiate the incoming requests by using the decoded JWT token again. Based on the configuration of the SaaS API, we decided to inject the selected service plan into the token issued by XSUAA. This allows you to read the consumer tenant's plan from the JWT token and include it into the **Flow Condition** like the following. 
 
@@ -148,7 +148,7 @@ Besides an API rate limiter feature preventing you from e.g. DoS attacks, you ca
 
 ```jwt.decodeJwt.claim.scope ~ "*plan_standard"```
 
-![<img src="./images/API_Quota03.png" width="600" />](./images/API_Quota03.png?raw=true)
+[<img src="./images/API_Quota03.png" width="600" />](./images/API_Quota03.png?raw=true)
 
 8.4. For the premiumPlanFlow the condition will look as follows. Please add it accordingly. 
 
@@ -158,7 +158,7 @@ Besides an API rate limiter feature preventing you from e.g. DoS attacks, you ca
 
 8.5. Now we can send requests through different flows depending on the consumer tenant's plan, we will now add different quota allowances based on the plans. To add a quota limit to your API, add the **Quota** feature from your policies toolbox. Name your flow element **quotaStandard** in the standard flow and **quotaPremium** in the premium flow. 
 
-![<img src="./images/API_Quota04.png" width="600" />](./images/API_Quota04.png?raw=true)
+[<img src="./images/API_Quota04.png" width="600" />](./images/API_Quota04.png?raw=true)
 
 8.6. For this very simple sample application you can configure your quota the following. This configuration will allow your consumers 1200 requests to your API per (1) day. The very comprehensive configuration options of the **Quota** feature can be found in the respective documentation [click here](https://docs.apigee.com/api-platform/reference/policies/quota-policy). Please ensure, the quota configuration also contains the Client ID as an identifier. 
 
@@ -176,22 +176,22 @@ Besides an API rate limiter feature preventing you from e.g. DoS attacks, you ca
 </Quota>
 ```
 
-![<img src="./images/API_Quota05.png" width="600" />](./images/API_Quota05.png?raw=true)
+[<img src="./images/API_Quota05.png" width="600" />](./images/API_Quota05.png?raw=true)
 
 
 ## 9. Update policies and deploy 
 
 9.1. After setting up the sample policies, please click on **Update** in the upper right of your Policies editor. 
 
-![<img src="./images/API_Deploy01.png" width="300" />](./images/API_Deploy01.png?raw=true)
+[<img src="./images/API_Deploy01.png" width="300" />](./images/API_Deploy01.png?raw=true)
 
 9.2. Save your API Proxy changes by clicking on **Save**. 
 
-![<img src="./images/API_Deploy02.png" width="200" />](./images/API_Deploy02.png?raw=true)
+[<img src="./images/API_Deploy02.png" width="200" />](./images/API_Deploy02.png?raw=true)
 
 9.3. Make sure to **Deploy** the latest version of your API Proxy by selecting the respective option. 
 
-![<img src="./images/API_Deploy03.png" width="300" />](./images/API_Deploy03.png?raw=true)
+[<img src="./images/API_Deploy03.png" width="300" />](./images/API_Deploy03.png?raw=true)
 
 
 ## 10. Test the setup
