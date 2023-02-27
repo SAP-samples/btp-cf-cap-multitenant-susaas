@@ -6,7 +6,7 @@
                 "name": "send-email",
                 "state": "ENABLED",
                 "properties": {
-                    "destination": "recipient@example.org",
+                    "destination": "attila.berencsi@amista.hu",
                     "useHtml": "false"
                 }
             },
