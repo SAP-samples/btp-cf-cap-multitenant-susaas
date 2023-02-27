@@ -44,7 +44,8 @@
     "test": "jest",
     "deploy:dev": "node node_modules/@sap/hdi-deploy/ --root gen/db",
     "init:broker": "cd broker && npm i && npm run init",
-    "init:credstore": "node configs/automator/init-cred-store.js"
+    "init:credstore": "node configs/automator/init-cred-store.js",
+    "mbt-build-cf-deploy" : "mbt build -e ./configs/deployment/free-tier-private.mtaext && cf deploy mta_archives/susaas_0.0.1.mtar"
   },
   "eslintConfig": {
     "extends": "eslint:recommended",
