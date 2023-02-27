@@ -7,14 +7,16 @@
       "plans": [
         {
           "name": "default",
-          "description": "Standard Plan"
-
+          "description": "Standard Plan",
+          "id": "f46337b3-ef4d-4287-858f-eb9b2521b1f8"
         },
         {
           "name": "premium",
-          "description": "Premium Plan"
+          "description": "Premium Plan",
+          "id": "83b54080-d4a4-4d96-bcea-b40a3563d199"
         }
-      ]
+      ],
+      "id": "180e0932-9105-46ef-a4e4-f31081a110b2"
     }
   ]
 }
