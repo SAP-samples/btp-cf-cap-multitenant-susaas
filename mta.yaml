@@ -373,6 +373,8 @@ resources:
     type: com.sap.xs.hdi-container
     parameters:
       service-name: ${space}-susaas-com-hdi-container
+      config:
+        schema: 'PMNOTI'
     properties:
       susaas-com-container-name: '${service-name}' 
 
