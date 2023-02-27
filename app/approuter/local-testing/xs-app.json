@@ -1,13 +1,12 @@
 {
-    "welcomeFile": "/resources/index.html",
+    "welcomeFile": "/index.html",
     "authenticationMethod": "none",
     "logout": {
       "logoutEndpoint": "/do/logout"
     },
     "routes": [
       {
-        "source": "^/resources/(.*)$",
-        "target": "/$1",
+        "source": "^/index.html$",
         "localDir": "../resources"
       },
       {
@@ -16,29 +15,22 @@
         "localDir": "../resources"
       },
       {
-        "source": "^/susaasuipublicassessments/(.*)$",
-        "target": "/susaasuipublicassessments/$1",
-        "service": "html5-apps-repo-rt"
+        "source": "^/test-resources/(.*)$",
+        "destination": "ui5"
       },
       {
-        "source": "^/susaasuipublicprojects/(.*)$",
-        "target": "/susaasuipublicprojects/$1",
-        "service": "html5-apps-repo-rt"
-      },
-      {
-        "source": "^/susaasuiadminprojects/(.*)$",
-        "target": "/susaasuiadminprojects/$1",
-        "service": "html5-apps-repo-rt"
-      },
-      {
-        "source": "^/susaasuiadminusers/(.*)$",
-        "target": "/susaasuiadminusers/$1",
-        "service": "html5-apps-repo-rt"
+        "source": "^/resources/(.*)$",
+        "destination": "ui5"
       },
       {
         "source": "^/catalog/(.*)$",
         "target": "/catalog/$1",
         "destination": "susaas-srv-api"
+      },
+      {
+        "source": "^(.*)$",
+        "target": "$1",
+        "service": "html5-apps-repo-rt"
       }
     ]
   }

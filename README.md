@@ -2,7 +2,7 @@
 
 [![REUSE status](https://api.reuse.software/badge/github.com/SAP-samples/btp-cf-cap-multitenant-susaas)](https://api.reuse.software/info/github.com/SAP-samples/btp-cf-cap-multitenant-susaas)
 
-> Note: The content of this GitHub repository has been created as source for a SAP Discovery Center Mission (available soon). For a better tutorial experience, we advise using the mission in the SAP Discovery Center.
+> Note: The content of this GitHub repository has been created as source for a [SAP Discovery Center Mission](https://discovery-center.cloud.sap/)(available soon). For a better tutorial experience, we advise using the mission in the SAP Discovery Center.
 
 ## Basic Scope
 
@@ -25,7 +25,7 @@ Below you can find the **Basic Scope** solution architecture diagram of the samp
 
 ## Content
 
-As stated above, the documentation content of this GitHub repository has been created for consumption in a SAP Discovery Center Mission(available soon), so the table of content follows the structure of the SAP Discovery Center scopes. While we highly recommend starting your own personal mission instance in SAP Discovery Center, you can also follow the steps here in GitHub using the linked documents below.
+As stated above, the documentation content of this GitHub repository has been created for consumption in [SAP Discovery Center](https://discovery-center.cloud.sap/)(available soon), so the table of content follows the structure of the SAP Discovery Center scopes. While we highly recommend starting your own personal mission instance in SAP Discovery Center, you can also follow the steps here in GitHub using the linked documents below.
 
 Besides the documentation residing in the [main](github.com/SAP-samples/btp-cf-cap-multitenant-susaas) branch of this GitHub repository, you can find two more branches:
 
@@ -119,7 +119,7 @@ The **Basic Scope** of the sample application requires the following set of SAP 
 | [SAP Credential Store](https://discovery-center.cloud.sap/serviceCatalog/credential-store?region=all) | Free / *(Trial: Trial)* |     1    |
 | [Destination Service](https://discovery-center.cloud.sap/serviceCatalog/destination?service_plan=lite&region=all&commercialModel=cloud) | Lite |     1    |
 | [SAP HTML5 Application Repository Service for SAP BTP](https://discovery-center.cloud.sap/serviceCatalog/html5-application-repository-service?region=all) | App-host <br>App-runtime |    1 <br> 1   |
-| [SAP Software-as-a-Service Provisioning service](https://discovery-center.cloud.sap/serviceCatalog/saas-provisioning-service?service_plan=application&region=all&commercialModel=cloud) | Application |    1    |
+| [SAP SaaS Provisioning service](https://discovery-center.cloud.sap/serviceCatalog/saas-provisioning-service?service_plan=application&region=all&commercialModel=cloud) | Application |    1    |
 | [SAP HANA Cloud](https://discovery-center.cloud.sap/serviceCatalog/sap-hana-cloud?tab=customerreference&region=all) | Free / *(Trial: HANA)* |    1    |
 | [SAP HANA Schemas & HDI Containers](https://help.sap.com/docs/SAP_HANA_PLATFORM/3823b0f33420468ba5f1cf7f59bd6bd9/e28abca91a004683845805efc2bf967c.html?version=2.0.04&locale=en-US) | hdi-shared |    1    |
 | [SAP Service Manager](https://discovery-center.cloud.sap/serviceCatalog/service-manager/?region=all) | Container |    1    |

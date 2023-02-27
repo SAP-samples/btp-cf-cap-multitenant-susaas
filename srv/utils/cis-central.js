@@ -16,15 +16,17 @@ class CloudManagementCentral{
         this.tokenStore = new Object();
     }
 
-    async createServiceManager(tenant) {
+    async createServiceManager(subaccountId) {
         try {
+
+            console.log("Subaccount ID:",subaccountId)
             let clientid = services.cisCentral.uaa.clientid;
             let clientsecret = services.cisCentral.uaa.clientsecret;
             let tokenEndpoint = services.cisCentral.uaa.url + '/oauth/token'
             let token = await this.uaa.getTokenWithPassword(tokenEndpoint, clientid, clientsecret, this.username, this.password);
             let authOptions = {
                 method: 'POST',
-                url: services.cisCentral.endpoints.accounts_service_url + `/accounts/v1/subaccounts/${tenant}/serviceManagementBinding`,
+                url: services.cisCentral.endpoints.accounts_service_url + `/accounts/v1/subaccounts/${subaccountId}/serviceManagementBinding`,
                 headers: {
                     'Content-Type': 'application/json',
                     Authorization: `Bearer ${token}`
@@ -36,16 +38,16 @@ class CloudManagementCentral{
                 })
             };
             let response = await axios(authOptions);
-            console.log(`Service manager in tenant subaccount ${tenant} successfully created`);
+            console.log(`Service manager in tenant subaccount ${subaccountId} successfully created`);
             return response.data;
         } catch (error) {
-            console.error(`Error: Service manager can not be created in tenant subaccount ${tenant}`);
+            console.error(`Error: Service manager can not be created in tenant subaccount ${subaccountId}`);
             console.error("Error: Broker automation is skipped");
             throw error;
         }
     }
 
-    async deleteServiceManager(tenant) {
+    async deleteServiceManager(subaccountId) {
         try {
             let clientid = services.cisCentral.uaa.clientid;
             let clientsecret = services.cisCentral.uaa.clientsecret;
@@ -53,17 +55,17 @@ class CloudManagementCentral{
             let token = await this.uaa.getTokenWithPassword(tokenEndpoint, clientid, clientsecret, this.username, this.password);
             let authOptions = {
                 method: 'DELETE',
-                url: services.cisCentral.endpoints.accounts_service_url + `/accounts/v1/subaccounts/${tenant}/serviceManagementBinding`,
+                url: services.cisCentral.endpoints.accounts_service_url + `/accounts/v1/subaccounts/${subaccountId}/serviceManagementBinding`,
                 headers: {
                     'Content-Type': 'application/json',
                     Authorization: `Bearer ${token}`
                 }
             };
             let response = await axios(authOptions);
-            console.log(`Service manager in tenant subaccount ${tenant} successfully deleted`);
+            console.log(`Service manager in tenant subaccount ${subaccountId} successfully deleted`);
             return response.data;
         } catch (error) {
-            console.error(`Error: Service manager can not be deleted from tenant subaccount ${tenant}`);
+            console.error(`Error: Service manager can not be deleted from tenant subaccount ${subaccountId}`);
             throw error;
         }
     }

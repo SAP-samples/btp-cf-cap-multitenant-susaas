@@ -15,7 +15,7 @@ module.exports = (service) => {
         
         let tenantSubdomain = req.data.subscribedSubdomain;
         let tenant = req.data.subscribedTenantId;
-
+        let tenantSubaccountId = req.data.subscribedSubaccountId;
         // subscriber-a16ef7 (Custom Domain)
         // subscriber-a16ef7-susaas-dev (Default Domain Dev)
         // subscriber-a16ef7-susaas (Default Domain Prod)
@@ -33,14 +33,25 @@ module.exports = (service) => {
         // tenantSeparator - . / -
         // tenantHost - subscriber-a16ef7 / subscriber-a16ef7-susaas-dev /subscriber-a16ef7-susaas
         const tenantURL = `https://${tenantHost}${process.env.tenantSeparator}${process.env.appDomain}`;
-
+        
         await next();
         // Trigger tenant broker deployment on background
         cds.spawn({ tenant: tenant }, async (tx) => {
             try {
                 let automator = new Automator();
-                await automator.deployTenantArtifacts(tenant, tenantSubdomain);
+                await automator.deployTenantArtifacts(tenantSubdomain,tenantSubaccountId);
             } catch (error) {
+                // Send generic alert using Alert Notification
+                alertNotification.sendEvent({
+                    type : 'GENERIC',
+                    data : {
+                        subject : 'Error: Automation skipped because of error during subscription',
+                        body : JSON.stringify(error.message),
+                        eventType : 'alert.app.generic',
+                        severity : 'FATAL',
+                        category : 'ALERT'
+                    }
+                });
                 console.error("Error: Automation skipped because of error during subscription");
                 console.error(`Error: ${error.message}`);
             }
@@ -51,12 +62,12 @@ module.exports = (service) => {
     service.on('DELETE', 'tenant', async (req, next) => {
         const Automator = require("./utils/automator");
         let tenantSubdomain = req.data.subscribedSubdomain;
-        let tenant = req.data.subscribedTenantId;
+        let tenantSubaccountId = req.data.subscribedSubaccountId;
         console.log('Unsubscribe Data: ', JSON.stringify(req.data));
         await next();
         try {
             let automator = new Automator();
-            await automator.undeployTenantArtifacts(tenant, tenantSubdomain);
+            await automator.undeployTenantArtifacts(tenantSubaccountId,tenantSubdomain);
         } catch (error) {
             console.error("Error: Automation skipped because of error during unsubscription");
             console.error(`Error: ${error.message}`);

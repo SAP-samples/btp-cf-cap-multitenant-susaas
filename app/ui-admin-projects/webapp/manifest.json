@@ -12,7 +12,7 @@
         "subTitle": "{{appSubTitle}}",
         "dataSources": {
             "mainService": {
-                "uri": "/catalog/AdminService/",
+                "uri": "catalog/AdminService/",
                 "type": "OData",
                 "settings": {
                     "odataVersion": "4.0"
