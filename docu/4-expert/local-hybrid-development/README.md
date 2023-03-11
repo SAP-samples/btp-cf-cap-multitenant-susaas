@@ -145,7 +145,7 @@ For local testing without the HTML5 Repo Mock, just simply start the application
 **w/ Multitenancy**
 
 ```sh
-cds watch --profile=local-with-mtx --open
+cds watch --profile local-with-mtx --open
 ```
 
 > **Hint** - Don't forget to subscribe your t1 tenant in this case before opening the application in your browser. 
