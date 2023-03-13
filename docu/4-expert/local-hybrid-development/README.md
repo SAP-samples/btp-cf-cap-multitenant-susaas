@@ -168,7 +168,9 @@ Click on the standalone link(s) or the respective tiles within the Fiori Launchp
 
 ### 2.2. Local testing using the HTML5 Repo Mock 
 
-Using the HTML5 Repo Mock requires a few more steps then using the pure *cds watch* test approach. Still, this approach is similar to what's actually happening in your SAP BTP environment. To use the HTML5 Repo Mock, you need to create a *default-env.json* file in the */app/approuter/local-testing* directory to be able to run the application locally. This default-env.json file is needed for SAP Approuter to point your local backend. You can use and rename the provided sample file in the respective directory. The VCAP_SERVICES object can remain empty. 
+Using the HTML5 Repo Mock requires a few more steps then using the pure *cds watch* test approach. Still, this approach is similar to what's actually happening in your SAP BTP environment. To use the HTML5 Repo Mock, you need to create a *default-env.json* file in the */app/approuter/local-testing* directory to be able to run the application locally. This default-env.json file is needed for SAP Approuter to point your local backend. 
+
+> **Important** - Feel free to use and rename the provided file named **default-env.json.sample** in the respective directory. The VCAP_SERVICES object can remain empty. 
 
 [<img src="./images/ui-default-env-local.png" width="600"/>](./images/ui-default-env-local.png?raw=true)
 
@@ -186,7 +188,7 @@ Using the HTML5 Repo Mock requires a few more steps then using the pure *cds wat
 }
 ```
 
-> **Important** - In case you modify the *xs-app.json* of your Approuter, please also update the xs-app.json file in the *app/approuter/local-testing* directory accordingly. Just make sure the **authenticationMethod** of the local-testing file remains **none**.
+> **Important** - In case you modify the *xs-app.json* of your Application Router, please also update the xs-app.json file in the *app/approuter/local-testing* directory accordingly. Just make sure the **authenticationMethod** of the local-testing file remains **none**.
 
 Before you start the HTML5 Repo Mock, make sure your backend is started (*cds watch*). Then start your frontend application locally (using the HTML5 Repo Mock) by running the commands below:
 
