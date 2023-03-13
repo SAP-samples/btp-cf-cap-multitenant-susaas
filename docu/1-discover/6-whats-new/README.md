@@ -4,6 +4,7 @@ On this section of the mission, you will find a summary of all new features afte
 
 | Date       | Title                             | Branch       | Short description                             |
 |------------|-----------------------------------|--------------|-----------------------------------------------|
+| 2023/03/13 | Fix UI5 version and update local testing docs | basic + advanced | Added additional **local.html** files for "cds watch" based testing in hybrid development scenarios. Fixed SAPUI5 version to 1.108.4 across all generic UI5 resource references. |
 | 2023/02/03 | Fix UI5 destination usage + UserInfo retrieval | basic + advanced | SAPUI5 URL now retrieved via destination instead of hard-coding in the index.html files. User Info now retrieved from Approuter and user name displayed in mock launchpad. xs-app.json files streamlined. |
 | 2023/01/26 | Update SAPUI5 release and fix bug | basic + advanced | SAPUI5 release updated to 1.108.4 again and UI5 issue fixed. |
 | 2023/01/25 | Revert SAPUI5 release to fix bug | basic + advanced | SAPUI5 release has been reverted to 1.102.13 to fix an issues. |
