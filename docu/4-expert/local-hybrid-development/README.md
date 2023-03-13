@@ -157,7 +157,9 @@ cds watch --profile local-with-mtx --open
 cds watch --open
 ```
 
-Your browser should automatically open **http://localhost:4004**. You will see a link */approuter/resources/index.html* pointing to a **Web Application** providing a mocked Fiori Launchpad for opening and testing all provided SAPUI5 apps. Furthermore, you will find links to the standalone SAPUI5 apps if required for testing.
+Your browser should automatically open **http://localhost:4004**. You will see a link */approuter/resources/local.html* pointing to a **Web Application** providing a mocked Fiori Launchpad for opening and testing all provided SAPUI5 apps. Furthermore, you will find links to the standalone SAPUI5 apps if required for testing.
+
+> **Hint** - Please use the **local.html** files in case of simple local testing using cds watch. The **index.html** files are referring to a dynamic **ui5** destination, which is not available in this scenario. In the local.html files, the UI5 resource URL is static. 
 
 [<img src="./images/localwomock.png" width="500"/>](./images/localwomock.png?raw=true)
 
@@ -178,7 +180,7 @@ Using the HTML5 Repo Mock requires a few more steps then using the pure *cds wat
     },
     {
         "name": "ui5",
-        "url": "https://ui5.sap.com"
+        "url": "https://ui5.sap.com/1.108.4"
     }],
     "VCAP_SERVICES": {}
 }
@@ -294,6 +296,8 @@ Feel free to modify this requests and try other endpoints which are served by yo
 
 # Hybrid Development
 
+> **Important** - We are currently analyzing issues that are affecting Hybrid development and testing in **SAP Business Application Studio**. We apologize for any inconvenience caused and appreciate your patience. If you are experiencing similar issues, please be assured that we are working to resolve them as quickly as possible. In the meantime, you can try the proposed hybrid development in Visual Studio Code. Thank you for your understanding.
+
 You can easily test your CAP application using a local database and mock ups. But at some point, you’re going to want to test with real cloud services. Of course, you can always deploy your application to the cloud.
 
 With hybrid testing capabilities, you can stay in your local development environment and avoid the long turnaround times of cloud deployment, and you can selectively decide which services you want to use from the cloud.
@@ -308,9 +312,9 @@ or XSUAA.
 
 - In this sample you will be using [cf DefaultEnv](https://github.com/saphanaacademy/DefaultEnv) plugin so please install it before you start developing in hybrid mode. You can install the **cf DefaultEnv plugin** using the following command.
 
-```sh
-cf install-plugin DefaultEnv
-```
+    ```sh
+    cf install-plugin DefaultEnv
+    ```
 
 - Make sure you checked out the [basic](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/tree/basic) or [advanced](https://github.com/SAP-samples/btp-cf-cap-multitenant-susaas/tree/advanced) branch.
 
@@ -412,7 +416,7 @@ With this **destination** property you can connect your UI application to:
     "destinations" : [
         {
             "name": "ui5",
-            "url": "https://ui5.sap.com"
+            "url": "https://ui5.sap.com/1.108.4"
         },
         {
             "name": "susaas-srv-api",     
