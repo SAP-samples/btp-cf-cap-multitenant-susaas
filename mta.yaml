@@ -414,7 +414,7 @@ resources:
                 Authentication: NoAuthentication
                 ProxyType: Internet
                 Type: HTTP
-                URL: https://ui5.sap.com
+                URL: https://ui5.sap.com/1.108.4
               - Name: SUSAAS_NORTHWIND
                 Description: SusaaS Northwind
                 URL: https://services.odata.org/v4/Northwind/Northwind.svc
