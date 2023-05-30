@@ -25,3 +25,5 @@ _out
 # added by cds bind
 .cdsrc-private.json
 brokerpass.txt
+*.sqlite
+*.sqlite-*
