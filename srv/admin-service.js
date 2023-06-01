@@ -1,7 +1,4 @@
 const cds = require('@sap/cds');
-const user = require('@sap/cds/lib/req/user');
-const vcap = require('@sap/cds/libx/_runtime/common/utils/vcap');
-const debug = require('debug')('srv:catalog-service');
 const log = require('cf-nodejs-logging-support');
 log.setLoggingLevel('info');
 log.registerCustomFields(["country", "amount"]);

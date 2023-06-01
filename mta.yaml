@@ -505,7 +505,7 @@ resources:
             - https://*.~{susaas-approuter/app-domain}/login/callback?authType=ias
           post-logout-redirect-uris: 
             - https://*.~{susaas-approuter/app-domain}/logout/**
-          grant-types: []
+          grant-types: ["authorization_code"]
           credential-types: ["binding-secret","x509"]
         xsuaa-cross-consumption: false
         multi-tenant: false
