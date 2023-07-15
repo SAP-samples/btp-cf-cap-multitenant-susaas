@@ -84,7 +84,7 @@ async function writeCredential(binding, namespace, type, credential) {
         binding.encryption.client_private_key,
         `${binding.url}/${type}`,
         "post",
-        headers(binding, namespace, { "Content-Type": "application/jose" }),
+        headers(binding, namespace, { "Content-Type": "application/json" }),
         await encryptPayload(binding.encryption.server_public_key, JSON.stringify(credential))
     );
 }
