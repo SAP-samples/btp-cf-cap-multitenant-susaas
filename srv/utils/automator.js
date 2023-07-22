@@ -117,7 +117,7 @@ class TenantAutomator {
 
     async unregisterBTPServiceBroker(subaccountId) {
         try {
-            let sb = await this.serviceManager.getServiceBroker(`${process.env.brokerName}-${subaccountId}`)
+            let sb = await this.serviceManager.getServiceBroker(`${process.env.brokerName}-${appEnv.app.space_name}-${subaccountId}`)
             await this.serviceManager.deleteServiceBroker(sb.id)
             console.log(`Service Broker ${process.env.brokerName} deleted`);
         } catch (error) {
