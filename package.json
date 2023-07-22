@@ -11,20 +11,17 @@
     "testTimeout": 15000
   },
   "dependencies": {
+    "@cap-js-community/odata-v2-adapter": "^1.11.4",
     "@sap_oss/alert-notification-client": "^1.4.0",
     "@sap/audit-logging": "^5",
-    "@sap/cds": "^6.8.1",
-    "@sap/cds-dk": "^6.8.1",
-    "@sap/cds-mtxs": "^1.8.2",
-    "@sap/cds-odata-v2-adapter-proxy": "^1",
+    "@sap/cds": "^7.0.3",
+    "@sap/cds-dk": "^7.0.3",
+    "@sap/cds-mtxs": "^1.9.2",
     "@sap/xsenv": "^3.4.0",
     "@sap/xssec": "^3.2.17",
     "cds-swagger-ui-express": "^0.5.0",
     "cf-nodejs-logging-support": "^6",
     "cfenv": "^1",
-    "chai": "^4.3.6",
-    "chai-as-promised": "^7.1.1",
-    "chai-subset": "^1.6.0",
     "express": "^4",
     "hdb": "^0.19",
     "node-fetch": "^2.6.7",
@@ -33,9 +30,13 @@
   },
   "devDependencies": {
     "@cap-js/sqlite": "^0.1.0",
-    "@sap/ux-specification": "^1.96.4",
+    "@sap/ux-specification": "^1.108.10",
     "axios": "^0.27.2",
-    "jest": "^29.0.1"
+    "chai": "^4.3.7",
+    "chai-as-promised": "^7.1.1",
+    "chai-subset": "^1.6.0",
+    "jest": "^29.6.1",
+    "sqlite3": "^5.1.6"
   },
   "scripts": {
     "start": "cds-serve --production",
@@ -74,6 +75,9 @@
     }
   },
   "cds": {
+    "cov2ap": {
+      "plugin": true
+    },
     "features": {
       "[production]": {
         "kibana_formatter": true
