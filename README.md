@@ -1,3 +1,11 @@
+## Deprecation Notice
+
+This public repository is read-only and no longer maintained. Please see the section below for [an alternative](https://github.com/SAP-samples/btp-cap-multitenant-saas).
+
+![](https://img.shields.io/badge/STATUS-NOT%20CURRENTLY%20MAINTAINED-red.svg?longCache=true&style=flat)
+
+---
+
 # Develop a multitenant Software as a Service application in SAP BTP using CAP (Cloud Foundry)
 
 [![REUSE status](https://api.reuse.software/badge/github.com/SAP-samples/btp-cf-cap-multitenant-susaas)](https://api.reuse.software/info/github.com/SAP-samples/btp-cf-cap-multitenant-susaas)
